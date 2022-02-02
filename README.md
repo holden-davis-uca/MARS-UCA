@@ -14,4 +14,4 @@ This repository is structured as an Eclipse workspace. The "source" folder is st
 
 ## Changes
 List of modifications from the original version currently include:
-* Nothing!
+* Added a Decimal column to the registers window
