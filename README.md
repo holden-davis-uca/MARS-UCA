@@ -1,7 +1,8 @@
 # MARS-UCA
 
 ## About
-Modification of the [MARS](https://courses.missouristate.edu/kenvollmar/mars/) program originally written by Kenneth Vollmar and Pete Sanderson at Missouri State University.
+Modification of the [MARS](https://courses.missouristate.edu/kenvollmar/mars/) program originally written by Kenneth Vollmar and Pete Sanderson at Missouri State University. 
+ * DISCLAIMER: *Any and all rights are reserved by the aforementioned entities. I do not own this program, nor am I involved in its development. These modifications are provided solely for the benefit of its users.*
 
 This version of MARS is specifically modified for usage in CSCI 2340 - Assembly Language Programming, offered by the University of Central Arkansas.
 
