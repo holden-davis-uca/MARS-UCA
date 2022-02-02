@@ -243,7 +243,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                   public void run() {
                      //Turn off metal's use of bold fonts
                      //UIManager.put("swing.boldMetal", Boolean.FALSE);
-                     new VenusUI("MARS "+Globals.version);
+                     new VenusUI("MARS-UCA "+Globals.version);
                   }
                }); 
          return;					

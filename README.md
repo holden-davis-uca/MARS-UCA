@@ -8,9 +8,9 @@ This version of MARS is specifically modified for usage in CSCI 2340 - Assembly 
 ## Usage
 This repository is structured as an Eclipse workspace. The "source" folder is structured as an Eclipse Java Project and contains all of the source files retrieved from decompiling the original JAR file.
 
-* To use the program itself, download the "Mars.jar" file in the top-level directory. Double-click on the downloaded file to run MARS, or use "java -jar Mars.jar" if it doesn't start.
+* To use the program itself, download the "Mars-UCA.jar" file in the top-level directory. Double-click on the downloaded file to run MARS, or use "java -jar Mars-UCA.jar" if it doesn't start.
 
-* To modify the source code, download the repository and open it as a workspace in Eclipse, or download the "source" folder and open it as a project in Eclipse. After making any changes, run the "CreateMarsJar.bat" script included in the "source" folder to create a runnable Mars.jar file.
+* To modify the source code, download the repository and open it as a workspace in Eclipse, or download the "source" folder and open it as a project in Eclipse. After making any changes, run the "CreateMarsJar.bat" script included in the "source" folder to create a runnable Mars-UCA.jar file.
 
 ## Changes
 List of modifications from the original version currently include:
