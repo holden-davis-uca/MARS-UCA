@@ -558,32 +558,44 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         * Launch a file chooser for name of file to open.  Return true if file opened, false otherwise
         */
           private boolean openFile() {
-         // The fileChooser's list may be rebuilt from the master ArrayList if a new filter
-         // has been added by the user.
-            setChoosableFileFilters();
-         // get name of file to be opened and load contents into text editing area.
-            fileChooser.setCurrentDirectory(new File(theEditor.getCurrentOpenDirectory()));
-         // Set default to previous file opened, if any.  This is useful in conjunction
-         // with option to assemble file automatically upon opening.  File likely to have
-         // been edited externally (e.g. by Mipster).
-            if (Globals.getSettings().getAssembleOnOpenEnabled() && mostRecentlyOpenedFile != null) {
-               fileChooser.setSelectedFile(mostRecentlyOpenedFile);
-            }
-         
-            if (fileChooser.showOpenDialog(mainUI) == JFileChooser.APPROVE_OPTION) {
-               File theFile = fileChooser.getSelectedFile();
-               theEditor.setCurrentOpenDirectory(theFile.getParent());
-               //theEditor.setCurrentSaveDirectory(theFile.getParent());// 13-July-2011 DPS.
-               if (!openFile(theFile)) {
-                  return false;
-               }
-            
-                // possibly send this file right through to the assembler by firing Run->Assemble's
-                // actionPerformed() method.
-               if (theFile.canRead() && Globals.getSettings().getAssembleOnOpenEnabled()) {
-                  mainUI.getRunAssembleAction().actionPerformed(null);
-               }
-            }
+        	  
+        	  FileDialog chooser = new FileDialog(mainUI, "Select a file", FileDialog.LOAD);
+        	  chooser.setVisible(true);
+        	  String filename = chooser.getDirectory() + chooser.getFile();
+        	  File theFile = new File(filename);
+        	  if (!openFile(theFile))
+        	  {
+        		  return false;
+        	  }
+        	  if (theFile.canRead() && Globals.getSettings().getAssembleOnOpenEnabled()) {
+        		  mainUI.getRunAssembleAction().actionPerformed(null);
+        	  }	
+//         // The fileChooser's list may be rebuilt from the master ArrayList if a new filter
+//         // has been added by the user.
+//           setChoosableFileFilters();
+//         // get name of file to be opened and load contents into text editing area.
+//            fileChooser.setCurrentDirectory(new File(theEditor.getCurrentOpenDirectory()));
+//         // Set default to previous file opened, if any.  This is useful in conjunction
+//         // with option to assemble file automatically upon opening.  File likely to have
+//         // been edited externally (e.g. by Mipster).
+//            if (Globals.getSettings().getAssembleOnOpenEnabled() && mostRecentlyOpenedFile != null) {
+//               fileChooser.setSelectedFile(mostRecentlyOpenedFile);
+//            }
+//         
+//            if (fileChooser.showOpenDialog(mainUI) == JFileChooser.APPROVE_OPTION) {
+//               File theFile = fileChooser.getSelectedFile();
+//               theEditor.setCurrentOpenDirectory(theFile.getParent());
+//               //theEditor.setCurrentSaveDirectory(theFile.getParent());// 13-July-2011 DPS.
+//               if (!openFile(theFile)) {
+//                  return false;
+//               }
+//            
+//                // possibly send this file right through to the assembler by firing Run->Assemble's
+//                // actionPerformed() method.
+//               if (theFile.canRead() && Globals.getSettings().getAssembleOnOpenEnabled()) {
+//                  mainUI.getRunAssembleAction().actionPerformed(null);
+//               }
+//            }
             return true;  
          } 
       
