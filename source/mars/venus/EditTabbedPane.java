@@ -332,54 +332,63 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
          File theFile = null;
          if (editPane != null) {
             JFileChooser saveDialog = null;
-            boolean operationOK = false;
-            while (!operationOK) {
+            FileDialog saver = null;
+//            boolean operationOK = false;
+//            while (!operationOK) {
                // Set Save As dialog directory in a logical way.  If file in
             	// edit pane had been previously saved, default to its directory.  
             	// If a new file (mipsN.asm), default to current save directory.
             	// DPS 13-July-2011
                if (editPane.isNew()) {
-                  saveDialog = new JFileChooser(editor.getCurrentSaveDirectory());
+//                  saveDialog = new JFileChooser(editor.getCurrentSaveDirectory());
+                  saver = new FileDialog(mainUI, "Save as", FileDialog.SAVE);
+                  saver.setVisible(true);
                } 
                else {
                   File f = new File(editPane.getPathname());
                   if (f != null) {
-                     saveDialog = new JFileChooser(f.getParent());
+//                     saveDialog = new JFileChooser(f.getParent());
+                     saver = new FileDialog(mainUI, "Save as", FileDialog.SAVE);
+                     saver.setVisible(true);
                   } 
                   else {
-                     saveDialog = new JFileChooser(editor.getCurrentSaveDirectory());
+//                     saveDialog = new JFileChooser(editor.getCurrentSaveDirectory());
+                     saver = new FileDialog(mainUI, "Save as", FileDialog.SAVE);
+                     saver.setVisible(true);
                   }
                }
                String paneFile = editPane.getFilename();
-               if (paneFile != null) saveDialog.setSelectedFile(new File(paneFile));
+//               if (paneFile != null) saveDialog.setSelectedFile(new File(paneFile));
+               if (paneFile != null) saver.setFile(paneFile);
                // end of 13-July-2011 code.
-               saveDialog.setDialogTitle("Save As");
+//               saveDialog.setDialogTitle("Save As");
             
-               int decision = saveDialog.showSaveDialog(mainUI);
-               if (decision != JFileChooser.APPROVE_OPTION) {
-                  return null;
-               }
-               theFile = saveDialog.getSelectedFile();
-               operationOK = true;
-               if (theFile.exists()) {
-                  int overwrite = JOptionPane.showConfirmDialog(mainUI,
-                     "File "+theFile.getName()+" already exists.  Do you wish to overwrite it?",
-                     "Overwrite existing file?",
-                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
-                  switch (overwrite) {
-                     case JOptionPane.YES_OPTION :
-                        operationOK = true;
-                        break;
-                     case JOptionPane.NO_OPTION :
-                        operationOK = false;
-                        break;
-                     case JOptionPane.CANCEL_OPTION :
-                        return null;
-                     default : // should never occur
-                        return null;
-                  }
-               }
-            }
+//               int decision = saveDialog.showSaveDialog(mainUI);
+//               if (decision != JFileChooser.APPROVE_OPTION) {
+//                  return null;
+//               }
+//               theFile = saveDialog.getSelectedFile();
+               theFile = new File(saver.getDirectory() + saver.getFile());
+//               operationOK = true;
+//               if (theFile.exists()) {
+//                  int overwrite = JOptionPane.showConfirmDialog(mainUI,
+//                     "File "+theFile.getName()+" already exists.  Do you wish to overwrite it?",
+//                     "Overwrite existing file?",
+//                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+//                  switch (overwrite) {
+//                     case JOptionPane.YES_OPTION :
+//                        operationOK = true;
+//                        break;
+//                     case JOptionPane.NO_OPTION :
+//                        operationOK = false;
+//                        break;
+//                     case JOptionPane.CANCEL_OPTION :
+//                        return null;
+//                     default : // should never occur
+//                        return null;
+//                  }
+//               }
+//            }
             // Either file with selected name does not exist or user wants to 
          	// overwrite it, so go for it!
             try {

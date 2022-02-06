@@ -17,3 +17,4 @@ This repository is structured as an Eclipse workspace. The "source" folder is st
 List of modifications from the original version currently include:
 * Added a Decimal column to the registers window 
 * Replaced JFileChooser with FileDialog as the default file opening choice
+* Replaced JFileChooser with FileDialog as the default file saving choice

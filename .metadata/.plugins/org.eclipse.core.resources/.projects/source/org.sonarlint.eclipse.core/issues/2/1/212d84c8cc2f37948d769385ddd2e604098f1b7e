@@ -1,75 +1,96 @@
 
-c
-java:S1128"+Remove this unused import 'java.awt.event'.(Ã®ÎÙÿÿÿÿÿ8°Éóûì/HóNRMINORZ
-CODE_SMELL
-‡
-java:S3776Ë"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(åÑ¸ŠúÿÿÿÿH“JRCRITICALZ
-CODE_SMELL
 m
-java:S2696÷"6Make the enclosing method "static" or remove this set.(üßÆ€8¸¿ëûì/HØKRCRITICALZ
-CODE_SMELL
-n	java:S125ò"<This block of commented-out lines of code should be removed.(†œ“&8¸¿ëûì/H×KRMAJORZ
-CODE_SMELL
-[
-java:S19487",Make "fileOpener" transient or serializable.(‹˜€êHŸJRCRITICALZ
+java:S2696€"6Make the enclosing method "static" or remove this set.(üßÆ€8Ÿ–©üì/H×RRCRITICALZ
 CODE_SMELL
 ˜
-java:S1149‚"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(»“µÿøÿÿÿÿ8¸¿ëûì/HÂKRMAJORZ
+java:S1149‹"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(»“µÿøÿÿÿÿ8Ÿ–©üì/HÂRRMAJORZ
+CODE_SMELL
+h
+java:S1481Î"/Remove this unused "saveDialog" local variable.(’œ©Ûÿÿÿÿÿ8ÔÒÃüì/H…^RMINORZ
+CODE_SMELL
+h
+java:S3740¯"/Provide the parametrized type for this generic.(ÀÚ—Âûÿÿÿÿ8Ÿ–©üì/HÀRRMAJORZ
+CODE_SMELL
+[
+java:S19487",Make "fileOpener" transient or serializable.(‹˜€êHÍQRCRITICALZ
+CODE_SMELL
+o	java:S125Þ"<This block of commented-out lines of code should be removed.(ºÓÎš8˜¯üì/H³XRMAJORZ
+CODE_SMELL
+t	java:S125ì"<This block of commented-out lines of code should be removed.(øƒªìùÿÿÿÿ8§•¹üì/HéZRMAJORZ
+CODE_SMELL
+t	java:S125î"<This block of commented-out lines of code should be removed.(öª«âýÿÿÿÿ8ÔÒÃüì/H‡^RMAJORZ
+CODE_SMELL
+c
+java:S1481æ"/Remove this unused "oldFilters" local variable.(Ó‚Í¶8Ÿ–©üì/HÚRRMINORZ
+CODE_SMELL
+˜
+java:S1149‹"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(»“µÿøÿÿÿÿ8Ÿ–©üì/HÄRRMAJORZ
+CODE_SMELL
+p
+java:S2583Ý"CChange this condition so that it does not always evaluate to "true"(Ç©ØŒ8Ÿ–©üì/H¹XRMAJORZBUG
+b
+java:S2209•"5Change this instance-reference to a static reference.(ÑòÝ®H›QRMAJORZ
+CODE_SMELL
+
+java:S3776Î"RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(ÓÃý!H¿QRCRITICALZ
+CODE_SMELL
+t	java:S125×"<This block of commented-out lines of code should be removed.(ŽÎ½Îüÿÿÿÿ8ä®üì/H±URMAJORZ
+CODE_SMELL
+t	java:S125ó"<This block of commented-out lines of code should be removed.(Ïæ˜Ïÿÿÿÿÿ8Ÿ–©üì/HÕRRMAJORZ
+CODE_SMELL
+`
+java:S1068¥"-Remove this unused "theEditor" private field.(…æå\8Ÿ–©üì/HÞRRMAJORZ
 CODE_SMELL
 T
-java:S1604E"(Make this anonymous inner class a lambda(ç­ƒ÷HÆJRMAJORZ
+java:S1604E"(Make this anonymous inner class a lambda(ç­ƒ÷H¢QRMAJORZ
+CODE_SMELL
+`
+java:S1128	"-Remove this unused import 'javax.swing.undo'.(ˆ…”Ó8ýµÁüì/H\RMINORZ
+CODE_SMELL
+\
+java:S19486"(Make "editor" transient or serializable.(³ì’´üÿÿÿÿH—QRCRITICALZ
+CODE_SMELL
+n
+java:S1068 ":Remove this unused "mostRecentlyOpenedFile" private field.(‹ÕÑÄ8Ÿ–©üì/HÜRRMAJORZ
+CODE_SMELL
+t	java:S125È"<This block of commented-out lines of code should be removed.(ÛÊ¾ÿÿÿÿÿ8Ÿ–©üì/HÆRRMAJORZ
+CODE_SMELL
+n	java:S125û"<This block of commented-out lines of code should be removed.(†œ“&8Ÿ–©üì/HÖRRMAJORZ
+CODE_SMELL
+{
+java:S2095‹"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ôå±î8Â–×üì/HÝ`RBLOCKERZBUG
+t	java:S125ã"<This block of commented-out lines of code should be removed.(ŽÎ½Îüÿÿÿÿ8ýæ¯üì/H¤XRMAJORZ
+CODE_SMELL
+r
+java:S1854æ">Remove this useless assignment to local variable "oldFilters".(Ó‚Í¶8Ÿ–©üì/HÙRRMAJORZ
+CODE_SMELL
+y
+java:S1874Ã"@Remove this use of "getAssembleOnOpenEnabled"; it is deprecated.(ü€ÈÖýÿÿÿÿ8Ÿ–©üì/HÅRRMINORZ
+CODE_SMELL
+ˆ
+java:S3923Ý"[Remove this conditional structure or edit its code blocks so that they're not all the same.(Ç©ØŒ8ýæ¯üì/H‰XRMAJORZBUG
+c
+java:S1128"+Remove this unused import 'java.awt.event'.(Ã®ÎÙÿÿÿÿÿ8ýµÁüì/HŽ\RMINORZ
+CODE_SMELL
+t	java:S125é"<This block of commented-out lines of code should be removed.(Ææ‡ùÿÿÿÿ8ïü·üì/H•ZRMAJORZ
 CODE_SMELL
 Y
 java:S1128
-"&Remove this unused import 'java.text'.(ë¼Èí8°Éóûì/H÷NRMINORZ
+"&Remove this unused import 'java.text'.(ë¼Èí8ýµÁüì/H’\RMINORZ
 CODE_SMELL
-˜
-java:S1149‚"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(»“µÿøÿÿÿÿ8¸¿ëûì/HÃKRMAJORZ
+o	java:S125ô"<This block of commented-out lines of code should be removed.(ÙÍú‚8ÞƒÕüì/Hò_RMAJORZ
 CODE_SMELL
-\
-java:S19486"(Make "editor" transient or serializable.(³ì’´üÿÿÿÿH°JRCRITICALZ
+a	java:S108„")Either remove or fill this block of code.(Ïé£ôýÿÿÿÿ8Ÿ–©üì/HØRRMAJORZ
 CODE_SMELL
-n
-java:S4973Û"<Strings and Boxed types should be compared using "equals()".(¢½´”ÿÿÿÿÿ8¸¿ëûì/HÝKRMAJORZBUG
-b
-java:S2209•"5Change this instance-reference to a static reference.(ÑòÝ®HÃJRMAJORZ
+h
+java:S3740£"/Provide the parametrized type for this generic.(®Ž“Ðûÿÿÿÿ8Ÿ–©üì/HÁRRMAJORZ
 CODE_SMELL
-i
-java:S2583Ú"CChange this condition so that it does not always evaluate to "true"(Ç©ØŒH§JRMAJORZBUG
-t	java:S125¿"<This block of commented-out lines of code should be removed.(ÛÊ¾ÿÿÿÿÿ8¸¿ëûì/HÇKRMAJORZ
+„
+java:S1192Ø"HDefine a constant instead of duplicating this literal "Save as" 3 times.(°€õ‰ùÿÿÿÿ8œÎ¯üì/H­WRCRITICALZ
 CODE_SMELL
 n
-java:S1068—":Remove this unused "mostRecentlyOpenedFile" private field.(‹ÕÑÄ8Í—æûì/HKRMAJORZ
-CODE_SMELL
-`
-java:S1128	"-Remove this unused import 'javax.swing.undo'.(ˆ…”Ó8°Éóûì/HõNRMINORZ
-CODE_SMELL
+java:S4973ä"<Strings and Boxed types should be compared using "equals()".(¢½´”ÿÿÿÿÿ8Ÿ–©üì/HàRRMAJORZBUG
 t
-java:S2095¢"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ôå±îH¥JRBLOCKERZBUG
-t
-java:S2095‚"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ôå±îH¢JRBLOCKERZBUG
-t	java:S125ê"<This block of commented-out lines of code should be removed.(Ïæ˜Ïÿÿÿÿÿ8¸¿ëûì/HÖKRMAJORZ
-CODE_SMELL
-a
-java:S3740¦"/Provide the parametrized type for this generic.(ÀÚ—ÂûÿÿÿÿH­JRMAJORZ
-CODE_SMELL
-
-java:S3776Î"RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(ÓÃý!H²JRCRITICALZ
-CODE_SMELL
-`
-java:S1068œ"-Remove this unused "theEditor" private field.(…æå\8Í—æûì/HKRMAJORZ
-CODE_SMELL
-r
-java:S1854Ý">Remove this useless assignment to local variable "oldFilters".(Ó‚Í¶8¸¿ëûì/HÚKRMAJORZ
-CODE_SMELL
-a	java:S108û")Either remove or fill this block of code.(Ïé£ôýÿÿÿÿ8¸¿ëûì/HÙKRMAJORZ
-CODE_SMELL
-a
-java:S3740š"/Provide the parametrized type for this generic.(®Ž“ÐûÿÿÿÿH£JRMAJORZ
-CODE_SMELL
-c
-java:S1481Ý"/Remove this unused "oldFilters" local variable.(Ó‚Í¶8¸¿ëûì/HÛKRMINORZ
-CODE_SMELL
-y
-java:S1874º"@Remove this use of "getAssembleOnOpenEnabled"; it is deprecated.(ü€ÈÖýÿÿÿÿ8ù˜úûì/HÿPRMINORZ
+java:S2095¢"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ôå±îHµQRBLOCKERZBUG
+t	java:S125Ð"<This block of commented-out lines of code should be removed.(Ê‘êÅþÿÿÿÿ8ÉÊ×üì/HªaRMAJORZ
 CODE_SMELL
