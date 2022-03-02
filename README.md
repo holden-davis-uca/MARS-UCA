@@ -18,3 +18,4 @@ List of modifications from the original version currently include:
 * Added a Decimal column to the registers window 
 * Replaced JFileChooser with FileDialog as the default file opening choice
 * Replaced JFileChooser with FileDialog as the default file saving choice
+* Added an extremely elementary file browser tab to the bottom messages pane - All implementation credit goes to Ian Darwin, sourced from [here](http://www.java2s.com/Code/Java/Swing-JFC/DisplayafilesysteminaJTreeview.htm)

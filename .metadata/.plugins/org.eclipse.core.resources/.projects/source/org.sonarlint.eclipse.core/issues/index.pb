@@ -23,3 +23,7 @@ F
 mars/venus/Editor.java,6\8\6861e89e256e10c4e397d280317bef222c9c9e8a
 N
 mars/venus/EditTabbedPane.java,2\1\212d84c8cc2f37948d769385ddd2e604098f1b7e
+H
+mars/venus/FileTree.java,4\0\408e8f56744f6f24b5f11afb51ee2d6953157f1e
+L
+mars/venus/MessagesPane.java,3\a\3af9e2743710c60c846aa60276509696a3b79be9

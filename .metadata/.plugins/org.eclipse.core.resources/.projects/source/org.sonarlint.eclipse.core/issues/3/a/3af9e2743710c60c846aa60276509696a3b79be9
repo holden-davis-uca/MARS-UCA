@@ -1,0 +1,67 @@
+
+‹
+java:S2293…"YReplace the type specification in this constructor call with the diamond operator ("<>").(–²òûÿÿÿÿH²fRMINORZ
+CODE_SMELL
+R
+java:S16591"!Declare "run" on a separate line.(ò¼›ùÿÿÿÿHfRMINORZ
+CODE_SMELL
+t	java:S125«"<This block of commented-out lines of code should be removed.(›¼Šƒÿÿÿÿÿ8ÈÛªÄô/HŞiRMAJORZ
+CODE_SMELL
+i
+java:S2589ı"7Remove this expression which always evaluates to "true"(´ÂÅıÿÿÿÿH½fRMAJORZ
+CODE_SMELL
+±
+java:S1186¶"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(İåœH§fRCRITICALZ
+CODE_SMELL
+†
+java:S3776@"RRefactor this method to reduce its Cognitive Complexity from 46 to the 15 allowed.(•ôÈıÿÿÿÿH‘fRCRITICALZ
+CODE_SMELL
+V
+java:S1659í")Declare "currentPane" on a separate line.(–÷ë€H¥fRMINORZ
+CODE_SMELL
+Z
+java:S1066l"/Merge this if statement with the enclosing one.(ŠšÅzH´fRMAJORZ
+CODE_SMELL
+Z
+java:S1604­"(Make this anonymous inner class a lambda(Ã®­ŠùÿÿÿÿH¹fRMAJORZ
+CODE_SMELL
+Z
+java:S1604È"(Make this anonymous inner class a lambda(Šß÷¹şÿÿÿÿH»fRMAJORZ
+CODE_SMELL
+Z
+java:S1604Ù"(Make this anonymous inner class a lambda(Ã®­ŠùÿÿÿÿH¸fRMAJORZ
+CODE_SMELL
+l
+java:S1161À":Add the "@Override" annotation above this method signature(ôüĞüûÿÿÿÿH­fRMAJORZ
+CODE_SMELL
+Z
+java:S1604"(Make this anonymous inner class a lambda(Ã®­ŠùÿÿÿÿHºfRMAJORZ
+CODE_SMELL
+‰
+java:S2142ó"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(Ê‰¬åÿÿÿÿÿH±fRMAJORZBUG
+d	java:S899ç":Do something with the "boolean" value returned by "offer".(»…ÃßüÿÿÿÿH¯fRMINORZBUG
+Z
+java:S1604·"(Make this anonymous inner class a lambda(Ã®­ŠùÿÿÿÿH¼fRMAJORZ
+CODE_SMELL
+
+java:S6201¯"RReplace this instanceof check and cast with 'instanceof UndoableEdit undoableedit'( »ô¢H©fRMINORZ
+CODE_SMELL
+d
+java:S1874b"3Remove this use of "viewToModel"; it is deprecated.(İÒÚˆøÿÿÿÿH¤fRMINORZ
+CODE_SMELL
+Z
+java:S1604 "(Make this anonymous inner class a lambda(ÉöŠŸÿÿÿÿÿH¶fRMAJORZ
+CODE_SMELL
+Y
+java:S1604R"(Make this anonymous inner class a lambda(ÉöŠŸÿÿÿÿÿH·fRMAJORZ
+CODE_SMELL
+k
+java:S1161]":Add the "@Override" annotation above this method signature(Ä ÏúüÿÿÿÿH¢fRMAJORZ
+CODE_SMELL
+_	java:S899ë":Do something with the "boolean" value returned by "offer".(ú®‘H°fRMINORZBUG
+o
+java:S16592"CDeclare "runTab" and all following declarations on a separate line.(„ñ¤—HfRMINORZ
+CODE_SMELL
+g
+java:S1161º":Add the "@Override" annotation above this method signature(¯¾ØH«fRMAJORZ
+CODE_SMELL
