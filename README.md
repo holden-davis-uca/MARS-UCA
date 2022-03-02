@@ -7,6 +7,11 @@ Modification of the [MARS](https://courses.missouristate.edu/kenvollmar/mars/) p
 This version of MARS is specifically modified for usage in CSCI 2340 - Assembly Language Programming, offered by the University of Central Arkansas.
 
 ## Usage
+
+### Requirements
+* To run: Java 17.0.2 or later
+* To modify: Eclipse 2021-12 or later
+
 This repository is structured as an Eclipse workspace. The "source" folder is structured as an Eclipse Java Project and contains all of the source files retrieved from decompiling the original JAR file.
 
 * To use the program itself, download the "Mars-UCA.jar" file in the top-level directory. Double-click on the downloaded file to run MARS, or use "java -jar Mars-UCA.jar" if it doesn't start.
