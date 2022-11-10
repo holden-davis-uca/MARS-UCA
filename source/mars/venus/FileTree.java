@@ -38,6 +38,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.util.Collections;
 import java.util.Vector;
@@ -50,6 +53,7 @@ import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
 
 /**
  * Display a file system in a JTree view
@@ -58,22 +62,39 @@ import javax.swing.tree.DefaultMutableTreeNode;
  * @author Ian Darwin
  */
 public class FileTree extends JPanel {
+
+	public JTree tree;
   /** Construct a FileTree */
   public FileTree(File dir) {
     setLayout(new BorderLayout());
 
     // Make a tree list with all the nodes, and make it a JTree
-    JTree tree = new JTree(addNodes(null, dir));
+    tree = new JTree(addNodes(null, dir));
 
     // Add a listener
-    tree.addTreeSelectionListener(new TreeSelectionListener() {
-      public void valueChanged(TreeSelectionEvent e) {
-        DefaultMutableTreeNode node = (DefaultMutableTreeNode) e
-            .getPath().getLastPathComponent();
-        System.out.println("You selected " + node);
-      }
-    });
+//    tree.addTreeSelectionListener(new TreeSelectionListener() {
+//      public void valueChanged(TreeSelectionEvent e) {
+//        DefaultMutableTreeNode node = (DefaultMutableTreeNode) e
+//            .getPath().getLastPathComponent();
+//      }
+//    });
 
+//    ml = new MouseAdapter() {
+//        public void mousePressed(MouseEvent e) {
+//            int selRow = tree.getRowForLocation(e.getX(), e.getY());
+//            TreePath selPath = tree.getPathForLocation(e.getX(), e.getY());
+//            if(selRow != -1) {
+//                if(e.getClickCount() == 2) {
+//                	System.out.println(selPath.getLastPathComponent());
+////                	EditTabbedPane here = new EditTabbedPane;
+////                	here.openFile(new File((String) selPath.getLastPathComponent()));
+//                }
+//            }
+//        }
+//    };
+//    tree.addMouseListener(ml);
+    
+    
     // Lastly, put the JTree into a JScrollPane.
     JScrollPane scrollpane = new JScrollPane();
     scrollpane.getViewport().add(tree);

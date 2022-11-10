@@ -1,7 +1,7 @@
 # MARS-UCA
 
 ## About
-Modification of the [MARS](https://courses.missouristate.edu/kenvollmar/mars/) program originally written by Kenneth Vollmar and Pete Sanderson at Missouri State University. 
+Modification of the [MARS](https://courses.missouristate.edu/kenvollmar/mars/) program originally written by Kenneth Vollmar and Pete Sanderson at Missouri State University.
  * DISCLAIMER: *Any and all rights are reserved by the aforementioned entities. I do not own this program, nor am I involved in its development. These modifications are provided solely for the benefit of its users.*
 
 This version of MARS is specifically modified for usage in CSCI 2340 - Assembly Language Programming, offered by the University of Central Arkansas.
@@ -20,7 +20,9 @@ This repository is structured as an Eclipse workspace. The "source" folder is st
 
 ## Changes
 List of modifications from the original version currently include:
-* Added a Decimal column to the registers window 
+* Added a Decimal column to the registers window
 * Replaced JFileChooser with FileDialog as the default file opening choice
 * Replaced JFileChooser with FileDialog as the default file saving choice
-* Added an extremely elementary file browser tab to the bottom messages pane - All implementation credit goes to Ian Darwin, sourced from [here](http://www.java2s.com/Code/Java/Swing-JFC/DisplayafilesysteminaJTreeview.htm)
+* Added a file browser tab to the top pane - Basic implementation credit goes to Ian Darwin, sourced from [here](http://www.java2s.com/Code/Java/Swing-JFC/DisplayafilesysteminaJTreeview.htm)
+* Added the ability to load files for editing directly from the file browser
+* Added FlatLAF theming options courtesy of [aeris170](https://github.com/aeris170/MARS-Theme-Engine)
