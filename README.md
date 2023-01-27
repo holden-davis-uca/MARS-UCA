@@ -29,3 +29,4 @@ List of modifications from the original version currently include:
 * Added a file browser tab to the top pane - Basic implementation credit goes to Ian Darwin, sourced from [here](http://www.java2s.com/Code/Java/Swing-JFC/DisplayafilesysteminaJTreeview.htm)
 * Added the ability to load files for editing directly from the file browser
 * Added FlatLAF theming options courtesy of [aeris170](https://github.com/aeris170/MARS-Theme-Engine)
+  * Select "Settings" from the menu bar and then "Themes..." from the dropdown menu to change themes
