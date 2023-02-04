@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MARS-UCA:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MARS_UCA_jar</output-path>
+    <root id="archive" name="MARS-UCA.jar">
+      <element id="module-output" name="MARS-UCA" />
+    </root>
+  </artifact>
+</component>

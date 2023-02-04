@@ -1,251 +1,0 @@
-
-`
-java:S3740u"/Provide the parametrized type for this generic.(Ø¡áäúÿÿÿÿHõRMAJORZ
-CODE_SMELL
-`
-java:S3740v"/Provide the parametrized type for this generic.(“•ÎİşÿÿÿÿHöRMAJORZ
-CODE_SMELL
-[
-java:S3740w"/Provide the parametrized type for this generic.(ƒõØ¨H÷RMAJORZ
-CODE_SMELL
-`
-java:S3740|"/Provide the parametrized type for this generic.(ÿ¿ËÖıÿÿÿÿHøRMAJORZ
-CODE_SMELL
-`
-java:S3740}"/Provide the parametrized type for this generic.(Ø‘»òÿÿÿÿÿHùRMAJORZ
-CODE_SMELL
-\
-java:S3740—"/Provide the parametrized type for this generic.(±ıÈ˜HúRMAJORZ
-CODE_SMELL
-\
-java:S3740˜"/Provide the parametrized type for this generic.(áìœÛHûRMAJORZ
-CODE_SMELL
-\
-java:S3740™"/Provide the parametrized type for this generic.(¯¾äHüRMAJORZ
-CODE_SMELL
-a
-java:S3740Ì"/Provide the parametrized type for this generic.(ûÎ–¸ÿÿÿÿÿHıRMAJORZ
-CODE_SMELL
-a
-java:S3740š"/Provide the parametrized type for this generic.(¥ÍğıÿÿÿÿHşRMAJORZ
-CODE_SMELL
-\
-java:S3740´"/Provide the parametrized type for this generic.(˜„ÂÃHÿRMAJORZ
-CODE_SMELL
-a
-java:S3740×"/Provide the parametrized type for this generic.(­·åôÿÿÿÿÿH€RMAJORZ
-CODE_SMELL
-\
-java:S3740Ş"/Provide the parametrized type for this generic.(ëÖÅËHRMAJORZ
-CODE_SMELL
-\
-java:S3740ò"/Provide the parametrized type for this generic.(Î¸÷ÄH‚RMAJORZ
-CODE_SMELL
-a
-java:S3740ä"/Provide the parametrized type for this generic.(éîÅƒøÿÿÿÿHƒRMAJORZ
-CODE_SMELL
-a
-java:S3740¿"/Provide the parametrized type for this generic.(‚¨¤ËúÿÿÿÿH„RMAJORZ
-CODE_SMELL
-a
-java:S3740"/Provide the parametrized type for this generic.(¬¬ÍüÿÿÿÿH…RMAJORZ
-CODE_SMELL
-	java:S115o"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÇÁêøÿÿÿÿH†RCRITICALZ
-CODE_SMELL
-ˆ	java:S115p"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.( €­H‡RCRITICALZ
-CODE_SMELL
-	java:S115q"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ö¼Ù›ûÿÿÿÿHˆRCRITICALZ
-CODE_SMELL
-j	java:S106"9Replace this use of System.out or System.err by a logger.(Å­ú¯ıÿÿÿÿH‰RMAJORZ
-CODE_SMELL
-‚
-java:S3776¯"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ĞØİÎHŠRCRITICALZ
-CODE_SMELL
-H
-java:S3626Ü"Remove this redundant jump.(ÉŠ©ƒH–RMINORZ
-CODE_SMELL
-H
-java:S3626à"Remove this redundant jump.(ÉŠ©ƒH—RMINORZ
-CODE_SMELL
-H
-java:S3626ä"Remove this redundant jump.(ÉŠ©ƒH˜RMINORZ
-CODE_SMELL
-w
-java:S2147Ã"ECombine this catch with the one at line 192, which has the same body.(­Ï’ÀúÿÿÿÿH™RMINORZ
-CODE_SMELL
-S
-java:S2129½"!Remove this "Integer" constructor(À¹ÿÊÿÿÿÿÿH›RMAJORZ
-CODE_SMELL
-z
-java:S5738½"HRemove this call to a deprecated method, it has been marked for removal.(À¹ÿÊÿÿÿÿÿHœRMAJORZ
-CODE_SMELL
-N
-java:S2129¾"!Remove this "Integer" constructor(´êÇ“HRMAJORZ
-CODE_SMELL
-u
-java:S5738¾"HRemove this call to a deprecated method, it has been marked for removal.(´êÇ“HRMAJORZ
-CODE_SMELL
-H
-java:S3626ù"Remove this redundant jump.(ûÁİ…HŸRMINORZ
-CODE_SMELL
-h	java:S125õ"<This block of commented-out lines of code should be removed.(ĞÒÅ’H RMAJORZ
-CODE_SMELL
-‡
-java:S3776„"RRefactor this method to reduce its Cognitive Complexity from 89 to the 15 allowed.(–Ôš´ÿÿÿÿÿH¡RCRITICALZ
-CODE_SMELL
-•
-java:S1157¡"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(©ôò¡şÿÿÿÿHĞRMINORZ
-CODE_SMELL
-•
-java:S1157­"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ÛƒùÿÿÿÿHÑRMINORZ
-CODE_SMELL
-h	java:S125¶"<This block of commented-out lines of code should be removed.(ı¿«HÒRMAJORZ
-CODE_SMELL
-•
-java:S1157º"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ÁÕêŒûÿÿÿÿHÓRMINORZ
-CODE_SMELL
-
-java:S1157Ü"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ñ´Š•HÔRMINORZ
-CODE_SMELL
-f
-java:S2696İ"6Make the enclosing method "static" or remove this set.(¸â×àHÕRCRITICALZ
-CODE_SMELL
-•
-java:S1157à"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(¿ÕÆúüÿÿÿÿHÖRMINORZ
-CODE_SMELL
-•
-java:S1157ä"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(¢ŸËøøÿÿÿÿH×RMINORZ
-CODE_SMELL
-•
-java:S1157å"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(‚”¶ÏüÿÿÿÿHØRMINORZ
-CODE_SMELL
-f
-java:S2696æ"6Make the enclosing method "static" or remove this set.(¸â×àHÙRCRITICALZ
-CODE_SMELL
-
-java:S1157ê"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(‘ŸÉñHÚRMINORZ
-CODE_SMELL
-
-java:S1157î"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ÉÈ¾ŒHÛRMINORZ
-CODE_SMELL
-•
-java:S1157ò"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ÈÑ®ÕıÿÿÿÿHÜRMINORZ
-CODE_SMELL
-
-java:S1157ö"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ğ»ûÌHİRMINORZ
-CODE_SMELL
-•
-java:S1157ú"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(í·”ªûÿÿÿÿHŞRMINORZ
-CODE_SMELL
-•
-java:S1157ş"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ûËĞÖşÿÿÿÿHßRMINORZ
-CODE_SMELL
-•
-java:S1157‚"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(¥‡ÆíıÿÿÿÿHàRMINORZ
-CODE_SMELL
-•
-java:S1157‚"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(¥‡ÆíıÿÿÿÿHáRMINORZ
-CODE_SMELL
-
-java:S1157†"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ªÎ§JHâRMINORZ
-CODE_SMELL
-•
-java:S1157Š"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ş”°ğşÿÿÿÿHãRMINORZ
-CODE_SMELL
-
-java:S1157"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(”ºƒÂHäRMINORZ
-CODE_SMELL
-•
-java:S1157’"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(«øš’üÿÿÿÿHåRMINORZ
-CODE_SMELL
-U	java:S108²")Either remove or fill this block of code.(ß•öÍHæRMAJORZ
-CODE_SMELL
-‚
-java:S3776Î"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(È©Å¢HçRCRITICALZ
-CODE_SMELL
-f
-java:S2696"6Make the enclosing method "static" or remove this set.(‹’€HùRCRITICALZ
-CODE_SMELL
-f
-java:S2692Ÿ"10 is a valid index, but is ignored by this check.(åÒ”¹şÿÿÿÿHúRCRITICALZ
-CODE_SMELL
-‚
-java:S3776´"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(äøÇHûRCRITICALZ
-CODE_SMELL
-]
-java:S1874¶"0Remove this use of "Observer"; it is deprecated.(Äïï¼H‚RMINORZ
-CODE_SMELL
-_
-java:S1874¹"2Remove this use of "Observable"; it is deprecated.(şùËÂHƒRMINORZ
-CODE_SMELL
-y
-java:S6201º"LReplace this instanceof check and cast with 'instanceof AccessNotice notice'(™ÖÛ§H„RMINORZ
-CODE_SMELL
-‡
-java:S3776ß"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(ÙñùÿÿÿÿH†RCRITICALZ
-CODE_SMELL
-_
-java:S1481á"-Remove this unused "strValue" local variable.(ø³Æ“øÿÿÿÿH–RMINORZ
-CODE_SMELL
-U	java:S108ú")Either remove or fill this block of code.(”ªúïH˜RMAJORZ
-CODE_SMELL
-‚
-java:S3776¼"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(Æëê•H™RCRITICALZ
-CODE_SMELL
-Z
-java:S1659À"(Declare "addressEnd" on a separate line.(º¾ššûÿÿÿÿH§RMINORZ
-CODE_SMELL
-U	java:S108Æ")Either remove or fill this block of code.(ß•öÍH©RMAJORZ
-CODE_SMELL
-j	java:S106í"9Replace this use of System.out or System.err by a logger.(ÖÖŠ»ıÿÿÿÿHªRMAJORZ
-CODE_SMELL
-V
-java:S1481÷"*Remove this unused "print" local variable.(Ñú4H«RMINORZ
-CODE_SMELL
-Q
-java:S1128	"%Remove this unused import 'java.awt'.(ï´µ©H­RMINORZ
-CODE_SMELL
-e
-java:S1128"4Remove this unused import 'javax.swing.JOptionPane'.(ÏÌÁàøÿÿÿÿH¯RMINORZ
-CODE_SMELL
-›
-java:S1192Û"kDefine a constant instead of duplicating this literal "Error while attempting to save dump, file " 3 times.(•Á°üH±RCRITICALZ
-CODE_SMELL
-…	java:S135´"YReduce the total number of break and continue statements in this loop to use at most one.(±æšªHµRMINORZ
-CODE_SMELL
-Š	java:S135•"YReduce the total number of break and continue statements in this loop to use at most one.(ÕÈñúÿÿÿÿH¼RMINORZ
-CODE_SMELL
-‰	java:S127µ"XRefactor the code in order to not assign to this loop counter from within the loop body.(îÚÅâıÿÿÿÿHÙRMAJORZ
-CODE_SMELL
-‰	java:S127µ"XRefactor the code in order to not assign to this loop counter from within the loop body.(îÚÅâıÿÿÿÿHÚRMAJORZ
-CODE_SMELL
-‰	java:S127µ"XRefactor the code in order to not assign to this loop counter from within the loop body.(îÚÅâıÿÿÿÿHÛRMAJORZ
-CODE_SMELL
-‰	java:S127»"XRefactor the code in order to not assign to this loop counter from within the loop body.(–Ô¥ŒøÿÿÿÿHÜRMAJORZ
-CODE_SMELL
-ƒ	java:S127ä"XRefactor the code in order to not assign to this loop counter from within the loop body.(—Ÿÿ8HİRMAJORZ
-CODE_SMELL
-}	java:S117ò"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¸÷ÄHŞRMINORZ
-CODE_SMELL
-Z
-java:S1604ò"(Make this anonymous inner class a lambda(Ã®­ŠùÿÿÿÿHßRMAJORZ
-CODE_SMELL
-k
-java:S1155Ğ">Use isEmpty() to check whether the collection is empty or not.(º…Ô‹HàRMINORZ
-CODE_SMELL
-I
-java:S1643ˆ"Use a StringBuilder instead.(¶‰ÉÉHâRMINORZ
-CODE_SMELL
-N
-java:S1643Š"Use a StringBuilder instead.(š”õŒúÿÿÿÿHãRMINORZ
-CODE_SMELL
-N
-java:S1643"Use a StringBuilder instead.(®ÛÊÄşÿÿÿÿHäRMINORZ
-CODE_SMELL
-N
-java:S1643’"Use a StringBuilder instead.(êÍÜ¤ùÿÿÿÿHåRMINORZ
-CODE_SMELL
-t
-java:S2259½"IA "NullPointerException" could be thrown; "memoryRange" is nullable here.(À¹ÿÊÿÿÿÿÿHæRMAJORZBUG
-t
-java:S2259·"IA "NullPointerException" could be thrown; "memoryRange" is nullable here.(•Üì†ıÿÿÿÿHêRMAJORZBUG

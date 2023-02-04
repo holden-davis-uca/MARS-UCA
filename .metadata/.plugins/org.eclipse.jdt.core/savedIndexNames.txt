@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+C:\Users\holde\MARS-UCA\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-2538701421.index
-760091825.index

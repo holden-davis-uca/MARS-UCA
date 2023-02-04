@@ -1,9 +1,0 @@
-
-w
-java:S5361M"HReplace this call to "replaceAll()" by a call to the "replace()" method.(¿Ú•ÙHê'RCRITICALZ
-CODE_SMELL
-d	java:S106O"9Replace this use of System.out or System.err by a logger.(ì„ÖôHë'RMAJORZ
-CODE_SMELL
-d
-java:S1068)"3Remove this unused "instructionName" private field.(û‹®şÿÿÿÿHì'RMAJORZ
-CODE_SMELL
