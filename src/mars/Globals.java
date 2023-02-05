@@ -92,7 +92,7 @@ public class Globals {
 	 * The current MARS version number. Can't wait for "initialize()" call to get
 	 * it.
 	 */
-	public static final String version = "1.3";
+	public static final String version = "1.5";
 	/** List of accepted file extensions for MIPS assembly source files. */
 	public static final ArrayList fileExtensions = getFileExtensions();
 	/** Maximum length of scrolled message window (MARS Messages and Run I/O) */

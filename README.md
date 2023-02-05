@@ -6,20 +6,20 @@ Modification of the [MARS](https://courses.missouristate.edu/kenvollmar/mars/) p
 
 This version of MARS is specifically modified for usage in CSCI 2340 - Assembly Language Programming, offered by the University of Central Arkansas.
 
-**The Mars-UCA-OpenJDK.jar executable should work on all UCA computers without any additional downloads, installs, or upgrades of the installed version of Java.**
+## Requirements
+* Java SE 8 (JDK 8 / JRE 8) or later
 
 ## Usage
 
-### Requirements
-* To run Java version: Java 17.0.2 or later
-* To run OpenJDK version: OpenJDK 11.0.17 or later
-* To modify: Eclipse 2021-12 or later
+To use the program itself, download the `MARS-UCA.jar` file in the top-level directory. To run it you can either:
+  * Double-click the file
+  * Run `java -jar MARS-UCA.jar` in the file's directory
 
-This repository is structured as an Eclipse workspace. The "source" folder is structured as an Eclipse Java Project and contains all of the source files retrieved from decompiling the original JAR file.
+## Modification
 
-* To use the program itself, download the "Mars-UCA.jar" file in the top-level directory. Double-click on the downloaded file to run MARS, or use "java -jar Mars-UCA.jar" if it doesn't start.
+This repository is structured as an IntelliJ IDEA Project and can be opened as such; the default build and run configurations run `Mars.java` which is the main execution point for the program. Additionally, the standard artifact build setting is configured to build and output a standalone runnable `.jar` file akin to the one present in this repository. Both the built project source files and built jar file are output to the `out` directory.
 
-* To modify the source code, download the repository and open it as a workspace in Eclipse, or download the "source" folder and open it as a project in Eclipse. After making any changes, run the "CreateMarsJar.bat" script included in the "source" folder to create a runnable Mars-UCA.jar file.
+ If you don't want to use IntelliJ IDEA, the `src` folder contains all of the source files retrieved from decompiling the original JAR file, as well as the necessary libraries and code needed to support the latest changes.
 
 ## Changes
 List of modifications from the original version currently include:
