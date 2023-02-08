@@ -23,7 +23,8 @@ jobs:
       - name: Add and Commit jar
         run: |
           ls target
-          git add -f target/*.jar
+          cp target/*.jar .
+          ls
           git config --global user.email "hdavis13@cub.uca.edu"
           git config --global user.name "holden-davis-uca"
           git commit -m "AUTO: Committing jar"
