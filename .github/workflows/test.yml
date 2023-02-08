@@ -1,18 +1,53 @@
-name: Test
+# Should go down every push
+
+name: testing multiple builds
 on: workflow_dispatch
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '8'
-    - name: Maven
-      run: |
-        mvn -B clean --file pom.xml
-        mvn -B validate --file pom.xml
-        mvn -B compile --file pom.xml
-        mvn -B package --file pom.xml
+      - uses: actions/checkout@v3
+      - name: Java 8 (Eclipse Temurin) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "8"
+      - name: Java 8 (Eclipse Temurin) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Java 11 (Microsoft OpenJDK) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "microsoft"
+          java-version: "11"
+      - name: Java 11 (Microsoft OpenJDK) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Java 17 (Amazon Corretto OpenJDK) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "corretto"
+          java-version: "17"
+      - name: Java 17 (Amazon Corretto OpenJDK) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Java 19 (Oracle JDK) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "oracle"
+          java-version: "19"
+      - name: Java 19 (Oracle JDK) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml

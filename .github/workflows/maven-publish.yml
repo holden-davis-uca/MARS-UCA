@@ -1,4 +1,6 @@
-name: Publish package to GitHub Packages
+# Should go down every release
+
+name: testing publishing package
 on: workflow_dispatch
 jobs:
   publish:
