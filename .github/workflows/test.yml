@@ -8,7 +8,7 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        distribution: 'microsoft'
+        distribution: 'temurin'
         java-version: '8'
     - name: Maven
       run: |
