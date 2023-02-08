@@ -11,7 +11,8 @@ jobs:
         website: oracle.com
         release: 8
     - name: Maven
-    run: mvn -B clean --file pom.xml
-    run: mvn -B validate --file pom.xml
-    run: mvn -B compile --file pom.xml
-    run: mvn -B package --file pom.xml
+      run: |
+        mvn -B clean --file pom.xml
+        mvn -B validate --file pom.xml
+        mvn -B compile --file pom.xml
+        mvn -B package --file pom.xml
