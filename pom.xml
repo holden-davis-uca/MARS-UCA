@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.marsuca</groupId>
-    <artifactId>MARS-UCA</artifactId>
+    <artifactId>mars-uca</artifactId>
     <version>1.6</version>
 
     <properties>
