@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Oracle JDK 8
-      uses: oracle-actions/setup-java@v1    
+    - name: Set up JDK
+    - uses: actions/setup-java@v3
       with:
-        website: oracle.com
-        release: 8
+        distribution: 'microsoft'
+        java-version: '8'
     - name: Maven
       run: |
         mvn -B clean --file pom.xml
