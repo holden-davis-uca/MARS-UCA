@@ -1,4 +1,4 @@
-# MARS-UCA - v1.5
+# MARS-UCA - v1.6
 
 ## About
 Modification of the [MARS](https://courses.missouristate.edu/kenvollmar/mars/) program originally written by Kenneth Vollmar and Pete Sanderson at Missouri State University.
@@ -17,16 +17,14 @@ To use the program itself, download the `MARS-UCA.jar` file in the top-level dir
 
 ## Modification
 
-This repository is structured as an IntelliJ IDEA Project and can be opened as such; the default build and run configurations run `Mars.java` which is the main execution point for the program. Additionally, the standard artifact build setting is configured to build and output a standalone runnable `.jar` file akin to the one present in this repository. Both the built project source files and built jar file are output to the `out` directory.
-
- If you don't want to use IntelliJ IDEA, the `src` folder contains all of the source files retrieved from decompiling the original JAR file, as well as the necessary libraries and code needed to support the latest changes.
+This repository is structured as an IntelliJ IDEA Maven project and can be used as such. Additionally, if IDEA is not the desired environment, the attached `jar` file can be extracted into the original source files.
 
 ## Changes
 List of modifications from the original version currently include:
 * Added a Decimal column to the registers window
 * Replaced JFileChooser with FileDialog as the default file opening choice
 * Replaced JFileChooser with FileDialog as the default file saving choice
-* Added a file browser tab to the top pane - Basic implementation credit goes to Ian Darwin, sourced from [here](http://www.java2s.com/Code/Java/Swing-JFC/DisplayafilesysteminaJTreeview.htm)
+* Added a file browser tab to the top pane - Basic implementation credit goes to [Ian Darwin](http://www.java2s.com/Code/Java/Swing-JFC/DisplayafilesysteminaJTreeview.htm)
 * Added the ability to load files for editing directly from the file browser
   * Double-click a file to open it in the main window
 * Added FlatLAF theming options courtesy of [aeris170](https://github.com/aeris170/MARS-Theme-Engine)
