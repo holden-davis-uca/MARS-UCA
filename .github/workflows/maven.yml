@@ -20,10 +20,10 @@ jobs:
           mvn -B validate --file pom.xml
           mvn -B compile --file pom.xml
           mvn -B package --file pom.xml
-      - name: Commit jar
+      - name: Add and Commit jar
         run: |
+          cp .\target\*.jar .
           git config --global user.email "hdavis13@cub.uca.edu"
           git config --global user.name "holden-davis-uca"
-          git add *
           git commit -m "AUTO: Committing jar"
           git push
