@@ -8,7 +8,7 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        distribution: 'oracle'
+        distribution: 'microsoft'
         java-version: '8'
     - name: Maven
       run: |
