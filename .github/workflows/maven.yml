@@ -22,7 +22,7 @@ jobs:
           mvn -B package --file pom.xml
       - name: Add and Commit jar
         run: |
-          ls -l
+          ls target
           git config --global user.email "hdavis13@cub.uca.edu"
           git config --global user.name "holden-davis-uca"
           git commit -m "AUTO: Committing jar"
