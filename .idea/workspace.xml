@@ -9,10 +9,964 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa206ccc-bc86-42cf-b614-044f9fcf9385" name="Changes" comment="">
+    <list default="true" id="69b0baac-0503-4ff1-a9d6-cb1e0a0075f8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mars/venus/FileTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MARS-UCA.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MARS-UCA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ALUcontrolDatapath.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MARSlicense.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mars.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MipsXRayOpcode.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PseudoOps.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Settings.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Syscall.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controlDatapath.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/Mars.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/allclasses-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/allclasses-noframe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/constant-values.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/deprecated-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/help-doc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/index-all.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/ErrorList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/ErrorMessage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/Globals.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/MIPSprogram.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/MarsLaunch.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/MarsSplashScreen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/ProcessingException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/ProgramStatement.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/Settings.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/Assembler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/DataTypes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/Directives.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/Macro.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/MacroPool.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/OperandFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/SourceLine.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/Symbol.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/SymbolTable.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/Token.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/TokenList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/TokenTypes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/Tokenizer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/TranslationCode.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/assembler/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/AbstractDumpFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/AsciiTextDumpFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/BinaryDumpFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/BinaryTextDumpFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/DumpFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/DumpFormatLoader.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/HexTextDumpFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/IntelHexDumpFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/MIFDumpFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/SegmentWindowDumpFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/dump/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/AccessNotice.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/AddressErrorException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/Coprocessor0.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/Coprocessor1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/InvalidRegisterAccessException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/Memory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/MemoryAccessNotice.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/MemoryConfiguration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/MemoryConfigurations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/Register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/RegisterAccessNotice.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/RegisterFile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/hardware/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/BasicInstruction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/BasicInstructionFormat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/ExtendedInstruction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/Instruction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/InstructionSet.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/SimulationCode.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/AbstractSyscall.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/RandomStreams.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/Syscall.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallClose.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallConfirmDialog.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallExit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallExit2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallInputDialogDouble.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallInputDialogFloat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallInputDialogInt.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallInputDialogString.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallMessageDialog.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallMessageDialogDouble.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallMessageDialogFloat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallMessageDialogInt.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallMessageDialogString.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallMidiOut.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallMidiOutSync.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallNumberOverride.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallOpen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallPrintChar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallPrintDouble.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallPrintFloat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallPrintInt.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallPrintIntBinary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallPrintIntHex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallPrintIntUnsigned.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallPrintString.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallRandDouble.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallRandFloat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallRandInt.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallRandIntRange.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallRandSeed.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallRead.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallReadChar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallReadDouble.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallReadFloat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallReadInt.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallReadString.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallSbrk.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallSleep.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallTime.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/SyscallWrite.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/mips/instructions/syscalls/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/BackStepper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/DelayedBranch.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/Exceptions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/ProgramArgumentList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/Simulator.StopListener.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/Simulator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/SimulatorNotice.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/SwingWorker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/simulator/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/AbstractMarsToolAndApplication.ConnectButton.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/AbstractMarsToolAndApplication.EnterKeyListener.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/AbstractMarsToolAndApplication.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/BHTEntry.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/BHTSimGUI.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/BHTSimulator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/BHTableModel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/BitmapDisplay.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/CacheSimulator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/DigitalLabSim.HexaKeyboard.EcouteurClick.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/DigitalLabSim.HexaKeyboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/DigitalLabSim.OneSecondCounter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/DigitalLabSim.SevenSegmentDisplay.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/DigitalLabSim.SevenSegmentPanel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/DigitalLabSim.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/FloatRepresentation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/InstructionCounter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/InstructionStatistics.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/IntroToTools.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/KeyboardAndDisplaySimulator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/MarsBot.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/MarsTool.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/MemoryReferenceVisualization.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/ScavengerHunt.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/ScreenMagnifier.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/tools/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/util/Binary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/util/EditorFont.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/util/FilenameFinder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/util/MemoryDump.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/util/PropertiesFile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/util/SystemIO.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/util/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/util/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/util/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/AbstractFontSettingDialog.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/Coprocessor0Window.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/Coprocessor1Window.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/DataSegmentWindow.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/EditCopyAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/EditCutAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/EditFindReplaceAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/EditPane.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/EditPasteAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/EditRedoAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/EditSelectAllAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/EditTabbedPane.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/EditUndoAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/Editor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/ExecutePane.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileCloseAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileCloseAllAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileDumpMemoryAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileExitAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileNewAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileOpenAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FilePrintAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileSaveAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileSaveAllAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileSaveAsAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/FileStatus.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/GuiAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/HardcopyWriter.PrintCanceledException.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/HardcopyWriter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/HelpAboutAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/HelpHelpAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/LabelsWindow.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/MainPane.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/MessagesPane.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/NumberDisplayBaseChooser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/PopupListener.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RegistersPane.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RegistersWindow.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RepeatButton.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunAssembleAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunBackstepAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunClearBreakpointsAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunGoAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunPauseAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunResetAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunSpeedPanel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunStepAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunStopAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/RunToggleBreakpointsAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsAddressDisplayBaseAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsAssembleAllAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsAssembleOnOpenAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsDelayedBranchingAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsEditorAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsExceptionHandlerAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsExtendedAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsHighlightingAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsLabelAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsMemoryConfigurationAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsPopupInputAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsProgramArgumentsAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsSelfModifyingCodeAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsStartAtMainAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsValueDisplayBaseAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/SettingsWarningsAreErrorsAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/TextSegmentWindow.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/ToolAction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/ToolLoader.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/VenusUI.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/MARSTextEditingArea.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/generic/GenericTextArea.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/generic/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/generic/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/generic/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/DefaultInputHandler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.MacroRecorder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.NonRecordable.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.NonRepeatable.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.Wrapper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.backspace.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.backspace_word.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.clip_copy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.clip_cut.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.clip_paste.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.delete_word.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.document_end.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.document_home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.end.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.insert_break.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.insert_char.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.insert_tab.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.next_char.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.next_line.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.next_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.next_word.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.overwrite.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.prev_char.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.prev_line.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.prev_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.prev_word.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.repeat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.select_all.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/InputHandler.toggle_rect.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/JEditBasedTextArea.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/JEditTextArea.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/KeywordMap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/PopupHelpItem.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/SyntaxDocument.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/SyntaxStyle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/SyntaxUtilities.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/TextAreaDefaults.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/TextAreaPainter.Highlight.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/TextAreaPainter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/TextUtilities.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/tokenmarker/MIPSTokenMarker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/tokenmarker/Token.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/tokenmarker/TokenMarker.LineInfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/tokenmarker/TokenMarker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/tokenmarker/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/tokenmarker/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/jeditsyntax/tokenmarker/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/editors/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/mars/venus/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/overview-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/overview-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/overview-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/package-list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/resources/inherit.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/serialized-form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docs/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/Acknowledgements.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/BugReportingHelp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/ExceptionsHelp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/HTML_of_links_for_posting_to_MARS_website.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MIPSInstructionSetSong.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MacrosHelp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MarsHelpCommand.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MarsHelpDebugging.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MarsHelpHistory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MarsHelpIDE.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MarsHelpIntro.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MarsHelpLimits.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MarsHelpSettings.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/MarsHelpTools.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/SyscallHelp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/SyscallMessageDialogError.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/SyscallMessageDialogInformation.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/SyscallMessageDialogQuestion.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/SyscallMessageDialogWarning.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help/mipsref.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/ALUcontrol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Assemble16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Assemble22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Copy16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Copy22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Cut16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Cut22.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Cut24.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Dump16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Dump22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Edit_tab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Execute_tab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Find16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Find22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Help16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Help22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/MarsSurfacePathfinder.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/MarsThumbnail.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/MyBlank16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/MyBlank24.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/New16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/New22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Next22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Open16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Open22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Paste16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Paste22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Pause16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Pause22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Play16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Play22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Previous22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Print16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Print22.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Print24.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/RedMars16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/RedMars32.GIF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/RedMars50.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Redo16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Redo22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Reset16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Reset22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Save16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Save22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/SaveAs16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/SaveAs22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/StepBack16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/StepBack22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/StepForward16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/StepForward22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Stop16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Stop22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Undo16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/Undo22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/control.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/datapath.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/mars.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/mars32.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/register.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainclass.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/ErrorList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/ErrorMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/Globals.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/MIPSprogram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/MarsLaunch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/MarsSplashScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/ProcessingException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/ProgramStatement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/Settings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/Assembler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/DataTypes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/Directives.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/Macro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/MacroPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/OperandFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/SourceLine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/Symbol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/SymbolTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/Token.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/TokenList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/TokenTypes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/Tokenizer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/assembler/TranslationCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/AbstractDumpFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/AsciiTextDumpFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/BinaryDumpFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/BinaryTextDumpFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/DumpFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/DumpFormatLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/HexTextDumpFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/IntelHexDumpFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/MIFDumpFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/dump/SegmentWindowDumpFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/AccessNotice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/AddressErrorException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/Coprocessor0.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/Coprocessor1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/InvalidRegisterAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/Memory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/MemoryAccessNotice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/MemoryConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/MemoryConfigurations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/Register.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/RegisterAccessNotice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/hardware/RegisterFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/BasicInstruction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/BasicInstructionFormat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/ExtendedInstruction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/Instruction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/InstructionSet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/SimulationCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/SyscallLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/AbstractSyscall.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/RandomStreams.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/Syscall.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallClose.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallConfirmDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallExit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallExit2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallInputDialogDouble.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallInputDialogFloat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallInputDialogInt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallInputDialogString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallMessageDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallMessageDialogDouble.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallMessageDialogFloat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallMessageDialogInt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallMessageDialogString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallMidiOut.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallMidiOutSync.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallNumberOverride.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallOpen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallPrintChar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallPrintDouble.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallPrintFloat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallPrintInt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallPrintIntBinary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallPrintIntHex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallPrintIntUnsigned.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallPrintString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallRandDouble.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallRandFloat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallRandInt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallRandIntRange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallRandSeed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallRead.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallReadChar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallReadDouble.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallReadFloat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallReadInt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallReadString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallSbrk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallSleep.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallTime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/SyscallWrite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/mips/instructions/syscalls/ToneGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/simulator/BackStepper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/simulator/DelayedBranch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/simulator/Exceptions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/simulator/ProgramArgumentList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/simulator/Simulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/simulator/SimulatorNotice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/simulator/SwingWorker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/AbstractMarsToolAndApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/BHTEntry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/BHTSimGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/BHTSimulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/BHTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/BitmapDisplay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/CacheSimulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/DigitalLabSim.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/FloatRepresentation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/FunctionUnitVisualization.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/InstructionCounter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/InstructionStatistics.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/IntroToTools.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/KeyboardAndDisplaySimulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/MarsBot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/MarsTool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/MemoryReferenceVisualization.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/MipsXray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/ScavengerHunt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/ScreenMagnifier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/tools/UnitAnimation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/util/Binary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/util/EditorFont.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/util/FilenameFinder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/util/MemoryDump.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/util/PropertiesFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/util/SystemIO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/AbstractFontSettingDialog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/Coprocessor0Window.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/Coprocessor1Window.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/DataSegmentWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/EditCopyAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/EditCutAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/EditFindReplaceAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/EditPane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/EditPasteAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/EditRedoAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/EditSelectAllAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/EditTabbedPane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/EditUndoAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/Editor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/ExecutePane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileCloseAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileCloseAllAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileDumpMemoryAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileExitAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileNewAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileOpenAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FilePrintAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileSaveAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileSaveAllAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileSaveAsAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/FileTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/GuiAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/HardcopyWriter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/HelpAboutAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/HelpHelpAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/LabelsWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/MainPane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/MessagesPane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/MonoRightCellRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/NumberDisplayBaseChooser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/PopupListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RegistersPane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RegistersWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RepeatButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunAssembleAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunBackstepAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunClearBreakpointsAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunGoAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunPauseAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunResetAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunSpeedPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunStepAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunStopAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/RunToggleBreakpointsAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsAddressDisplayBaseAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsAssembleAllAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsAssembleOnOpenAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsDelayedBranchingAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsEditorAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsExceptionHandlerAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsExtendedAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsHighlightingAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsLabelAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsMemoryConfigurationAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsPopupInputAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsProgramArgumentsAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsSelfModifyingCodeAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsStartAtMainAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsThemesAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsValueDisplayBaseAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/SettingsWarningsAreErrorsAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/TextSegmentWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/ToolAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/ToolLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/VenusUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/MARSTextEditingArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/generic/GenericTextArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/DefaultInputHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/InputHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/JEditBasedTextArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/JEditTextArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/KeywordMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/PopupHelpItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/SyntaxDocument.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/SyntaxStyle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/SyntaxUtilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/TextAreaDefaults.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/TextAreaPainter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/TextUtilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/tokenmarker/MIPSTokenMarker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/tokenmarker/Token.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mars/venus/editors/jeditsyntax/tokenmarker/TokenMarker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registerDatapath.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/DemoPrefs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/FlatLaf.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/IJThemeInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/IJThemesClassGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/IJThemesManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/IJThemesPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/IJThemesPanel.jfd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/IJThemesUpdater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/ListCellTitledBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/ThemeEngine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/credits.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/FlatLaf-master.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatClientProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatDarculaLaf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatDarculaLaf.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatDarkLaf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatDarkLaf.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatDefaultsAddon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatIconColors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatInputMaps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatIntelliJLaf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatIntelliJLaf.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatLaf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatLaf.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatLightLaf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatLightLaf.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatPropertiesLaf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/FlatSystemProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/IntelliJTheme$ThemeLaf.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/IntelliJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/LinuxFontPolicy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/MnemonicHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/UIDefaultsLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/extras/FlatAnimatedLafChange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/extras/FlatInspector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/extras/TriStateCheckBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatAbstractIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatAscendingSortIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatCapsLockIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatCheckBoxIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatCheckBoxMenuItemIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatDescendingSortIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileChooserDetailsViewIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileChooserHomeFolderIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileChooserListViewIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileChooserNewFolderIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileChooserUpFolderIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileViewComputerIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileViewDirectoryIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileViewFileIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileViewFloppyDriveIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatFileViewHardDriveIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatHelpButtonIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatInternalFrameAbstractIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatInternalFrameCloseIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatInternalFrameIconifyIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatInternalFrameMaximizeIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatInternalFrameRestoreIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatMenuArrowIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatMenuItemArrowIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatOptionPaneAbstractIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatOptionPaneErrorIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatOptionPaneInformationIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatOptionPaneQuestionIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatOptionPaneWarningIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatRadioButtonIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatRadioButtonMenuItemIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatTreeClosedIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatTreeCollapsedIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatTreeExpandedIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatTreeLeafIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatTreeOpenIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatWindowAbstractIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatWindowCloseIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatWindowIconifyIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatWindowMaximizeIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/icons/FlatWindowRestoreIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatAllIJThemes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatArcDarkIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatArcDarkOrangeIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatArcIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatArcOrangeIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatCarbonIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatCobalt2IJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatCyanLightIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatDarkFlatIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatDarkPurpleIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatDraculaIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatGradiantoDarkFuchsiaIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatGradiantoDeepOceanIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatGradiantoMidnightBlueIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatGrayIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatGruvboxDarkHardIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatGruvboxDarkMediumIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatGruvboxDarkSoftIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatHiberbeeDarkIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatHighContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatLightFlatIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatMaterialDesignDarkIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatMonocaiIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatNordIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatOneDarkIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatSolarizedDarkIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatSolarizedLightIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatSpacegrayIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/FlatVuesionIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/Utils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatArcDarkContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatArcDarkIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatAtomOneDarkContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatAtomOneDarkIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatAtomOneLightContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatAtomOneLightIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatDraculaContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatDraculaIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatGitHubContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatGitHubIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatLightOwlContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatLightOwlIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialDarkerContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialDarkerIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialDeepOceanContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialDeepOceanIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialLighterContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialLighterIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialOceanicContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialOceanicIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialPalenightContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMaterialPalenightIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMonokaiProContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatMonokaiProIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatNightOwlContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatNightOwlIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatSolarizedDarkContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatSolarizedDarkIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatSolarizedLightContrastIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/FlatSolarizedLightIJTheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/materialthemeuilite/Utils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Carbon.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Carbon.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Cobalt_2.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Cobalt_2.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Cyan.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Cyan.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/DarkFlatTheme.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/DarkFlatTheme.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/DarkPurple.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/DarkPurple.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Dracula.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Dracula.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Gradianto.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Gradianto_dark_fuchsia.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Gradianto_deep_ocean.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Gradianto_midnight_blue.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Gray.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Gray.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Hiberbee.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/HiberbeeDark.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/HighContrast.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/HighContrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/LightFlatTheme.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/LightFlatTheme.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/MaterialTheme.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/MaterialTheme.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Monocai.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Monocai.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Solarized.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/SolarizedDark.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/SolarizedLight.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Spacegray.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/Spacegray.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/arc-theme-orange.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/arc-theme.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/arc-themes.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/arc_theme_dark.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/arc_theme_dark_orange.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/gruvbox_dark_hard.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/gruvbox_dark_medium.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/gruvbox_dark_soft.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/gruvbox_theme.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Arc Dark Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Arc Dark.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Atom One Dark Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Atom One Dark.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Atom One Light Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Atom One Light.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Dracula Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Dracula.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/GitHub Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/GitHub.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Light Owl Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Light Owl.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Darker Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Darker.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Deep Ocean Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Deep Ocean.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Lighter Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Lighter.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Oceanic Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Oceanic.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Palenight Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Palenight.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Material Theme UI Lite.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Monokai Pro Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Monokai Pro.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Night Owl Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Night Owl.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Solarized Dark Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Solarized Dark.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Solarized Light Contrast.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/material-theme-ui-lite/Solarized Light.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/nord.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/nord.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/one_dark.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/one_dark.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/vuesion_theme.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/intellijthemes/themes/vuesion_theme.theme.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/json/Json.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/json/JsonHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/json/JsonParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/json/Location.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/json/ParseException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/resources/Bundle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/resources/Bundle_de.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/resources/Bundle_fr.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatArrowButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatButtonBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatButtonUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatCaret.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatCheckBoxMenuItemUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatCheckBoxUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatColorChooserUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatComboBoxUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatDesktopIconUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatDesktopPaneUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatDropShadowBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatEditorPaneUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatEmptyBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatFileChooserUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatFormattedTextFieldUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatInternalFrameTitlePane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatInternalFrameUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatLabelUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatLineBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatListCellBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatListUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatMarginBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatMenuBarBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatMenuBarUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatMenuItemBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatMenuItemRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatMenuItemUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatMenuUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatOptionPaneUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatPanelUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatPasswordFieldUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatPopupFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatPopupMenuBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatPopupMenuSeparatorUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatPopupMenuUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatProgressBarUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatRadioButtonMenuItemUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatRadioButtonUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatRootPaneUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatRoundBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatScrollBarUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatScrollPaneUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatSeparatorUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatSliderUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatSpinnerUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatSplitPaneUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTabbedPaneUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTableCellBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTableHeaderUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTableUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTextAreaUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTextBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTextFieldUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTextPaneUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTitlePane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTitlePaneIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatToggleButtonUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatToolBarBorder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatToolBarSeparatorUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatToolBarUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatToolTipUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatTreeUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatUIUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatViewportUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/FlatWindowResizer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/JBRCustomDecorations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/ui/MigLayoutVisualPadding.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/Animator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/ColorFunctions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/CubicBezierEasing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/DerivedColor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/Graphics2DProxy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/GrayFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/HSLColor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/HiDPIUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/JavaCompatibility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/MultiResolutionImageSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/ScaledImageIcon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/StringUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/SystemInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/com/formdev/flatlaf/util/UIScale.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/miglayout-5.1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/AC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/AnimSpec.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/BoundSize.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/CC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/ComponentWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/ConstraintParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/ContainerWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/DimConstraint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/Grid.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/InCellGapProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/LC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/LayoutCallback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/LayoutUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/LinkHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/PlatformDefaults.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/ResizeConstraint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/UnitConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/layout/UnitValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/swing/MigLayout.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/swing/SwingComponentWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/include/net/miginfocom/swing/SwingContainerWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/themeengine/themes.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,47 +979,58 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2LIDTdTvPbi7EyXHDteA1EdfEdq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2LR7qlbUFURpt0TIqyUUywx6gSr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/holde/MARS-UCA",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
+    "last_opened_file_path": "C:/Users/holde/MARS-UCA/pom.xml",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Mars" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../Program Files/Java/jdk1.8.0_202" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="Mars" />
+    <configuration default="true" type="JetRunConfigurationType">
       <module name="MARS-UCA" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Mars" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="MARS-UCA" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fa206ccc-bc86-42cf-b614-044f9fcf9385" name="Changes" comment="" />
-      <created>1675549712205</created>
+      <changelist id="69b0baac-0503-4ff1-a9d6-cb1e0a0075f8" name="Changes" comment="" />
+      <created>1675822234100</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1675549712205</updated>
+      <updated>1675822234100</updated>
     </task>
     <servers />
   </component>
@@ -79,9 +1044,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
