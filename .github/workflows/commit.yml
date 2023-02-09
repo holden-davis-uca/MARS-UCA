@@ -68,15 +68,22 @@ jobs:
           mvn -B validate --file pom.xml
           mvn -B compile --file pom.xml
           mvn -B package --file pom.xml
-      - name: Remove old jars, add new jar, commit, and push
-        run: |
-          rm *.jar
-          cp target/*.jar .
-          mv *.jar MARS-UCA.jar
-          git add .
-          git config --global user.email "hdavis13@cub.uca.edu"
-          git config --global user.name "holden-davis-uca"
-          git commit -m "AUTO: Committing jar"
-          git push
+      - name: Git Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
-          token: ${{ secrets.PAT }}
+          commit_message: "AUTO: Added latest MARS-UCA.jar"
+          commit_user_name: holden-davis-uca
+          commit_user_email: hdavis13@cub.uca.edu
+    
+#       - name: Remove old jars, add new jar, commit, and push
+#         run: |
+#           rm *.jar
+#           cp target/*.jar .
+#           mv *.jar MARS-UCA.jar
+#           git add .
+#           git config --global user.email "hdavis13@cub.uca.edu"
+#           git config --global user.name "holden-davis-uca"
+#           git commit -m "AUTO: Committing jar"
+#           git push
+#         with:
+#           token: ${{ secrets.PAT }}
