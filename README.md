@@ -1,4 +1,4 @@
-# MARS-UCA - v1.6
+# MARS-UCA - v1.6 - [Download](https://raw.githubusercontent.com/holden-davis-uca/MARS-UCA/main/MARS-UCA.jar)
 ![image](https://user-images.githubusercontent.com/59069546/217703453-f62f54df-b256-47b3-b661-c08ccd80de5c.png)
 
 ## About
