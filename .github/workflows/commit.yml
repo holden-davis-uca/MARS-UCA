@@ -1,7 +1,6 @@
 # Should occur every push to main and every pull request to main
 name: Test Java Versions and Upload Jar
 on:
-  workflow_dispatch
   push:
     branches:
       - main
