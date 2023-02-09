@@ -68,6 +68,11 @@ jobs:
           mvn -B validate --file pom.xml
           mvn -B compile --file pom.xml
           mvn -B package --file pom.xml
+      - name: Remove old jar and add new one to repo root
+        run: |
+          rm *.jar
+          cp target/*.jar .
+          mv *.jar MARS-UCA.jar
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
