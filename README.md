@@ -1,4 +1,5 @@
 # MARS-UCA - v1.6
+![image](https://user-images.githubusercontent.com/59069546/217703453-f62f54df-b256-47b3-b661-c08ccd80de5c.png)
 
 ## About
 Modification of the [MARS](https://courses.missouristate.edu/kenvollmar/mars/) program originally written by Kenneth Vollmar and Pete Sanderson at Missouri State University.
