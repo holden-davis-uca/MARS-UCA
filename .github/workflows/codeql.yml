@@ -1,0 +1,33 @@
+# Should occur on commit by bot, denoted by AUTO in commit message
+name: CodeQL
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"] 
+jobs:
+  analyze:
+    if: "contains(github.event.head_commit.message, 'AUTO')"
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["java"]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:${{matrix.language}}"

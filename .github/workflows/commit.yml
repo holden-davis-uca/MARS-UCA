@@ -7,6 +7,8 @@ on:
     branches: ["main"]
 jobs:
   build:
+    if: "!contains(github.event.head_commit.message, 'AUTO')"
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -76,27 +78,5 @@ jobs:
           git config --global user.name "holden-davis-uca"
           git commit -m "AUTO: Committing jar"
           git push
-  analyze:
-    name: Analyze
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-    strategy:
-      fail-fast: false
-      matrix:
-        language: ["java"]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
         with:
-          languages: ${{ matrix.language }}
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
-        with:
-          category: "/language:${{matrix.language}}"
+          token: ${{ secrets.PAT }}
