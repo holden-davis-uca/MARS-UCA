@@ -1,9 +1,15 @@
-# Should go down every push
-
-name: testing multiple builds
-on: workflow_dispatch
+# Should occur every push to main and every pull request to main
+name: Test Java Versions and Upload Jar
+on:
+  workflow_dispatch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -51,3 +57,24 @@ jobs:
           mvn -B validate --file pom.xml
           mvn -B compile --file pom.xml
           mvn -B package --file pom.xml
+      - name: Java Deployment JDK Setup
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{vars.JAVA_NUM}}
+          distribution: ${{vars.JAVA_TYPE}}
+          cache: maven
+      - name: Java Deployment JDK Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Remove old jars, add new jar, commit, and push
+        run: |
+          rm *.jar
+          cp target/*.jar .
+          git add .
+          git config --global user.email "hdavis13@cub.uca.edu"
+          git config --global user.name "holden-davis-uca"
+          git commit -m "AUTO: Committing jar"
+          git push
