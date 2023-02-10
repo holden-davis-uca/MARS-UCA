@@ -55,7 +55,7 @@ public class BHTEntry {
 	 * taken or not. The value at index n-1 represents the most recent branch
 	 * outcome.
 	 */
-	private final boolean m_history[];
+	private final boolean[] m_history;
 
 	/** the current prediction */
 	private boolean m_prediction;
@@ -115,7 +115,10 @@ public class BHTEntry {
 			boolean changePrediction = true;
 
 			for (int i = 0; i < m_history.length; i++) {
-				if (m_history[i] != branchTaken) { changePrediction = false; }
+				if (m_history[i] != branchTaken) {
+					changePrediction = false;
+					break;
+				}
 			}
 
 			if (changePrediction) { m_prediction = !m_prediction; }

@@ -64,9 +64,9 @@ public class SyscallInputDialogString extends AbstractSyscall {
 		//       -2: Cancel was chosen
 		//       -3: OK was chosen but no data had been input into field
 
-		String message = new String(); // = "";
+		String message = ""; // = "";
 		int byteAddress = RegisterFile.getValue(4); // byteAddress of string is in $a0
-		final char ch[] = { ' ' }; // Need an array to convert to String
+		final char[] ch = { ' ' }; // Need an array to convert to String
 		try {
 			ch[0] = (char) Globals.memory.getByte(byteAddress);
 			while (ch[0] != 0) // only uses single location ch[0]

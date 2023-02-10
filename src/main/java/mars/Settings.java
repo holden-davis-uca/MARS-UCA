@@ -58,7 +58,7 @@ import mars.venus.editors.jeditsyntax.tokenmarker.Token;
 public class Settings extends Observable {
 
 	/* Properties file used to hold default settings. */
-	private static String settingsFile = "Settings";
+	private static final String settingsFile = "Settings";
 	/////////////////////////////  PROPERTY ARRAY INDEXES /////////////////////////////
 	// Because MARS is programmed to Java 1.4, we cannot use an enumerated type.
 
@@ -160,7 +160,7 @@ public class Settings extends Observable {
 	public static final int SELF_MODIFYING_CODE_ENABLED = 20;
 
 	// NOTE: key sequence must match up with labels above which are used for array indexes!
-	private static String[] booleanSettingsKeys = { "ExtendedAssembler", "BareMachine", "AssembleOnOpen", "AssembleAll", "LabelWindowVisibility", "DisplayAddressesInHex", "DisplayValuesInHex", "LoadExceptionHandler", "DelayedBranching", "EditorLineNumbersDisplayed", "WarningsAreErrors", "ProgramArguments", "DataSegmentHighlighting", "RegistersHighlighting", "StartAtMain", "EditorCurrentLineHighlighting", "PopupInstructionGuidance", "PopupSyscallInput", "GenericTextEditor", "AutoIndent", "SelfModifyingCode" };
+	private static final String[] booleanSettingsKeys = { "ExtendedAssembler", "BareMachine", "AssembleOnOpen", "AssembleAll", "LabelWindowVisibility", "DisplayAddressesInHex", "DisplayValuesInHex", "LoadExceptionHandler", "DelayedBranching", "EditorLineNumbersDisplayed", "WarningsAreErrors", "ProgramArguments", "DataSegmentHighlighting", "RegistersHighlighting", "StartAtMain", "EditorCurrentLineHighlighting", "PopupInstructionGuidance", "PopupSyscallInput", "GenericTextEditor", "AutoIndent", "SelfModifyingCode" };
 
 	/**
 	 * Last resort default values for boolean settings; will use only if neither the
@@ -197,7 +197,7 @@ public class Settings extends Observable {
 	 * Preferences nor the properties file work. If you wish to change, do so before
 	 * instantiating the Settings object. Must match key by list position.
 	 */
-	private static String[] defaultStringSettingsValues = { "", "0 1 2 3 4", "0", "", "500", "8", "2" };
+	private static final String[] defaultStringSettingsValues = { "", "0 1 2 3 4", "0", "", "500", "8", "2" };
 
 	// FONT SETTINGS.  Each array position has associated name.
 	/** Font for the text editor */
@@ -266,7 +266,7 @@ public class Settings extends Observable {
 	 * Preferences nor the properties file work. If you wish to change, do so before
 	 * instantiating the Settings object. Must match key by list position.
 	 */
-	private static String[] defaultColorSettingsValues = { "0x00e0e0e0", "0", "0x00ffffff", "0", "0x00ffff99", "0", "0x0033ff00", "0", "0x0099ccff", "0", "0x0099cc55", "0" };
+	private static final String[] defaultColorSettingsValues = { "0x00e0e0e0", "0", "0x00ffffff", "0", "0x00ffff99", "0", "0x0033ff00", "0", "0x0099ccff", "0", "0x0099cc55", "0" };
 
 	private final boolean[] booleanSettingsValues;
 	private final String[] stringSettingsValues;
@@ -400,7 +400,7 @@ public class Settings extends Observable {
 	// to be created!  It is possible but a real pain in the rear to avoid using
 	// Color objects totally.  Requires new methods for the SyntaxUtilities class.
 	private void initializeEditorSyntaxStyles() {
-		final SyntaxStyle syntaxStyle[] = SyntaxUtilities.getDefaultSyntaxStyles();
+		final SyntaxStyle[] syntaxStyle = SyntaxUtilities.getDefaultSyntaxStyles();
 		final int tokens = syntaxStyle.length;
 		syntaxStyleColorSettingsKeys = new String[tokens];
 		syntaxStyleBoldSettingsKeys = new String[tokens];
@@ -1149,9 +1149,9 @@ public class Settings extends Observable {
 	 */
 
 	public void setTextColumnOrder(final int[] columnOrder) {
-		String stringifiedOrder = new String();
+		String stringifiedOrder = "";
 		for (int i = 0; i < columnOrder.length; i++) {
-			stringifiedOrder += Integer.toString(columnOrder[i])
+			stringifiedOrder += columnOrder[i]
 				+ " ";
 		}
 		setStringSetting(TEXT_COLUMN_ORDER, stringifiedOrder);
@@ -1216,20 +1216,14 @@ public class Settings extends Observable {
 
 	// Default values.  Will be replaced if available from property file or Preferences object.
 	private void applyDefaultSettings() {
-		for (int i = 0; i < booleanSettingsValues.length; i++) {
-			booleanSettingsValues[i] = defaultBooleanSettingsValues[i];
-		}
-		for (int i = 0; i < stringSettingsValues.length; i++) {
-			stringSettingsValues[i] = defaultStringSettingsValues[i];
-		}
+		System.arraycopy(defaultBooleanSettingsValues, 0, booleanSettingsValues, 0, booleanSettingsValues.length);
+		System.arraycopy(defaultStringSettingsValues, 0, stringSettingsValues, 0, stringSettingsValues.length);
 		for (int i = 0; i < fontFamilySettingsValues.length; i++) {
 			fontFamilySettingsValues[i] = defaultFontFamilySettingsValues[i];
 			fontStyleSettingsValues[i] = defaultFontStyleSettingsValues[i];
 			fontSizeSettingsValues[i] = defaultFontSizeSettingsValues[i];
 		}
-		for (int i = 0; i < colorSettingsValues.length; i++) {
-			colorSettingsValues[i] = defaultColorSettingsValues[i];
-		}
+		System.arraycopy(defaultColorSettingsValues, 0, colorSettingsValues, 0, colorSettingsValues.length);
 		initializeEditorSyntaxStyles();
 	}
 

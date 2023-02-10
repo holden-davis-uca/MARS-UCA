@@ -58,9 +58,9 @@ public class SyscallMessageDialogInt extends AbstractSyscall {
 		//   $a1 = int value to display in string form after the first message
 		// Output: none
 
-		String message = new String(); // = "";
+		String message = ""; // = "";
 		int byteAddress = RegisterFile.getValue(4);
-		final char ch[] = { ' ' }; // Need an array to convert to String
+		final char[] ch = { ' ' }; // Need an array to convert to String
 		try {
 			ch[0] = (char) Globals.memory.getByte(byteAddress);
 			while (ch[0] != 0) // only uses single location ch[0]
@@ -74,7 +74,7 @@ public class SyscallMessageDialogInt extends AbstractSyscall {
 		}
 
 		// Display the dialog.
-		JOptionPane.showMessageDialog(null, message + Integer.toString(RegisterFile.getValue(5)), null,
+		JOptionPane.showMessageDialog(null, message + RegisterFile.getValue(5), null,
 				JOptionPane.INFORMATION_MESSAGE);
 
 	}

@@ -87,7 +87,7 @@ class ToneGenerator {
 	 */
 	public final static byte DEFAULT_VOLUME = 100;
 
-	private static Executor threadPool = Executors.newCachedThreadPool();
+	private static final Executor threadPool = Executors.newCachedThreadPool();
 
 	/**
 	 * Produces a Tone with the specified pitch, duration, and instrument, and
@@ -201,7 +201,7 @@ class Tone implements Runnable {
 	* cause other, less severe, problems), so that case should be
 	* double covered. */
 
-	private static Lock openLock = new ReentrantLock();
+	private static final Lock openLock = new ReentrantLock();
 
 	private void playTone() {
 

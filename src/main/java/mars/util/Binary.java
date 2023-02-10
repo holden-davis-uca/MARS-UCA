@@ -40,7 +40,7 @@ import mars.Globals;
 public class Binary {
 
 	// Using int value 0-15 as index, yields equivalent hex digit as char.
-	private static char[] chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+	private static final char[] chars = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 	// Use this to produce String equivalent of unsigned int value (add it to int value, result is long)
 	private static final long UNSIGNED_BASE = (long) 0x7FFFFFFF + (long) 0x7FFFFFFF + 2; //0xFFFFFFFF+1
 
@@ -283,8 +283,8 @@ public class Binary {
 	 *         of int.
 	 */
 	public static String intToHexString(final int d) {
-		final String leadingZero = new String("0");
-		final String leadingX = new String("0x");
+		final String leadingZero = "0";
+		final String leadingX = "0x";
 		String t = Integer.toHexString(d);
 		while (t.length() < 8) {
 			t = leadingZero.concat(t);
@@ -306,10 +306,10 @@ public class Binary {
 	 *         of int.
 	 */
 	public static String intToHalfHexString(final int d) {
-		final String leadingZero = new String("0");
-		final String leadingX = new String("0x");
+		final String leadingZero = "0";
+		final String leadingX = "0x";
 		String t = Integer.toHexString(d);
-		if (t.length() > 4) { t = t.substring(t.length() - 4, t.length()); }
+		if (t.length() > 4) { t = t.substring(t.length() - 4); }
 		while (t.length() < 4) {
 			t = leadingZero.concat(t);
 		}
@@ -374,7 +374,7 @@ public class Binary {
 	 */
 
 	public static int stringToInt(final String s) throws NumberFormatException {
-		String work = new String(s);
+		String work = s;
 		int result = 0;
 		// First, use Integer.decode().  This will validate most, but it flags
 		// valid hex two's complement values as exceptions.  We'll catch those and
@@ -437,7 +437,7 @@ public class Binary {
 	 */
 
 	public static long stringToLong(final String s) throws NumberFormatException {
-		String work = new String(s);
+		String work = s;
 		long result = 0;
 		// First, use Long.decode().  This will validate most, but it flags
 		// valid hex two's complement values as exceptions.  We'll catch those and

@@ -464,7 +464,7 @@ public class FlatInspector
 		if( c == null )
 			return "null";
 
-		String s = Long.toString( c.getRGB() & 0xffffffffl, 16 );
+		String s = Long.toString( c.getRGB() & 0xffffffffL, 16 );
 		if( c instanceof UIResource )
 			s += " UI";
 		return s;

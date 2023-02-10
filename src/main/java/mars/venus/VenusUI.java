@@ -283,7 +283,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "New22.png"))),
 					"Create a new file for editing",
-					new Integer(KeyEvent.VK_N),
+					Integer.valueOf(KeyEvent.VK_N),
 					KeyStroke.getKeyStroke(KeyEvent.VK_N, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			fileOpenAction = new FileOpenAction(
@@ -294,21 +294,21 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Open22.png"))),
 					"Open a file for editing",
-					new Integer(KeyEvent.VK_O),
+					Integer.valueOf(KeyEvent.VK_O),
 					KeyStroke.getKeyStroke(KeyEvent.VK_O, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			fileCloseAction = new FileCloseAction(
 					"Close",
 					null,
 					"Close the current file",
-					new Integer(KeyEvent.VK_C),
+					Integer.valueOf(KeyEvent.VK_C),
 					KeyStroke.getKeyStroke(KeyEvent.VK_W, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			fileCloseAllAction = new FileCloseAllAction(
 					"Close All",
 					null,
 					"Close all open files",
-					new Integer(KeyEvent.VK_L),
+					Integer.valueOf(KeyEvent.VK_L),
 					null,
 					mainUI);
 			fileSaveAction = new FileSaveAction(
@@ -319,7 +319,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Save22.png"))),
 					"Save the current file",
-					new Integer(KeyEvent.VK_S),
+					Integer.valueOf(KeyEvent.VK_S),
 					KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			fileSaveAsAction = new FileSaveAsAction(
@@ -330,14 +330,14 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "SaveAs22.png"))),
 					"Save current file with different name",
-					new Integer(KeyEvent.VK_A),
+					Integer.valueOf(KeyEvent.VK_A),
 					null,
 					mainUI);
 			fileSaveAllAction = new FileSaveAllAction(
 					"Save All",
 					null,
 					"Save all open files",
-					new Integer(KeyEvent.VK_V),
+					Integer.valueOf(KeyEvent.VK_V),
 					null,
 					mainUI);
 			fileDumpMemoryAction = new FileDumpMemoryAction(
@@ -348,7 +348,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Dump22.png"))),
 					"Dump machine code or data in an available format",
-					new Integer(KeyEvent.VK_D),
+					Integer.valueOf(KeyEvent.VK_D),
 					KeyStroke.getKeyStroke(KeyEvent.VK_D, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			filePrintAction = new FilePrintAction(
@@ -359,10 +359,10 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Print22.gif"))),
 					"Print current file",
-					new Integer(KeyEvent.VK_P),
+					Integer.valueOf(KeyEvent.VK_P),
 					null,
 					mainUI);
-			fileExitAction = new FileExitAction("Exit", null, "Exit Mars", new Integer(KeyEvent.VK_X), null, mainUI);
+			fileExitAction = new FileExitAction("Exit", null, "Exit Mars", Integer.valueOf(KeyEvent.VK_X), null, mainUI);
 			editUndoAction = new EditUndoAction(
 					"Undo",
 					new ImageIcon(
@@ -371,7 +371,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Undo22.png"))),
 					"Undo last edit",
-					new Integer(KeyEvent.VK_U),
+					Integer.valueOf(KeyEvent.VK_U),
 					KeyStroke.getKeyStroke(KeyEvent.VK_Z, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			editRedoAction = new EditRedoAction(
@@ -382,7 +382,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Redo22.png"))),
 					"Redo last edit",
-					new Integer(KeyEvent.VK_R),
+					Integer.valueOf(KeyEvent.VK_R),
 					KeyStroke.getKeyStroke(KeyEvent.VK_Y, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			editCutAction = new EditCutAction(
@@ -393,7 +393,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Cut22.gif"))),
 					"Cut",
-					new Integer(KeyEvent.VK_C),
+					Integer.valueOf(KeyEvent.VK_C),
 					KeyStroke.getKeyStroke(KeyEvent.VK_X, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			editCopyAction = new EditCopyAction(
@@ -404,7 +404,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Copy22.png"))),
 					"Copy",
-					new Integer(KeyEvent.VK_O),
+					Integer.valueOf(KeyEvent.VK_O),
 					KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			editPasteAction = new EditPasteAction(
@@ -415,7 +415,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Paste22.png"))),
 					"Paste",
-					new Integer(KeyEvent.VK_P),
+					Integer.valueOf(KeyEvent.VK_P),
 					KeyStroke.getKeyStroke(KeyEvent.VK_V, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			editFindReplaceAction = new EditFindReplaceAction(
@@ -426,14 +426,14 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Find22.png"))),
 					"Find/Replace",
-					new Integer(KeyEvent.VK_F),
+					Integer.valueOf(KeyEvent.VK_F),
 					KeyStroke.getKeyStroke(KeyEvent.VK_F, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			editSelectAllAction = new EditSelectAllAction(
 					"Select All",
 					null, //new ImageIcon(tk.getImage(cs.getResource(Globals.imagesPath+"Find22.png"))),
 					"Select All",
-					new Integer(KeyEvent.VK_A),
+					Integer.valueOf(KeyEvent.VK_A),
 					KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			runAssembleAction = new RunAssembleAction(
@@ -444,7 +444,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Assemble22.png"))),
 					"Assemble the current file and clear breakpoints",
-					new Integer(KeyEvent.VK_A),
+					Integer.valueOf(KeyEvent.VK_A),
 					KeyStroke.getKeyStroke(KeyEvent.VK_F3, 0),
 					mainUI);
 			runGoAction = new RunGoAction(
@@ -455,7 +455,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Play22.png"))),
 					"Run the current program",
-					new Integer(KeyEvent.VK_G),
+					Integer.valueOf(KeyEvent.VK_G),
 					KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0),
 					mainUI);
 			runStepAction = new RunStepAction(
@@ -466,7 +466,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "StepForward22.png"))),
 					"Run one step at a time",
-					new Integer(KeyEvent.VK_T),
+					Integer.valueOf(KeyEvent.VK_T),
 					KeyStroke.getKeyStroke(KeyEvent.VK_F7, 0),
 					mainUI);
 			runBackstepAction = new RunBackstepAction(
@@ -477,7 +477,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "StepBack22.png"))),
 					"Undo the last step",
-					new Integer(KeyEvent.VK_B),
+					Integer.valueOf(KeyEvent.VK_B),
 					KeyStroke.getKeyStroke(KeyEvent.VK_F8, 0),
 					mainUI);
 			runPauseAction = new RunPauseAction(
@@ -488,7 +488,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Pause22.png"))),
 					"Pause the currently running program",
-					new Integer(KeyEvent.VK_P),
+					Integer.valueOf(KeyEvent.VK_P),
 					KeyStroke.getKeyStroke(KeyEvent.VK_F9, 0),
 					mainUI);
 			runStopAction = new RunStopAction(
@@ -499,7 +499,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Stop22.png"))),
 					"Stop the currently running program",
-					new Integer(KeyEvent.VK_S),
+					Integer.valueOf(KeyEvent.VK_S),
 					KeyStroke.getKeyStroke(KeyEvent.VK_F11, 0),
 					mainUI);
 			runResetAction = new RunResetAction(
@@ -510,21 +510,21 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Reset22.png"))),
 					"Reset MIPS memory and registers",
-					new Integer(KeyEvent.VK_R),
+					Integer.valueOf(KeyEvent.VK_R),
 					KeyStroke.getKeyStroke(KeyEvent.VK_F12, 0),
 					mainUI);
 			runClearBreakpointsAction = new RunClearBreakpointsAction(
 					"Clear all breakpoints",
 					null,
 					"Clears all execution breakpoints set since the last assemble.",
-					new Integer(KeyEvent.VK_K),
+					Integer.valueOf(KeyEvent.VK_K),
 					KeyStroke.getKeyStroke(KeyEvent.VK_K, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			runToggleBreakpointsAction = new RunToggleBreakpointsAction(
 					"Toggle all breakpoints",
 					null,
 					"Disable/enable all breakpoints without clearing (can also click Bkpt column header)",
-					new Integer(KeyEvent.VK_T),
+					Integer.valueOf(KeyEvent.VK_T),
 					KeyStroke.getKeyStroke(KeyEvent.VK_T, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
 					mainUI);
 			settingsLabelAction = new SettingsLabelAction(
@@ -655,7 +655,7 @@ public class VenusUI extends JFrame {
 									Globals.imagesPath
 										+ "Help22.png"))),
 					"Help",
-					new Integer(KeyEvent.VK_H),
+					Integer.valueOf(KeyEvent.VK_H),
 					KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0),
 					mainUI);
 			helpAboutAction = new HelpAboutAction("About ...", null, "Information about Mars", null, null, mainUI);
@@ -1302,7 +1302,7 @@ public class VenusUI extends JFrame {
 		runGoAction.setEnabled(true);
 		runStepAction.setEnabled(true);
 		runBackstepAction.setEnabled(
-			Globals.getSettings().getBackSteppingEnabled() && !Globals.program.getBackStepper().empty() ? true : false);
+				Globals.getSettings().getBackSteppingEnabled() && !Globals.program.getBackStepper().empty());
 		runResetAction.setEnabled(true);
 		runStopAction.setEnabled(false);
 		runPauseAction.setEnabled(false);
@@ -1373,7 +1373,7 @@ public class VenusUI extends JFrame {
 		runGoAction.setEnabled(false);
 		runStepAction.setEnabled(false);
 		runBackstepAction.setEnabled(
-			Globals.getSettings().getBackSteppingEnabled() && !Globals.program.getBackStepper().empty() ? true : false);
+				Globals.getSettings().getBackSteppingEnabled() && !Globals.program.getBackStepper().empty());
 		runResetAction.setEnabled(true);
 		runStopAction.setEnabled(false);
 		runPauseAction.setEnabled(false);

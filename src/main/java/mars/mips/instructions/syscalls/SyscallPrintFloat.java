@@ -51,6 +51,6 @@ public class SyscallPrintFloat extends AbstractSyscall {
 	 */
 	@Override
 	public void simulate(final ProgramStatement statement) throws ProcessingException {
-		SystemIO.printString(new Float(Float.intBitsToFloat(Coprocessor1.getValue(12))).toString());
+		SystemIO.printString(Float.toString(Float.intBitsToFloat(Coprocessor1.getValue(12))));
 	}
 }

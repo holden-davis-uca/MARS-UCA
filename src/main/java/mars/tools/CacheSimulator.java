@@ -79,8 +79,8 @@ public class CacheSimulator extends AbstractMarsToolAndApplication {
 	 */
 	private static final long serialVersionUID = -967183514374424213L;
 	private static boolean debug = false; // controls display of debugging info
-	private static String version = "Version 1.2";
-	private static String heading = "Simulate and illustrate data cache performance";
+	private static final String version = "Version 1.2";
+	private static final String heading = "Simulate and illustrate data cache performance";
 	// Major GUI components
 	private JComboBox cacheBlockSizeSelector, cacheBlockCountSelector, cachePlacementSelector, cacheReplacementSelector,
 			cacheSetSizeSelector;
@@ -528,9 +528,7 @@ public class CacheSimulator extends AbstractMarsToolAndApplication {
 			break;
 		case SET:
 			choices = new String[lastBlockCountIndex - firstBlockCountIndex + 1];
-			for (int i = 0; i < choices.length; i++) {
-				choices[i] = cacheBlockCountChoices[firstBlockCountIndex + i];
-			}
+			System.arraycopy(cacheBlockCountChoices, 0, choices, 0, choices.length);
 			break;
 		case FULL:   // 1 set total, so set size fixed at current number of blocks
 		default:
@@ -567,15 +565,15 @@ public class CacheSimulator extends AbstractMarsToolAndApplication {
 	}
 
 	private void updateMemoryAccessCountDisplay() {
-		memoryAccessCountDisplay.setText(new Integer(memoryAccessCount).toString());
+		memoryAccessCountDisplay.setText(Integer.valueOf(memoryAccessCount).toString());
 	}
 
 	private void updateCacheHitCountDisplay() {
-		cacheHitCountDisplay.setText(new Integer(cacheHitCount).toString());
+		cacheHitCountDisplay.setText(Integer.valueOf(cacheHitCount).toString());
 	}
 
 	private void updateCacheMissCountDisplay() {
-		cacheMissCountDisplay.setText(new Integer(cacheMissCount).toString());
+		cacheMissCountDisplay.setText(Integer.valueOf(cacheMissCount).toString());
 	}
 
 	private void updateCacheHitRateDisplay() {

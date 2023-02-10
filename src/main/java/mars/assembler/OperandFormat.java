@@ -59,8 +59,7 @@ public class OperandFormat {
 
 	static boolean tokenOperandMatch(final TokenList candidateList, final Instruction inst, final ErrorList errors) {
 		if (!numOperandsCheck(candidateList, inst, errors)) { return false; }
-		if (!operandTypeCheck(candidateList, inst, errors)) { return false; }
-		return true;
+		return operandTypeCheck(candidateList, inst, errors);
 	}
 
 	/*
@@ -182,7 +181,6 @@ public class OperandFormat {
 	private static void generateMessage(final Token token, final String mess, final ErrorList errors) {
 		errors.add(new ErrorMessage(token.getSourceMIPSprogram(), token.getSourceLine(), token.getStartPos(), "\""
 				+ token.getValue() + "\": " + mess));
-		return;
 	}
 
 }

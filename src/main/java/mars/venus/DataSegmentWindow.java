@@ -925,11 +925,7 @@ public class DataSegmentWindow extends JInternalFrame implements Observer {
 		public boolean isCellEditable(final int row, final int col) {
 			//Note that the data/cell address is constant,
 			//no matter where the cell appears onscreen.
-			if (col != ADDRESS_COLUMN && !asciiDisplay) {
-				return true;
-			} else {
-				return false;
-			}
+			return col != ADDRESS_COLUMN && !asciiDisplay;
 		}
 
 		/*
@@ -980,7 +976,6 @@ public class DataSegmentWindow extends JInternalFrame implements Observer {
 			final int valueBase = Globals.getGui().getMainPane().getExecutePane().getValueDisplayBase();
 			data[row][col] = NumberDisplayBaseChooser.formatNumber(val, valueBase);
 			fireTableCellUpdated(row, col);
-			return;
 		}
 
 		/*

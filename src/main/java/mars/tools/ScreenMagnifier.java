@@ -393,8 +393,8 @@ class SettingsDialog extends JDialog {
 	JButton applyButton, cancelButton;
 	JCheckBox captureResizeCheckBox, captureMoveCheckBox, captureRescaleCheckBox;
 	JRadioButton captureDisplayCenteredButton, captureDisplayUpperleftButton;
-	Integer[] scribblerLineWidthSettings = { new Integer(1), new Integer(2), new Integer(3), new Integer(4),
-			new Integer(5), new Integer(6), new Integer(7), new Integer(8) };
+	Integer[] scribblerLineWidthSettings = {Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3), Integer.valueOf(4),
+			Integer.valueOf(5), Integer.valueOf(6), Integer.valueOf(7), Integer.valueOf(8)};
 	JComboBox lineWidthSetting;
 	JButton lineColorSetting;
 	JCheckBox dialogCentered; // Whether or not dialog appears centered over the magnfier frame.

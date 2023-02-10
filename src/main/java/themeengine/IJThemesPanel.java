@@ -324,7 +324,6 @@ public class IJThemesPanel extends JPanel {
 						StandardCopyOption.REPLACE_EXISTING);
 			} catch (final IOException ex) {
 				showInformationDialog("Failed to save theme license to '" + file + "'.", ex);
-				return;
 			}
 		}
 	}

@@ -78,11 +78,11 @@ public class BHTableModel extends AbstractTableModel {
 	private int m_historySize;
 
 	/** name of the table columns */
-	private final String m_columnNames[] = { "Index", "History", "Prediction", "Correct", "Incorrect", "Precision" };
+	private final String[] m_columnNames = { "Index", "History", "Prediction", "Correct", "Incorrect", "Precision" };
 
 	/** type of the table columns */
 	//@SuppressWarnings("unchecked")
-	private final Class m_columnClasses[] = { Integer.class, String.class, String.class, Integer.class, Integer.class,
+	private final Class[] m_columnClasses = { Integer.class, String.class, String.class, Integer.class, Integer.class,
 			Double.class };
 
 	/**
@@ -160,11 +160,11 @@ public class BHTableModel extends AbstractTableModel {
 		final BHTEntry e = (BHTEntry) m_entries.elementAt(row);
 		if (e == null) { return ""; }
 
-		if (col == 0) { return new Integer(row); }
+		if (col == 0) { return Integer.valueOf(row); }
 		if (col == 1) { return e.getHistoryAsStr(); }
 		if (col == 2) { return e.getPredictionAsStr(); }
-		if (col == 3) { return new Integer(e.getStatsPredCorrect()); }
-		if (col == 4) { return new Integer(e.getStatsPredIncorrect()); }
+		if (col == 3) { return Integer.valueOf(e.getStatsPredCorrect()); }
+		if (col == 4) { return Integer.valueOf(e.getStatsPredIncorrect()); }
 		if (col == 5) { return new Double(e.getStatsPredPrecision()); }
 
 		return "";

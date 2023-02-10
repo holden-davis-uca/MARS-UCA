@@ -232,9 +232,7 @@ public class FlatTableHeaderUI
 
 	private boolean isVerticalScrollBarVisible() {
 		JScrollPane scrollPane = getScrollPane();
-		return (scrollPane != null && scrollPane.getVerticalScrollBar() != null)
-			? scrollPane.getVerticalScrollBar().isVisible()
-			: false;
+		return scrollPane != null && scrollPane.getVerticalScrollBar() != null && scrollPane.getVerticalScrollBar().isVisible();
 	}
 
 	private JScrollPane getScrollPane() {
@@ -319,7 +317,7 @@ public class FlatTableHeaderUI
 
 		@Override
 		public boolean isBorderOpaque() {
-			return (origBorder != null) ? origBorder.isBorderOpaque() : false;
+			return origBorder != null && origBorder.isBorderOpaque();
 		}
 	}
 }

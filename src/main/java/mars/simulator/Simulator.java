@@ -306,7 +306,7 @@ public class Simulator extends Observable {
 				done = true;
 				SystemIO.resetFiles(); // close any files opened in MIPS program
 				Simulator.getInstance().notifyObserversOfExecutionStop(maxSteps, pc);
-				return new Boolean(done);
+				return Boolean.valueOf(done);
 			}
 			int steps = 0;
 
@@ -374,7 +374,7 @@ public class Simulator extends Observable {
 							done = true;
 							SystemIO.resetFiles(); // close any files opened in MIPS program
 							Simulator.getInstance().notifyObserversOfExecutionStop(maxSteps, pc);
-							return new Boolean(done); // execution completed without error.
+							return Boolean.valueOf(done); // execution completed without error.
 						} else {
 							// See if an exception handler is present.  Assume this is the case
 							// if and only if memory location Memory.exceptionHandlerAddress
@@ -393,7 +393,7 @@ public class Simulator extends Observable {
 								done = true;
 								SystemIO.resetFiles(); // close any files opened in MIPS program
 								Simulator.getInstance().notifyObserversOfExecutionStop(maxSteps, pc);
-								return new Boolean(done);
+								return Boolean.valueOf(done);
 							}
 						}
 					}
@@ -407,18 +407,18 @@ public class Simulator extends Observable {
 
 				// Volatile variable initialized false but can be set true by the main thread.
 				// Used to stop or pause a running MIPS program.  See stopSimulation() above.
-				if (stop == true) {
+				if (stop) {
 					constructReturnReason = PAUSE_OR_STOP;
 					done = false;
 					Simulator.getInstance().notifyObserversOfExecutionStop(maxSteps, pc);
-					return new Boolean(done);
+					return Boolean.valueOf(done);
 				}
 				//	Return if we've reached a breakpoint.
 				if (breakPoints != null && Arrays.binarySearch(breakPoints, RegisterFile.getProgramCounter()) >= 0) {
 					constructReturnReason = BREAKPOINT;
 					done = false;
 					Simulator.getInstance().notifyObserversOfExecutionStop(maxSteps, pc);
-					return new Boolean(done); // false;
+					return Boolean.valueOf(done); // false;
 				}
 				// Check number of MIPS instructions executed.  Return if at limit (-1 is no limit).
 				if (maxSteps > 0) {
@@ -427,7 +427,7 @@ public class Simulator extends Observable {
 						constructReturnReason = MAX_STEPS;
 						done = false;
 						Simulator.getInstance().notifyObserversOfExecutionStop(maxSteps, pc);
-						return new Boolean(done);// false;
+						return Boolean.valueOf(done);// false;
 					}
 				}
 
@@ -465,7 +465,7 @@ public class Simulator extends Observable {
 					done = true;
 					SystemIO.resetFiles(); // close any files opened in MIPS program
 					Simulator.getInstance().notifyObserversOfExecutionStop(maxSteps, pc);
-					return new Boolean(done);
+					return Boolean.valueOf(done);
 				}
 			}
 			// DPS July 2007.  This "if" statement is needed for correct program
@@ -480,7 +480,7 @@ public class Simulator extends Observable {
 			done = true;
 			SystemIO.resetFiles(); // close any files opened in MIPS program
 			Simulator.getInstance().notifyObserversOfExecutionStop(maxSteps, pc);
-			return new Boolean(done); // true;  // execution completed
+			return Boolean.valueOf(done); // true;  // execution completed
 		}
 
 		/**
@@ -512,7 +512,6 @@ public class Simulator extends Observable {
 					}
 				}
 			}
-			return;
 		}
 
 	}

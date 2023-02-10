@@ -84,7 +84,7 @@ public final class CC implements Externalizable
 
 	private Float pushX = null, pushY = null;
 
-	private AnimSpec animSpec = AnimSpec.DEF;
+	private final AnimSpec animSpec = AnimSpec.DEF;
 
 
 	// ***** Tmp cache field
@@ -141,7 +141,7 @@ public final class CC implements Externalizable
 	 * @param s A name to associate on the group that should be the same for other rows/columns in the same group.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC endGroupX(String s)
+	public CC endGroupX(String s)
 	{
 		hor.setEndGroup(s);
 		return this;
@@ -154,7 +154,7 @@ public final class CC implements Externalizable
 	 * @param s A name to associate on the group that should be the same for other rows/columns in the same group.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC sizeGroupX(String s)
+	public CC sizeGroupX(String s)
 	{
 		hor.setSizeGroup(s);
 		return this;
@@ -166,7 +166,7 @@ public final class CC implements Externalizable
 	 * @param size The size expressed as a <code>UnitValue</code>. E.g. "100px" or "200mm".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC minWidth(String size)
+	public CC minWidth(String size)
 	{
 		hor.setSize(LayoutUtil.derive(hor.getSize(), ConstraintParser.parseUnitValue(size, true), null, null));
 		return this;
@@ -179,7 +179,7 @@ public final class CC implements Externalizable
 	 * @param size The size expressed as a <code>BoundSize</code>. E.g. "50:100px:200mm" or "100px".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC width(String size)
+	public CC width(String size)
 	{
 		hor.setSize(ConstraintParser.parseBoundSize(size, false, true));
 		return this;
@@ -191,7 +191,7 @@ public final class CC implements Externalizable
 	 * @param size The size expressed as a <code>UnitValue</code>. E.g. "100px" or "200mm".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC maxWidth(String size)
+	public CC maxWidth(String size)
 	{
 		hor.setSize(LayoutUtil.derive(hor.getSize(), null, null, ConstraintParser.parseUnitValue(size, true)));
 		return this;
@@ -205,7 +205,7 @@ public final class CC implements Externalizable
 	 * @param after The size of the gap expressed as a <code>BoundSize</code>. E.g. "50:100px:200mm" or "100px!".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC gapX(String before, String after)
+	public CC gapX(String before, String after)
 	{
 		if (before != null)
 			hor.setGapBefore(ConstraintParser.parseBoundSize(before, true, true));
@@ -223,7 +223,7 @@ public final class CC implements Externalizable
 	 * @param align The align keyword or for instance "100px". E.g "left", "right", "leading" or "trailing".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC alignX(String align)
+	public CC alignX(String align)
 	{
 		hor.setAlign(ConstraintParser.parseUnitValueOrAlign(align, true, null));
 		return this;
@@ -235,7 +235,7 @@ public final class CC implements Externalizable
 	 * @param p The grow priority.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC growPrioX(int p)
+	public CC growPrioX(int p)
 	{
 		hor.setGrowPriority(p);
 		return this;
@@ -248,7 +248,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC growPrio(int ... widthHeight)
+	public CC growPrio(int ... widthHeight)
 	{
 		switch (widthHeight.length) {
 			default:
@@ -267,7 +267,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #growX(float)
 	 */
-	public final CC growX()
+	public CC growX()
 	{
 		hor.setGrow(ResizeConstraint.WEIGHT_100);
 		return this;
@@ -279,7 +279,7 @@ public final class CC implements Externalizable
 	 * @param w The new grow weight.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC growX(float w)
+	public CC growX(float w)
 	{
 		hor.setGrow(new Float(w));
 		return this;
@@ -292,7 +292,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC grow(float ... widthHeight)
+	public CC grow(float ... widthHeight)
 	{
 		switch (widthHeight.length) {
 			default:
@@ -311,7 +311,7 @@ public final class CC implements Externalizable
 	 * @param p The shrink priority.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC shrinkPrioX(int p)
+	public CC shrinkPrioX(int p)
 	{
 		hor.setShrinkPriority(p);
 		return this;
@@ -324,7 +324,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC shrinkPrio(int ... widthHeight)
+	public CC shrinkPrio(int ... widthHeight)
 	{
 		switch (widthHeight.length) {
 			default:
@@ -343,7 +343,7 @@ public final class CC implements Externalizable
 	 * @param w The new shrink weight.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC shrinkX(float w)
+	public CC shrinkX(float w)
 	{
 		hor.setShrink(new Float(w));
 		return this;
@@ -356,7 +356,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC shrink(float ... widthHeight)
+	public CC shrink(float ... widthHeight)
 	{
 		switch (widthHeight.length) {
 			default:
@@ -375,7 +375,7 @@ public final class CC implements Externalizable
 	 * @param s The name of the group. If <code>null</code> that means no group (default)
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC endGroupY(String s)
+	public CC endGroupY(String s)
 	{
 		ver.setEndGroup(s);
 		return this;
@@ -388,7 +388,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC endGroup(String ... xy)
+	public CC endGroup(String ... xy)
 	{
 		switch (xy.length) {
 			default:
@@ -407,7 +407,7 @@ public final class CC implements Externalizable
 	 * @param s The name of the group. If <code>null</code> that means no group (default)
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC sizeGroupY(String s)
+	public CC sizeGroupY(String s)
 	{
 		ver.setSizeGroup(s);
 		return this;
@@ -420,7 +420,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC sizeGroup(String ... xy)
+	public CC sizeGroup(String ... xy)
 	{
 		switch (xy.length) {
 			default:
@@ -439,7 +439,7 @@ public final class CC implements Externalizable
 	 * @param size The size expressed as a <code>UnitValue</code>. E.g. "100px" or "200mm".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC minHeight(String size)
+	public CC minHeight(String size)
 	{
 		ver.setSize(LayoutUtil.derive(ver.getSize(), ConstraintParser.parseUnitValue(size, false), null, null));
 		return this;
@@ -452,7 +452,7 @@ public final class CC implements Externalizable
 	 * @param size The size expressed as a <code>BoundSize</code>. E.g. "50:100px:200mm" or "100px".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC height(String size)
+	public CC height(String size)
 	{
 		ver.setSize(ConstraintParser.parseBoundSize(size, false, false));
 		return this;
@@ -464,7 +464,7 @@ public final class CC implements Externalizable
 	 * @param size The size expressed as a <code>UnitValue</code>. E.g. "100px" or "200mm".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC maxHeight(String size)
+	public CC maxHeight(String size)
 	{
 		ver.setSize(LayoutUtil.derive(ver.getSize(), null, null, ConstraintParser.parseUnitValue(size, false)));
 		return this;
@@ -477,7 +477,7 @@ public final class CC implements Externalizable
 	 * @param after The size of the gap expressed as a <code>BoundSize</code>. E.g. "50:100px:200mm" or "100px!".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC gapY(String before, String after)
+	public CC gapY(String before, String after)
 	{
 		if (before != null)
 			ver.setGapBefore(ConstraintParser.parseBoundSize(before, true, false));
@@ -495,7 +495,7 @@ public final class CC implements Externalizable
 	 * @param align The align keyword or for instance "100px". E.g "top" or "bottom".
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC alignY(String align)
+	public CC alignY(String align)
 	{
 		ver.setAlign(ConstraintParser.parseUnitValueOrAlign(align, false, null));
 		return this;
@@ -507,7 +507,7 @@ public final class CC implements Externalizable
 	 * @param p The grow priority.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC growPrioY(int p)
+	public CC growPrioY(int p)
 	{
 		ver.setGrowPriority(p);
 		return this;
@@ -519,7 +519,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #growY(Float)
 	 */
-	public final CC growY()
+	public CC growY()
 	{
 		ver.setGrow(ResizeConstraint.WEIGHT_100);
 		return this;
@@ -531,7 +531,7 @@ public final class CC implements Externalizable
 	 * @param w The new grow weight.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC growY(float w)
+	public CC growY(float w)
 	{
 		ver.setGrow(w);
 		return this;
@@ -544,7 +544,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
 	@Deprecated
-	public final CC growY(Float w)
+	public CC growY(Float w)
 	{
 		ver.setGrow(w);
 		return this;
@@ -556,7 +556,7 @@ public final class CC implements Externalizable
 	 * @param p The shrink priority.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC shrinkPrioY(int p)
+	public CC shrinkPrioY(int p)
 	{
 		ver.setShrinkPriority(p);
 		return this;
@@ -568,7 +568,7 @@ public final class CC implements Externalizable
 	 * @param w The new shrink weight.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC shrinkY(float w)
+	public CC shrinkY(float w)
 	{
 		ver.setShrink(new Float(w));
 		return this;
@@ -584,7 +584,7 @@ public final class CC implements Externalizable
 	 * 3 == If hidden the component will be disregarded completely and not take up a cell in the grid..
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC hideMode(int mode)
+	public CC hideMode(int mode)
 	{
 		setHideMode(mode);
 		return this;
@@ -597,7 +597,7 @@ public final class CC implements Externalizable
 	 * The dot should never be first or last if present.
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 */
-	public final CC id(String s)
+	public CC id(String s)
 	{
 		setId(s);
 		return this;
@@ -610,7 +610,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @see #setTag(String)
 	 */
-	public final CC tag(String tag)
+	public CC tag(String tag)
 	{
 		setTag(tag);
 		return this;
@@ -629,7 +629,7 @@ public final class CC implements Externalizable
 	 * @see #setSpanY(int)
 	 * @since 3.7.2. Replacing cell(int, int) and cell(int, int, int, int)
 	 */
-	public final CC cell(int ... colRowWidthHeight)
+	public CC cell(int ... colRowWidthHeight)
 	{
 		switch (colRowWidthHeight.length) {
 			default:
@@ -659,7 +659,7 @@ public final class CC implements Externalizable
 	 * @see #spanX()
 	 * @since 3.7.2 Replaces span(int, int).
 	 */
-	public final CC span(int ... cells)
+	public CC span(int ... cells)
 	{
 		if (cells == null || cells.length == 0) {
 			setSpanX(LayoutUtil.INF);
@@ -679,7 +679,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC gap(String ... args)
+	public CC gap(String ... args)
 	{
 		switch (args.length) {
 			default:
@@ -703,7 +703,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC gapBefore(String boundsSize)
+	public CC gapBefore(String boundsSize)
 	{
 		hor.setGapBefore(ConstraintParser.parseBoundSize(boundsSize, true, true));
 		return this;
@@ -716,7 +716,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC gapAfter(String boundsSize)
+	public CC gapAfter(String boundsSize)
 	{
 		hor.setGapAfter(ConstraintParser.parseBoundSize(boundsSize, true, true));
 		return this;
@@ -727,7 +727,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC gapTop(String boundsSize)
+	public CC gapTop(String boundsSize)
 	{
 		ver.setGapBefore(ConstraintParser.parseBoundSize(boundsSize, true, false));
 		return this;
@@ -738,7 +738,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC gapLeft(String boundsSize)
+	public CC gapLeft(String boundsSize)
 	{
 		hor.setGapBefore(ConstraintParser.parseBoundSize(boundsSize, true, true));
 		return this;
@@ -749,7 +749,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC gapBottom(String boundsSize)
+	public CC gapBottom(String boundsSize)
 	{
 		ver.setGapAfter(ConstraintParser.parseBoundSize(boundsSize, true, false));
 		return this;
@@ -760,7 +760,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @since 3.7.2
 	 */
-	public final CC gapRight(String boundsSize)
+	public CC gapRight(String boundsSize)
 	{
 		hor.setGapAfter(ConstraintParser.parseBoundSize(boundsSize, true, true));
 		return this;
@@ -774,7 +774,7 @@ public final class CC implements Externalizable
 	 * @see #setSpanY(int)
 	 * @see #spanY()
 	 */
-	public final CC spanY()
+	public CC spanY()
 	{
 		return spanY(LayoutUtil.INF);
 	}
@@ -786,7 +786,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @see #setSpanY(int)
 	 */
-	public final CC spanY(int cells)
+	public CC spanY(int cells)
 	{
 		setSpanY(cells);
 		return this;
@@ -800,7 +800,7 @@ public final class CC implements Externalizable
 	 * @see #setSpanX(int)
 	 * @see #spanX()
 	 */
-	public final CC spanX()
+	public CC spanX()
 	{
 		return spanX(LayoutUtil.INF);
 	}
@@ -812,7 +812,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @see #setSpanY(int)
 	 */
-	public final CC spanX(int cells)
+	public CC spanX(int cells)
 	{
 		setSpanX(cells);
 		return this;
@@ -828,7 +828,7 @@ public final class CC implements Externalizable
 	 * @see #pushY()
 	 * @see #pushX()
 	 */
-	public final CC push()
+	public CC push()
 	{
 		return pushX().pushY();
 	}
@@ -845,7 +845,7 @@ public final class CC implements Externalizable
 	 * @see #pushY()
 	 * @see #pushX()
 	 */
-	public final CC push(Float weightX, Float weightY)
+	public CC push(Float weightX, Float weightY)
 	{
 		return pushX(weightX).pushY(weightY);
 	}
@@ -857,7 +857,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @see #setPushY(Float)
 	 */
-	public final CC pushY()
+	public CC pushY()
 	{
 		return pushY(ResizeConstraint.WEIGHT_100);
 	}
@@ -869,7 +869,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @see #setPushY(Float)
 	 */
-	public final CC pushY(Float weight)
+	public CC pushY(Float weight)
 	{
 		setPushY(weight);
 		return this;
@@ -882,7 +882,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @see #setPushX(Float)
 	 */
-	public final CC pushX()
+	public CC pushX()
 	{
 		return pushX(ResizeConstraint.WEIGHT_100);
 	}
@@ -894,7 +894,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new LayoutConstraint().noGrid().gap().fill()</code>.
 	 * @see #setPushY(Float)
 	 */
-	public final CC pushX(Float weight)
+	public CC pushX(Float weight)
 	{
 		setPushX(weight);
 		return this;
@@ -907,7 +907,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setSplit(int)
 	 */
-	public final CC split(int parts)
+	public CC split(int parts)
 	{
 		setSplit(parts);
 		return this;
@@ -921,7 +921,7 @@ public final class CC implements Externalizable
 	 * @see #setSplit(int)
 	 * @since 3.7.2
 	 */
-	public final CC split()
+	public CC split()
 	{
 		setSplit(LayoutUtil.INF);
 		return this;
@@ -934,7 +934,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setSkip(int)
 	 */
-	public final CC skip(int cells)
+	public CC skip(int cells)
 	{
 		setSkip(cells);
 		return this;
@@ -947,7 +947,7 @@ public final class CC implements Externalizable
 	 * @see #setSkip(int)
 	 * @since 3.7.2
 	 */
-	public final CC skip()
+	public CC skip()
 	{
 		setSkip(1);
 		return this;
@@ -959,7 +959,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setExternal(boolean)
 	 */
-	public final CC external()
+	public CC external()
 	{
 		setExternal(true);
 		return this;
@@ -971,7 +971,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setFlowX(Boolean)
 	 */
-	public final CC flowX()
+	public CC flowX()
 	{
 		setFlowX(Boolean.TRUE);
 		return this;
@@ -983,7 +983,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setFlowX(Boolean)
 	 */
-	public final CC flowY()
+	public CC flowY()
 	{
 		setFlowX(Boolean.FALSE);
 		return this;
@@ -997,7 +997,7 @@ public final class CC implements Externalizable
 	 * @see #growX()
 	 * @see #growY()
 	 */
-	public final CC grow()
+	public CC grow()
 	{
 		growX();
 		growY();
@@ -1010,7 +1010,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setNewline(boolean)
 	 */
-	public final CC newline()
+	public CC newline()
 	{
 		setNewline(true);
 		return this;
@@ -1025,9 +1025,9 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setNewlineGapSize(BoundSize)
 	 */
-	public final CC newline(String gapSize)
+	public CC newline(String gapSize)
 	{
-		BoundSize bs = ConstraintParser.parseBoundSize(gapSize, true, (flowX != null && flowX == false));
+		BoundSize bs = ConstraintParser.parseBoundSize(gapSize, true, (flowX != null && !flowX));
 		if (bs != null) {
 			setNewlineGapSize(bs);
 		} else {
@@ -1042,7 +1042,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setWrap(boolean)
 	 */
-	public final CC wrap()
+	public CC wrap()
 	{
 		setWrap(true);
 		return this;
@@ -1057,9 +1057,9 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setWrapGapSize(BoundSize)
 	 */
-	public final CC wrap(String gapSize)
+	public CC wrap(String gapSize)
 	{
-		BoundSize bs = ConstraintParser.parseBoundSize(gapSize, true, (flowX != null && flowX == false));
+		BoundSize bs = ConstraintParser.parseBoundSize(gapSize, true, (flowX != null && !flowX));
 		if (bs != null) {
 			setWrapGapSize(bs);
 		} else {
@@ -1074,7 +1074,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setDockSide(int)
 	 */
-	public final CC dockNorth()
+	public CC dockNorth()
 	{
 		setDockSide(0);
 		return this;
@@ -1086,7 +1086,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setDockSide(int)
 	 */
-	public final CC dockWest()
+	public CC dockWest()
 	{
 		setDockSide(1);
 		return this;
@@ -1098,7 +1098,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setDockSide(int)
 	 */
-	public final CC dockSouth()
+	public CC dockSouth()
 	{
 		setDockSide(2);
 		return this;
@@ -1110,7 +1110,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setDockSide(int)
 	 */
-	public final CC dockEast()
+	public CC dockEast()
 	{
 		setDockSide(3);
 		return this;
@@ -1125,7 +1125,7 @@ public final class CC implements Externalizable
 	 * @see #setPos(UnitValue[])
 	 * @see #setBoundsInGrid(boolean)
 	 */
-	public final CC x(String x)
+	public CC x(String x)
 	{
 		return corrPos(x, 0);
 	}
@@ -1139,7 +1139,7 @@ public final class CC implements Externalizable
 	 * @see #setPos(UnitValue[])
 	 * @see #setBoundsInGrid(boolean)
 	 */
-	public final CC y(String y)
+	public CC y(String y)
 	{
 		return corrPos(y, 1);
 	}
@@ -1153,7 +1153,7 @@ public final class CC implements Externalizable
 	 * @see #setPos(UnitValue[])
 	 * @see #setBoundsInGrid(boolean)
 	 */
-	public final CC x2(String x2)
+	public CC x2(String x2)
 	{
 		return corrPos(x2, 2);
 	}
@@ -1167,12 +1167,12 @@ public final class CC implements Externalizable
 	 * @see #setPos(UnitValue[])
 	 * @see #setBoundsInGrid(boolean)
 	 */
-	public final CC y2(String y2)
+	public CC y2(String y2)
 	{
 		return corrPos(y2, 3);
 	}
 
-	private final CC corrPos(String uv, int ix)
+	private CC corrPos(String uv, int ix)
 	{
 		UnitValue[] b = getPos();
 		if (b == null)
@@ -1193,7 +1193,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setPos(UnitValue[])
 	 */
-	public final CC pos(String x, String y)
+	public CC pos(String x, String y)
 	{
 		UnitValue[] b = getPos();
 		if (b == null)
@@ -1217,7 +1217,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setPos(UnitValue[])
 	 */
-	public final CC pos(String x, String y, String x2, String y2)
+	public CC pos(String x, String y, String x2, String y2)
 	{
 		setPos(new UnitValue[] {
 				ConstraintParser.parseUnitValue(x, true),
@@ -1239,7 +1239,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setTag(String)
 	 */
-	public final CC pad(int top, int left, int bottom, int right)
+	public CC pad(int top, int left, int bottom, int right)
 	{
 		setPadding(new UnitValue[] {
 				new UnitValue(top),	new UnitValue(left), new UnitValue(bottom), new UnitValue(right)
@@ -1254,7 +1254,7 @@ public final class CC implements Externalizable
 	 * @return <code>this</code> so it is possible to chain calls. E.g. <code>new ComponentConstraint().noGrid().gap().fill()</code>.
 	 * @see #setTag(String)
 	 */
-	public final CC pad(String pad)
+	public CC pad(String pad)
 	{
 		setPadding(pad != null ? ConstraintParser.parseInsets(pad, false) : null);
 		return this;

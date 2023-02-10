@@ -67,16 +67,16 @@ public class EditPane extends JPanel implements Observer {
 	 *
 	 */
 	private static final long serialVersionUID = -3519750734060976706L;
-	private MARSTextEditingArea sourceCode;
-	private VenusUI mainUI;
-	private String currentDirectoryPath;
-	private JLabel caretPositionLabel;
-	private JCheckBox showLineNumbers;
-	private JLabel lineNumbers;
-	private static int count = 0;
+	private final MARSTextEditingArea sourceCode;
+	private final VenusUI mainUI;
+	private final String currentDirectoryPath;
+	private final JLabel caretPositionLabel;
+	private final JCheckBox showLineNumbers;
+	private final JLabel lineNumbers;
+	private static final int count = 0;
 	private final boolean isCompoundEdit = false;
 	private CompoundEdit compoundEdit;
-	private FileStatus fileStatus;
+	private final FileStatus fileStatus;
 
 	/**
 	 * Constructor for the EditPane class.

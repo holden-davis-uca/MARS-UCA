@@ -68,8 +68,8 @@ public class MemoryReferenceVisualization extends AbstractMarsToolAndApplication
 	 *
 	 */
 	private static final long serialVersionUID = -2404579237065165750L;
-	private static String version = "Version 1.0";
-	private static String heading = "Visualizing memory reference patterns";
+	private static final String version = "Version 1.0";
+	private static final String heading = "Visualizing memory reference patterns";
 
 	// Major GUI components
 	private JComboBox wordsPerUnitSelector, visualizationUnitPixelWidthSelector, visualizationUnitPixelHeightSelector,

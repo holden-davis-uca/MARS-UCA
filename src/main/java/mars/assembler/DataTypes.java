@@ -125,11 +125,7 @@ public final class DataTypes {
 	public static boolean outOfRange(final Directives direct, final int value) {
 		if (direct == Directives.HALF && (value < MIN_HALF_VALUE || value > MAX_HALF_VALUE)) {
 			return true;
-		} else if (direct == Directives.BYTE && (value < MIN_BYTE_VALUE || value > MAX_BYTE_VALUE)) {
-			return true;
-		} else {
-			return false;
-		}
+		} else return direct == Directives.BYTE && (value < MIN_BYTE_VALUE || value > MAX_BYTE_VALUE);
 	}
 
 	/**
@@ -145,10 +141,6 @@ public final class DataTypes {
 	 *         (.float, .double), <tt>false</tt> otherwise.
 	 **/
 	public static boolean outOfRange(final Directives direct, final double value) {
-		if (direct == Directives.FLOAT && (value < LOW_FLOAT_VALUE || value > MAX_FLOAT_VALUE)) {
-			return true;
-		} else {
-			return false;
-		}
+        return direct == Directives.FLOAT && (value < LOW_FLOAT_VALUE || value > MAX_FLOAT_VALUE);
 	}
 }

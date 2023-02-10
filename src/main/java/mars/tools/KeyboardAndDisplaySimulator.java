@@ -103,13 +103,13 @@ public class KeyboardAndDisplaySimulator extends AbstractMarsToolAndApplication 
 	 *
 	 */
 	private static final long serialVersionUID = 1001359364872705711L;
-	private static String version = "Version 1.4";
-	private static String heading = "Keyboard and Display MMIO Simulator";
+	private static final String version = "Version 1.4";
+	private static final String heading = "Keyboard and Display MMIO Simulator";
 	private static String displayPanelTitle, keyboardPanelTitle;
-	private static char VT_FILL = ' ';  // fill character for virtual terminal (random access mode)
+	private static final char VT_FILL = ' ';  // fill character for virtual terminal (random access mode)
 
 	public static Dimension preferredTextAreaDimension = new Dimension(400, 200);
-	private static Insets textAreaInsets = new Insets(4, 4, 4, 4);
+	private static final Insets textAreaInsets = new Insets(4, 4, 4, 4);
 
 	// Time delay to process Transmitter Data is simulated by counting instruction executions.
 	// After this many executions, the Transmitter Controller Ready bit set to 1.

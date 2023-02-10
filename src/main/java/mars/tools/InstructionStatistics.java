@@ -61,13 +61,13 @@ public class InstructionStatistics extends AbstractMarsToolAndApplication {
 	private static final long serialVersionUID = -3559205813588760770L;
 
 	/** name of the tool */
-	private static String NAME = "Instruction Statistics";
+	private static final String NAME = "Instruction Statistics";
 
 	/** version and author information of the tool */
-	private static String VERSION = "Version 1.0 (Ingo Kofler)";
+	private static final String VERSION = "Version 1.0 (Ingo Kofler)";
 
 	/** heading of the tool */
-	private static String HEADING = "";
+	private static final String HEADING = "";
 
 	/** number of instruction categories used by this tool */
 	private static final int MAX_CATEGORY = 5;
@@ -91,19 +91,19 @@ public class InstructionStatistics extends AbstractMarsToolAndApplication {
 	private JTextField m_tfTotalCounter;
 
 	/** array of text field - one for each instruction category */
-	private JTextField m_tfCounters[];
+	private JTextField[] m_tfCounters;
 
 	/** array of progress pars - one for each instruction category */
-	private JProgressBar m_pbCounters[];
+	private JProgressBar[] m_pbCounters;
 
 	/** counter for the total number of instructions processed */
 	private int m_totalCounter = 0;
 
 	/** array of counter variables - one for each instruction category */
-	private final int m_counters[] = new int[MAX_CATEGORY];
+	private final int[] m_counters = new int[MAX_CATEGORY];
 
 	/** names of the instruction categories as array */
-	private final String m_categoryLabels[] = { "ALU", "Jump", "Branch", "Memory", "Other" };
+	private final String[] m_categoryLabels = { "ALU", "Jump", "Branch", "Memory", "Other" };
 
 	// From Felipe Lessa's instruction counter.  Prevent double-counting of instructions
 	// which happens because 2 read events are generated.

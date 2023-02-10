@@ -94,10 +94,8 @@ public class FlatEditorPaneUI
 	}
 
 	static void propertyChange( JTextComponent c, PropertyChangeEvent e ) {
-		switch( e.getPropertyName() ) {
-			case FlatClientProperties.MINIMUM_WIDTH:
-				c.revalidate();
-				break;
+		if (e.getPropertyName().equals(FlatClientProperties.MINIMUM_WIDTH)) {
+			c.revalidate();
 		}
 	}
 

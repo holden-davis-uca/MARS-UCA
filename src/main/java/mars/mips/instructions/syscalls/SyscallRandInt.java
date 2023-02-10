@@ -55,7 +55,7 @@ public class SyscallRandInt extends AbstractSyscall {
 	public void simulate(final ProgramStatement statement) throws ProcessingException {
 		// Input arguments: $a0 = index of pseudorandom number generator
 		// Return: $a0 = the next pseudorandom, uniformly distributed int value from this random number generator's sequence.
-		final Integer index = new Integer(RegisterFile.getValue(4));
+		final Integer index = Integer.valueOf(RegisterFile.getValue(4));
 		Random stream = (Random) RandomStreams.randomStreams.get(index);
 		if (stream == null) {
 			stream = new Random(); // create a non-seeded stream

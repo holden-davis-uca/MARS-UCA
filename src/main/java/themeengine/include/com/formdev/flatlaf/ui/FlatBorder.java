@@ -181,7 +181,7 @@ public class FlatBorder
 			return false;
 		} else if( c instanceof JComboBox && ((JComboBox<?>)c).isEditable() ) {
 			Component editorComponent = ((JComboBox<?>)c).getEditor().getEditorComponent();
-			return (editorComponent != null) ? FlatUIUtils.isPermanentFocusOwner( editorComponent ) : false;
+			return editorComponent != null && FlatUIUtils.isPermanentFocusOwner(editorComponent);
 		} else if( c instanceof JSpinner ) {
 			if( FlatUIUtils.isPermanentFocusOwner( c ) )
 				return true;

@@ -147,7 +147,7 @@ public final class LayoutUtil
 		if (cw == null && DT_MAP != null && !DT_MAP.isEmpty() )
 			return true;
 
-		if (cw != null && DT_MAP.containsKey(cw.getComponent()) == false)
+		if (cw != null && !DT_MAP.containsKey(cw.getComponent()))
 			cw = null;
 
 		Boolean b = DT_MAP.get(cw != null ? cw.getComponent() : null);
@@ -448,7 +448,7 @@ public final class LayoutUtil
 	 */
 	static boolean equals(Object o1, Object o2)
 	{
-		return o1 == o2 || (o1 != null && o2 != null && o1.equals(o2));
+		return o1 == o2 || (o1 != null && o1.equals(o2));
 	}
 
 //	static int getBaselineCorrect(Component comp)

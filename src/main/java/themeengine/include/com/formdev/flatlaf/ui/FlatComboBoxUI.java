@@ -518,7 +518,7 @@ public class FlatComboBoxUI
 
 		@Override
 		protected boolean isHover() {
-			return super.isHover() || (!comboBox.isEditable() ? hover : false);
+			return super.isHover() || (!comboBox.isEditable() && hover);
 		}
 	}
 

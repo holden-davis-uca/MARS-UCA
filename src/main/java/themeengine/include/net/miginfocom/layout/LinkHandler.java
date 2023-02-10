@@ -96,7 +96,7 @@ public final class LinkHandler
 			int[] old = map.get(key);
 
 			if (old == null || old[X] != x || old[Y] != y || old[WIDTH] != width || old[HEIGHT] != height) {
-				if (old == null || incCur == false) {
+				if (old == null || !incCur) {
 					map.put(key, new int[] {x, y, width, height, x + width, y + height});
 					return true;
 				} else {
@@ -148,7 +148,7 @@ public final class LinkHandler
 			values_temp.put(key, bounds);
 
 		HashMap<String, int[]> values = new HashMap<String, int[]>(4);
-		if (temporary == false)
+		if (!temporary)
 			values.put(key, bounds);
 
 		LAYOUTS.put(layout, new HashMap[] {values, values_temp});

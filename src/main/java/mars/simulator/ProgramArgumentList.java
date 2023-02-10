@@ -1,6 +1,7 @@
 package mars.simulator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 import mars.Globals;
@@ -82,9 +83,7 @@ public class ProgramArgumentList {
 	 */
 	public ProgramArgumentList(final String[] list, final int startPosition) {
 		programArgumentList = new ArrayList(list.length - startPosition);
-		for (int i = startPosition; i < list.length; i++) {
-			programArgumentList.add(list[i]);
-		}
+		programArgumentList.addAll(Arrays.asList(list).subList(startPosition, list.length));
 	}
 
 	/**
@@ -195,7 +194,6 @@ public class ProgramArgumentList {
 			System.out.println("Internal Error: Memory write error occurred while storing program arguments! " + aee);
 			System.exit(0);
 		}
-		return;
 	}
 
 }

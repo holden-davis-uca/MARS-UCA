@@ -46,8 +46,8 @@ public class MemoryDump {
 	private static final HashMap segmentBoundMap = new HashMap();
 
 	private static final String[] segmentNames = { ".text", ".data" };
-	private static int[] baseAddresses = new int[2];
-	private static int[] limitAddresses = new int[2];
+	private static final int[] baseAddresses = new int[2];
+	private static final int[] limitAddresses = new int[2];
 
 	/**
 	 * Return array with segment address bounds for specified segment.
@@ -61,8 +61,8 @@ public class MemoryDump {
 		for (int i = 0; i < segmentNames.length; i++) {
 			if (segmentNames[i].equals(segment)) {
 				final Integer[] bounds = new Integer[2];
-				bounds[0] = new Integer(getBaseAddresses(segmentNames)[i]);
-				bounds[1] = new Integer(getLimitAddresses(segmentNames)[i]);
+				bounds[0] = Integer.valueOf(getBaseAddresses(segmentNames)[i]);
+				bounds[1] = Integer.valueOf(getLimitAddresses(segmentNames)[i]);
 				return bounds;
 			}
 		}

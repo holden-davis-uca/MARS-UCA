@@ -87,7 +87,7 @@ public class ScavengerHunt implements Observer, MarsTool {
 	private int authenticationValue = 0;
 	private boolean GameOn = false;  // MIPS programs readiness
 	private static int SetWordCounter = 0;
-	private static int accessCounter = 0;
+	private static final int accessCounter = 0;
 	private static int playerID = ADMINISTRATOR_ID;   // Range 0...(NUM_PLAYERS-1), plus ADMINISTRATOR_ID
 	private final boolean KENVDEBUG = false;
 
@@ -112,7 +112,7 @@ public class ScavengerHunt implements Observer, MarsTool {
 		int color = 0;    // Memory Address:  Base + 0x1c
 		long finishTime;
 		//int locID;  // ID of the location to which ScavengerHunt players are headed. Not used by player.
-		boolean hasVisitedLoc[] = new boolean[NUM_LOCATIONS];  // boolean: player has visited each location
+		boolean[] hasVisitedLoc = new boolean[NUM_LOCATIONS];  // boolean: player has visited each location
 		boolean finis = false;
 
 		// Class PlayerData has no constructor
@@ -165,8 +165,8 @@ public class ScavengerHunt implements Observer, MarsTool {
 		//public int getLocationID() {  return locID; }
 	} // end class PlayerData
 
-	private static PlayerData[] pd = new PlayerData[NUM_PLAYERS];
-	private static Location[] loc = new Location[NUM_LOCATIONS];
+	private static final PlayerData[] pd = new PlayerData[NUM_PLAYERS];
+	private static final Location[] loc = new Location[NUM_LOCATIONS];
 	private Random randomStream;
 	private long startTime;
 
@@ -599,7 +599,6 @@ public class ScavengerHunt implements Observer, MarsTool {
 						+ toolReadPlayerData(playerID, OFFSET_MOVE_TO_X) + "," + toolReadPlayerData(playerID,
 								OFFSET_MOVE_TO_Y) + ")");
 
-				return;
 			}
 
 		} // end if Player wrote nonzero data to his/her assigned MoveReady location
@@ -853,7 +852,7 @@ public class ScavengerHunt implements Observer, MarsTool {
 
 			for (int j = 0; j < NUM_LOCATIONS; j++)  // Initialize the locations this player goes to
 			{
-				toolWritePlayerData(i, OFFSET_LOC_ARRAY + j * 8 + 0, loc[j].X);  // Set the same locations for each player
+				toolWritePlayerData(i, OFFSET_LOC_ARRAY + j * 8, loc[j].X);  // Set the same locations for each player
 				toolWritePlayerData(i, OFFSET_LOC_ARRAY + j * 8 + 4, loc[j].Y);  // Set the same locations for each player
 			}
 

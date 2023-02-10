@@ -41,11 +41,11 @@ import java.util.regex.Pattern;
 public class ErrorMessage {
 
 	private final boolean isWarning; // allow for warnings too (added Nov 2006)
-	private String filename; // name of source file  (added Oct 2006)
-	private int line;     // line in source code where error detected
+	private final String filename; // name of source file  (added Oct 2006)
+	private final int line;     // line in source code where error detected
 	private final int position; // position in source line where error detected
 	private final String message;
-	private String macroExpansionHistory;
+	private final String macroExpansionHistory;
 
 	/**
 	 * Constant to indicate this message is warning not error
@@ -224,7 +224,7 @@ public class ErrorMessage {
 	private ArrayList<Integer> parseMacroHistory(final String string) {
 		final Pattern pattern = Pattern.compile("<\\d+>");
 		final Matcher matcher = pattern.matcher(string);
-		String verify = new String(string).trim();
+		String verify = string.trim();
 		final ArrayList<Integer> macroHistory = new ArrayList<>();
 		while (matcher.find()) {
 			final String match = matcher.group();

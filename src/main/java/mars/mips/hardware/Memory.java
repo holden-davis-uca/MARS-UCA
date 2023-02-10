@@ -214,7 +214,7 @@ public class Memory extends Observable {
 	// (greedy rather than lazy instantiation).  The constructor is private and getInstance()
 	// always returns this instance.
 
-	private static Memory uniqueMemoryInstance = new Memory();
+	private static final Memory uniqueMemoryInstance = new Memory();
 
 	/*
 	 * Private constructor for Memory.  Separate data structures for text and data segments.
@@ -728,7 +728,7 @@ public class Memory extends Observable {
 		} else if (inTextSegment(address) || inKernelTextSegment(address)) {
 			try {
 				value = getStatementNoNotify(address) == null ? null
-						: new Integer(getStatementNoNotify(address).getBinaryStatement());
+						: Integer.valueOf(getStatementNoNotify(address).getBinaryStatement());
 			} catch (final AddressErrorException aee) {
 				value = null;
 			}
@@ -1348,7 +1348,7 @@ public class Memory extends Observable {
 		} else {
 			value = blockTable[block][offset];
 		}
-		return new Integer(value);
+		return Integer.valueOf(value);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////

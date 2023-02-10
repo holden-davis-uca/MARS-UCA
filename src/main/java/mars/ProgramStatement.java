@@ -54,11 +54,11 @@ public class ProgramStatement {
 	private final MIPSprogram sourceMIPSprogram;
 	private String source, basicAssemblyStatement, machineStatement;
 	private final TokenList originalTokenList;
-	private TokenList strippedTokenList;
+	private final TokenList strippedTokenList;
 	private final BasicStatementList basicStatementList;
-	private int[] operands;
+	private final int[] operands;
 	private int numOperands;
-	private Instruction instruction;
+	private final Instruction instruction;
 	private final int textAddress;
 	private int sourceLine;
 	private int binaryStatement;
@@ -361,7 +361,6 @@ public class ProgramStatement {
 			}
 		}
 		binaryStatement = Binary.binaryStringToInt(machineStatement);
-		return;
 	} // buildMachineStatementFromBasicStatement(
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -567,7 +566,6 @@ public class ProgramStatement {
 		String state = machineStatement.substring(0, startPos) + bitString;
 		if (endPos < machineStatement.length() - 1) { state = state + machineStatement.substring(endPos + 1); }
 		machineStatement = state;
-		return;
 	} // insertBinaryCode()
 
 	//////////////////////////////////////////////////////////////////////////////

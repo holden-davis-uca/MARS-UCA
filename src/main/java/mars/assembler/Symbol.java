@@ -88,6 +88,5 @@ public class Symbol {
 
 	public void setAddress(final int newAddress) {
 		address = newAddress;
-		return;
 	}
 }

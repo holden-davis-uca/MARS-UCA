@@ -120,7 +120,7 @@ public class Coprocessor0Window extends JPanel implements Observer {
 		for (int i = 0; i < registers.length; i++) {
 			rowGivenRegNumber[registers[i].getNumber()] = i;
 			tableData[i][0] = registers[i].getName();
-			tableData[i][1] = new Integer(registers[i].getNumber());
+			tableData[i][1] = Integer.valueOf(registers[i].getNumber());
 			tableData[i][2] = NumberDisplayBaseChooser.formatNumber(registers[i].getValue(), NumberDisplayBaseChooser
 					.getBase(settings.getDisplayValuesInHex()));
 		}
@@ -328,11 +328,7 @@ public class Coprocessor0Window extends JPanel implements Observer {
 		public boolean isCellEditable(final int row, final int col) {
 			//Note that the data/cell address is constant,
 			//no matter where the cell appears onscreen.
-			if (col == VALUE_COLUMN) {
-				return true;
-			} else {
-				return false;
-			}
+			return col == VALUE_COLUMN;
 		}
 
 		/*
@@ -358,7 +354,6 @@ public class Coprocessor0Window extends JPanel implements Observer {
 			final int valueBase = Globals.getGui().getMainPane().getExecutePane().getValueDisplayBase();
 			data[row][col] = NumberDisplayBaseChooser.formatNumber(val, valueBase);
 			fireTableCellUpdated(row, col);
-			return;
 		}
 
 		/**

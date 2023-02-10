@@ -69,8 +69,8 @@ public class FloatRepresentation extends AbstractMarsToolAndApplication {
 	 *
 	 */
 	private static final long serialVersionUID = -1553219351643746837L;
-	private static String version = "Version 1.1";
-	private static String heading = "32-bit IEEE 754 Floating Point Representation";
+	private static final String version = "Version 1.1";
+	private static final String heading = "32-bit IEEE 754 Floating Point Representation";
 	private static final String title = "Floating Point Representation, ";
 
 	private static final String defaultHex = "00000000";
@@ -512,7 +512,7 @@ public class FloatRepresentation extends AbstractMarsToolAndApplication {
 					? hexString.substring(2)
 					: hexString, maxLengthHex);
 			binaryString = Binary.hexStringToBinaryString(this.hexString);
-			decimalString = new Float(Float.intBitsToFloat(Binary.binaryStringToInt(binaryString))).toString();
+			decimalString = Float.toString(Float.intBitsToFloat(Binary.binaryStringToInt(binaryString)));
 			expansionString = buildExpansionFromBinaryString(binaryString);
 			intValue = Binary.binaryStringToInt(binaryString);
 			return this;
@@ -522,7 +522,7 @@ public class FloatRepresentation extends AbstractMarsToolAndApplication {
 		private FlavorsOfFloat buildOneFromBinaryString() {
 			binaryString = getFullBinaryStringFromDisplays();
 			hexString = Binary.binaryStringToHexString(binaryString);
-			decimalString = new Float(Float.intBitsToFloat(Binary.binaryStringToInt(binaryString))).toString();
+			decimalString = Float.toString(Float.intBitsToFloat(Binary.binaryStringToInt(binaryString)));
 			expansionString = buildExpansionFromBinaryString(binaryString);
 			intValue = Binary.binaryStringToInt(binaryString);
 			return this;
@@ -536,7 +536,7 @@ public class FloatRepresentation extends AbstractMarsToolAndApplication {
 			} catch (final NumberFormatException nfe) {
 				return null;
 			}
-			this.decimalString = new Float(floatValue).toString();
+			this.decimalString = Float.toString(floatValue);
 			intValue = Float.floatToIntBits(floatValue);// use floatToRawIntBits?
 			binaryString = Binary.intToBinaryString(intValue);
 			hexString = Binary.binaryStringToHexString(binaryString);
@@ -549,7 +549,7 @@ public class FloatRepresentation extends AbstractMarsToolAndApplication {
 			this.intValue = intValue;
 			binaryString = Binary.intToBinaryString(intValue);
 			hexString = Binary.binaryStringToHexString(binaryString);
-			decimalString = new Float(Float.intBitsToFloat(Binary.binaryStringToInt(binaryString))).toString();
+			decimalString = Float.toString(Float.intBitsToFloat(Binary.binaryStringToInt(binaryString)));
 			expansionString = buildExpansionFromBinaryString(binaryString);
 			return this;
 		}
@@ -561,8 +561,8 @@ public class FloatRepresentation extends AbstractMarsToolAndApplication {
 			final String stringExponent = Integer.toString(biasedExponent - exponentBias);
 			// stringExponent length will range from 1 to 4 (e.g. "0" to "-128") characters.
 			// Right-pad with HTML spaces ("&nbsp;") to total length 5 displayed characters.
-			return "<html><head></head><body>" + expansionFontTag + "-1<sup>" + binaryString.substring(0,
-					maxLengthBinarySign) + "</sup> &nbsp;*&nbsp; 2<sup>" + stringExponent + HTMLspaces.substring(0, (5
+			return "<html><head></head><body>" + expansionFontTag + "-1<sup>" + binaryString.charAt(0
+			) + "</sup> &nbsp;*&nbsp; 2<sup>" + stringExponent + HTMLspaces.substring(0, (5
 							- stringExponent.length()) * 6) + "</sup> &nbsp;* &nbsp;" + (biasedExponent == 0 ? "&nbsp;."
 									: "<u>1</u>.") + binaryString.substring(maxLengthBinarySign
 											+ maxLengthBinaryExponent, maxLengthBinaryTotal)
@@ -931,7 +931,7 @@ public class FloatRepresentation extends AbstractMarsToolAndApplication {
 
 		// format the label for a given integer exponent value...
 		private String buildSubtractLabel(final int value) {
-			return Integer.toString(value) + subtractLabelTrailer;
+			return value + subtractLabelTrailer;
 		}
 
 	}

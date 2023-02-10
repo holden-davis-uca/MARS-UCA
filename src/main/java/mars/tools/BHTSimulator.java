@@ -128,8 +128,8 @@ public class BHTSimulator extends AbstractMarsToolAndApplication implements Acti
 				BHT_DEFAULT_INITVAL);
 
 		m_gui.getTabBHT().setModel(m_bhtModel);
-		m_gui.getCbBHThistory().setSelectedItem(new Integer(BHTSimulator.BHT_DEFAULT_HISTORY));
-		m_gui.getCbBHTentries().setSelectedItem(new Integer(BHTSimulator.BHT_DEFAULT_SIZE));
+		m_gui.getCbBHThistory().setSelectedItem(Integer.valueOf(BHTSimulator.BHT_DEFAULT_HISTORY));
+		m_gui.getCbBHTentries().setSelectedItem(Integer.valueOf(BHTSimulator.BHT_DEFAULT_SIZE));
 
 		m_gui.getCbBHTentries().addActionListener(this);
 		m_gui.getCbBHThistory().addActionListener(this);
@@ -179,7 +179,7 @@ public class BHTSimulator extends AbstractMarsToolAndApplication implements Acti
 		m_gui.getTfIndex().setText("");
 		m_gui.getTaLog().setText("");
 		m_bhtModel.initBHT(((Integer) m_gui.getCbBHTentries().getSelectedItem()), ((Integer) m_gui
-				.getCbBHThistory().getSelectedItem()), ((String) m_gui.getCbBHTinitVal().getSelectedItem())
+				.getCbBHThistory().getSelectedItem()), m_gui.getCbBHTinitVal().getSelectedItem()
 						.equals(BHTSimGUI.BHT_TAKE_BRANCH));
 
 		m_pendingBranchInstAddress = 0;
@@ -272,11 +272,7 @@ public class BHTSimulator extends AbstractMarsToolAndApplication implements Acti
 		if (0x04 <= opCode && opCode <= 0x07) {
 			return true; // beq, bne, blez, bgtz
 		}
-		if (0x14 <= opCode && opCode <= 0x17) {
-			return true; // beql, bnel, blezl, bgtzl
-		}
-
-		return false;
+		return 0x14 <= opCode && opCode <= 0x17; // beql, bnel, blezl, bgtzl
 	}
 
 	/**

@@ -291,10 +291,10 @@ public class SettingsEditorAction extends GuiAction {
 		// Perform reset on miscellaneous editor settings
 		private void resetOtherSettings() {
 			tabSizeSelector.setValue(initialEditorTabSize);
-			tabSizeSpinSelector.setValue(new Integer(initialEditorTabSize));
+			tabSizeSpinSelector.setValue(Integer.valueOf(initialEditorTabSize));
 			lineHighlightCheck.setSelected(initialLineHighlighting);
 			autoIndentCheck.setSelected(initialAutoIndent);
-			blinkRateSpinSelector.setValue(new Integer(initialCaretBlinkRate));
+			blinkRateSpinSelector.setValue(Integer.valueOf(initialCaretBlinkRate));
 			blinkCaret.setBlinkRate(initialCaretBlinkRate);
 			popupGuidanceOptions[initialPopupGuidance].setSelected(true);
 		}
@@ -313,7 +313,7 @@ public class SettingsEditorAction extends GuiAction {
 					+ Editor.MAX_TAB_SIZE
 					+ ".");
 			tabSizeSelector.addChangeListener(e -> {
-				final Integer value = new Integer(((JSlider) e.getSource()).getValue());
+				final Integer value = Integer.valueOf(((JSlider) e.getSource()).getValue());
 				tabSizeSpinSelector.setValue(value);
 			});
 			final SpinnerNumberModel tabSizeSpinnerModel = new SpinnerNumberModel(

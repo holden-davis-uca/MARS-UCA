@@ -95,7 +95,7 @@ public class FlatRadioButtonUI
 		defaults_initialized = false;
 	}
 
-	private static Insets tempInsets = new Insets( 0, 0, 0, 0 );
+	private static final Insets tempInsets = new Insets( 0, 0, 0, 0 );
 
 	@Override
 	public Dimension getPreferredSize( JComponent c ) {

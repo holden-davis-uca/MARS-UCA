@@ -53,7 +53,7 @@ public class Coprocessor0 {
 	// bit 1 (exception level) not set, bit 0 (interrupt enable) set.
 	public static final int DEFAULT_STATUS_VALUE = 0x0000FF11;
 
-	private static Register[] registers = { new Register("$8 (vaddr)", 8, 0), new Register("$12 (status)", 12,
+	private static final Register[] registers = { new Register("$8 (vaddr)", 8, 0), new Register("$12 (status)", 12,
 			DEFAULT_STATUS_VALUE), new Register("$13 (cause)", 13, 0), new Register("$14 (epc)", 14, 0) };
 
 	/**
@@ -65,7 +65,7 @@ public class Coprocessor0 {
 			System.out.println("Name: " + registers[i].getName());
 			System.out.println("Number: " + registers[i].getNumber());
 			System.out.println("Value: " + registers[i].getValue());
-			System.out.println("");
+			System.out.println();
 		}
 	}
 

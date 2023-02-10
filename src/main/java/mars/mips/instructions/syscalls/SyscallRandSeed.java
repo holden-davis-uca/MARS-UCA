@@ -56,7 +56,7 @@ public class SyscallRandSeed extends AbstractSyscall {
 		//   $a1 = seed for pseudorandom number generator.
 		// Result: No values are returned. Sets the seed of the underlying Java pseudorandom number generator.
 
-		final Integer index = new Integer(RegisterFile.getValue(4));
+		final Integer index = Integer.valueOf(RegisterFile.getValue(4));
 		final Random stream = (Random) RandomStreams.randomStreams.get(index);
 		if (stream == null) {
 			RandomStreams.randomStreams.put(index, new Random(RegisterFile.getValue(5)));

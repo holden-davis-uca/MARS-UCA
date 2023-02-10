@@ -72,7 +72,7 @@ public class FilePrintAction extends GuiAction {
 			return;
 		}
 		final BufferedReader in = new BufferedReader(new StringReader(editPane.getSource()));
-		final int lineNumberDigits = new Integer(editPane.getSourceLineCount()).toString().length();
+		final int lineNumberDigits = Integer.valueOf(editPane.getSourceLineCount()).toString().length();
 		String line;
 		String lineNumberString = "";
 		int lineNumber = 0;
@@ -81,7 +81,7 @@ public class FilePrintAction extends GuiAction {
 			while (line != null) {
 				if (editPane.showingLineNumbers()) {
 					lineNumber++;
-					lineNumberString = new Integer(lineNumber).toString() + ": ";
+					lineNumberString = Integer.valueOf(lineNumber) + ": ";
 					while (lineNumberString.length() < lineNumberDigits) {
 						lineNumberString = lineNumberString + " ";
 					}
@@ -93,6 +93,5 @@ public class FilePrintAction extends GuiAction {
 			in.close();
 			out.close();
 		} catch (final IOException ioe) {}
-		return;
 	}
 }

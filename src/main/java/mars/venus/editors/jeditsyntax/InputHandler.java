@@ -86,7 +86,7 @@ public abstract class InputHandler extends KeyAdapter {
 	// Default action
 	public static final ActionListener INSERT_CHAR = new insert_char();
 
-	private static Hashtable actions;
+	private static final Hashtable actions;
 
 	static {
 		actions = new Hashtable();

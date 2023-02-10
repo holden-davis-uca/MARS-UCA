@@ -60,7 +60,7 @@ public class SyscallRead extends AbstractSyscall {
 	public void simulate(final ProgramStatement statement) throws ProcessingException {
 		int byteAddress = RegisterFile.getValue(5); // destination of characters read from file
 		int index = 0;
-		final byte myBuffer[] = new byte[RegisterFile.getValue(6)]; // specified length
+		final byte[] myBuffer = new byte[RegisterFile.getValue(6)]; // specified length
 		// Call to SystemIO.xxxx.read(xxx,xxx,xxx)  returns actual length
 		final int retLength = SystemIO.readFromFile(RegisterFile.getValue(4), // fd
 				myBuffer, // buffer

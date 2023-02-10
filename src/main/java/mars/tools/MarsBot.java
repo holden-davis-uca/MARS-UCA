@@ -260,24 +260,24 @@ public class MarsBot implements Observer, MarsTool {
 				} else if (address == ADDR_LEAVETRACK) {
 					// If we HAD NOT been leaving a track, but we should NOW leave
 					// a track, put start point into array.
-					if (MarsBotLeaveTrack == false && notice.getValue() == 1) {
+					if (!MarsBotLeaveTrack && notice.getValue() == 1) {
 						MarsBotLeaveTrack = true;
 						arrayOfTrack[trackIndex] = new Point((int) MarsBotXPosition, (int) MarsBotYPosition);
 						trackIndex++;  // the index of the end point
 					}
 						// If we HAD NOT been leaving a track, and get another directive
 																						// to NOT leave a track, do nothing (nothing to do).
-					else if (MarsBotLeaveTrack == false && notice.getValue() == 0) {
+					else if (!MarsBotLeaveTrack && notice.getValue() == 0) {
 						// NO ACTION
 					}
 						// If we HAD been leaving a track, and get another directive
 																					// to LEAVE a track, do nothing (nothing to do).
-					else if (MarsBotLeaveTrack == true && notice.getValue() == 1) {
+					else if (MarsBotLeaveTrack && notice.getValue() == 1) {
 						// NO ACTION
 					}
 					// If we HAD been leaving a track, and get another directive
 					// to NOT leave a track, put end point into array.
-					else if (MarsBotLeaveTrack == true && notice.getValue() == 0) {
+					else if (MarsBotLeaveTrack && notice.getValue() == 0) {
 						MarsBotLeaveTrack = false;
 						arrayOfTrack[trackIndex] = new Point((int) MarsBotXPosition, (int) MarsBotYPosition);
 						trackIndex++;  // the index of the next start point
@@ -287,12 +287,8 @@ public class MarsBot implements Observer, MarsTool {
 
 					//System.out.println(message + notice.getValue() );
 				} else if (address == ADDR_MOVE) {
-					if (notice.getValue() == 0) {
-						MarsBotMoving = false;
-					} else {
-						MarsBotMoving = true;
-						//System.out.println(message + notice.getValue() );
-					}
+					//System.out.println(message + notice.getValue() );
+					MarsBotMoving = notice.getValue() != 0;
 				} else if (address == ADDR_WHEREAREWEX || address == ADDR_WHEREAREWEY) {
 					// Ignore these memory writes, because the writes originated within
 					// this tool. This tool is being notified of the writes in the usual

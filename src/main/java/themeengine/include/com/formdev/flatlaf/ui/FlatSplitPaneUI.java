@@ -77,7 +77,7 @@ public class FlatSplitPaneUI
 
 	@Override
 	public boolean isContinuousLayout() {
-		return super.isContinuousLayout() || (continuousLayout != null && Boolean.TRUE.equals( continuousLayout ));
+		return super.isContinuousLayout() || (Boolean.TRUE.equals(continuousLayout));
 	}
 
 	@Override

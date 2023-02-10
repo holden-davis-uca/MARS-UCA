@@ -60,8 +60,8 @@ public class BitmapDisplay extends AbstractMarsToolAndApplication {
 	 *
 	 */
 	private static final long serialVersionUID = -5302410800700629891L;
-	private static String version = "Version 1.0";
-	private static String heading = "Bitmap Display";
+	private static final String version = "Version 1.0";
+	private static final String heading = "Bitmap Display";
 
 	// Major GUI components
 	private JComboBox visualizationUnitPixelWidthSelector, visualizationUnitPixelHeightSelector,

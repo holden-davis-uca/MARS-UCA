@@ -298,7 +298,7 @@ public class JBRCustomDecorations
 		@Override
 		public void paintBorder( Component c, Graphics g, int x, int y, int width, int height ) {
 			Window window = SwingUtilities.windowForComponent( c );
-			boolean active = (window != null) ? window.isActive() : false;
+			boolean active = window != null && window.isActive();
 
 			g.setColor( active ? activeColor : (FlatLaf.isLafDark() ? inactiveDarkColor : inactiveLightColor) );
 			HiDPIUtils.paintAtScale1x( (Graphics2D) g, x, y, width, height, this::paintImpl );

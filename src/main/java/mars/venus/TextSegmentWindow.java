@@ -118,7 +118,7 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 	private TableModelListener tableModelListener;
 	private boolean inDelaySlot; // Added 25 June 2007
 
-	private static String[] columnNames = { "Bkpt", "Address", "Code", "Basic", "Source" };
+	private static final String[] columnNames = { "Bkpt", "Address", "Code", "Basic", "Source" };
 	private static final int BREAK_COLUMN = 0;
 	private static final int ADDRESS_COLUMN = 1;
 	private static final int CODE_COLUMN = 2;
@@ -175,7 +175,7 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 		for (int i = 0; i < sourceStatementList.size(); i++) {
 			final ProgramStatement statement = (ProgramStatement) sourceStatementList.get(i);
 			intAddresses[i] = statement.getAddress();
-			addressRows.put(new Integer(intAddresses[i]), new Integer(i));
+			addressRows.put(Integer.valueOf(intAddresses[i]), Integer.valueOf(i));
 			data[i][BREAK_COLUMN] = Boolean.FALSE;
 			data[i][ADDRESS_COLUMN] = NumberDisplayBaseChooser.formatUnsignedInteger(statement.getAddress(),
 					addressBase);
@@ -690,7 +690,7 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 	private int findRowForAddress(final int address) throws IllegalArgumentException {
 		int addressRow = 0;
 		try {
-			addressRow = ((Integer) addressRows.get(new Integer(address)));
+			addressRow = ((Integer) addressRows.get(Integer.valueOf(address)));
 		} catch (final NullPointerException e) {
 			throw new IllegalArgumentException(); // address not found in map
 			//return addressRow;// if address not in map, do nothing.
@@ -748,12 +748,8 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 		public boolean isCellEditable(final int row, final int col) {
 			//Note that the data/cell address is constant,
 			//no matter where the cell appears onscreen.
-			if (col == BREAK_COLUMN || col == CODE_COLUMN && Globals.getSettings().getBooleanSetting(
-					Settings.SELF_MODIFYING_CODE_ENABLED)) {
-				return true;
-			} else {
-				return false;
-			}
+			return col == BREAK_COLUMN || col == CODE_COLUMN && Globals.getSettings().getBooleanSetting(
+					Settings.SELF_MODIFYING_CODE_ENABLED);
 		}
 
 		/**
@@ -798,7 +794,6 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 					return;
 				}
 			}// end synchronized block
-			return;
 		}
 
 		private void printDebugData() {

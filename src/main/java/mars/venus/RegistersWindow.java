@@ -90,7 +90,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
          registers = RegisterFile.getRegisters();
          for(int i=0; i< registers.length; i++){
             tableData[i][0]= registers[i].getName();
-            tableData[i][1]= new Integer(registers[i].getNumber());
+            tableData[i][1]= Integer.valueOf(registers[i].getNumber());
             tableData[i][2]= NumberDisplayBaseChooser.formatNumber(registers[i].getValue(),valueBase);
             tableData[i][3]= NumberDisplayBaseChooser.formatNumber(registers[i].getValue(),10);
          }
@@ -233,8 +233,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    * all columns.
    */
        private class RegisterCellRenderer extends DefaultTableCellRenderer { 
-         private Font font;
-         private int alignment;
+         private final Font font;
+         private final int alignment;
       	 
           public RegisterCellRenderer(Font font, int alignment) {
             super();
@@ -310,12 +310,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             //Note that the data/cell address is constant,
             //no matter where the cell appears onscreen.
          	// these registers are not editable: $zero (0), $pc (32), $ra (31)
-            if (col == VALUE_COLUMN && row != 0 && row != 32 && row != 31) { 
-               return true;
-            } 
-            else {
-               return false;
-            }
+              return col == VALUE_COLUMN && row != 0 && row != 32 && row != 31;
          }
       
       
@@ -342,8 +337,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             int valueBase = Globals.getGui().getMainPane().getExecutePane().getValueDisplayBase();
             data[row][col] = NumberDisplayBaseChooser.formatNumber(val, valueBase); 
             fireTableCellUpdated(row, col);
-            return;
-         }
+          }
       
       
         /**
@@ -385,7 +379,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             this.setSelectionBackground(Color.GREEN);
          }
       
-         private String[] regToolTips = {
+         private final String[] regToolTips = {
             /* $zero */  "constant 0",  
             /* $at   */  "reserved for assembler",
             /* $v0   */  "expression evaluation and results of a function",
@@ -446,7 +440,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
             return tip;
          }
         
-         private String[] columnToolTips = {
+         private final String[] columnToolTips = {
             /* name */   "Each register has a tool tip describing its usage convention",
             /* number */ "Corresponding register number",
             /* value */  "Current 32 bit value"

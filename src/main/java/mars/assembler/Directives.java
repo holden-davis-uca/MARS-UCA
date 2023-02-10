@@ -41,7 +41,7 @@ import java.util.ArrayList;
 
 public final class Directives {
 
-	private static ArrayList directiveList = new ArrayList();
+	private static final ArrayList directiveList = new ArrayList();
 	public static final Directives DATA = new Directives(".data",
 			"Subsequent items stored in Data segment at next available address");
 	public static final Directives TEXT = new Directives(".text",

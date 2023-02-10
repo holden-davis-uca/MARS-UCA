@@ -114,7 +114,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 			active = false;
 			this.isText = isText;
 			color = new Color(0, 153, 0);
-			if (isMovingXaxis == true) {
+			if (isMovingXaxis) {
 				if (init < end) {
 					direction = movingLeft;
 				} else {
@@ -286,7 +286,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 				end = datapath_mapItem.getElementsByTagName("end");
 				//definition of colors line
 
-				if (instructionCode.substring(0, 6).equals("000000")) {//R-type instructions
+				if (instructionCode.startsWith("000000")) {//R-type instructions
 					color = datapath_mapItem.getElementsByTagName("color_Rtype");
 					//System.out.println("rtype");
 				} else if (instructionCode.substring(0, 6).matches("00001[0-1]")) { //J-type instructions
@@ -367,7 +367,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 				end = datapath_mapItem.getElementsByTagName("end");
 				//definition of colors line
 
-				if (instructionCode.substring(0, 6).equals("000000")) {//R-type instructions
+				if (instructionCode.startsWith("000000")) {//R-type instructions
 					if (instructionCode.substring(28, 32).matches("0000")) { //BRANCH type instructions
 						color = datapath_mapItem.getElementsByTagName("ALU_out010");
 						System.out.println("ALU_out010 type " + instructionCode.substring(28, 32));
@@ -526,7 +526,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 		for (int i = 0; i < size; i++) {
 			track[i] = v.getInit() + i;
 		}
-		if (v.isActive() == true) {
+		if (v.isActive()) {
 			v.setFirst_interaction(false);
 			for (int i = 0; i < size; i++) {
 				if (track[i] <= v.getCurrent()) {
@@ -536,7 +536,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 			}
 			if (v.getCurrent() == track[size - 1]) { v.setActive(false); }
 			v.setCurrent(v.getCurrent() + 1);
-		} else if (v.isFirst_interaction() == false) {
+		} else if (!v.isFirst_interaction()) {
 			for (int i = 0; i < size; i++) {
 				g2d.setColor(v.getColor());
 				g2d.fillRect(track[i], v.getOppositeAxis(), 3, 3);
@@ -558,7 +558,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 			track[i] = v.getInit() - i;
 		}
 
-		if (v.isActive() == true) {
+		if (v.isActive()) {
 			v.setFirst_interaction(false);
 			for (int i = 0; i < size; i++) {
 				if (track[i] >= v.getCurrent()) {
@@ -569,7 +569,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 			if (v.getCurrent() == track[size - 1]) { v.setActive(false); }
 
 			v.setCurrent(v.getCurrent() - 1);
-		} else if (v.isFirst_interaction() == false) {
+		} else if (!v.isFirst_interaction()) {
 			for (int i = 0; i < size; i++) {
 				g2d.setColor(v.getColor());
 				g2d.fillRect(track[i], v.getOppositeAxis(), 3, 3);
@@ -598,7 +598,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 			}
 		}
 
-		if (v.isActive() == true) {
+		if (v.isActive()) {
 			v.setFirst_interaction(false);
 			for (int i = 0; i < size; i++) {
 				if (track[i] >= v.getCurrent()) {
@@ -609,7 +609,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 			if (v.getCurrent() == track[size - 1]) { v.setActive(false); }
 			v.setCurrent(v.getCurrent() - 1);
 
-		} else if (v.isFirst_interaction() == false) {
+		} else if (!v.isFirst_interaction()) {
 			for (int i = 0; i < size; i++) {
 				g2d.setColor(v.getColor());
 				g2d.fillRect(v.getOppositeAxis(), track[i], 3, 3);
@@ -631,7 +631,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 			track[i] = v.getInit() + i;
 		}
 
-		if (v.isActive() == true) {
+		if (v.isActive()) {
 			v.setFirst_interaction(false);
 			for (int i = 0; i < size; i++) {
 				if (track[i] <= v.getCurrent()) {
@@ -642,7 +642,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 			}
 			if (v.getCurrent() == track[size - 1]) { v.setActive(false); }
 			v.setCurrent(v.getCurrent() + 1);
-		} else if (v.isFirst_interaction() == false) {
+		} else if (!v.isFirst_interaction()) {
 			for (int i = 0; i < size; i++) {
 				g2d.setColor(v.getColor());
 				g2d.fillRect(v.getOppositeAxis(), track[i], 3, 3);
@@ -668,10 +668,10 @@ class UnitAnimation extends JPanel implements ActionListener {
 		Vertex vert;
 		for (int i = 0; i < vertexTraversed.size(); i++) {
 			vert = vertexTraversed.get(i);
-			if (vert.isMovingXaxis == true) {
+			if (vert.isMovingXaxis) {
 				if (vert.getDirection() == Vertex.movingLeft) {
 					printTrackLtoR(vert);
-					if (vert.isActive() == false) {
+					if (!vert.isActive()) {
 						final int j = vert.getTargetVertex().size();
 						Vertex tempVertex;
 						for (int k = 0; k < j; k++) {
@@ -680,9 +680,10 @@ class UnitAnimation extends JPanel implements ActionListener {
 							for (int m = 0; m < vertexTraversed.size(); m++) {
 								if (tempVertex.getNumIndex() == vertexTraversed.get(m).getNumIndex()) {
 									hasThisVertex = true;
+									break;
 								}
 							}
-							if (hasThisVertex == false) {
+							if (!hasThisVertex) {
 								outputGraph.get(vert.getNumIndex()).get(k).setActive(true);
 								vertexTraversed.add(outputGraph.get(vert.getNumIndex()).get(k));
 							}
@@ -690,7 +691,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 					}
 				} else {
 					printTrackRtoL(vert);
-					if (vert.isActive() == false) {
+					if (!vert.isActive()) {
 						final int j = vert.getTargetVertex().size();
 						Vertex tempVertex;
 						for (int k = 0; k < j; k++) {
@@ -699,9 +700,10 @@ class UnitAnimation extends JPanel implements ActionListener {
 							for (int m = 0; m < vertexTraversed.size(); m++) {
 								if (tempVertex.getNumIndex() == vertexTraversed.get(m).getNumIndex()) {
 									hasThisVertex = true;
+									break;
 								}
 							}
-							if (hasThisVertex == false) {
+							if (!hasThisVertex) {
 								outputGraph.get(vert.getNumIndex()).get(k).setActive(true);
 								vertexTraversed.add(outputGraph.get(vert.getNumIndex()).get(k));
 							}
@@ -711,13 +713,12 @@ class UnitAnimation extends JPanel implements ActionListener {
 			} //end of condition of X axis
 			else {
 				if (vert.getDirection() == Vertex.movingDownside) {
-					if (vert.isText == true) {
-						;
+					if (vert.isText) {
 					} else {
 						printTrackDtoU(vert);
 					}
 
-					if (vert.isActive() == false) {
+					if (!vert.isActive()) {
 						final int j = vert.getTargetVertex().size();
 						Vertex tempVertex;
 						for (int k = 0; k < j; k++) {
@@ -726,9 +727,10 @@ class UnitAnimation extends JPanel implements ActionListener {
 							for (int m = 0; m < vertexTraversed.size(); m++) {
 								if (tempVertex.getNumIndex() == vertexTraversed.get(m).getNumIndex()) {
 									hasThisVertex = true;
+									break;
 								}
 							}
-							if (hasThisVertex == false) {
+							if (!hasThisVertex) {
 								outputGraph.get(vert.getNumIndex()).get(k).setActive(true);
 								vertexTraversed.add(outputGraph.get(vert.getNumIndex()).get(k));
 							}
@@ -737,7 +739,7 @@ class UnitAnimation extends JPanel implements ActionListener {
 
 				} else {
 					printTrackUtoD(vert);
-					if (vert.isActive() == false) {
+					if (!vert.isActive()) {
 						final int j = vert.getTargetVertex().size();
 						Vertex tempVertex;
 						for (int k = 0; k < j; k++) {
@@ -746,9 +748,10 @@ class UnitAnimation extends JPanel implements ActionListener {
 							for (int m = 0; m < vertexTraversed.size(); m++) {
 								if (tempVertex.getNumIndex() == vertexTraversed.get(m).getNumIndex()) {
 									hasThisVertex = true;
+									break;
 								}
 							}
-							if (hasThisVertex == false) {
+							if (!hasThisVertex) {
 								outputGraph.get(vert.getNumIndex()).get(k).setActive(true);
 								vertexTraversed.add(outputGraph.get(vert.getNumIndex()).get(k));
 							}

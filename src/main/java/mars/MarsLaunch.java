@@ -210,8 +210,8 @@ public class MarsLaunch {
 				try {
 					final String[] memoryRange = checkMemoryAddressRange(triple[0]);
 					segInfo = new Integer[2];
-					segInfo[0] = new Integer(Binary.stringToInt(memoryRange[0])); // low end of range
-					segInfo[1] = new Integer(Binary.stringToInt(memoryRange[1])); // high end of range
+					segInfo[0] = Integer.valueOf(Binary.stringToInt(memoryRange[0])); // low end of range
+					segInfo[1] = Integer.valueOf(Binary.stringToInt(memoryRange[1])); // high end of range
 				} catch (final NumberFormatException nfe) {
 					segInfo = null;
 				} catch (final NullPointerException npe) {
@@ -262,7 +262,6 @@ public class MarsLaunch {
 			ThemeEngine.setup(args);
 			new VenusUI("MARS-UCA " + Globals.version);
 		});
-		return;
 	}
 
 	//////////////////////////////////////////////////////////////////////
@@ -300,15 +299,15 @@ public class MarsLaunch {
 			}
 			// Once we hit "pa", all remaining command args are assumed
 			// to be program arguments.
-			if (args[i].toLowerCase().equals("pa")) {
+			if (args[i].equalsIgnoreCase("pa")) {
 				inProgramArgumentList = true;
 				continue;
 			}
 			// messages-to-standard-error switch already processed, so ignore.
-			if (args[i].toLowerCase().equals(displayMessagesToErrSwitch)) { continue; }
+			if (args[i].equalsIgnoreCase(displayMessagesToErrSwitch)) { continue; }
 			// no-copyright switch already processed, so ignore.
-			if (args[i].toLowerCase().equals(noCopyrightSwitch)) { continue; }
-			if (args[i].toLowerCase().equals("dump")) {
+			if (args[i].equalsIgnoreCase(noCopyrightSwitch)) { continue; }
+			if (args[i].equalsIgnoreCase("dump")) {
 				if (args.length <= i + 3) {
 					out.println("Dump command line argument requires a segment, format and file name.");
 					argsOK = false;
@@ -319,7 +318,7 @@ public class MarsLaunch {
 				}
 				continue;
 			}
-			if (args[i].toLowerCase().equals("mc")) {
+			if (args[i].equalsIgnoreCase("mc")) {
 				final String configName = args[++i];
 				final MemoryConfiguration config = MemoryConfigurations.getConfigurationByName(configName);
 				if (config == null) {
@@ -350,60 +349,60 @@ public class MarsLaunch {
 					// Let it fall thru and get handled by catch-all
 				}
 			}
-			if (args[i].toLowerCase().equals("d")) {
+			if (args[i].equalsIgnoreCase("d")) {
 				Globals.debug = true;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("a")) {
+			if (args[i].equalsIgnoreCase("a")) {
 				simulate = false;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("ad") || args[i].toLowerCase().equals("da")) {
+			if (args[i].equalsIgnoreCase("ad") || args[i].equalsIgnoreCase("da")) {
 				Globals.debug = true;
 				simulate = false;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("p")) {
+			if (args[i].equalsIgnoreCase("p")) {
 				assembleProject = true;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("dec")) {
+			if (args[i].equalsIgnoreCase("dec")) {
 				displayFormat = DECIMAL;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("hex")) {
+			if (args[i].equalsIgnoreCase("hex")) {
 				displayFormat = HEXADECIMAL;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("ascii")) {
+			if (args[i].equalsIgnoreCase("ascii")) {
 				displayFormat = ASCII;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("b")) {
+			if (args[i].equalsIgnoreCase("b")) {
 				verbose = false;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("db")) {
+			if (args[i].equalsIgnoreCase("db")) {
 				delayedBranching = true;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("np") || args[i].toLowerCase().equals("ne")) {
+			if (args[i].equalsIgnoreCase("np") || args[i].equalsIgnoreCase("ne")) {
 				pseudo = false;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("we")) { // added 14-July-2008 DPS
+			if (args[i].equalsIgnoreCase("we")) { // added 14-July-2008 DPS
 				warningsAreErrors = true;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("sm")) { // added 17-Dec-2009 DPS
+			if (args[i].equalsIgnoreCase("sm")) { // added 17-Dec-2009 DPS
 				startAtMain = true;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("smc")) { // added 5-Jul-2013 DPS
+			if (args[i].equalsIgnoreCase("smc")) { // added 5-Jul-2013 DPS
 				selfModifyingCode = true;
 				continue;
 			}
-			if (args[i].toLowerCase().equals("ic")) { // added 19-Jul-2012 DPS
+			if (args[i].equalsIgnoreCase("ic")) { // added 19-Jul-2012 DPS
 				countInstructions = true;
 				continue;
 			}
@@ -609,7 +608,7 @@ public class MarsLaunch {
 					if (hasDouble) {
 						out.println("\t" + Binary.binaryStringToHexString(Binary.longToBinaryString(lvalue)));
 					} else {
-						out.println("");
+						out.println();
 					}
 				} else if (displayFormat == DECIMAL) {
 					// display float (and double, if applicable) in decimal
@@ -617,7 +616,7 @@ public class MarsLaunch {
 					if (hasDouble) {
 						out.println("\t" + dvalue);
 					} else {
-						out.println("");
+						out.println();
 					}
 				} else { // displayFormat == ASCII
 					out.print(Binary.intToAscii(ivalue));
@@ -625,7 +624,7 @@ public class MarsLaunch {
 						out.println("\t" + Binary.intToAscii(Binary.highOrderLongToInt(lvalue)) + Binary.intToAscii(
 								Binary.lowOrderLongToInt(lvalue)));
 					} else {
-						out.println("");
+						out.println();
 					}
 				}
 			}

@@ -135,7 +135,7 @@ public class JEditTextArea extends JComponent {
 	 * @param defaults The default settings
 	 */
 
-	private JScrollBar lineNumbersVertical;//************************************
+	private final JScrollBar lineNumbersVertical;//************************************
 
 	public JEditTextArea(final TextAreaDefaults defaults, final JComponent lineNumbers) {
 		// Enable the necessary events

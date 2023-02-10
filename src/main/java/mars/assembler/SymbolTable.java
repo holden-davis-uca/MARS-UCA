@@ -42,7 +42,7 @@ import mars.Globals;
 
 public class SymbolTable {
 
-	private static String startLabel = "main";
+	private static final String startLabel = "main";
 	private final String filename;
 	private ArrayList table;
 	// Note -1 is legal 32 bit address (0xFFFFFFFF) but it is the high address in
@@ -106,7 +106,6 @@ public class SymbolTable {
 				break;
 			}
 		}
-		return;
 	}
 
 	/**
@@ -261,7 +260,6 @@ public class SymbolTable {
 			label.setAddress(replacementAddress);
 			label = getSymbolGivenAddress(Integer.toString(originalAddress));
 		}
-		return;
 	}
 
 	/**

@@ -242,7 +242,7 @@ class UIDefaultsLoader
 	enum ValueType { UNKNOWN, STRING, BOOLEAN, CHARACTER, INTEGER, FLOAT, BORDER, ICON, INSETS, DIMENSION, COLOR,
 		SCALEDINTEGER, SCALEDFLOAT, SCALEDINSETS, SCALEDDIMENSION, INSTANCE, CLASS, GRAYFILTER, NULL, LAZY }
 
-	private static ValueType[] tempResultValueType = new ValueType[1];
+	private static final ValueType[] tempResultValueType = new ValueType[1];
 
 	static Object parseValue( String key, String value ) {
 		return parseValue( key, value, null, v -> v, Collections.emptyList() );
@@ -719,28 +719,28 @@ class UIDefaultsLoader
 
 	private static ActiveValue parseScaledInteger( String value ) {
 		int val = parseInteger( value, true );
-		return (ActiveValue) t -> {
+		return t -> {
 			return UIScale.scale( val );
 		};
 	}
 
 	private static ActiveValue parseScaledFloat( String value ) {
 		float val = parseFloat( value, true );
-		return (ActiveValue) t -> {
+		return t -> {
 			return UIScale.scale( val );
 		};
 	}
 
 	private static ActiveValue parseScaledInsets( String value ) {
 		Insets insets = parseInsets( value );
-		return (ActiveValue) t -> {
+		return t -> {
 			return UIScale.scale( insets );
 		};
 	}
 
 	private static ActiveValue parseScaledDimension( String value ) {
 		Dimension dimension = parseDimension( value );
-		return (ActiveValue) t -> {
+		return t -> {
 			return UIScale.scale( dimension );
 		};
 	}

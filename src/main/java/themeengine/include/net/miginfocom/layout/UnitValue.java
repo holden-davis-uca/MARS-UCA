@@ -276,7 +276,7 @@ public final class UnitValue implements Serializable
 	 * connected to any component.
 	 * @return The size in pixels.
 	 */
-	public final int getPixels(float refValue, ContainerWrapper parent, ComponentWrapper comp)
+	public int getPixels(float refValue, ContainerWrapper parent, ComponentWrapper comp)
 	{
 		return Math.round(getPixelsExact(refValue, parent, comp));
 	}
@@ -290,7 +290,7 @@ public final class UnitValue implements Serializable
 	 * connected to any component.
 	 * @return The size in pixels.
 	 */
-	public final float getPixelsExact(float refValue, ContainerWrapper parent, ComponentWrapper comp)
+	public float getPixelsExact(float refValue, ContainerWrapper parent, ComponentWrapper comp)
 	{
 		if (parent == null)
 			return 1;
@@ -465,7 +465,7 @@ public final class UnitValue implements Serializable
 		throw new IllegalArgumentException("Unknown keyword: " + unitStr);
 	}
 
-	final boolean isAbsolute()
+	boolean isAbsolute()
 	{
 		switch (unit) {
 			case PIXEL:
@@ -502,7 +502,7 @@ public final class UnitValue implements Serializable
 		throw new IllegalArgumentException("Unknown/illegal unit: " + unit + ", unitStr: " + unitStr);
 	}
 
-	final boolean isAbsoluteDeep()
+	boolean isAbsoluteDeep()
 	{
 		if (subUnits != null) {
 			for (UnitValue subUnit : subUnits) {
@@ -513,12 +513,12 @@ public final class UnitValue implements Serializable
 		return isAbsolute();
 	}
 
-	final boolean isLinked()
+	boolean isLinked()
 	{
 		return linkId != null;
 	}
 
-	final boolean isLinkedDeep()
+	boolean isLinkedDeep()
 	{
 		if (subUnits != null) {
 			for (UnitValue subUnit : subUnits) {
@@ -529,53 +529,53 @@ public final class UnitValue implements Serializable
 		return isLinked();
 	}
 
-	final String getLinkTargetId()
+	String getLinkTargetId()
 	{
 		return linkId;
 	}
 
-	final UnitValue getSubUnitValue(int i)
+	UnitValue getSubUnitValue(int i)
 	{
 		return subUnits[i];
 	}
 
-	final int getSubUnitCount()
+	int getSubUnitCount()
 	{
 		return subUnits != null ? subUnits.length : 0;
 	}
 
-	public final UnitValue[] getSubUnits()
+	public UnitValue[] getSubUnits()
 	{
 		return subUnits != null ? subUnits.clone() : null;
 	}
 
-	public final int getUnit()
+	public int getUnit()
 	{
 		return unit;
 	}
 
-	public final String getUnitString()
+	public String getUnitString()
 	{
 		return unitStr;
 	}
 
-	public final int getOperation()
+	public int getOperation()
 	{
 		return oper;
 	}
 
-	public final float getValue()
+	public float getValue()
 	{
 		return value;
 	}
 
-	public final boolean isHorizontal()
+	public boolean isHorizontal()
 	{
 		return isHor;
 	}
 
 	@Override
-	final public String toString()
+	public String toString()
 	{
 		return getClass().getName() + ". Value=" + value + ", unit=" + unit + ", unitString: " + unitStr + ", oper=" + oper + ", isHor: " + isHor;
 	}
@@ -584,13 +584,13 @@ public final class UnitValue implements Serializable
 	 * set to <code>true</code> for the creation strings to be stored.
 	 * @return The constraint string or <code>null</code> if none is registered.
 	 */
-	public final String getConstraintString()
+	public String getConstraintString()
 	{
 		return LayoutUtil.getCCString(this);
 	}
 
 	@Override
-	public final int hashCode()
+	public int hashCode()
 	{
 		return (int) (value * 12345) + (oper >>> 5) + unit >>> 17;
 	}

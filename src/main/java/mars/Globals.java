@@ -48,8 +48,8 @@ import mars.venus.VenusUI;
 public class Globals {
 
 	// List these first because they are referenced by methods called at initialization.
-	private static String configPropertiesFile = "Config";
-	private static String syscallPropertiesFile = "Syscall";
+	private static final String configPropertiesFile = "Config";
+	private static final String syscallPropertiesFile = "Syscall";
 
 	/** The set of implemented MIPS instructions. **/
 	public static InstructionSet instructionSet;

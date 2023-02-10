@@ -544,7 +544,6 @@ public class Tokenizer {
 		}
 		final Token toke = new Token(type, value, program, line, tokenStartPos);
 		tokenList.add(toke);
-		return;
 	}
 
 	// If passed a candidate character literal, attempt to translate it into integer constant.

@@ -207,7 +207,7 @@ public class SwingComponentWrapper implements ComponentWrapper
 	@Override
 	public final int getMinimumHeight(int sz)
 	{
-		if (prefCalled == false) {
+		if (!prefCalled) {
 			c.getPreferredSize(); // To defeat a bug where the minimum size is different before and after the first call to getPreferredSize();
 			prefCalled = true;
 		}
@@ -217,7 +217,7 @@ public class SwingComponentWrapper implements ComponentWrapper
 	@Override
 	public final int getMinimumWidth(int sz)
 	{
-		if (prefCalled == false) {
+		if (!prefCalled) {
 			c.getPreferredSize(); // To defeat a bug where the minimum size is different before and after the first call to getPreferredSize();
 			prefCalled = true;
 		}
@@ -398,7 +398,7 @@ public class SwingComponentWrapper implements ComponentWrapper
 							border = component.getBorder();
 							if (border != null && border.getClass().getName().startsWith("com.apple.laf.AquaButtonBorder")) {
 								Object size = component.getClientProperty("JComponent.sizeVariant");
-								if (size != null && size.toString().equals("regular") == false) {
+								if (size != null && !size.toString().equals("regular")) {
 									size = "." + size;
 								} else {
 									size = "";
@@ -548,7 +548,7 @@ public class SwingComponentWrapper implements ComponentWrapper
 	@Override
 	public final void paintDebugOutline(boolean showVisualPadding)
 	{
-		if (c.isShowing() == false)
+		if (!c.isShowing())
 			return;
 
 		Graphics2D g = (Graphics2D) c.getGraphics();
@@ -658,7 +658,7 @@ public class SwingComponentWrapper implements ComponentWrapper
 	@Override
 	public final boolean equals(Object o)
 	{
-		if (o instanceof ComponentWrapper == false)
+		if (!(o instanceof ComponentWrapper))
 			return false;
 
 		return c.equals(((ComponentWrapper) o).getComponent());

@@ -133,7 +133,7 @@ public abstract class AbstractFontSettingDialog extends JDialog {
 		fontSizeSelector.setToolTipText("Use slider to select font size from " + EditorFont.MIN_SIZE + " to "
 				+ EditorFont.MAX_SIZE + ".");
 		fontSizeSelector.addChangeListener(e -> {
-			final Integer value = new Integer(((JSlider) e.getSource()).getValue());
+			final Integer value = Integer.valueOf(((JSlider) e.getSource()).getValue());
 			fontSizeSpinSelector.setValue(value);
 			fontSample.setFont(getFont());
 		});
@@ -200,7 +200,7 @@ public abstract class AbstractFontSettingDialog extends JDialog {
 		fontFamilySelector.setSelectedItem(initialFontFamily);
 		fontStyleSelector.setSelectedItem(initialFontStyle);
 		fontSizeSelector.setValue(EditorFont.sizeStringToSizeInt(initialFontSize));
-		fontSizeSpinSelector.setValue(new Integer(EditorFont.sizeStringToSizeInt(initialFontSize)));
+		fontSizeSpinSelector.setValue(Integer.valueOf(EditorFont.sizeStringToSizeInt(initialFontSize)));
 	}
 
 	/**
@@ -223,7 +223,7 @@ public abstract class AbstractFontSettingDialog extends JDialog {
 	//
 	/////////////////////////////////////////////////////////////////////
 
-	private static String SEPARATOR = "___SEPARATOR____";
+	private static final String SEPARATOR = "___SEPARATOR____";
 
 	// Given an array of string arrays, will produce a Vector contenating
 	// the arrays with a separator between each.

@@ -138,7 +138,7 @@ public class JEditBasedTextArea extends JEditTextArea implements MARSTextEditing
 	 */
 
 	@Override
-	public void caretUpdate(final CaretEvent e) { editPane.displayCaretPosition(((MutableCaretEvent) e).getDot()); }
+	public void caretUpdate(final CaretEvent e) { editPane.displayCaretPosition(e.getDot()); }
 
 	/**
 	 * Same as setSelectedText but named for compatibility with JTextComponent
