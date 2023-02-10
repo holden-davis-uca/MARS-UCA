@@ -1,8 +1,6 @@
 # Should occur upon the creation of a release
 name: Build and Publish Jar to GitHub Packages
-on:
-  release:
-    types: [created]
+on: workflow_dispatch
 jobs:
   publish:
     runs-on: ubuntu-latest
