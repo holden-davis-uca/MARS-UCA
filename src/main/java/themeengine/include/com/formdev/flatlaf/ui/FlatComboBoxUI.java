@@ -384,7 +384,6 @@ public class FlatComboBoxUI
 	}
 
 	@Override
-	@SuppressWarnings( "unchecked" )
 	public void paintCurrentValue( Graphics g, Rectangle bounds, boolean hasFocus ) {
 		ListCellRenderer<Object> renderer = comboBox.getRenderer();
 		uninstallCellPaddingBorder( renderer );
@@ -436,7 +435,6 @@ public class FlatComboBoxUI
 
 	@Override
 	protected Dimension getDefaultSize() {
-		@SuppressWarnings( "unchecked" )
 		ListCellRenderer<Object> renderer = comboBox.getRenderer();
 		uninstallCellPaddingBorder( renderer );
 
@@ -448,7 +446,6 @@ public class FlatComboBoxUI
 
 	@Override
 	protected Dimension getDisplaySize() {
-		@SuppressWarnings( "unchecked" )
 		ListCellRenderer<Object> renderer = comboBox.getRenderer();
 		uninstallCellPaddingBorder( renderer );
 

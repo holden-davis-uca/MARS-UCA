@@ -27,7 +27,7 @@
 <!ELEMENT is_text (#PCDATA)>
 ]>
 
-<register_data>
+<registerDatapath>
 		<function_equivalence>
 		<bits>000000</bits>
 		<mnemonic>sll</mnemonic>
@@ -619,6 +619,6 @@
 		<target_vertex>0</target_vertex>
 		<is_text>false</is_text>
 	</datapath_map>
-</register_data>
+</registerDatapath>
 
 	 
