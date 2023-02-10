@@ -222,21 +222,16 @@ public class EditPane extends JPanel implements Observer {
 	private static final String spaces = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
 	public String getLineNumbersList(final javax.swing.text.Document doc) {
-		final StringBuffer lineNumberList = new StringBuffer("<html>");
+		final StringBuilder lineNumberList = new StringBuilder("<html>");
 		final int lineCount = doc.getDefaultRootElement().getElementCount(); //this.getSourceLineCount();
 		final int digits = Integer.toString(lineCount).length();
 		for (int i = 1; i <= lineCount; i++) {
 			final String lineStr = Integer.toString(i);
 			final int leadingSpaces = digits - lineStr.length();
 			if (leadingSpaces == 0) {
-				lineNumberList.append(
-					lineStr
-						+ "&nbsp;<br>");
+				lineNumberList.append(lineStr).append("&nbsp;<br>");
 			} else {
-				lineNumberList.append(
-					spaces.substring(0, leadingSpaces * 6)
-						+ lineStr
-						+ "&nbsp;<br>");
+				lineNumberList.append(spaces.substring(0, leadingSpaces * 6)).append(lineStr).append("&nbsp;<br>");
 			}
 		}
 		lineNumberList.append("<br></html>");
@@ -261,7 +256,7 @@ public class EditPane extends JPanel implements Observer {
 			while (bufStringReader.readLine() != null) {
 				lineNums++;
 			}
-		} catch (final IOException e) {}
+		} catch (final IOException ignored) {}
 		return lineNums;
 	}
 
@@ -276,7 +271,6 @@ public class EditPane extends JPanel implements Observer {
 	 * Set the editing status for this EditPane's associated document. For the
 	 * argument, use one of the constants from class FileStatus.
 	 *
-	 * @param FileStatus the status constant from class FileStatus
 	 */
 	public void setFileStatus(final int fileStatus) { this.fileStatus.setFileStatus(fileStatus); }
 
@@ -403,7 +397,6 @@ public class EditPane extends JPanel implements Observer {
 	/**
 	 * enable or disable checkbox that controls display of line numbers
 	 *
-	 * @param enable True to enable box, false to disable.
 	 */
 	public void setShowLineNumbersEnabled(final boolean enabled) {
 		showLineNumbers.setEnabled(enabled);

@@ -43,7 +43,7 @@ import javax.swing.SwingConstants;
 
 /**
  * Produces MARS splash screen.<br>
- * Adapted from http://www.java-tips.org/content/view/1267/2/<br>
+ * Adapted from <a href="http://www.java-tips.org/content/view/1267/2/">...</a><br>
  */
 
 public class MarsSplashScreen extends JWindow {
@@ -103,11 +103,11 @@ public class MarsSplashScreen extends JWindow {
 		// Wait a little while, maybe while loading resources
 		try {
 			Thread.sleep(duration);
-		} catch (final Exception e) {}
+		} catch (final Exception ignored) {}
 		setVisible(false);
 	}
 
-	class ImageBackgroundPanel extends JPanel {
+	static class ImageBackgroundPanel extends JPanel {
 
 		/**
 		 *

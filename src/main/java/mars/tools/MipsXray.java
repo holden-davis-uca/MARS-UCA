@@ -303,7 +303,7 @@ public class MipsXray extends AbstractMarsToolAndApplication {
 		public static final int movingDownside = 2;
 		public static final int movingLeft = 3;
 		public static final int movingRight = 4;
-		public int direction;
+		public final int direction;
 		public int oppositeAxis;
 		private boolean isMovingXaxis;
 		private Color color;
@@ -342,8 +342,8 @@ public class MipsXray extends AbstractMarsToolAndApplication {
 			}
 			final String[] list = listTargetVertex.split("#");
 			targetVertex = new ArrayList<>();
-			for (int i = 0; i < list.length; i++) {
-				targetVertex.add(Integer.parseInt(list[i]));
+			for (String s : list) {
+				targetVertex.add(Integer.parseInt(s));
 				//	System.out.println("Adding " + i + " " +  Integer.parseInt(list[i])+ " in target");
 			}
 			final String[] listColor = listOfColors.split("#");
@@ -593,12 +593,12 @@ public class MipsXray extends AbstractMarsToolAndApplication {
 				vertexList.size();
 				Vertex vertex;
 				ArrayList<Integer> targetList;
-				for (int i = 0; i < vertexList.size(); i++) {
-					vertex = vertexList.get(i);
+				for (Vertex value : vertexList) {
+					vertex = value;
 					targetList = vertex.getTargetVertex();
 					final Vector<Vertex> vertexOfTargets = new Vector<>();
-					for (int k = 0; k < targetList.size(); k++) {
-						vertexOfTargets.add(vertexList.get(targetList.get(k)));
+					for (Integer integer : targetList) {
+						vertexOfTargets.add(vertexList.get(integer));
 					}
 					outputGraph.add(vertexOfTargets);
 				}
@@ -1310,9 +1310,9 @@ public class MipsXray extends AbstractMarsToolAndApplication {
 							Vertex tempVertex;
 							for (int k = 0; k < j; k++) {
 								tempVertex = outputGraph.get(vert.getNumIndex()).get(k);
-								Boolean hasThisVertex = false;
-								for (int m = 0; m < vertexTraversed.size(); m++) {
-									if (tempVertex.getNumIndex() == vertexTraversed.get(m).getNumIndex()) {
+								boolean hasThisVertex = false;
+								for (Vertex vertex : vertexTraversed) {
+									if (tempVertex.getNumIndex() == vertex.getNumIndex()) {
 										hasThisVertex = true;
 										break;
 									}
@@ -1330,9 +1330,9 @@ public class MipsXray extends AbstractMarsToolAndApplication {
 							Vertex tempVertex;
 							for (int k = 0; k < j; k++) {
 								tempVertex = outputGraph.get(vert.getNumIndex()).get(k);
-								Boolean hasThisVertex = false;
-								for (int m = 0; m < vertexTraversed.size(); m++) {
-									if (tempVertex.getNumIndex() == vertexTraversed.get(m).getNumIndex()) {
+								boolean hasThisVertex = false;
+								for (Vertex vertex : vertexTraversed) {
+									if (tempVertex.getNumIndex() == vertex.getNumIndex()) {
 										hasThisVertex = true;
 										break;
 									}
@@ -1358,9 +1358,9 @@ public class MipsXray extends AbstractMarsToolAndApplication {
 							Vertex tempVertex;
 							for (int k = 0; k < j; k++) {
 								tempVertex = outputGraph.get(vert.getNumIndex()).get(k);
-								Boolean hasThisVertex = false;
-								for (int m = 0; m < vertexTraversed.size(); m++) {
-									if (tempVertex.getNumIndex() == vertexTraversed.get(m).getNumIndex()) {
+								boolean hasThisVertex = false;
+								for (Vertex vertex : vertexTraversed) {
+									if (tempVertex.getNumIndex() == vertex.getNumIndex()) {
 										hasThisVertex = true;
 										break;
 									}
@@ -1380,9 +1380,9 @@ public class MipsXray extends AbstractMarsToolAndApplication {
 							Vertex tempVertex;
 							for (int k = 0; k < j; k++) {
 								tempVertex = outputGraph.get(vert.getNumIndex()).get(k);
-								Boolean hasThisVertex = false;
-								for (int m = 0; m < vertexTraversed.size(); m++) {
-									if (tempVertex.getNumIndex() == vertexTraversed.get(m).getNumIndex()) {
+								boolean hasThisVertex = false;
+								for (Vertex vertex : vertexTraversed) {
+									if (tempVertex.getNumIndex() == vertex.getNumIndex()) {
 										hasThisVertex = true;
 										break;
 									}

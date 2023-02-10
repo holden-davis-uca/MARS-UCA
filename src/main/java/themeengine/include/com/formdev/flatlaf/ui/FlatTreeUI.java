@@ -40,7 +40,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JTree}.
- *
+ * <p>
  * <!-- BasicTreeUI -->
  *
  * @uiDefault Tree.font								Font
@@ -58,7 +58,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault Tree.lineTypeDashed					boolean
  * @uiDefault Tree.showsRootHandles					boolean
  * @uiDefault Tree.repaintWholeRow					boolean
- *
+ * <p>
  * <!-- DefaultTreeCellRenderer -->
  *
  * @uiDefault Tree.leafIcon							Icon
@@ -75,12 +75,12 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault Tree.rendererMargins					Insets
  * @uiDefault Tree.dropCellBackground				Color
  * @uiDefault Tree.dropCellForeground				Color
- *
+ * <p>
  * <!-- DefaultTreeCellEditor -->
  *
  * @uiDefault Tree.editorBorder						Border
  * @uiDefault Tree.editorBorderSelectionColor		Color
- *
+ * <p>
  * <!-- FlatTreeUI -->
  *
  * @uiDefault Tree.border							Border
@@ -200,7 +200,7 @@ public class FlatTreeUI
 			public void propertyChange( PropertyChangeEvent e ) {
 				super.propertyChange( e );
 
-				if( e.getSource() == tree && e.getPropertyName() == "dropLocation" ) {
+				if( e.getSource() == tree && e.getPropertyName().equals("dropLocation")) {
 					JTree.DropLocation oldValue = (JTree.DropLocation) e.getOldValue();
 					repaintWideDropLocation( oldValue );
 					repaintWideDropLocation( tree.getDropLocation() );

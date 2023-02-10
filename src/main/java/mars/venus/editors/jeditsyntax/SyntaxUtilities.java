@@ -149,7 +149,7 @@ public class SyntaxUtilities {
 	 * @param y The y co-ordinate
 	 * @return The x co-ordinate, plus the width of the painted string
 	 */
-	public static boolean popupShowing = false;
+	public static final boolean popupShowing = false;
 	public static Popup popup;
 
 	public static int paintSyntaxLine(final Segment line, Token tokens, final SyntaxStyle[] styles, final TabExpander expander, final Graphics gfx, int x, final int y) {

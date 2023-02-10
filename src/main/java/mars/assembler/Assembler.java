@@ -185,9 +185,11 @@ public class Assembler {
 		// TO SECOND PASS. THIS ASSURES ALL SYMBOL TABLES ARE CORRECTLY BUILT.
 		// THERE IS ONE GLOBAL SYMBOL TABLE (for identifiers declared .globl) PLUS
 		// ONE LOCAL SYMBOL TABLE FOR EACH SOURCE FILE.
-		for (int fileIndex = 0; fileIndex < tokenizedProgramFiles.size(); fileIndex++) {
-			if (errors.errorLimitExceeded()) { break; }
-			fileCurrentlyBeingAssembled = (MIPSprogram) tokenizedProgramFiles.get(fileIndex);
+		for (Object programFile : tokenizedProgramFiles) {
+			if (errors.errorLimitExceeded()) {
+				break;
+			}
+			fileCurrentlyBeingAssembled = (MIPSprogram) programFile;
 			// List of labels declared ".globl". new list for each file assembled
 			globalDeclarationList = new TokenList();
 			// Parser begins by default in text segment until directed otherwise.
@@ -213,7 +215,9 @@ public class Assembler {
 			// INITIALIZES DATA SEGMENT
 			ArrayList<ProgramStatement> statements;
 			for (int i = 0; i < tokenList.size(); i++) {
-				if (errors.errorLimitExceeded()) { break; }
+				if (errors.errorLimitExceeded()) {
+					break;
+				}
 				for (int z = 0; z < ((TokenList) tokenList.get(i)).size(); z++) {
 					final Token t = ((TokenList) tokenList.get(i)).get(z);
 					// record this token's original source program and line #. Differs from final, if .include used
@@ -221,7 +225,9 @@ public class Assembler {
 				}
 				statements = parseLine((TokenList) tokenList.get(i), sourceLineList.get(i).getSource(), sourceLineList
 						.get(i).getLineNumber(), extendedAssemblerEnabled);
-				if (statements != null) { parsedList.addAll(statements); }
+				if (statements != null) {
+					parsedList.addAll(statements);
+				}
 			}
 			if (inMacroSegment) {
 				errors.add(new ErrorMessage(fileCurrentlyBeingAssembled, fileCurrentlyBeingAssembled.getLocalMacroPool()
@@ -250,15 +256,19 @@ public class Assembler {
 		if (Globals.debug) { System.out.println("Assembler second pass begins"); }
 		// SECOND PASS OF ASSEMBLER GENERATES BASIC ASSEMBLER THEN MACHINE CODE.
 		// Generates basic assembler statements...
-		for (int fileIndex = 0; fileIndex < tokenizedProgramFiles.size(); fileIndex++) {
-			if (errors.errorLimitExceeded()) { break; }
-			fileCurrentlyBeingAssembled = (MIPSprogram) tokenizedProgramFiles.get(fileIndex);
+		for (Object tokenizedProgramFile : tokenizedProgramFiles) {
+			if (errors.errorLimitExceeded()) {
+				break;
+			}
+			fileCurrentlyBeingAssembled = (MIPSprogram) tokenizedProgramFile;
 			final ArrayList parsedList = fileCurrentlyBeingAssembled.getParsedList();
 			ProgramStatement statement;
-			for (int i = 0; i < parsedList.size(); i++) {
-				statement = (ProgramStatement) parsedList.get(i);
+			for (Object o : parsedList) {
+				statement = (ProgramStatement) o;
 				statement.buildBasicStatementFromBasicInstruction(errors);
-				if (errors.errorsOccurred()) { throw new ProcessingException(errors); }
+				if (errors.errorsOccurred()) {
+					throw new ProcessingException(errors);
+				}
 				if (statement.getInstruction() instanceof BasicInstruction) {
 					machineList.add(statement);
 				} else {
@@ -308,11 +318,15 @@ public class Assembler {
 						// If this is the case, skip remainder of loop iteration. This should only
 						// happen if template substitution was for "nop" instruction but delayed branching
 						// is disabled so the "nop" is not generated.
-						if (instruction == null || instruction == "") { continue; }
+						if (instruction == null || instruction.equals("")) {
+							continue;
+						}
 
 						// All substitutions have been made so we have generated
 						// a valid basic instruction!
-						if (Globals.debug) { System.out.println("PSEUDO generated: " + instruction); }
+						if (Globals.debug) {
+							System.out.println("PSEUDO generated: " + instruction);
+						}
 						// For generated instruction: tokenize, build program
 						// statement, add to list.
 						final TokenList newTokenList = new Tokenizer().tokenizeLine(sourceLine, instruction, errors,
@@ -336,11 +350,15 @@ public class Assembler {
 		// Generates machine code statements from the list of basic assembler statements
 		// and writes the statement to memory.
 		ProgramStatement statement;
-		for (int i = 0; i < machineList.size(); i++) {
-			if (errors.errorLimitExceeded()) { break; }
-			statement = (ProgramStatement) machineList.get(i);
+		for (Object o : machineList) {
+			if (errors.errorLimitExceeded()) {
+				break;
+			}
+			statement = (ProgramStatement) o;
 			statement.buildMachineStatementFromBasicStatement(errors);
-			if (Globals.debug) { System.out.println(statement); }
+			if (Globals.debug) {
+				System.out.println(statement);
+			}
 			try {
 				Globals.memory.setStatement(statement.getAddress(), statement);
 			} catch (final AddressErrorException e) {
@@ -362,7 +380,7 @@ public class Assembler {
 		// Such occurances will be flagged as errors.
 		// Yes, I would not have to sort here if I used SortedSet rather than ArrayList
 		// but in case of duplicate I like having both statements handy for error message.
-		Collections.sort(machineList, new ProgramStatementComparator());
+		machineList.sort(new ProgramStatementComparator());
 		catchDuplicateAddresses(machineList, errors);
 		if (errors.errorsOccurred() || errors.warningsOccurred() && warningsAreErrors) {
 			throw new ProcessingException(errors);
@@ -893,21 +911,6 @@ public class Assembler {
 					}
 				}
 			} // WHAT ABOUT .KDATA SEGMENT?
-			/***************************************************************************
-			 * /****** NOTE of 11/20/06. Below will always throw exception b/c you cannot
-			 * use Memory.set() with text segment addresses and the "not valid address"
-			 * produced here is misleading. Added data segment check prior to this point, so
-			 * this "else" will never be executed. I'm leaving it in just in case MARS in
-			 * the future adds capability of writing to the text segment (e.g. ability to
-			 * de-assemble a binary value into its corresponding MIPS instruction) else { //
-			 * not in data segment...which we assume to mean in text segment. try { for (int
-			 * i=0; i < repetitions; i++) { Globals.memory.set(this.textAddress.get(),
-			 * Binary.stringToInt(valueToken.getValue()), lengthInBytes);
-			 * this.textAddress.increment(lengthInBytes); } } catch (AddressErrorException
-			 * e) { errors.add(new ErrorMessage(token.getSourceMIPSprogram(),
-			 * token.getSourceLine(), token.getStartPos(), "\""+this.textAddress.get()+ "\"
-			 * is not a valid text segment address")); } }
-			 ************************************************************************/
 			return;
 		}
 
@@ -944,16 +947,7 @@ public class Assembler {
 			}
 			if (inDataSegment) {
 				writeToDataSegment(value, lengthInBytes, token, errors);
-			}
-			/******
-			 * NOTE of 11/20/06. "try" below will always throw exception b/c you cannot use
-			 * Memory.set() with text segment addresses and the "not valid address" produced
-			 * here is misleading. Added data segment check prior to this point, so this
-			 * "else" will never be executed. I'm leaving it in just in case MARS in the
-			 * future adds capability of writing to the text segment (e.g. ability to
-			 * de-assemble a binary value into its corresponding MIPS instruction)
-			 ********/
-			else {
+			} else {
 				try {
 					Globals.memory.set(textAddress.get(), value, lengthInBytes);
 				} catch (final AddressErrorException e) {
@@ -1201,7 +1195,7 @@ public class Assembler {
 	// Instantiate one for data segment and one for text segment.
 	private class UserKernelAddressSpace {
 
-		int[] address;
+		final int[] address;
 		int currentAddressSpace;
 		private final int USER = 0, KERNEL = 1;
 
@@ -1300,7 +1294,7 @@ public class Assembler {
 					// patch address has to be valid b/c we already stored there...
 					try {
 						Globals.memory.set(entry.patchAddress, labelAddress, entry.length);
-					} catch (final AddressErrorException aee) {}
+					} catch (final AddressErrorException ignored) {}
 					forwardReferenceList.remove(i);
 					i--; // needed because removal shifted the remaining list indices down
 					count++;
@@ -1313,8 +1307,8 @@ public class Assembler {
 		// undefined labels.
 		private void generateErrorMessages(final ErrorList errors) {
 			DataSegmentForwardReference entry;
-			for (int i = 0; i < forwardReferenceList.size(); i++) {
-				entry = (DataSegmentForwardReference) forwardReferenceList.get(i);
+			for (Object o : forwardReferenceList) {
+				entry = (DataSegmentForwardReference) o;
 				errors.add(new ErrorMessage(entry.token.getSourceMIPSprogram(), entry.token.getSourceLine(), entry.token
 						.getStartPos(), "Symbol \"" + entry.token.getValue() + "\" not found in symbol table."));
 			}
@@ -1323,9 +1317,9 @@ public class Assembler {
 		// inner-inner class to hold each entry of the forward reference list.
 		private class DataSegmentForwardReference {
 
-			int patchAddress;
-			int length;
-			Token token;
+			final int patchAddress;
+			final int length;
+			final Token token;
 
 			DataSegmentForwardReference(final int patchAddress, final int length, final Token token) {
 				this.patchAddress = patchAddress;

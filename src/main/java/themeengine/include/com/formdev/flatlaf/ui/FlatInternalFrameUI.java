@@ -31,14 +31,14 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JInternalFrame}.
- *
+ * <p>
  * <!-- BasicInternalFrameUI -->
  *
  * @uiDefault control											Color
  * @uiDefault InternalFrame.icon								Icon
  * @uiDefault InternalFrame.border								Border
  * @uiDefault InternalFrame.layoutTitlePaneAtOrigin				boolean
- *
+ * <p>
  * <!-- BasicInternalFrameTitlePane -->
  *
  * @uiDefault InternalFrame.titleFont							Font
@@ -67,14 +67,14 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  * @uiDefault InternalFrameTitlePane.maximizeButton.mnemonic	Integer
  * @uiDefault InternalFrameTitlePane.moveButton.mnemonic		Integer
  * @uiDefault InternalFrameTitlePane.sizeButton.mnemonic		Integer
- *
+ * <p>
  * <!-- FlatInternalFrameUI -->
  *
  * @uiDefault InternalFrame.activeBorderColor					Color
  * @uiDefault InternalFrame.inactiveBorderColor					Color
  * @uiDefault InternalFrame.borderLineWidth						int
  * @uiDefault InternalFrame.borderMargins						Insets
- *
+ * <p>
  * <!-- FlatInternalFrameTitlePane -->
  *
  * @uiDefault InternalFrameTitlePane.border						Border

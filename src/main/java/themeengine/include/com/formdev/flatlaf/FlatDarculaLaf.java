@@ -18,7 +18,7 @@ package themeengine.include.com.formdev.flatlaf;
 
 /**
  * A Flat LaF that has a dark color scheme and looks like Darcula LaF.
- *
+ * <p>
  * The UI defaults are loaded from FlatDarculaLaf.properties, FlatDarkLaf.properties and FlatLaf.properties
  *
  * @author Karl Tauber

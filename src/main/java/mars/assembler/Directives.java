@@ -109,10 +109,12 @@ public final class Directives {
 
 	public static Directives matchDirective(final String str) {
 		Directives match;
-		for (int i = 0; i < directiveList.size(); i++) {
-			match = (Directives) directiveList.get(i);
-			if (str.equalsIgnoreCase(match.descriptor)) { return match; }
-		}
+        for (Object o : directiveList) {
+            match = (Directives) o;
+            if (str.equalsIgnoreCase(match.descriptor)) {
+                return match;
+            }
+        }
 		return null;
 	}
 
@@ -127,12 +129,14 @@ public final class Directives {
 
 	public static ArrayList prefixMatchDirectives(final String str) {
 		ArrayList matches = null;
-		for (int i = 0; i < directiveList.size(); i++) {
-			if (((Directives) directiveList.get(i)).descriptor.toLowerCase().startsWith(str.toLowerCase())) {
-				if (matches == null) { matches = new ArrayList(); }
-				matches.add(directiveList.get(i));
-			}
-		}
+        for (Object o : directiveList) {
+            if (((Directives) o).descriptor.toLowerCase().startsWith(str.toLowerCase())) {
+                if (matches == null) {
+                    matches = new ArrayList();
+                }
+                matches.add(o);
+            }
+        }
 		return matches;
 	}
 

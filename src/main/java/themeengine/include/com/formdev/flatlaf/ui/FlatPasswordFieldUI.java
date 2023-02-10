@@ -38,7 +38,7 @@ import themeengine.include.com.formdev.flatlaf.util.HiDPIUtils;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JPasswordField}.
- *
+ * <p>
  * <!-- BasicPasswordFieldUI -->
  *
  * @uiDefault PasswordField.font					Font
@@ -54,7 +54,7 @@ import themeengine.include.com.formdev.flatlaf.util.HiDPIUtils;
  * @uiDefault PasswordField.margin					Insets
  * @uiDefault PasswordField.echoChar				character
  * @uiDefault PasswordField.caretBlinkRate			int		default is 500 milliseconds
- *
+ * <p>
  * <!-- FlatPasswordFieldUI -->
  *
  * @uiDefault Component.minimumWidth				int

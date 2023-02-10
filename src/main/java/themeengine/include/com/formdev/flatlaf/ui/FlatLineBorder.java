@@ -25,7 +25,7 @@ import java.awt.Insets;
 
 /**
  * Line border for various components.
- *
+ * <p>
  * Paints a scaled (usually 1px thick) line around the component.
  * The line thickness is not added to the border insets.
  * The insets should be at least have line thickness (usually 1,1,1,1).

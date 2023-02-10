@@ -114,7 +114,7 @@ public class JEditTextArea extends JComponent {
 	 * Adding components with this name to the text area will place them left of the
 	 * horizontal scroll bar. In jEdit, the status bar is added this way.
 	 */
-	public static String LEFT_OF_SCROLLBAR = "los";
+	public static final String LEFT_OF_SCROLLBAR = "los";
 	public static Color POPUP_HELP_TEXT_COLOR = Color.BLACK;  // DPS 11-July-2014
 
 	// Number of text lines moved for each click of the vertical scrollbar buttons.
@@ -206,10 +206,6 @@ public class JEditTextArea extends JComponent {
 		focusedComponent = this;
 	}
 
-	/**
-	 * Returns if this component can be traversed by pressing the Tab key. This
-	 * returns false.
-	 */
 	//        public final boolean isManagingFocus()
 	//       {
 	//          return true;
@@ -1052,7 +1048,7 @@ public class JEditTextArea extends JComponent {
 				start = tmp;
 			}
 
-			final StringBuffer buf = new StringBuffer();
+			final StringBuilder buf = new StringBuilder();
 			final Segment seg = new Segment();
 
 			for (int i = selectionStartLine; i <= selectionEndLine; i++) {
@@ -1246,8 +1242,6 @@ public class JEditTextArea extends JComponent {
 	/**
 	 * Sets if the selection should be rectangular.
 	 *
-	 * @param overwrite True if the selection should be rectangular, false
-	 *                  otherwise.
 	 */
 	public final void setSelectionRectangular(final boolean rectSelect) {
 		this.rectSelect = rectSelect;
@@ -1305,7 +1299,7 @@ public class JEditTextArea extends JComponent {
 			final String selection = getSelectedText();
 
 			final int repeatCount = inputHandler.getRepeatCount();
-			final StringBuffer buf = new StringBuffer();
+			final StringBuilder buf = new StringBuilder();
 			for (int i = 0; i < repeatCount; i++) {
 				buf.append(selection);
 			}
@@ -1327,7 +1321,7 @@ public class JEditTextArea extends JComponent {
 						.replace('\r', '\n');
 
 				final int repeatCount = inputHandler.getRepeatCount();
-				final StringBuffer buf = new StringBuffer();
+				final StringBuilder buf = new StringBuilder();
 				for (int i = 0; i < repeatCount; i++) {
 					buf.append(selection);
 				}
@@ -1372,12 +1366,12 @@ public class JEditTextArea extends JComponent {
 	}
 
 	// protected members
-	protected static String CENTER = "center";
-	protected static String RIGHT = "right";
-	protected static String BOTTOM = "bottom";
+	protected static final String CENTER = "center";
+	protected static final String RIGHT = "right";
+	protected static final String BOTTOM = "bottom";
 
 	protected static JEditTextArea focusedComponent;
-	protected static Timer caretTimer;
+	protected static final Timer caretTimer;
 
 	protected TextAreaPainter painter;
 
@@ -1917,16 +1911,15 @@ public class JEditTextArea extends JComponent {
 	 */
 	// Is used for tool tip only (not popup menu)
 	public String getSyntaxSensitiveToolTipText(final int x, final int y) {
-		String result = null;
+		StringBuilder result = null;
 		final int line = yToLine(y);
 		final ArrayList matches = getSyntaxSensitiveHelpAtLineOffset(line, xToOffset(line, x), true);
 		if (matches == null) { return null; }
 		final int length = PopupHelpItem.maxExampleLength(matches) + 2;
-		result = "<html>";
+		result = new StringBuilder("<html>");
 		for (int i = 0; i < matches.size(); i++) {
 			final PopupHelpItem match = (PopupHelpItem) matches.get(i);
-			result += (i == 0 ? "" : "<br>") + "<tt>" + match.getExamplePaddedToLength(length).replaceAll(" ", "&nbsp;")
-					+ "</tt>" + match.getDescription();
+			result.append(i == 0 ? "" : "<br>").append("<tt>").append(match.getExamplePaddedToLength(length).replaceAll(" ", "&nbsp;")).append("</tt>").append(match.getDescription());
 		}
 		return result + "</html>";
 	}
@@ -2038,8 +2031,8 @@ public class JEditTextArea extends JComponent {
 		if (helpItems != null) {
 			popupMenu = new JPopupMenu();
 			final int length = PopupHelpItem.maxExampleLength(helpItems) + 2;
-			for (int i = 0; i < helpItems.size(); i++) {
-				final PopupHelpItem item = (PopupHelpItem) helpItems.get(i);
+			for (Object helpItem : helpItems) {
+				final PopupHelpItem item = (PopupHelpItem) helpItem;
 				final JMenuItem menuItem = new JMenuItem("<html><tt>" + item.getExamplePaddedToLength(length)
 						.replaceAll(" ", "&nbsp;") + "</tt>" + item.getDescription() + "</html>");
 				if (item.getExact()) {

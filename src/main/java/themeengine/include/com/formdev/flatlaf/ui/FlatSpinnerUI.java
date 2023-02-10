@@ -44,7 +44,7 @@ import themeengine.include.com.formdev.flatlaf.FlatClientProperties;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JSpinner}.
- *
+ * <p>
  * <!-- BasicSpinnerUI -->
  *
  * @uiDefault Spinner.font						Font
@@ -54,7 +54,7 @@ import themeengine.include.com.formdev.flatlaf.FlatClientProperties;
  * @uiDefault Spinner.disableOnBoundaryValues	boolean	default is false
  * @uiDefault Spinner.editorAlignment			int		0=center, 2=left, 4=right, 10=leading, 11=trailing
  * @uiDefault Spinner.editorBorderPainted		boolean	paint inner editor border; defaults to false
- *
+ * <p>
  * <!-- FlatSpinnerUI -->
  *
  * @uiDefault Component.minimumWidth			int

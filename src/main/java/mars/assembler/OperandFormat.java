@@ -70,9 +70,11 @@ public class OperandFormat {
 	static Instruction bestOperandMatch(final TokenList tokenList, final ArrayList instrMatches) {
 		if (instrMatches == null) { return null; }
 		if (instrMatches.size() == 1) { return (Instruction) instrMatches.get(0); }
-		for (int i = 0; i < instrMatches.size(); i++) {
-			final Instruction potentialMatch = (Instruction) instrMatches.get(i);
-			if (tokenOperandMatch(tokenList, potentialMatch, new ErrorList())) { return potentialMatch; }
+		for (Object instrMatch : instrMatches) {
+			final Instruction potentialMatch = (Instruction) instrMatch;
+			if (tokenOperandMatch(tokenList, potentialMatch, new ErrorList())) {
+				return potentialMatch;
+			}
 		}
 		return (Instruction) instrMatches.get(0);
 	}
@@ -165,14 +167,6 @@ public class OperandFormat {
 				return false;
 			}
 		}
-
-		/********
-		 * nice little debugging code to see which operand format the operands for this
-		 * source code instruction matched. System.out.print("Candidate: "); for (int
-		 * i=1; i<spec.size(); i++) { System.out.print(cand.get(i).getValue()+" "); }
-		 * System.out.print("Matched Spec: "); for (int i=1; i<spec.size(); i++) {
-		 * System.out.print(spec.get(i).getValue()+" "); } System.out.println();
-		 */
 
 		return true;
 	}

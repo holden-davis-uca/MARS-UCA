@@ -27,7 +27,7 @@ import themeengine.include.com.formdev.flatlaf.FlatLaf;
 
 /**
  * Provides Java version compatibility methods.
- *
+ * <p>
  * WARNING: This is private API and may change.
  *
  * @author Karl Tauber

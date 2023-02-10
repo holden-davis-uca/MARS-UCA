@@ -77,24 +77,24 @@ public class CubicBezierEasing
 	}
 
 	/**
-	 * Computes the x or y point on a cubic bezier curve for a given t value.
-	 *
-	 * https://en.wikipedia.org/wiki/B%C3%A9zier_curve#Cubic_B%C3%A9zier_curves
-	 *
-	 * The general cubic bezier formula is:
-	 *   x = b0*x0 + b1*x1 + b2*x2 + b3*x3
-	 *   y = b0*y0 + b1*y1 + b2*y2 + b3*y3
-	 *
-	 * where:
-	 *   b0 = (1-t)^3
-	 *   b1 = 3 * t * (1-t)^2
-	 *   b2 = 3 * t^2 * (1-t)
-	 *   b3 = t^3
-	 *
-	 *  x0,y0 is always 0,0 and x3,y3 is 1,1, so we can simplify to:
-	 *   x = b1*x1 + b2*x2 + b3
-	 *   y = b1*x1 + b2*x2 + b3
-	 */
+     * Computes the x or y point on a cubic bezier curve for a given t value.
+     * <p>
+     <a href="	">* https://en.wikipedia.org/wiki/B%C3%A9zier_curve#Cubic_B%C3%A9zier_cu</a>rves
+     * <p>
+     * The general cubic bezier formula is:
+     *   x = b0*x0 + b1*x1 + b2*x2 + b3*x3
+     *   y = b0*y0 + b1*y1 + b2*y2 + b3*y3
+     * <p>
+     * where:
+     *   b0 = (1-t)^3
+     *   b1 = 3 * t * (1-t)^2
+     *   b2 = 3 * t^2 * (1-t)
+     *   b3 = t^3
+     * <p>
+     *  x0,y0 is always 0,0 and x3,y3 is 1,1, so we can simplify to:
+     *   x = b1*x1 + b2*x2 + b3
+     *   y = b1*x1 + b2*x2 + b3
+     */
 	private static float cubicBezier( float t, float xy1, float xy2 ) {
 		float invT = (1 - t);
 		float b1 = 3 * t * (invT * invT);

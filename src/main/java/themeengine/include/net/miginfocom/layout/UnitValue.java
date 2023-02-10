@@ -42,9 +42,9 @@ import java.util.HashMap;
 
 public final class UnitValue implements Serializable
 {
-	private static final HashMap<String, Integer> UNIT_MAP = new HashMap<String, Integer>(32);
+	private static final HashMap<String, Integer> UNIT_MAP = new HashMap<>(32);
 
-	private static final ArrayList<UnitConverter> CONVERTERS = new ArrayList<UnitConverter>();
+	private static final ArrayList<UnitConverter> CONVERTERS = new ArrayList<>();
 
 	/** An operation indicating a static value.
 	 */
@@ -327,7 +327,7 @@ public final class UnitValue implements Serializable
 					Integer sz = LinkHandler.getValue(parent.getLayout(), "visual", isHor ? LinkHandler.WIDTH : LinkHandler.HEIGHT);
 					if (st == null || sz == null)
 						return 0;
-					return value * (Math.max(0, sz.intValue()) - refValue) + st;
+					return value * (Math.max(0, sz) - refValue) + st;
 
 				case MIN_SIZE:
 					if (comp == null)
@@ -622,7 +622,7 @@ public final class UnitValue implements Serializable
 	 */
 	public synchronized static UnitConverter[] getGlobalUnitConverters()
 	{
-		return CONVERTERS.toArray(new UnitConverter[CONVERTERS.size()]);
+		return CONVERTERS.toArray(new UnitConverter[0]);
 	}
 
 	/** Returns the current default unit. The default unit is the unit used if no unit is set. E.g. "width 10".

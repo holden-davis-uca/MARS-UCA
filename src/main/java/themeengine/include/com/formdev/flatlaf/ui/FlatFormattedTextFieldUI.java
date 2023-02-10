@@ -21,7 +21,7 @@ import javax.swing.plaf.ComponentUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JFormattedTextField}.
- *
+ * <p>
  * <!-- BasicTextFieldUI -->
  *
  * @uiDefault FormattedTextField.font					Font
@@ -36,7 +36,7 @@ import javax.swing.plaf.ComponentUI;
  * @uiDefault FormattedTextField.border					Border
  * @uiDefault FormattedTextField.margin					Insets
  * @uiDefault FormattedTextField.caretBlinkRate			int		default is 500 milliseconds
- *
+ * <p>
  * <!-- FlatTextFieldUI -->
  *
  * @uiDefault TextComponent.arc							int

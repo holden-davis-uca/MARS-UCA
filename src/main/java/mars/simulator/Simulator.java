@@ -384,7 +384,7 @@ public class Simulator extends Observable {
 							ProgramStatement exceptionHandler = null;
 							try {
 								exceptionHandler = Globals.memory.getStatement(Memory.exceptionHandlerAddress);
-							} catch (final AddressErrorException aee) {} // will not occur with this well-known addres
+							} catch (final AddressErrorException ignored) {} // will not occur with this well-known addres
 							if (exceptionHandler != null) {
 								RegisterFile.setProgramCounter(Memory.exceptionHandlerAddress);
 							} else {
@@ -443,7 +443,7 @@ public class Simulator extends Observable {
 					if (maxSteps != 1 && RunSpeedPanel.getInstance().getRunSpeed() < RunSpeedPanel.UNLIMITED_SPEED) {
 						try {
 							Thread.sleep((int) (1000 / RunSpeedPanel.getInstance().getRunSpeed())); // make sure it's never zero!
-						} catch (final InterruptedException e) {}
+						} catch (final InterruptedException ignored) {}
 					}
 				}
 

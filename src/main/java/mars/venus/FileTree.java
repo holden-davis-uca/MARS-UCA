@@ -35,25 +35,15 @@ package mars.venus;
  */
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.File;
 import java.util.Collections;
 import java.util.Vector;
 
-import javax.swing.BoxLayout;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreePath;
 
 /**
  * Display a file system in a JTree view
@@ -63,7 +53,7 @@ import javax.swing.tree.TreePath;
  */
 public class FileTree extends JPanel {
 
-	public JTree tree;
+	public final JTree tree;
   /** Construct a FileTree */
   public FileTree(File dir) {
     setLayout(new BorderLayout());
@@ -113,11 +103,10 @@ public class FileTree extends JPanel {
     //Prevents crashing if started in root directory
     if (tmp != null && tmp.length != 0)
     {
-      for (int i = 0; i < tmp.length; i++)
-        ol.addElement(tmp[i]);
+        for (String s : tmp) ol.addElement(s);
     }
 
-    Collections.sort(ol, String.CASE_INSENSITIVE_ORDER);
+    ol.sort(String.CASE_INSENSITIVE_ORDER);
     File f;
     Vector files = new Vector();
     // Make two passes, one for Dirs and one for Files. This is #1.

@@ -60,7 +60,6 @@ public class NumberDisplayBaseChooser extends JCheckBox {
 	 * hexadecimal!
 	 *
 	 * @param text        Text to accompany the check box.
-	 * @param defaultBase Currently either DECIMAL or HEXADECIMAL
 	 */
 	public NumberDisplayBaseChooser(final String text, final boolean displayInHex) {
 		super(text, displayInHex);
@@ -77,8 +76,8 @@ public class NumberDisplayBaseChooser extends JCheckBox {
 				settingMenuItem.setSelected(choose.isSelected());
 				final ActionListener[] listeners = settingMenuItem.getActionListeners();
 				final ActionEvent event = new ActionEvent(settingMenuItem, 0, "chooser");
-				for (int i = 0; i < listeners.length; i++) {
-					listeners[i].actionPerformed(event);
+				for (ActionListener listener : listeners) {
+					listener.actionPerformed(event);
 				}
 			}
 			// Better to use notify, but I am tired...

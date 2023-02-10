@@ -174,7 +174,7 @@ public class Coprocessor1Window extends JPanel implements ActionListener, Observ
 				long longValue = 0;
 				try {
 					longValue = Coprocessor1.getLongFromRegisterPair(registers[i].getName());
-				} catch (final InvalidRegisterAccessException e) {} // cannot happen since i must be even
+				} catch (final InvalidRegisterAccessException ignored) {} // cannot happen since i must be even
 				tableData[i][2] = NumberDisplayBaseChooser.formatDoubleNumber(longValue, NumberDisplayBaseChooser
 						.getBase(settings.getDisplayValuesInHex()));
 			} else {
@@ -262,7 +262,7 @@ public class Coprocessor1Window extends JPanel implements ActionListener, Observ
 		long val = 0;
 		try {
 			val = Coprocessor1.getLongFromRegisterPair(registers[number].getName());
-		} catch (final InvalidRegisterAccessException e) {} // happens only if number is not even
+		} catch (final InvalidRegisterAccessException ignored) {} // happens only if number is not even
 		((RegTableModel) table.getModel()).setDisplayAndModelValueAt(NumberDisplayBaseChooser.formatDoubleNumber(val,
 				base), number, DOUBLE_COLUMN);
 	}
@@ -387,7 +387,7 @@ public class Coprocessor1Window extends JPanel implements ActionListener, Observ
 		 */
 		private static final long serialVersionUID = -8197699537646658069L;
 		final String[] columnNames = { "Name", "Float", "Double" };
-		Object[][] data;
+		final Object[][] data;
 
 		public RegTableModel(final Object[][] d) {
 			data = d;

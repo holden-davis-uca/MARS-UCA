@@ -97,7 +97,7 @@ public class FlatPopupFactory
 	/**
 	 * There is no API in Java 8 to force creation of heavy weight popups,
 	 * but it is possible with reflection. Java 9 provides a new method.
-	 *
+	 * <p>
 	 * When changing FlatLaf system requirements to Java 9+,
 	 * then this method can be replaced with:
 	 *    return getPopup( owner, contents, x, y, true );

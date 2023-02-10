@@ -285,7 +285,7 @@ public class DigitalLabSim extends AbstractMarsToolAndApplication {
 		 *
 		 */
 		private static final long serialVersionUID = 8643368219585362191L;
-		public SevenSegmentDisplay[] display;
+		public final SevenSegmentDisplay[] display;
 
 		public SevenSegmentPanel() {
 			int i;
@@ -329,7 +329,7 @@ public class DigitalLabSim extends AbstractMarsToolAndApplication {
 		 *
 		 */
 		private static final long serialVersionUID = -4940205404503576092L;
-		public JButton[] button;
+		public final JButton[] button;
 
 		public HexaKeyboard() {
 			int i;

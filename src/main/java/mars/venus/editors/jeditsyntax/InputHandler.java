@@ -191,7 +191,6 @@ public abstract class InputHandler extends KeyAdapter {
 	 * Grabs the next key typed event and invokes the specified action with the key
 	 * as a the action command.
 	 *
-	 * @param action The action
 	 */
 	public void grabNextKeyStroke(final ActionListener listener) {
 		grabAction = listener;
@@ -943,7 +942,7 @@ public abstract class InputHandler extends KeyAdapter {
 			final int repeatCount = textArea.getInputHandler().getRepeatCount();
 
 			if (textArea.isEditable()) {
-				final StringBuffer buf = new StringBuffer();
+				final StringBuilder buf = new StringBuilder();
 				for (int i = 0; i < repeatCount; i++) {
 					buf.append(str);
 				}

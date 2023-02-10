@@ -31,7 +31,7 @@ import themeengine.include.com.formdev.flatlaf.ui.FlatUIUtils;
 
 /**
  * Icon for {@link javax.swing.JCheckBox}.
- *
+ * <p>
  * Note: If Component.focusWidth is greater than zero, then the outline focus border
  *       is painted outside of the icon bounds. Make sure that the checkbox
  *       has margins, which are equal or greater than focusWidth.

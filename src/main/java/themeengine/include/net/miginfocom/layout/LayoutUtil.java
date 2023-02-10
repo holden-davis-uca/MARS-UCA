@@ -3,6 +3,7 @@ package themeengine.include.net.miginfocom.layout;
 import java.beans.*;
 import java.io.*;
 import java.util.IdentityHashMap;
+import java.util.Objects;
 import java.util.TreeSet;
 import java.util.WeakHashMap;
 /*
@@ -126,7 +127,7 @@ public final class LayoutUtil
 	public static void setDesignTime(ContainerWrapper cw, boolean b)
 	{
 		if (DT_MAP == null)
-			DT_MAP = new WeakHashMap<Object, Boolean>();
+			DT_MAP = new WeakHashMap<>();
 
 		DT_MAP.put((cw != null ? cw.getComponent() : null), b);
 	}
@@ -184,7 +185,7 @@ public final class LayoutUtil
 	{
 		if (s != null && con != null && isDesignTime(null)) {
 			if (CR_MAP == null)
-				CR_MAP = new WeakHashMap<Object, String>(64);
+				CR_MAP = new WeakHashMap<>(64);
 
 			CR_MAP.put(con, s);
 		}
@@ -252,13 +253,13 @@ public final class LayoutUtil
 			boolean isGrow = useLengthI < bounds;
 
 			// Create a Set with the available priorities
-			TreeSet<Integer> prioList = new TreeSet<Integer>();
+			TreeSet<Integer> prioList = new TreeSet<>();
 			for (int i = 0; i < sizes.length; i++) {
 				ResizeConstraint resC = (ResizeConstraint) getIndexSafe(resConstr, i);
 				if (resC != null)
 					prioList.add(isGrow ? resC.growPrio : resC.shrinkPrio);
 			}
-			Integer[] prioIntegers = prioList.toArray(new Integer[prioList.size()]);
+			Integer[] prioIntegers = prioList.toArray(new Integer[0]);
 
 			for (int force = 0; force <= ((isGrow && defPushWeights != null) ? 1 : 0); force++) {    // Run twice if defGrow and the need for growing.
 				for (int pr = prioIntegers.length - 1; pr >= 0; pr--) {
@@ -448,7 +449,7 @@ public final class LayoutUtil
 	 */
 	static boolean equals(Object o1, Object o2)
 	{
-		return o1 == o2 || (o1 != null && o1.equals(o2));
+		return Objects.equals(o1, o2);
 	}
 
 //	static int getBaselineCorrect(Component comp)
@@ -520,11 +521,7 @@ public final class LayoutUtil
 
 		writeOutputStream.reset();
 
-		writeXMLObject(writeOutputStream, o, new ExceptionListener() {
-			@Override
-			public void exceptionThrown(Exception e) {
-				e.printStackTrace();
-			}});
+		writeXMLObject(writeOutputStream, o, e -> e.printStackTrace());
 
 		byte[] buf = writeOutputStream.toByteArray();
 
@@ -571,7 +568,7 @@ public final class LayoutUtil
 		return o;
 	}
 
-	private static final IdentityHashMap<Object, Object> SER_MAP = new IdentityHashMap<Object, Object>(2);
+	private static final IdentityHashMap<Object, Object> SER_MAP = new IdentityHashMap<>(2);
 
 	/** Sets the serialized object and associates it with <code>caller</code>.
 	 * @param caller The object created <code>o</code>

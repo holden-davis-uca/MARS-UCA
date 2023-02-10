@@ -42,9 +42,9 @@ public class RegistersPane extends JTabbedPane {
 	 *
 	 */
 	private static final long serialVersionUID = -9118962176262515698L;
-	RegistersWindow regsTab;
-	Coprocessor1Window cop1Tab;
-	Coprocessor0Window cop0Tab;
+	final RegistersWindow regsTab;
+	final Coprocessor1Window cop1Tab;
+	final Coprocessor0Window cop0Tab;
 
 	private final VenusUI mainUI;
 

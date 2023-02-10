@@ -61,20 +61,20 @@ public class DumpFormatLoader {
 			// grab all class files in the dump directory
 			final ArrayList candidates = FilenameFinder.getFilenameList(this.getClass().getClassLoader(),
 					DUMP_DIRECTORY_PATH, CLASS_EXTENSION);
-			for (int i = 0; i < candidates.size(); i++) {
-				final String file = (String) candidates.get(i);
-				try {
-					// grab the class, make sure it implements DumpFormat, instantiate, add to list
-					final String formatClassName = CLASS_PREFIX + file.substring(0, file.indexOf(CLASS_EXTENSION) - 1);
-					final Class clas = Class.forName(formatClassName);
-					if (DumpFormat.class.isAssignableFrom(clas) && !Modifier.isAbstract(clas.getModifiers())
-							&& !Modifier.isInterface(clas.getModifiers())) {
-						formatList.add(clas.newInstance());
-					}
-				} catch (final Exception e) {
-					System.out.println("Error instantiating DumpFormat from file " + file + ": " + e);
-				}
-			}
+            for (Object candidate : candidates) {
+                final String file = (String) candidate;
+                try {
+                    // grab the class, make sure it implements DumpFormat, instantiate, add to list
+                    final String formatClassName = CLASS_PREFIX + file.substring(0, file.indexOf(CLASS_EXTENSION) - 1);
+                    final Class clas = Class.forName(formatClassName);
+                    if (DumpFormat.class.isAssignableFrom(clas) && !Modifier.isAbstract(clas.getModifiers())
+                            && !Modifier.isInterface(clas.getModifiers())) {
+                        formatList.add(clas.newInstance());
+                    }
+                } catch (final Exception e) {
+                    System.out.println("Error instantiating DumpFormat from file " + file + ": " + e);
+                }
+            }
 		}
 		return formatList;
 	}
@@ -82,12 +82,12 @@ public class DumpFormatLoader {
 	public static DumpFormat findDumpFormatGivenCommandDescriptor(final ArrayList formatList,
 			final String formatCommandDescriptor) {
 		DumpFormat match = null;
-		for (int i = 0; i < formatList.size(); i++) {
-			if (((DumpFormat) formatList.get(i)).getCommandDescriptor().equals(formatCommandDescriptor)) {
-				match = (DumpFormat) formatList.get(i);
-				break;
-			}
-		}
+        for (Object o : formatList) {
+            if (((DumpFormat) o).getCommandDescriptor().equals(formatCommandDescriptor)) {
+                match = (DumpFormat) o;
+                break;
+            }
+        }
 		return match;
 	}
 

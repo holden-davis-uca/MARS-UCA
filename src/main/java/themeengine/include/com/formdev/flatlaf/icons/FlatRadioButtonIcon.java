@@ -21,7 +21,7 @@ import java.awt.geom.Ellipse2D;
 
 /**
  * Icon for {@link javax.swing.JRadioButton}.
- *
+ * <p>
  * Note: If Component.focusWidth is greater than zero, then the outline focus border
  *       is painted outside of the icon bounds. Make sure that the radiobutton
  *       has margins, which are equal or greater than focusWidth.

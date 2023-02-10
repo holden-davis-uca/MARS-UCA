@@ -33,7 +33,7 @@ import themeengine.include.com.formdev.flatlaf.util.SystemInfo;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JMenuBar}.
- *
+ * <p>
  * <!-- BasicMenuBarUI -->
  *
  * @uiDefault MenuBar.font								Font

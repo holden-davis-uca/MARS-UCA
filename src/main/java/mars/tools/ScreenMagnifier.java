@@ -115,13 +115,15 @@ class Magnifier extends JFrame implements ComponentListener {
 	 */
 	private static final long serialVersionUID = -5261462206166838004L;
 	static Robot robot;
-	JButton close, capture, settings;
-	JSpinner scaleAdjuster;
-	JScrollPane view;
+	final JButton close;
+	final JButton capture;
+	final JButton settings;
+	final JSpinner scaleAdjuster;
+	final JScrollPane view;
 	Dimension frameSize;
-	Dimension viewSize;
-	MagnifierImage magnifierImage;
-	ActionListener captureActionListener;
+	final Dimension viewSize;
+	final MagnifierImage magnifierImage;
+	final ActionListener captureActionListener;
 	CaptureModel captureResize, captureMove, captureRescale;
 	CaptureModel captureDisplayCenter, captureDisplayUpperleft;
 	CaptureModel dialogDisplayCenter;
@@ -132,8 +134,8 @@ class Magnifier extends JFrame implements ComponentListener {
 	static final double SCALE_DEFAULT = 2.0;
 	double scale = SCALE_DEFAULT;
 	CaptureDisplayAlignmentStrategy alignment;
-	CaptureRectangleStrategy captureLocationSize = new CaptureMagnifierRectangle();
-	JFrame frame;
+	final CaptureRectangleStrategy captureLocationSize = new CaptureMagnifierRectangle();
+	final JFrame frame;
 	static final String CAPTURE_TOOLTIP_TEXT = "Capture, scale, and display pixels that lay beneath the Magnifier.";
 	static final String SETTINGS_TOOLTIP_TEXT = "Show dialog for changing tool settings.";
 	static final String SCALE_TOOLTIP_TEXT = "Magnification scale for captured image.";
@@ -146,13 +148,13 @@ class Magnifier extends JFrame implements ComponentListener {
 		// If running withint MARS, set to its icon image; if not fuggetit.
 		try {
 			setIconImage(mars.Globals.getGui().getIconImage());
-		} catch (final Exception e) {}
+		} catch (final Exception ignored) {}
 		getContentPane().setLayout(new BorderLayout());
 		// Will capture an image each time frame is moved/resized.
 		addComponentListener(this);
 		try {
 			robot = new Robot();
-		} catch (final AWTException e) {} catch (final SecurityException e) {}
+		} catch (final AWTException | SecurityException ignored) {}
 
 		close = new JButton("Close");
 		close.setToolTipText(CLOSE_TOOLTIP_TEXT);
@@ -289,7 +291,7 @@ class Magnifier extends JFrame implements ComponentListener {
 		// are no alternatives so just let what would happen, happen.
 		try {
 			mars.Globals.getGui().update(mars.Globals.getGui().getGraphics());
-		} catch (final Exception e) {}
+		} catch (final Exception ignored) {}
 		// Perform the screen capture.
 		BufferedImage imageOfSection;
 		imageOfSection = robot.createScreenCapture(section);
@@ -393,12 +395,12 @@ class SettingsDialog extends JDialog {
 	JButton applyButton, cancelButton;
 	JCheckBox captureResizeCheckBox, captureMoveCheckBox, captureRescaleCheckBox;
 	JRadioButton captureDisplayCenteredButton, captureDisplayUpperleftButton;
-	Integer[] scribblerLineWidthSettings = {Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3), Integer.valueOf(4),
+	final Integer[] scribblerLineWidthSettings = {Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3), Integer.valueOf(4),
 			Integer.valueOf(5), Integer.valueOf(6), Integer.valueOf(7), Integer.valueOf(8)};
 	JComboBox lineWidthSetting;
 	JButton lineColorSetting;
 	JCheckBox dialogCentered; // Whether or not dialog appears centered over the magnfier frame.
-	JDialog dialog;
+	final JDialog dialog;
 	// temporary storage until committed with "Apply".  Needed because it is returned
 	// by same call that shows the color selection dialog, so cannot be retrieved
 	// later from the model (as you can with buttons, checkboxes, etc).

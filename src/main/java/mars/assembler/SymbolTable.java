@@ -116,8 +116,10 @@ public class SymbolTable {
 	 *         symbol table.
 	 **/
 	public int getAddress(final String s) {
-		for (int i = 0; i < table.size(); i++) {
-			if (((Symbol) table.get(i)).getName().equals(s)) { return ((Symbol) table.get(i)).getAddress(); }
+		for (Object o : table) {
+			if (((Symbol) o).getName().equals(s)) {
+				return ((Symbol) o).getAddress();
+			}
 		}
 		return NOT_FOUND;
 	}
@@ -145,8 +147,10 @@ public class SymbolTable {
 	 **/
 
 	public Symbol getSymbol(final String s) {
-		for (int i = 0; i < table.size(); i++) {
-			if (((Symbol) table.get(i)).getName().equals(s)) { return (Symbol) table.get(i); }
+		for (Object o : table) {
+			if (((Symbol) o).getName().equals(s)) {
+				return (Symbol) o;
+			}
 		}
 		return null;
 	}
@@ -166,8 +170,10 @@ public class SymbolTable {
 		} catch (final NumberFormatException e) {
 			return null;
 		}
-		for (int i = 0; i < table.size(); i++) {
-			if (((Symbol) table.get(i)).getAddress() == address) { return (Symbol) table.get(i); }
+		for (Object o : table) {
+			if (((Symbol) o).getAddress() == address) {
+				return (Symbol) o;
+			}
 		}
 		return null;
 	}
@@ -193,8 +199,10 @@ public class SymbolTable {
 
 	public ArrayList getDataSymbols() {
 		final ArrayList list = new ArrayList();
-		for (int i = 0; i < table.size(); i++) {
-			if (((Symbol) table.get(i)).getType()) { list.add(table.get(i)); }
+		for (Object o : table) {
+			if (((Symbol) o).getType()) {
+				list.add(o);
+			}
 		}
 		return list;
 	}
@@ -207,8 +215,10 @@ public class SymbolTable {
 
 	public ArrayList getTextSymbols() {
 		final ArrayList list = new ArrayList();
-		for (int i = 0; i < table.size(); i++) {
-			if (!((Symbol) table.get(i)).getType()) { list.add(table.get(i)); }
+		for (Object o : table) {
+			if (!((Symbol) o).getType()) {
+				list.add(o);
+			}
 		}
 		return list;
 	}
@@ -221,9 +231,7 @@ public class SymbolTable {
 
 	public ArrayList getAllSymbols() {
 		final ArrayList list = new ArrayList();
-		for (int i = 0; i < table.size(); i++) {
-			list.add(table.get(i));
-		}
+		list.addAll(table);
 		return list;
 	}
 

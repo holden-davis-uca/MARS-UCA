@@ -26,7 +26,7 @@ import javax.swing.plaf.basic.BasicRadioButtonMenuItemUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JRadioButtonMenuItem}.
- *
+ * <p>
  * <!-- BasicRadioButtonMenuItemUI -->
  *
  * @uiDefault RadioButtonMenuItem.font								Font
@@ -45,7 +45,7 @@ import javax.swing.plaf.basic.BasicRadioButtonMenuItemUI;
  * @uiDefault RadioButtonMenuItem.arrowIcon							Icon
  * @uiDefault RadioButtonMenuItem.checkIcon							Icon
  * @uiDefault RadioButtonMenuItem.opaque							boolean
- *
+ * <p>
  * <!-- FlatRadioButtonMenuItemUI -->
  *
  * @uiDefault MenuItem.iconTextGap									int

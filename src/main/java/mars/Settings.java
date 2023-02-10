@@ -168,7 +168,7 @@ public class Settings extends Observable {
 	 * before instantiating the Settings object. Values are matched to keys by list
 	 * position.
 	 */
-	public static boolean[] defaultBooleanSettingsValues = { // match the above list by position
+	public static final boolean[] defaultBooleanSettingsValues = { // match the above list by position
 			true, false, false, false, false, true, true, false, false, true, false, false, true, true, false, true, true, false, false, true, false };
 
 	// STRING SETTINGS.  Each array position has associated name.
@@ -741,7 +741,7 @@ public class Settings extends Observable {
 		int length = 2;
 		try {
 			length = Integer.parseInt(stringSettingsValues[EDITOR_POPUP_PREFIX_LENGTH]);
-		} catch (final NumberFormatException nfe) {
+		} catch (final NumberFormatException ignored) {
 
 		}
 		return length;
@@ -1101,7 +1101,6 @@ public class Settings extends Observable {
 	 * generated after first letter typed, based on all matches; if 2, the popup
 	 * will be generated after second letter typed.
 	 *
-	 * @param number of letters (should be 1 or 2).
 	 */
 	public void setEditorPopupPrefixLength(final int length) {
 		setStringSetting(
@@ -1149,12 +1148,11 @@ public class Settings extends Observable {
 	 */
 
 	public void setTextColumnOrder(final int[] columnOrder) {
-		String stringifiedOrder = "";
-		for (int i = 0; i < columnOrder.length; i++) {
-			stringifiedOrder += columnOrder[i]
-				+ " ";
+		StringBuilder stringifiedOrder = new StringBuilder();
+		for (int j : columnOrder) {
+			stringifiedOrder.append(j).append(" ");
 		}
-		setStringSetting(TEXT_COLUMN_ORDER, stringifiedOrder);
+		setStringSetting(TEXT_COLUMN_ORDER, stringifiedOrder.toString());
 	}
 
 	/**

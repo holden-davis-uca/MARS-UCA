@@ -258,7 +258,8 @@ public class Graphics2DProxy
 
 	@Override
 	public void finalize() {
-		delegate.finalize();
+        super.finalize();
+        delegate.finalize();
 	}
 
 	@Override

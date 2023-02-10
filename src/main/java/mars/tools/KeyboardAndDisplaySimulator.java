@@ -108,7 +108,7 @@ public class KeyboardAndDisplaySimulator extends AbstractMarsToolAndApplication 
 	private static String displayPanelTitle, keyboardPanelTitle;
 	private static final char VT_FILL = ' ';  // fill character for virtual terminal (random access mode)
 
-	public static Dimension preferredTextAreaDimension = new Dimension(400, 200);
+	public static final Dimension preferredTextAreaDimension = new Dimension(400, 200);
 	private static final Insets textAreaInsets = new Insets(4, 4, 4, 4);
 
 	// Time delay to process Transmitter Data is simulated by counting instruction executions.
@@ -426,9 +426,9 @@ public class KeyboardAndDisplaySimulator extends AbstractMarsToolAndApplication 
 			final char[] charArray = new char[columns];
 			Arrays.fill(charArray, VT_FILL);
 			final String row = new String(charArray);
-			final StringBuffer str = new StringBuffer(row);
+			final StringBuilder str = new StringBuilder(row);
 			for (int i = 1; i < rows; i++) {
-				str.append("\n" + row);
+				str.append("\n").append(row);
 			}
 			initialText = str.toString();
 		}
@@ -905,7 +905,7 @@ public class KeyboardAndDisplaySimulator extends AbstractMarsToolAndApplication 
 	// (each value has equal probability of being chosen).
 	private class UniformlyDistributedDelay implements TransmitterDelayTechnique {
 
-		Random randu;
+		final Random randu;
 
 		public UniformlyDistributedDelay() {
 			randu = new Random();
@@ -928,7 +928,7 @@ public class KeyboardAndDisplaySimulator extends AbstractMarsToolAndApplication 
 	// add 1 to make sure we don't get 0.
 	private class NormallyDistributedDelay implements TransmitterDelayTechnique {
 
-		Random randn;
+		final Random randn;
 
 		public NormallyDistributedDelay() {
 			randn = new Random();

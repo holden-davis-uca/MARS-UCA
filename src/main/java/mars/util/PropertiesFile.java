@@ -55,8 +55,8 @@ public class PropertiesFile {
 		try {
 			final InputStream is = PropertiesFile.class.getResourceAsStream("/" + file + ".properties");
 			properties.load(is);
-		} catch (final IOException ioe) {} // If it doesn't work, properties will be empty
-		catch (final NullPointerException npe) {}
-		return properties;
+		} catch (final IOException | NullPointerException ignored) {} // If it doesn't work, properties will be empty
+
+        return properties;
 	}
 }

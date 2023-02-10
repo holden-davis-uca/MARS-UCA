@@ -32,7 +32,7 @@ import themeengine.include.com.formdev.flatlaf.util.HiDPIUtils;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JTextArea}.
- *
+ * <p>
  * <!-- BasicTextAreaUI -->
  *
  * @uiDefault TextArea.font						Font
@@ -45,7 +45,7 @@ import themeengine.include.com.formdev.flatlaf.util.HiDPIUtils;
  * @uiDefault TextArea.border					Border
  * @uiDefault TextArea.margin					Insets
  * @uiDefault TextArea.caretBlinkRate			int		default is 500 milliseconds
- *
+ * <p>
  * <!-- FlatTextAreaUI -->
  *
  * @uiDefault Component.minimumWidth			int

@@ -84,9 +84,7 @@ class FlatInputMaps
 		);
 
 		// swap Home/End with Ctrl+Home/End to make it consistent with List and Tree
-		modifyInputMap( () -> {
-				return UIManager.getBoolean( "Table.consistentHomeEndKeyBehavior" );
-			},
+		modifyInputMap( () -> UIManager.getBoolean( "Table.consistentHomeEndKeyBehavior" ),
 			defaults, "Table.ancestorInputMap",
 			"HOME", "selectFirstRow",
 			"END", "selectLastRow",

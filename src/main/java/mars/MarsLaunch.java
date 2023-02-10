@@ -201,8 +201,8 @@ public class MarsLaunch {
 
 		if (dumpTriples == null) { return; }
 
-		for (int i = 0; i < dumpTriples.size(); i++) {
-			final String[] triple = (String[]) dumpTriples.get(i);
+		for (Object dumpTriple : dumpTriples) {
+			final String[] triple = (String[]) dumpTriple;
 			final File file = new File(triple[2]);
 			Integer[] segInfo = MemoryDump.getSegmentBounds(triple[0]);
 			// If not segment name, see if it is address range instead.  DPS 14-July-2008
@@ -212,9 +212,7 @@ public class MarsLaunch {
 					segInfo = new Integer[2];
 					segInfo[0] = Integer.valueOf(Binary.stringToInt(memoryRange[0])); // low end of range
 					segInfo[1] = Integer.valueOf(Binary.stringToInt(memoryRange[1])); // high end of range
-				} catch (final NumberFormatException nfe) {
-					segInfo = null;
-				} catch (final NullPointerException npe) {
+				} catch (final NumberFormatException | NullPointerException nfe) {
 					segInfo = null;
 				}
 			}
@@ -232,21 +230,18 @@ public class MarsLaunch {
 			try {
 				final int highAddress = Globals.memory.getAddressOfFirstNull(segInfo[0], segInfo[1])
 						- Memory.WORD_LENGTH_BYTES;
-				if (highAddress < segInfo[0].intValue()) {
+				if (highAddress < segInfo[0]) {
 					out.println("This segment has not been written to, there is nothing to dump.");
 					continue;
 				}
 				format.dumpMemoryRange(file, segInfo[0], highAddress);
 			} catch (final FileNotFoundException e) {
 				out.println("Error while attempting to save dump, file " + file + " was not found!");
-				continue;
 			} catch (final AddressErrorException e) {
 				out.println("Error while attempting to save dump, file " + file + "!  Could not access address: " + e
 						.getAddress() + "!");
-				continue;
 			} catch (final IOException e) {
 				out.println("Error while attempting to save dump, file " + file + "!  Disk IO failed!");
-				continue;
 			}
 		}
 	}
@@ -430,7 +425,7 @@ public class MarsLaunch {
 				Integer.decode(args[i]);
 				maxSteps = Integer.decode(args[i]); // if we got here, it has to be OK 
 				continue;
-			} catch (final NumberFormatException nfe) {}
+			} catch (final NumberFormatException ignored) {}
 			// Check for integer address range (m-n)
 			try {
 				final String[] memoryRange = checkMemoryAddressRange(args[i]);
@@ -473,8 +468,8 @@ public class MarsLaunch {
 							FilenameFinder.MATCH_ALL_EXTENSIONS);
 					// Remove any duplicates then merge the two lists.
 					for (int index2 = 0; index2 < moreFilesToAssemble.size(); index2++) {
-						for (int index1 = 0; index1 < filesToAssemble.size(); index1++) {
-							if (filesToAssemble.get(index1).equals(moreFilesToAssemble.get(index2))) {
+						for (Object o : filesToAssemble) {
+							if (o.equals(moreFilesToAssemble.get(index2))) {
 								moreFilesToAssemble.remove(index2);
 								index2--; // adjust for left shift in moreFilesToAssemble...
 								break;    // break out of inner loop...
@@ -581,12 +576,13 @@ public class MarsLaunch {
 		int value;  // handy local to use throughout the next couple loops
 		// Display requested register contents
 		out.println();
-		final Iterator regIter = registerDisplayList.iterator();
-		while (regIter.hasNext()) {
-			final String reg = regIter.next().toString();
+		for (Object o : registerDisplayList) {
+			final String reg = o.toString();
 			if (RegisterFile.getUserRegister(reg) != null) {
 				// integer register
-				if (verbose) { out.print(reg + "\t"); }
+				if (verbose) {
+					out.print(reg + "\t");
+				}
 				value = RegisterFile.getUserRegister(reg).getValue();
 				out.println(formatIntForDisplay(value));
 			} else {
@@ -600,8 +596,11 @@ public class MarsLaunch {
 					dvalue = Coprocessor1.getDoubleFromRegisterPair(reg);
 					lvalue = Coprocessor1.getLongFromRegisterPair(reg);
 					hasDouble = true;
-				} catch (final InvalidRegisterAccessException irae) {}
-				if (verbose) { out.print(reg + "\t"); }
+				} catch (final InvalidRegisterAccessException ignored) {
+				}
+				if (verbose) {
+					out.print(reg + "\t");
+				}
 				if (displayFormat == HEXADECIMAL) {
 					// display float (and double, if applicable) in hex
 					out.print(Binary.binaryStringToHexString(Binary.intToBinaryString(ivalue)));
@@ -663,7 +662,7 @@ public class MarsLaunch {
 			try { // This will succeed; error would have been caught during command arg parse
 				addressStart = Binary.stringToInt(memIter.next().toString());
 				addressEnd = Binary.stringToInt(memIter.next().toString());
-			} catch (final NumberFormatException nfe) {}
+			} catch (final NumberFormatException ignored) {}
 			int valuesDisplayed = 0;
 			for (int addr = addressStart; addr <= addressEnd; addr += Memory.WORD_LENGTH_BYTES) {
 				if (addr < 0 && addressEnd > 0) {
@@ -696,8 +695,8 @@ public class MarsLaunch {
 	//  present, it must be processed before all others.  Since messages may
 	//  be output as early as during the command parse.
 	private void processDisplayMessagesToErrSwitch(final String[] args, final String displayMessagesToErrSwitch) {
-		for (int i = 0; i < args.length; i++) {
-			if (args[i].toLowerCase().equals(displayMessagesToErrSwitch)) {
+		for (String arg : args) {
+			if (arg.toLowerCase().equals(displayMessagesToErrSwitch)) {
 				out = System.err;
 				return;
 			}
@@ -708,8 +707,10 @@ public class MarsLaunch {
 	//  if so.
 
 	private void displayCopyright(final String[] args, final String noCopyrightSwitch) {
-		for (int i = 0; i < args.length; i++) {
-			if (args[i].toLowerCase().equals(noCopyrightSwitch)) { return; }
+		for (String arg : args) {
+			if (arg.toLowerCase().equals(noCopyrightSwitch)) {
+				return;
+			}
 		}
 		out.println("MARS " + Globals.version + "  Copyright " + Globals.copyrightYears + " " + Globals.copyrightHolders
 				+ "\n");
@@ -720,16 +721,16 @@ public class MarsLaunch {
 
 	private void displayHelp() {
 		final String[] segmentNames = MemoryDump.getSegmentNames();
-		String segments = "";
+		StringBuilder segments = new StringBuilder();
 		for (int i = 0; i < segmentNames.length; i++) {
-			segments += segmentNames[i];
-			if (i < segmentNames.length - 1) { segments += ", "; }
+			segments.append(segmentNames[i]);
+			if (i < segmentNames.length - 1) { segments.append(", "); }
 		}
 		final ArrayList dumpFormats = new DumpFormatLoader().loadDumpFormats();
-		String formats = "";
+		StringBuilder formats = new StringBuilder();
 		for (int i = 0; i < dumpFormats.size(); i++) {
-			formats += ((DumpFormat) dumpFormats.get(i)).getCommandDescriptor();
-			if (i < dumpFormats.size() - 1) { formats += ", "; }
+			formats.append(((DumpFormat) dumpFormats.get(i)).getCommandDescriptor());
+			if (i < dumpFormats.size() - 1) { formats.append(", "); }
 		}
 		out.println("Usage:  Mars  [options] filename [additional filenames]");
 		out.println("  Valid options (not case sensitive, separate by spaces) are:");

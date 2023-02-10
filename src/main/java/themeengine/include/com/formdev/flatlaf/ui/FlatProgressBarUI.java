@@ -36,7 +36,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JProgressBar}.
- *
+ * <p>
  * <!-- BasicProgressBarUI -->
  *
  * @uiDefault ProgressBar.font						Font
@@ -49,7 +49,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault ProgressBar.verticalSize				Dimension	default is 12,146
  * @uiDefault ProgressBar.repaintInterval			int		default is 50 milliseconds
  * @uiDefault ProgressBar.cycleTime					int		default is 3000 milliseconds
- *
+ * <p>
  * <!-- FlatProgressBarUI -->
  *
  * @uiDefault ProgressBar.arc						int

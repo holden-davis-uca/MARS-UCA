@@ -47,7 +47,7 @@ import mars.mips.hardware.RegisterFile;
 
 public class ProgramArgumentList {
 
-	ArrayList programArgumentList;
+	final ArrayList programArgumentList;
 
 	/**
 	 * Constructor that parses string to produce list. Delimiters are the default
@@ -76,7 +76,6 @@ public class ProgramArgumentList {
 	 * Constructor that gets list from section of String array, one argument per
 	 * element.
 	 *
-	 * @param args          Array of String, each element containing one argument
 	 * @param startPosition Index of array element containing the first argument;
 	 *                      all remaining elements are assumed to contain an
 	 *                      argument.
@@ -100,8 +99,6 @@ public class ProgramArgumentList {
 	 * Constructor that gets list from section of String ArrayList, one argument per
 	 * element.
 	 *
-	 * @param args          ArrayList of String, each element containing one
-	 *                      argument
 	 * @param startPosition Index of array element containing the first argument;
 	 *                      all remaining elements are assumed to contain an
 	 *                      argument.

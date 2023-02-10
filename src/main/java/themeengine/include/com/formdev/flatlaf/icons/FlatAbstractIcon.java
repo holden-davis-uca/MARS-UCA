@@ -29,7 +29,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 /**
  * Base class for icons that scales width and height, creates and initializes
  * a scaled graphics context for icon painting.
- *
+ * <p>
  * Subclasses do not need to scale icon painting.
  *
  * @author Karl Tauber

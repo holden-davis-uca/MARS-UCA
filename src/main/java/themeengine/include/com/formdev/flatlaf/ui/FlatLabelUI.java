@@ -36,13 +36,13 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JLabel}.
- *
+ * <p>
  * <!-- BasicLabelUI -->
  *
  * @uiDefault Label.font				Font
  * @uiDefault Label.background			Color	only used if opaque
  * @uiDefault Label.foreground			Color
- *
+ * <p>
  * <!-- FlatLabelUI -->
  *
  * @uiDefault Label.disabledForeground	Color
@@ -92,7 +92,7 @@ public class FlatLabelUI
 	@Override
 	public void propertyChange( PropertyChangeEvent e ) {
 		String name = e.getPropertyName();
-		if( name == "text" || name == "font" || name == "foreground" ) {
+		if(name.equals("text") || name.equals("font") || name.equals("foreground")) {
 			JLabel label = (JLabel) e.getSource();
 			updateHTMLRenderer( label, label.getText(), true );
 		} else

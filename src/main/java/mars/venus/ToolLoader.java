@@ -75,10 +75,10 @@ public class ToolLoader {
 			menu.setMnemonic(KeyEvent.VK_T);
 			// traverse array list and build menu
 			MarsToolClassAndInstance listItem;
-			for (int i = 0; i < marsToolList.size(); i++) {
-				listItem = (MarsToolClassAndInstance) marsToolList.get(i);
-				menu.add(new ToolAction(listItem.marsToolClass, listItem.marsToolInstance.getName()));
-			}
+            for (Object o : marsToolList) {
+                listItem = (MarsToolClassAndInstance) o;
+                menu.add(new ToolAction(listItem.marsToolClass, listItem.marsToolInstance.getName()));
+            }
 		}
 		return menu;
 	}
@@ -114,36 +114,36 @@ public class ToolLoader {
 		// pathname.
 		//candidates.addAll(mars.Globals.getExternalTools());  // this by itself is not enough...
 		final HashMap tools = new HashMap();
-		for (int i = 0; i < candidates.size(); i++) {
-			final String file = (String) candidates.get(i);
-			// Do not add class if already encountered (happens if run in MARS development directory)
-			if (tools.containsKey(file)) {
-				continue;
-			} else {
-				tools.put(file, file);
-			}
-			if (!file.equals(MARSTOOL_INTERFACE)) {
-				try {
-					// grab the class, make sure it implements MarsTool, instantiate, add to menu
-					final String toolClassName = CLASS_PREFIX + file.substring(0, file.indexOf(CLASS_EXTENSION) - 1);
-					final Class clas = Class.forName(toolClassName);
-					if (!MarsTool.class.isAssignableFrom(clas) || Modifier.isAbstract(clas.getModifiers()) || Modifier
-							.isInterface(clas.getModifiers())) {
-						continue;
-					}
-					toolList.add(new MarsToolClassAndInstance(clas, (MarsTool) clas.newInstance()));
-				} catch (final Exception e) {
-					System.out.println("Error instantiating MarsTool from file " + file + ": " + e);
-				}
-			}
-		}
+        for (Object candidate : candidates) {
+            final String file = (String) candidate;
+            // Do not add class if already encountered (happens if run in MARS development directory)
+            if (tools.containsKey(file)) {
+                continue;
+            } else {
+                tools.put(file, file);
+            }
+            if (!file.equals(MARSTOOL_INTERFACE)) {
+                try {
+                    // grab the class, make sure it implements MarsTool, instantiate, add to menu
+                    final String toolClassName = CLASS_PREFIX + file.substring(0, file.indexOf(CLASS_EXTENSION) - 1);
+                    final Class clas = Class.forName(toolClassName);
+                    if (!MarsTool.class.isAssignableFrom(clas) || Modifier.isAbstract(clas.getModifiers()) || Modifier
+                            .isInterface(clas.getModifiers())) {
+                        continue;
+                    }
+                    toolList.add(new MarsToolClassAndInstance(clas, (MarsTool) clas.newInstance()));
+                } catch (final Exception e) {
+                    System.out.println("Error instantiating MarsTool from file " + file + ": " + e);
+                }
+            }
+        }
 		return toolList;
 	}
 
 	private class MarsToolClassAndInstance {
 
-		Class marsToolClass;
-		MarsTool marsToolInstance;
+		final Class marsToolClass;
+		final MarsTool marsToolInstance;
 
 		MarsToolClassAndInstance(final Class marsToolClass, final MarsTool marsToolInstance) {
 			this.marsToolClass = marsToolClass;

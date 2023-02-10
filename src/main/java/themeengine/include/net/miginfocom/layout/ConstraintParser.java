@@ -357,84 +357,83 @@ public final class ConstraintParser
 		dimConstraint.setGapAfter(gapAfter);
 
 		String[] parts = toTrimmedTokens(s, ',');
-		for (int i = 0; i < parts.length; i++) {
-			String part = parts[i];
-			try {
-				if (part.length() == 0)
-					continue;
+        for (String part : parts) {
+            try {
+                if (part.length() == 0)
+                    continue;
 
-				if (part.equals("fill")) {
-					dimConstraint.setFill(true);
+                if (part.equals("fill")) {
+                    dimConstraint.setFill(true);
 //					 dimConstraint.setAlign(null);   // Can not have both fill and alignment (changed for 3.5 since it can have "growy 0")
-					continue;
-				}
+                    continue;
+                }
 
-				if (part.equals("nogrid")) {
-					dimConstraint.setNoGrid(true);
-					continue;
-				}
+                if (part.equals("nogrid")) {
+                    dimConstraint.setNoGrid(true);
+                    continue;
+                }
 
-				int ix = -1;
-				char c = part.charAt(0);
+                int ix = -1;
+                char c = part.charAt(0);
 
-				if (c == 's') {
-					ix = startsWithLenient(part, new String[] {"sizegroup", "sg"}, new int[] {5, 2}, true);
-					if (ix > -1) {
-						dimConstraint.setSizeGroup(part.substring(ix).trim());
-						continue;
-					}
+                if (c == 's') {
+                    ix = startsWithLenient(part, new String[]{"sizegroup", "sg"}, new int[]{5, 2}, true);
+                    if (ix > -1) {
+                        dimConstraint.setSizeGroup(part.substring(ix).trim());
+                        continue;
+                    }
 
 
-					ix = startsWithLenient(part, new String[] {"shrinkprio", "shp"}, new int[] {10, 3}, true);
-					if (ix > -1) {
-						dimConstraint.setShrinkPriority(Integer.parseInt(part.substring(ix).trim()));
-						continue;
-					}
+                    ix = startsWithLenient(part, new String[]{"shrinkprio", "shp"}, new int[]{10, 3}, true);
+                    if (ix > -1) {
+                        dimConstraint.setShrinkPriority(Integer.parseInt(part.substring(ix).trim()));
+                        continue;
+                    }
 
-					ix = startsWithLenient(part, "shrink", 6, true);
-					if (ix > -1) {
-						dimConstraint.setShrink(parseFloat(part.substring(ix).trim(), ResizeConstraint.WEIGHT_100));
-						continue;
-					}
-				}
+                    ix = startsWithLenient(part, "shrink", 6, true);
+                    if (ix > -1) {
+                        dimConstraint.setShrink(parseFloat(part.substring(ix).trim(), ResizeConstraint.WEIGHT_100));
+                        continue;
+                    }
+                }
 
-				if (c == 'g') {
-					ix = startsWithLenient(part, new String[] {"growpriority", "gp"}, new int[] {5, 2}, true);
-					if (ix > -1) {
-						dimConstraint.setGrowPriority(Integer.parseInt(part.substring(ix).trim()));
-						continue;
-					}
+                if (c == 'g') {
+                    ix = startsWithLenient(part, new String[]{"growpriority", "gp"}, new int[]{5, 2}, true);
+                    if (ix > -1) {
+                        dimConstraint.setGrowPriority(Integer.parseInt(part.substring(ix).trim()));
+                        continue;
+                    }
 
-					ix = startsWithLenient(part, "grow", 4, true);
-					if (ix > -1) {
-						dimConstraint.setGrow(parseFloat(part.substring(ix).trim(), ResizeConstraint.WEIGHT_100));
-						continue;
-					}
-				}
+                    ix = startsWithLenient(part, "grow", 4, true);
+                    if (ix > -1) {
+                        dimConstraint.setGrow(parseFloat(part.substring(ix).trim(), ResizeConstraint.WEIGHT_100));
+                        continue;
+                    }
+                }
 
-				if (c == 'a') {
-					ix = startsWithLenient(part, "align", 2, true);
-					if (ix > -1) {
+                if (c == 'a') {
+                    ix = startsWithLenient(part, "align", 2, true);
+                    if (ix > -1) {
 //						if (dimConstraint.isFill() == false)    // Swallow, but ignore if fill is set. (changed for 3.5 since it can have "growy 0")
-							dimConstraint.setAlign(parseUnitValueOrAlign(part.substring(ix).trim(), isCols, null));
-						continue;
-					}
-				}
+                        dimConstraint.setAlign(parseUnitValueOrAlign(part.substring(ix).trim(), isCols, null));
+                        continue;
+                    }
+                }
 
-				UnitValue align = parseAlignKeywords(part, isCols);
-				if (align != null) {
+                UnitValue align = parseAlignKeywords(part, isCols);
+                if (align != null) {
 //					if (dimConstraint.isFill() == false)    // Swallow, but ignore if fill is set. (changed for 3.5 since it can have "growy 0")
-						dimConstraint.setAlign(align);
-					continue;
-				}
+                    dimConstraint.setAlign(align);
+                    continue;
+                }
 
-				 // Only min:pref:max still left that is ok
-				dimConstraint.setSize(parseBoundSize(part, false, isCols));
+                // Only min:pref:max still left that is ok
+                dimConstraint.setSize(parseBoundSize(part, false, isCols));
 
-			} catch (Exception ex) {
-				throw new IllegalArgumentException("Illegal constraint: '" + part + "'\n" + ex.getMessage());
-			}
-		}
+            } catch (Exception ex) {
+                throw new IllegalArgumentException("Illegal constraint: '" + part + "'\n" + ex.getMessage());
+            }
+        }
 		return dimConstraint;
 	}
 
@@ -444,12 +443,11 @@ public final class ConstraintParser
 	 */
 	public static Map<ComponentWrapper, CC> parseComponentConstraints(Map<ComponentWrapper, String> constrMap)
 	{
-		HashMap<ComponentWrapper, CC> flowConstrMap = new HashMap<ComponentWrapper, CC>();
+		HashMap<ComponentWrapper, CC> flowConstrMap = new HashMap<>();
 
-		for (Iterator<Map.Entry<ComponentWrapper, String>> it = constrMap.entrySet().iterator(); it.hasNext();) {
-			Map.Entry<ComponentWrapper, String> entry = it.next();
-			flowConstrMap.put(entry.getKey(), parseComponentConstraint(entry.getValue()));
-		}
+        for (Map.Entry<ComponentWrapper, String> entry : constrMap.entrySet()) {
+            flowConstrMap.put(entry.getKey(), parseComponentConstraint(entry.getValue()));
+        }
 
 		return flowConstrMap;
 	}
@@ -1402,7 +1400,7 @@ public final class ConstraintParser
 		if (s.indexOf('|') != -1)
 			s = s.replaceAll("\\|", "][");
 
-		ArrayList<String> retList = new ArrayList<String>(Math.max(s.length() >> 2 + 1, 3)); // Approx return length.
+		ArrayList<String> retList = new ArrayList<>(Math.max(s.length() >> 2 + 1, 3)); // Approx return length.
 		int s0 = 0, s1 = 0; // '[' and ']' count.
 		int st = 0; // Start of "next token to add".
 		for (int i = 0, iSz = s.length(); i < iSz; i++) {

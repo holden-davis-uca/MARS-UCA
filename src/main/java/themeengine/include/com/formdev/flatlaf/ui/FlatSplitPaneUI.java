@@ -30,7 +30,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JSplitPane}.
- *
+ * <p>
  * <!-- BasicSplitPaneUI -->
  *
  * @uiDefault SplitPane.background						Color
@@ -39,7 +39,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault SplitPane.border							Border
  * @uiDefault SplitPaneDivider.border					Border
  * @uiDefault SplitPaneDivider.draggingColor			Color	only used if continuousLayout is false
- *
+ * <p>
  * <!-- FlatSplitPaneUI -->
  *
  * @uiDefault Component.arrowType						String	triangle (default) or chevron

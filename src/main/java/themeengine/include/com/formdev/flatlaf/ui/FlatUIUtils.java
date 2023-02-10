@@ -248,10 +248,8 @@ public class FlatUIUtils
 		if( systemScaleFactor != 1 && systemScaleFactor != 2 ) {
 			// paint at scale 1x to avoid clipping on right and bottom edges at 125%, 150% or 175%
 			HiDPIUtils.paintAtScale1x( g, x, y, width, height,
-				(g2d, x2, y2, width2, height2, scaleFactor) -> {
-					paintComponentOuterBorderImpl( g2d, x2, y2, width2, height2,
-						(float) (focusWidth * scaleFactor), (float) (lineWidth * scaleFactor), (float) (arc * scaleFactor) );
-				} );
+				(g2d, x2, y2, width2, height2, scaleFactor) -> paintComponentOuterBorderImpl( g2d, x2, y2, width2, height2,
+                    (float) (focusWidth * scaleFactor), (float) (lineWidth * scaleFactor), (float) (arc * scaleFactor) ));
 			return;
 		}
 
@@ -296,10 +294,8 @@ public class FlatUIUtils
 		if( systemScaleFactor != 1 && systemScaleFactor != 2 ) {
 			// paint at scale 1x to avoid clipping on right and bottom edges at 125%, 150% or 175%
 			HiDPIUtils.paintAtScale1x( g, x, y, width, height,
-				(g2d, x2, y2, width2, height2, scaleFactor) -> {
-					paintComponentBorderImpl( g2d, x2, y2, width2, height2,
-						(float) (focusWidth * scaleFactor), (float) (lineWidth * scaleFactor), (float) (arc * scaleFactor) );
-				} );
+				(g2d, x2, y2, width2, height2, scaleFactor) -> paintComponentBorderImpl( g2d, x2, y2, width2, height2,
+                    (float) (focusWidth * scaleFactor), (float) (lineWidth * scaleFactor), (float) (arc * scaleFactor) ));
 			return;
 		}
 
@@ -343,10 +339,8 @@ public class FlatUIUtils
 		if( systemScaleFactor != 1 && systemScaleFactor != 2 ) {
 			// paint at scale 1x to avoid clipping on right and bottom edges at 125%, 150% or 175%
 			HiDPIUtils.paintAtScale1x( g, x, y, width, height,
-				(g2d, x2, y2, width2, height2, scaleFactor) -> {
-					paintComponentBackgroundImpl( g2d, x2, y2, width2, height2,
-						(float) (focusWidth * scaleFactor), (float) (arc * scaleFactor) );
-				} );
+				(g2d, x2, y2, width2, height2, scaleFactor) -> paintComponentBackgroundImpl( g2d, x2, y2, width2, height2,
+                    (float) (focusWidth * scaleFactor), (float) (arc * scaleFactor) ));
 			return;
 		}
 

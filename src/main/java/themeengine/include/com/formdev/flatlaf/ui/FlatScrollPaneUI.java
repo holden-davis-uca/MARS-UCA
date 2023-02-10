@@ -52,7 +52,7 @@ import themeengine.include.com.formdev.flatlaf.FlatClientProperties;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JScrollPane}.
- *
+ * <p>
  * <!-- BasicScrollPaneUI -->
  *
  * @uiDefault ScrollPane.font				Font	unused
@@ -60,7 +60,7 @@ import themeengine.include.com.formdev.flatlaf.FlatClientProperties;
  * @uiDefault ScrollPane.foreground			Color	unused
  * @uiDefault ScrollPane.border				Border
  * @uiDefault ScrollPane.viewportBorder		Border
- *
+ * <p>
  * <!-- FlatScrollPaneUI -->
  *
  * @uiDefault ScrollPane.smoothScrolling		boolean

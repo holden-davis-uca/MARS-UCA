@@ -25,7 +25,7 @@ import javax.swing.plaf.basic.BasicDesktopPaneUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JDesktopPane}.
- *
+ * <p>
  * <!-- BasicDesktopPaneUI -->
  *
  * @uiDefault Desktop.background					Color
@@ -51,7 +51,7 @@ public class FlatDesktopPaneUI
 
 	//---- class FlatDesktopManager -------------------------------------------
 
-	private class FlatDesktopManager
+	private static class FlatDesktopManager
 		extends DefaultDesktopManager
 		implements UIResource
 	{

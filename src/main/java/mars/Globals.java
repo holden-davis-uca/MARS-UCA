@@ -65,7 +65,7 @@ public class Globals {
 	 * Lock variable used at head of synchronized block to guard MIPS memory and
 	 * registers
 	 **/
-	public static Object memoryAndRegistersLock = new Object();
+	public static final Object memoryAndRegistersLock = new Object();
 	/**
 	 * Flag to determine whether or not to produce internal debugging information.
 	 **/
@@ -78,7 +78,7 @@ public class Globals {
 	/**
 	 * String to GUI's RunI/O text area when echoing user input from pop-up dialog.
 	 */
-	public static String userInputAlert = "**** user input : ";
+	public static final String userInputAlert = "**** user input : ";
 	/** Path to folder that contains images */
 	// The leading "/" in filepath prevents package name from being pre-pended.
 	public static final String imagesPath = "/images/";
@@ -192,7 +192,7 @@ public class Globals {
 		final Properties properties = PropertiesFile.loadPropertiesFromFile(propertiesFile);
 		try {
 			limit = Integer.parseInt(properties.getProperty(propertyName, Integer.toString(defaultValue)));
-		} catch (final NumberFormatException nfe) {} // do nothing, I already have a default
+		} catch (final NumberFormatException ignored) {} // do nothing, I already have a default
 		return limit;
 	}
 

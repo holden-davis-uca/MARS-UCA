@@ -87,7 +87,7 @@ public class SystemIO {
 		if (Globals.getGui() == null) {
 			try {
 				input = getInputReader().readLine();
-			} catch (final IOException e) {}
+			} catch (final IOException ignored) {}
 		} else {
 			if (Globals.getSettings().getBooleanSetting(Settings.POPUP_SYSCALL_INPUT)) {
 				input = Globals.getGui().getMessagesPane().getInputString("Enter an integer value (syscall "
@@ -113,7 +113,7 @@ public class SystemIO {
 		if (Globals.getGui() == null) {
 			try {
 				input = getInputReader().readLine();
-			} catch (final IOException e) {}
+			} catch (final IOException ignored) {}
 		} else {
 			if (Globals.getSettings().getBooleanSetting(Settings.POPUP_SYSCALL_INPUT)) {
 				input = Globals.getGui().getMessagesPane().getInputString("Enter a float value (syscall "
@@ -139,7 +139,7 @@ public class SystemIO {
 		if (Globals.getGui() == null) {
 			try {
 				input = getInputReader().readLine();
-			} catch (final IOException e) {}
+			} catch (final IOException ignored) {}
 		} else {
 			if (Globals.getSettings().getBooleanSetting(Settings.POPUP_SYSCALL_INPUT)) {
 				input = Globals.getGui().getMessagesPane().getInputString("Enter a double value (syscall "
@@ -176,7 +176,7 @@ public class SystemIO {
 		if (Globals.getGui() == null) {
 			try {
 				input = getInputReader().readLine();
-			} catch (final IOException e) {}
+			} catch (final IOException ignored) {}
 		} else {
 			if (Globals.getSettings().getBooleanSetting(Settings.POPUP_SYSCALL_INPUT)) {
 				input = Globals.getGui().getMessagesPane().getInputString("Enter a string of maximum length "
@@ -207,7 +207,7 @@ public class SystemIO {
 		if (Globals.getGui() == null) {
 			try {
 				input = getInputReader().readLine();
-			} catch (final IOException e) {}
+			} catch (final IOException ignored) {}
 		} else {
 			if (Globals.getSettings().getBooleanSetting(Settings.POPUP_SYSCALL_INPUT)) {
 				input = Globals.getGui().getMessagesPane().getInputString("Enter a character value (syscall "
@@ -219,12 +219,7 @@ public class SystemIO {
 		// The whole try-catch is not really necessary in this case since I'm
 		// just propagating the runtime exception (the default behavior), but
 		// I want to make it explicit.  The client needs to catch it.
-		try {
-			returnValue = input.charAt(0); // first character input
-		} catch (final IndexOutOfBoundsException e) // no chars present
-		{
-			throw e;  // was: returnValue = 0;
-		}
+		returnValue = input.charAt(0); // first character input
 
 		return returnValue;
 
@@ -338,7 +333,6 @@ public class SystemIO {
 	 * IMPLEMENTED. Also note that file permission modes are also NOT IMPLEMENTED.
 	 *
 	 * @param filename string containing filename
-	 * @param flag     0 for read, 1 for write
 	 * @return file descriptor in the range 0 to SYSCALL_MAXFILES-1, or -1 if error
 	 * @author Ken Vollmar
 	 */

@@ -123,12 +123,11 @@ public class PopupHelpItem {
 	public static int maxExampleLength(final java.util.ArrayList matches) {
 		int length = 0;
 		if (matches != null) {
-			for (int i = 0; i < matches.size(); i++) {
-				final Object match = matches.get(i);
-				if (match instanceof PopupHelpItem) {
-					length = Math.max(length, ((PopupHelpItem) match).getExampleLength());
-				}
-			}
+            for (final Object match : matches) {
+                if (match instanceof PopupHelpItem) {
+                    length = Math.max(length, ((PopupHelpItem) match).getExampleLength());
+                }
+            }
 		}
 		return length;
 	}

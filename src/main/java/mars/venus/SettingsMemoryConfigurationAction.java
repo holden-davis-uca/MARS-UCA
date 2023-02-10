@@ -77,7 +77,7 @@ public class SettingsMemoryConfigurationAction extends GuiAction {
 	JComboBox fontFamilySelector, fontStyleSelector;
 	JSlider fontSizeSelector;
 	JTextField fontSizeDisplay;
-	SettingsMemoryConfigurationAction thisAction;
+	final SettingsMemoryConfigurationAction thisAction;
 
 	// Used to determine upon OK, whether or not anything has changed.
 	String initialFontFamily, initialFontStyle, initialFontSize;

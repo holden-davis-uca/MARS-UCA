@@ -27,7 +27,7 @@ import javax.swing.plaf.basic.BasicListUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JList}.
- *
+ * <p>
  * <!-- BasicListUI -->
  *
  * @uiDefault List.font								Font
@@ -39,7 +39,7 @@ import javax.swing.plaf.basic.BasicListUI;
  * @uiDefault List.border							Border
  * @uiDefault List.cellRenderer						ListCellRenderer
  * @uiDefault FileChooser.listFont					Font		used if client property List.isFileList is true
- *
+ * <p>
  * <!-- DefaultListCellRenderer -->
  *
  * @uiDefault List.cellNoFocusBorder				Border
@@ -47,12 +47,12 @@ import javax.swing.plaf.basic.BasicListUI;
  * @uiDefault List.focusSelectedCellHighlightBorder	Border
  * @uiDefault List.dropCellBackground				Color
  * @uiDefault List.dropCellForeground				Color
- *
+ * <p>
  * <!-- FlatListUI -->
  *
  * @uiDefault List.selectionInactiveBackground		Color
  * @uiDefault List.selectionInactiveForeground		Color
- *
+ * <p>
  * <!-- FlatListCellBorder -->
  *
  * @uiDefault List.cellMargins						Insets
@@ -109,18 +109,16 @@ public class FlatListUI
 				super.focusLost( e );
 
 				// use invokeLater for the case that the window is deactivated
-				EventQueue.invokeLater( () -> {
-					toggleSelectionColors();
-				} );
+				EventQueue.invokeLater( () -> toggleSelectionColors());
 			}
 		};
 	}
 
 	/**
 	 * Toggle selection colors from focused to inactive and vice versa.
-	 *
+	 * <p>
 	 * This is not a optimal solution but much easier than rewriting the whole paint methods.
-	 *
+	 * <p>
 	 * Using a LaF specific renderer was avoided because often a custom renderer is
 	 * already used in applications. Then either the inactive colors are not used,
 	 * or the application has to be changed to extend a FlatLaf renderer.

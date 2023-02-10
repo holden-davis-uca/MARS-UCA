@@ -23,7 +23,7 @@ import javax.swing.plaf.BorderUIResource;
 
 /**
  * Empty border for various components.
- *
+ * <p>
  * The insets are scaled.
  *
  * @author Karl Tauber

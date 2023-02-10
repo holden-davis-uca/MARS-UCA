@@ -34,7 +34,7 @@ import themeengine.include.com.formdev.flatlaf.util.StringUtils;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JToolTip}.
- *
+ * <p>
  * <!-- BasicToolTipUI -->
  *
  * @uiDefault ToolTip.font						Font
@@ -75,7 +75,7 @@ public class FlatToolTipUI
 		if( sharedPropertyChangedListener == null ) {
 			sharedPropertyChangedListener = e -> {
 				String name = e.getPropertyName();
-				if( name == "text" || name == "font" || name == "foreground" ) {
+				if(name.equals("text") || name.equals("font") || name.equals("foreground")) {
 					JToolTip toolTip = (JToolTip) e.getSource();
 					FlatLabelUI.updateHTMLRenderer( toolTip, toolTip.getTipText(), false );
 				}

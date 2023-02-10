@@ -46,7 +46,7 @@ public final class PlatformDefaults
 	 * to specify the visual padding.
 	 * <p>
 	 */
-	public static String VISUAL_PADDING_PROPERTY = "visualPadding";
+	public static final String VISUAL_PADDING_PROPERTY = "visualPadding";
 
 	private static int DEF_H_UNIT = UnitValue.LPX;
 	private static int DEF_V_UNIT = UnitValue.LPY;
@@ -96,8 +96,8 @@ public final class PlatformDefaults
 
 	private static String BUTTON_FORMAT = null;
 
-	private static final HashMap<String, UnitValue> HOR_DEFS = new HashMap<String, UnitValue>(32);
-	private static final HashMap<String, UnitValue> VER_DEFS = new HashMap<String, UnitValue>(32);
+	private static final HashMap<String, UnitValue> HOR_DEFS = new HashMap<>(32);
+	private static final HashMap<String, UnitValue> VER_DEFS = new HashMap<>(32);
 	private static BoundSize DEF_VGAP = null, DEF_HGAP = null;
 	static BoundSize RELATED_X = null, RELATED_Y = null, UNRELATED_X = null, UNRELATED_Y = null;
 	private static UnitValue BUTT_WIDTH = null;
@@ -141,7 +141,7 @@ public final class PlatformDefaults
 
 	private static boolean dra = true;
 
-	private static final HashMap<String, int[]> VISUAL_BOUNDS = new HashMap<String, int[]>(64);
+	private static final HashMap<String, int[]> VISUAL_BOUNDS = new HashMap<>(64);
 
 	static {
 		setPlatform(getCurrentPlatform());

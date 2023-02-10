@@ -113,7 +113,7 @@ class LinuxFontPolicy
 
 		Object value = Toolkit.getDefaultToolkit().getDesktopProperty( "gnome.Xft/DPI" );
 		if( value instanceof Integer ) {
-			int dpi = ((Integer)value).intValue() / 1024;
+			int dpi = (Integer) value / 1024;
 			if( dpi == -1 )
 				dpi = 96;
 			if( dpi < 50 )
@@ -141,11 +141,11 @@ class LinuxFontPolicy
 
 	/**
 	 * Gets the default font for KDE for KDE configuration files.
-	 *
+	 * <p>
 	 * The Swing fonts are not updated when the user changes system font size
 	 * (System Settings > Fonts > Force Font DPI). A application restart is necessary.
 	 * This is the same behavior as in native KDE applications.
-	 *
+	 * <p>
 	 * The "display scale factor" (kdeglobals: [KScreen] > ScaleFactor) is not used
 	 * KDE also does not use it to calculate font size. Only forceFontDPI is used by KDE.
 	 * If user changes "display scale factor" (System Settings > Display and Monitors >

@@ -166,8 +166,8 @@ public class Coprocessor0Window extends JPanel implements Observer {
 	 */
 	public void updateRegisters(final int base) {
 		registers = Coprocessor0.getRegisters();
-		for (int i = 0; i < registers.length; i++) {
-			updateRegisterValue(registers[i].getNumber(), registers[i].getValue(), base);
+		for (Register register : registers) {
+			updateRegisterValue(register.getNumber(), register.getValue(), base);
 		}
 	}
 
@@ -289,7 +289,7 @@ public class Coprocessor0Window extends JPanel implements Observer {
 		 */
 		private static final long serialVersionUID = -8965802860210969316L;
 		final String[] columnNames = { "Name", "Number", "Value" };
-		Object[][] data;
+		final Object[][] data;
 
 		public RegTableModel(final Object[][] d) {
 			data = d;

@@ -41,7 +41,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JScrollBar}.
- *
+ * <p>
  * <!-- BasicScrollBarUI -->
  *
  * @uiDefault ScrollBar.background			Color
@@ -52,7 +52,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault ScrollBar.minimumThumbSize	Dimension
  * @uiDefault ScrollBar.maximumThumbSize	Dimension
  * @uiDefault ScrollBar.allowsAbsolutePositioning	boolean
- *
+ * <p>
  * <!-- FlatScrollBarUI -->
  *
  * @uiDefault ScrollBar.trackInsets					Insets

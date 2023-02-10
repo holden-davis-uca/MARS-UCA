@@ -22,7 +22,7 @@ import javax.swing.UIDefaults;
 
 /**
  * Addon for FlatLaf UI defaults.
- *
+ * <p>
  * Allows loading of additional .properties files from addon JARs.
  * {@link java.util.ServiceLoader} is used to load extensions of this class from addon JARs.
  * <p>

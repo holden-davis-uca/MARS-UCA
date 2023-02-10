@@ -41,10 +41,10 @@ import themeengine.include.com.formdev.flatlaf.util.DerivedColor;
 
 /**
  * Border for various components (e.g. {@link javax.swing.JTextField}).
- *
+ * <p>
  * There is empty space around the component border, if Component.focusWidth is greater than zero,
  * which is used to paint outer focus border.
- *
+ * <p>
  * Because there is empty space (if outer focus border is not painted),
  * UI delegates that use this border (or subclasses) must invoke
  * {@link FlatUIUtils#paintParentBackground} to paint the empty space correctly.

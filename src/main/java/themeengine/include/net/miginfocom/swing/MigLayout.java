@@ -53,7 +53,7 @@ public class MigLayout implements LayoutManager2, Externalizable
 
 	/** The component to string constraints mappings.
 	 */
-	private final Map<Component, Object> scrConstrMap = new IdentityHashMap<Component, Object>(8);
+	private final Map<Component, Object> scrConstrMap = new IdentityHashMap<>(8);
 
 	/** Hold the serializable text representation of the constraints.
 	 */
@@ -63,7 +63,7 @@ public class MigLayout implements LayoutManager2, Externalizable
 
 	private transient ContainerWrapper cacheParentW = null;
 
-	private transient final Map<ComponentWrapper, CC> ccMap = new HashMap<ComponentWrapper, CC>(8);
+	private transient final Map<ComponentWrapper, CC> ccMap = new HashMap<>(8);
 	private transient javax.swing.Timer debugTimer = null;
 
 	private transient LC lc = null;
@@ -237,7 +237,7 @@ public class MigLayout implements LayoutManager2, Externalizable
 	 */
 	public Map<Component, Object> getConstraintMap()
 	{
-		return new IdentityHashMap<Component, Object>(scrConstrMap);
+		return new IdentityHashMap<>(scrConstrMap);
 	}
 
 	/** Sets the constraints map.
@@ -335,7 +335,7 @@ public class MigLayout implements LayoutManager2, Externalizable
 			throw new NullPointerException();
 
 		if (callbackList == null)
-			callbackList = new ArrayList<LayoutCallback>(1);
+			callbackList = new ArrayList<>(1);
 
 		callbackList.add(callback);
 
@@ -374,17 +374,14 @@ public class MigLayout implements LayoutManager2, Externalizable
 			debugTimer = new Timer(getDebugMillis(), new MyDebugRepaintListener());
 
 			if (parent != null) {
-				SwingUtilities.invokeLater(new Runnable() {
-					@Override
-					public void run() {
-						Container p = parent.getParent();
-						if (p != null) {
-							if (p instanceof JComponent) {
-								p.revalidate();
-							} else {
-								parent.invalidate();
-								p.validate();
-							}
+				SwingUtilities.invokeLater(() -> {
+					Container p = parent.getParent();
+					if (p != null) {
+						if (p instanceof JComponent) {
+							p.revalidate();
+						} else {
+							parent.invalidate();
+							p.validate();
 						}
 					}
 				});
@@ -484,7 +481,7 @@ public class MigLayout implements LayoutManager2, Externalizable
 	 */
 	private void cleanConstraintMaps(Container parent)
 	{
-		HashSet<Component> parentCompSet = new HashSet<Component>(Arrays.asList(parent.getComponents()));
+		HashSet<Component> parentCompSet = new HashSet<>(Arrays.asList(parent.getComponents()));
 
 		Iterator<Map.Entry<ComponentWrapper, CC>> it = ccMap.entrySet().iterator();
 		while(it.hasNext()) {
@@ -550,12 +547,7 @@ public class MigLayout implements LayoutManager2, Externalizable
 				Window win = ((Window) SwingUtilities.getAncestorOfClass(Window.class, (Component)containerWrapper.getComponent()));
 				if (win != null) {
 				   if (win.isVisible()) {
-					   SwingUtilities.invokeLater(new Runnable() {
-						   @Override
-						   public void run() {
-							   adjustWindowSize(containerWrapper);
-						   }
-					   });
+					   SwingUtilities.invokeLater(() -> adjustWindowSize(containerWrapper));
 				   } else {
 					   adjustWindowSize(containerWrapper);
 				   }

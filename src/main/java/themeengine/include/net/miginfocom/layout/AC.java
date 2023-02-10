@@ -49,7 +49,7 @@ import java.util.Collections;
  */
 public final class AC implements Externalizable
 {
-	private final ArrayList<DimConstraint> cList = new ArrayList<DimConstraint>(1);
+	private final ArrayList<DimConstraint> cList = new ArrayList<>(1);
 
 	private transient int curIx = 0;
 
@@ -70,7 +70,7 @@ public final class AC implements Externalizable
 	 */
 	public DimConstraint[] getConstaints()
 	{
-		return cList.toArray(new DimConstraint[cList.size()]);
+		return cList.toArray(new DimConstraint[0]);
 	}
 
 	/** Sets the different {@link themeengine.include.net.miginfocom.layout.DimConstraint}s that this object should consists of.

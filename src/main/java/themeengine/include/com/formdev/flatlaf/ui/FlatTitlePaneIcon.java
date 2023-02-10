@@ -19,6 +19,7 @@ package themeengine.include.com.formdev.flatlaf.ui;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -42,9 +43,7 @@ public class FlatTitlePaneIcon
 		}
 
 		// sort images by size
-		allImages.sort( (image1, image2) -> {
-			return image1.getWidth( null ) - image2.getWidth( null );
-		} );
+		allImages.sort(Comparator.comparingInt(image -> image.getWidth(null)));
 
 		// create icon
 		return new FlatTitlePaneIcon( allImages, size );

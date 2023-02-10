@@ -151,9 +151,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    	 */   	
        public void updateRegisters(int base) {
          registers = RegisterFile.getRegisters();
-         for(int i=0; i< registers.length; i++){
-            updateRegisterValue(registers[i].getNumber(), registers[i].getValue(), base);
-         }
+           for (Register register : registers) {
+               updateRegisterValue(register.getNumber(), register.getValue(), base);
+           }
          updateRegisterUnsignedValue(32, RegisterFile.getProgramCounter(), base);
          updateRegisterValue(33, RegisterFile.getValue(33), base);
          updateRegisterValue(34, RegisterFile.getValue(34), base);
@@ -272,7 +272,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    	
        class RegTableModel extends AbstractTableModel {
          final String[] columnNames =  {"Name", "Number", "Value", "Decimal"};
-         Object[][] data;
+         final Object[][] data;
       	
           public RegTableModel(Object[][] d){
             data=d;

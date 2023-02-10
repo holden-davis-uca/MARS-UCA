@@ -141,7 +141,7 @@ public class EditorFont {
 		int result = DEFAULT_SIZE;
 		try {
 			result = Integer.parseInt(size);
-		} catch (final NumberFormatException e) {}
+		} catch (final NumberFormatException ignored) {}
 		return result < MIN_SIZE ? MIN_SIZE : result > MAX_SIZE ? MAX_SIZE : result;
 	}
 
@@ -190,7 +190,7 @@ public class EditorFont {
 	 */
 	public static String substituteSpacesForTabs(final String string, final int tabSize) {
 		if (!string.contains(TAB_STRING)) { return string; }
-		final StringBuffer result = new StringBuffer(string);
+		final StringBuilder result = new StringBuilder(string);
 		for (int i = 0; i < result.length(); i++) {
 			if (result.charAt(i) == TAB_CHAR) { result.replace(i, i + 1, SPACES.substring(0, tabSize - i % tabSize)); }
 		}
@@ -209,11 +209,11 @@ public class EditorFont {
 				.getAvailableFontFamilyNames();
 		Arrays.sort(availableFamilies); // not sure if necessary; is the list already alphabetical?
 		int k = 0;
-		for (int i = 0; i < allCommonFamilies.length; i++) {
-			if (Arrays.binarySearch(availableFamilies, allCommonFamilies[i]) >= 0) {
-				result[k++] = allCommonFamilies[i];
-			}
-		}
+        for (String allCommonFamily : allCommonFamilies) {
+            if (Arrays.binarySearch(availableFamilies, allCommonFamily) >= 0) {
+                result[k++] = allCommonFamily;
+            }
+        }
 		// If not all are found, creat a new array with only the ones that are.
 		if (k < allCommonFamilies.length) {
 			final String[] temp = new String[k];

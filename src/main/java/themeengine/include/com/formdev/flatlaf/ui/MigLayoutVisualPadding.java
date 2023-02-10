@@ -24,7 +24,7 @@ import javax.swing.JComponent;
 
 /**
  * Support for MigLayout visual paddings.
- *
+ * <p>
  * Visual paddings are used by MigLayout to ignore the usually invisible space
  * around some components (e.g. buttons) that is used to paint a focus border.
  *
@@ -35,11 +35,11 @@ public class MigLayoutVisualPadding
 	/**
 	 * Key of visual padding client property.
 	 * Value must be either an integer array of size 4, or java.awt.Insets.
-	 *
+	 * <p>
 	 * Same as themeengine.include.net.miginfocom.layout.PlatformDefaults.VISUAL_PADDING_PROPERTY,
 	 * but we don't want to depend on miglayout library.
 	 */
-	public static String VISUAL_PADDING_PROPERTY = "visualPadding";
+	public static final String VISUAL_PADDING_PROPERTY = "visualPadding";
 
 	private static final FlatMigInsets ZERO = new FlatMigInsets( 0, 0, 0, 0 );
 	private static final boolean migLayoutAvailable;
@@ -99,7 +99,7 @@ public class MigLayoutVisualPadding
 		c.addPropertyChangeListener( (FlatMigListener) e -> {
 			String propertyName = e.getPropertyName();
 			for( String name : propertyNames ) {
-				if( name == propertyName ) {
+				if(name.equals(propertyName)) {
 					setVisualPadding( c, getPaddingFunction.apply( c ) );
 					break;
 				}

@@ -184,23 +184,25 @@ public class ErrorList {
 
 	// Produces either error or warning report.
 	private String generateReport(final boolean isWarning) {
-		final StringBuffer report = new StringBuffer();
+		final StringBuilder report = new StringBuilder();
 		String reportLine;
-		for (int i = 0; i < messages.size(); i++) {
-			final ErrorMessage m = (ErrorMessage) messages.get(i);
-			if (isWarning && m.isWarning() || !isWarning && !m.isWarning()) {
-				reportLine = (isWarning ? WARNING_MESSAGE_PREFIX : ERROR_MESSAGE_PREFIX) + FILENAME_PREFIX;
-				if (m.getFilename().length() > 0) {
-					reportLine = reportLine + new File(m.getFilename()).getPath(); //.getName());
-				}
-				if (m.getLine() > 0) {
-					reportLine = reportLine + LINE_PREFIX + m.getMacroExpansionHistory() + m.getLine();
-				}
-				if (m.getPosition() > 0) { reportLine = reportLine + POSITION_PREFIX + m.getPosition(); }
-				reportLine = reportLine + MESSAGE_SEPARATOR + m.getMessage() + "\n";
-				report.append(reportLine);
-			}
-		}
+        for (Object message : messages) {
+            final ErrorMessage m = (ErrorMessage) message;
+            if (isWarning && m.isWarning() || !isWarning && !m.isWarning()) {
+                reportLine = (isWarning ? WARNING_MESSAGE_PREFIX : ERROR_MESSAGE_PREFIX) + FILENAME_PREFIX;
+                if (m.getFilename().length() > 0) {
+                    reportLine = reportLine + new File(m.getFilename()).getPath(); //.getName());
+                }
+                if (m.getLine() > 0) {
+                    reportLine = reportLine + LINE_PREFIX + m.getMacroExpansionHistory() + m.getLine();
+                }
+                if (m.getPosition() > 0) {
+                    reportLine = reportLine + POSITION_PREFIX + m.getPosition();
+                }
+                reportLine = reportLine + MESSAGE_SEPARATOR + m.getMessage() + "\n";
+                report.append(reportLine);
+            }
+        }
 		return report.toString();
 	}
 }  // ErrorList

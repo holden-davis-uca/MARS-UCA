@@ -50,7 +50,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Load UI defaults from properties files associated to Flat LaF classes and add to UI defaults.
- *
+ * <p>
  * Each class that extend the LaF class may have its own .properties file
  * in the same package as the class. Properties from superclasses are loaded
  * first to give subclasses a chance to override defaults.
@@ -154,12 +154,8 @@ class UIDefaultsLoader
 				}
 			}
 
-			Function<String, String> propertiesGetter = key -> {
-				return properties.getProperty( key );
-			};
-			Function<String, String> resolver = value -> {
-				return resolveValue( value, propertiesGetter );
-			};
+			Function<String, String> propertiesGetter = properties::getProperty;
+			Function<String, String> resolver = value -> resolveValue( value, propertiesGetter );
 
 			// get globals, which override all other defaults that end with same suffix
 			HashMap<String, Object> globals = new HashMap<>();
@@ -268,9 +264,7 @@ class UIDefaultsLoader
 		if( value.startsWith( "lazy(" ) && value.endsWith( ")" ) ) {
 			resultValueType[0] = ValueType.LAZY;
 			String uiKey = value.substring( 5, value.length() - 1 ).trim();
-			return (LazyValue) t -> {
-				return lazyUIManagerGet( uiKey );
-			};
+			return (LazyValue) t -> lazyUIManagerGet( uiKey );
 		}
 
 		ValueType valueType = ValueType.UNKNOWN;
@@ -378,11 +372,9 @@ class UIDefaultsLoader
 				: null;
 			float lineThickness = (parts.size() >= 6) ? parseFloat( parts.get( 5 ), true ) : 1f;
 
-			return (LazyValue) t -> {
-				return (lineColor != null)
-					? new FlatLineBorder( insets, lineColor, lineThickness )
-					: new FlatEmptyBorder( insets );
-			};
+			return (LazyValue) t -> (lineColor != null)
+				? new FlatLineBorder( insets, lineColor, lineThickness )
+				: new FlatEmptyBorder( insets );
 		} else
 			return parseInstance( value, addonClassLoaders );
 	}
@@ -647,7 +639,7 @@ class UIDefaultsLoader
 
 		if( derived ) {
 			ColorFunction[] functions;
-			if( baseColor instanceof DerivedColor && resolvedColorStr == colorStr ) {
+			if( baseColor instanceof DerivedColor && resolvedColorStr.equals(colorStr)) {
 				// if the base color is also derived, join the color functions
 				// but only if base color function is specified directly in this function
 				ColorFunction[] baseFunctions = ((DerivedColor)baseColor).getFunctions();
@@ -692,7 +684,7 @@ class UIDefaultsLoader
 		}
 
 		Integer integer = parseInteger( value, true );
-		if( integer.intValue() < min || integer.intValue() > max )
+		if(integer < min || integer > max )
 			throw new NumberFormatException( "integer '" + value + "' out of range (" + min + '-' + max + ')' );
 		return integer;
 	}
@@ -719,30 +711,22 @@ class UIDefaultsLoader
 
 	private static ActiveValue parseScaledInteger( String value ) {
 		int val = parseInteger( value, true );
-		return t -> {
-			return UIScale.scale( val );
-		};
+		return t -> UIScale.scale( val );
 	}
 
 	private static ActiveValue parseScaledFloat( String value ) {
 		float val = parseFloat( value, true );
-		return t -> {
-			return UIScale.scale( val );
-		};
+		return t -> UIScale.scale( val );
 	}
 
 	private static ActiveValue parseScaledInsets( String value ) {
 		Insets insets = parseInsets( value );
-		return t -> {
-			return UIScale.scale( insets );
-		};
+		return t -> UIScale.scale( insets );
 	}
 
 	private static ActiveValue parseScaledDimension( String value ) {
 		Dimension dimension = parseDimension( value );
-		return t -> {
-			return UIScale.scale( dimension );
-		};
+		return t -> UIScale.scale( dimension );
 	}
 
 	private static Object parseGrayFilter( String value ) {
@@ -752,9 +736,7 @@ class UIDefaultsLoader
 			int contrast = Integer.parseInt( numbers.get( 1 ) );
 			int alpha = Integer.parseInt( numbers.get( 2 ) );
 
-			return (LazyValue) t -> {
-				return new GrayFilter( brightness, contrast, alpha );
-			};
+			return (LazyValue) t -> new GrayFilter( brightness, contrast, alpha );
 		} catch( NumberFormatException ex ) {
 			throw new IllegalArgumentException( "invalid gray filter '" + value + "'" );
 		}

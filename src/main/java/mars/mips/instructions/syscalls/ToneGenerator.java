@@ -250,14 +250,12 @@ class Tone implements Runnable {
 
 			try {
 				eot.awaitEndOfTrack();
-			} catch (final InterruptedException ex) {} finally {
+			} catch (final InterruptedException ignored) {} finally {
 				player.close();
 			}
 
-		} catch (final MidiUnavailableException mue) {
+		} catch (final MidiUnavailableException | InvalidMidiDataException mue) {
 			mue.printStackTrace();
-		} catch (final InvalidMidiDataException imde) {
-			imde.printStackTrace();
 		}
 	}
 }

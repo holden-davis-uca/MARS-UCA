@@ -26,7 +26,7 @@ import javax.swing.plaf.basic.BasicMenuItemUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JMenuItem}.
- *
+ * <p>
  * <!-- BasicMenuItemUI -->
  *
  * @uiDefault MenuItem.font											Font
@@ -45,7 +45,7 @@ import javax.swing.plaf.basic.BasicMenuItemUI;
  * @uiDefault MenuItem.arrowIcon									Icon
  * @uiDefault MenuItem.checkIcon									Icon
  * @uiDefault MenuItem.opaque										boolean
- *
+ * <p>
  * <!-- FlatMenuItemUI -->
  *
  * @uiDefault MenuItem.iconTextGap									int

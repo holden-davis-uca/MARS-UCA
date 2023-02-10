@@ -644,7 +644,7 @@ public class CacheSimulator extends AbstractMarsToolAndApplication {
 	private abstract class AbstractCache {
 
 		private final int numberOfBlocks, blockSizeInWords, setSizeInBlocks, numberOfSets;
-		protected CacheBlock[] blocks;
+		protected final CacheBlock[] blocks;
 
 		protected AbstractCache(final int numberOfBlocks, final int blockSizeInWords, final int setSizeInBlocks) {
 			this.numberOfBlocks = numberOfBlocks;
@@ -867,8 +867,8 @@ public class CacheSimulator extends AbstractMarsToolAndApplication {
 		}
 
 		public void reset() {
-			for (int i = 0; i < blocks.length; i++) {
-				blocks[i].setBackground(defaultColor);
+			for (JTextField block : blocks) {
+				block.setBackground(defaultColor);
 			}
 		}
 

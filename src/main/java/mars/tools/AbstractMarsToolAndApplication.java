@@ -93,7 +93,7 @@ public abstract class AbstractMarsToolAndApplication extends JFrame implements M
 	 */
 	private static final long serialVersionUID = -7573778295941039774L;
 	protected boolean isBeingUsedAsAMarsTool = false;  // can use to determine whether invoked as MarsTool or stand-alone.
-	protected AbstractMarsToolAndApplication thisMarsApp;
+	protected final AbstractMarsToolAndApplication thisMarsApp;
 	private JDialog dialog;  // used only for MarsTool use.  This is the pop-up dialog that appears when menu item selected.
 	protected Window theWindow;  // highest level GUI component (a JFrame for app, a JDialog for MarsTool)
 
@@ -670,7 +670,7 @@ public abstract class AbstractMarsToolAndApplication extends JFrame implements M
 	//  button's list.
 	protected class EnterKeyListener extends KeyAdapter {
 
-		AbstractButton myButton;
+		final AbstractButton myButton;
 
 		public EnterKeyListener(final AbstractButton who) {
 			myButton = who;

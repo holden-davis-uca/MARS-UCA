@@ -137,10 +137,12 @@ public class RunAssembleAction extends GuiAction {
 				mainUI.messagesPane.postMarsMessage(name + ": operation completed with errors.\n\n");
 				// Select editor line containing first error, and corresponding error message.
 				final ArrayList errorMessages = pe.errors().getErrorMessages();
-				for (int i = 0; i < errorMessages.size(); i++) {
-					final ErrorMessage em = (ErrorMessage) errorMessages.get(i);
+				for (Object errorMessage : errorMessages) {
+					final ErrorMessage em = (ErrorMessage) errorMessage;
 					// No line or position may mean File Not Found (e.g. exception file). Don't try to open. DPS 3-Oct-2010
-					if (em.getLine() == 0 && em.getPosition() == 0) { continue; }
+					if (em.getLine() == 0 && em.getPosition() == 0) {
+						continue;
+					}
 					if (!em.isWarning() || warningsAreErrors) {
 						Globals.getGui().getMessagesPane().selectErrorMessage(em.getFilename(), em.getLine(), em
 								.getPosition());
@@ -165,14 +167,14 @@ public class RunAssembleAction extends GuiAction {
 	// Handy little utility for building comma-separated list of filenames
 	// while not letting line length get out of hand.
 	private String buildFileNameList(final String preamble, final ArrayList programList) {
-		String result = preamble;
+		StringBuilder result = new StringBuilder(preamble);
 		int lineLength = result.length();
 		for (int i = 0; i < programList.size(); i++) {
 			final String filename = ((MIPSprogram) programList.get(i)).getFilename();
-			result += filename + (i < programList.size() - 1 ? ", " : "");
+			result.append(filename).append(i < programList.size() - 1 ? ", " : "");
 			lineLength += filename.length();
 			if (lineLength > LINE_LENGTH_LIMIT) {
-				result += "\n";
+				result.append("\n");
 				lineLength = 0;
 			}
 		}

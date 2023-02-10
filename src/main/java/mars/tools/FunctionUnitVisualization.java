@@ -20,11 +20,7 @@ public class FunctionUnitVisualization extends JFrame {
 	private final int alu = 4;
 	private int currentUnit;
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
+    /**
 	 * Create the frame.
 	 */
 	public FunctionUnitVisualization(final String instruction, final int functionalUnit) {

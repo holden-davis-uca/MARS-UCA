@@ -54,7 +54,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  *
  * @clientProperty JTabbedPane.showTabSeparators		boolean
  * @clientProperty JTabbedPane.hasFullBorder			boolean
- *
+ * <p>
  * <!-- BasicTabbedPaneUI -->
  *
  * @uiDefault TabbedPane.font							Font
@@ -71,7 +71,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault TabbedPane.contentOpaque					boolean	unused
  * @uiDefault TabbedPane.opaque							boolean
  * @uiDefault TabbedPane.selectionFollowsFocus			boolean	default is true
- *
+ * <p>
  * <!-- FlatTabbedPaneUI -->
  *
  * @uiDefault Component.arrowType						String	triangle (default) or chevron

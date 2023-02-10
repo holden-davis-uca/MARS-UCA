@@ -91,21 +91,21 @@ public class SegmentWindowDumpFormat extends AbstractDumpFormat {
 		if (Memory.inDataSegment(firstAddress)) {
 			final boolean hexValues = Globals.getSettings().getDisplayValuesInHex();
 			int offset = 0;
-			String string = "";
+			StringBuilder string = new StringBuilder();
 			try {
 				for (int address = firstAddress; address <= lastAddress; address += Memory.WORD_LENGTH_BYTES) {
 					if (offset % 8 == 0) {
-						string = (hexAddresses ? Binary.intToHexString(address)
-								: Binary.unsignedIntToIntString(address)) + "    ";
+						string = new StringBuilder((hexAddresses ? Binary.intToHexString(address)
+								: Binary.unsignedIntToIntString(address)) + "    ");
 					}
 					offset++;
 					final Integer temp = Globals.memory.getRawWordOrNull(address);
 					if (temp == null) { break; }
-					string += (hexValues ? Binary.intToHexString(temp)
-							: ("           " + temp).substring(temp.toString().length())) + " ";
+					string.append(hexValues ? Binary.intToHexString(temp)
+							: ("           " + temp).substring(temp.toString().length())).append(" ");
 					if (offset % 8 == 0) {
 						out.println(string);
-						string = "";
+						string = new StringBuilder();
 					}
 				}
 			} finally {
@@ -131,10 +131,10 @@ public class SegmentWindowDumpFormat extends AbstractDumpFormat {
 				try {
 					final ProgramStatement ps = Globals.memory.getStatement(address);
 					string += (ps.getPrintableBasicAssemblyStatement() + "                      ").substring(0, 22);
-					string += ((ps.getSource() == "" ? "" : Integer.valueOf(ps.getSourceLine()).toString()) + "     ")
+					string += ((ps.getSource().equals("") ? "" : Integer.valueOf(ps.getSourceLine()).toString()) + "     ")
 							.substring(0, 5);
 					string += ps.getSource();
-				} catch (final AddressErrorException aee) {}
+				} catch (final AddressErrorException ignored) {}
 				out.println(string);
 			}
 		} finally {

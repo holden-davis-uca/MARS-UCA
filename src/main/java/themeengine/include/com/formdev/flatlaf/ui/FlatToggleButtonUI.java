@@ -31,7 +31,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JToggleButton}.
- *
+ * <p>
  * <!-- BasicButtonUI -->
  *
  * @uiDefault ToggleButton.font							Font
@@ -40,7 +40,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault ToggleButton.border						Border
  * @uiDefault ToggleButton.margin						Insets
  * @uiDefault ToggleButton.rollover						boolean
- *
+ * <p>
  * <!-- FlatButtonUI -->
  *
  * @uiDefault Component.focusWidth						int
@@ -54,7 +54,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault ToggleButton.disabledText					Color
  * @uiDefault ToggleButton.toolbar.hoverBackground		Color
  * @uiDefault ToggleButton.toolbar.pressedBackground	Color
- *
+ * <p>
  * <!-- FlatToggleButtonUI -->
  *
  * @uiDefault ToggleButton.selectedBackground			Color
@@ -68,7 +68,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault ToggleButton.tab.selectedBackground		Color	optional
  * @uiDefault ToggleButton.tab.hoverBackground			Color
  * @uiDefault ToggleButton.tab.focusBackground			Color
- *
+ * <p>
  *
  * @author Karl Tauber
  */

@@ -48,12 +48,12 @@ public class FlatAnimatedLafChange
 	/**
 	 * The duration of the animation in milliseconds. Default is 160 ms.
 	 */
-	public static int duration = 160;
+	public static final int duration = 160;
 
 	/**
 	 * The resolution of the animation in milliseconds. Default is 40 ms.
 	 */
-	public static int resolution = 40;
+	public static final int resolution = 40;
 
 	private static Animator animator;
 	private static final Map<JLayeredPane, JComponent> map = new HashMap<>();

@@ -102,14 +102,13 @@ public final class CC implements Externalizable
 	String[] getLinkTargets()
 	{
 		if (linkTargets == null) {
-			final ArrayList<String> targets = new ArrayList<String>(2);
+			final ArrayList<String> targets = new ArrayList<>(2);
 
 			if (pos != null) {
-				for (int i = 0; i < pos.length ; i++)
-					addLinkTargetIDs(targets, pos[i]);
+				for (UnitValue po : pos) addLinkTargetIDs(targets, po);
 			}
 
-			linkTargets = targets.size() == 0 ? EMPTY_ARR : targets.toArray(new String[targets.size()]);
+			linkTargets = targets.size() == 0 ? EMPTY_ARR : targets.toArray(new String[0]);
 		}
 		return linkTargets;
 	}

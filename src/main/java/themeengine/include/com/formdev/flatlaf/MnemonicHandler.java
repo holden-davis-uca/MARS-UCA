@@ -97,7 +97,7 @@ class MnemonicHandler
 
 	/**
 	 * Special Alt key behavior on Windows.
-	 *
+	 * <p>
 	 * Press-and-release Alt key selects first menu (if available) and moves focus
 	 * temporary to menu bar. If menu bar has focus (some menu is selected),
 	 * pressing Alt key unselects menu and moves focus back to permanent focus owner.
@@ -202,9 +202,7 @@ class MnemonicHandler
 
 					// use invokeLater() to avoid that the listener is removed
 					// while the listener queue is iterated to fire this event
-					EventQueue.invokeLater( () -> {
-						showMnemonics( false, null );
-					} );
+					EventQueue.invokeLater( () -> showMnemonics( false, null ));
 				}
 			};
 			window.addWindowListener( windowListener );

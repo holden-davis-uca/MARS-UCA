@@ -508,8 +508,9 @@ public class BitmapDisplay extends AbstractMarsToolAndApplication {
 	// Represents grid of colors
 	private class Grid {
 
-		Color[][] grid;
-		int rows, columns;
+		final Color[][] grid;
+		final int rows;
+		final int columns;
 
 		private Grid(final int rows, final int columns) {
 			grid = new Color[rows][columns];

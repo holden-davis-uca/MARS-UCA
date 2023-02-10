@@ -7,15 +7,11 @@ import java.io.File;
 
 import javax.swing.Icon;
 import javax.swing.JComponent;
-import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
-import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
 import mars.Globals;
@@ -61,9 +57,9 @@ public class MainPane extends JTabbedPane {
 	 */
 	private static final long serialVersionUID = 6490697126377688155L;
 	EditPane editTab;
-	ExecutePane executeTab;
-	FileTree fileTab;
-	EditTabbedPane editTabbedPane;
+	final ExecutePane executeTab;
+	final FileTree fileTab;
+	final EditTabbedPane editTabbedPane;
 
 	private final VenusUI mainUI;
 

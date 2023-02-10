@@ -122,7 +122,7 @@ public class DataSegmentWindow extends JInternalFrame implements Observer {
 	// The combo box replaced the row of buttons when number of buttons expanded to 7!
 	// We'll keep the button objects however and manually invoke their action listeners
 	// when the corresponding combo box item is selected.  DPS 22-Nov-2006
-	JComboBox baseAddressSelector;
+	final JComboBox baseAddressSelector;
 
 	// The next bunch are initialized dynamically in initializeBaseAddressChoices()
 	private String[] displayBaseAddressChoices;
@@ -186,8 +186,8 @@ public class DataSegmentWindow extends JInternalFrame implements Observer {
 		navButtons.add(nextButton);
 		features.add(navButtons);
 		features.add(baseAddressSelector);
-		for (int i = 0; i < choosers.length; i++) {
-			features.add(choosers[i]);
+		for (NumberDisplayBaseChooser chooser : choosers) {
+			features.add(chooser);
 		}
 		asciiDisplayCheckBox = new JCheckBox("ASCII", asciiDisplay);
 		asciiDisplayCheckBox.setToolTipText(
@@ -235,8 +235,8 @@ public class DataSegmentWindow extends JInternalFrame implements Observer {
 		final MouseEvent fakeMouseEvent = new MouseEvent(dataTable, MouseEvent.MOUSE_PRESSED, new Date().getTime(),
 				InputEvent.BUTTON1_MASK, (int) addressCell.getX() + 1, (int) addressCell.getY() + 1, 1, false);
 		final MouseListener[] mouseListeners = dataTable.getMouseListeners();
-		for (int i = 0; i < mouseListeners.length; i++) {
-			mouseListeners[i].mousePressed(fakeMouseEvent);
+		for (MouseListener mouseListener : mouseListeners) {
+			mouseListener.mousePressed(fakeMouseEvent);
 		}
 	}
 
@@ -344,7 +344,7 @@ public class DataSegmentWindow extends JInternalFrame implements Observer {
 			Memory.heapBaseAddress, -1 /*Memory.globalPointer*/, -1 /*Memory.stackPointer*/, Memory.textBaseAddress,
 			Memory.kernelDataBaseAddress, Memory.memoryMapBaseAddress, };
 	// Must agree with above in number and order...
-	String[] descriptions = { " (.extern)", " (.data)", " (heap)", "current $gp", "current $sp", " (.text)",
+	final String[] descriptions = { " (.extern)", " (.data)", " (heap)", "current $gp", "current $sp", " (.text)",
 			" (.kdata)", " (MMIO)" };
 
 	private void initializeBaseAddressChoices() {
@@ -889,8 +889,8 @@ public class DataSegmentWindow extends JInternalFrame implements Observer {
 		 *
 		 */
 		private static final long serialVersionUID = 7876732866884891424L;
-		String[] columnNames;
-		Object[][] data;
+		final String[] columnNames;
+		final Object[][] data;
 
 		public DataTableModel(final Object[][] d, final String[] n) {
 			data = d;

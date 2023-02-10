@@ -30,11 +30,7 @@ import java.awt.image.ImageProducer;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.ServiceLoader;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.logging.Level;
@@ -384,7 +380,7 @@ public abstract class FlatLaf
 		List<FlatDefaultsAddon> addons = new ArrayList<>();
 		for( FlatDefaultsAddon addon : addonLoader )
 			addons.add( addon );
-		addons.sort( (addon1, addon2) -> addon1.getPriority() - addon2.getPriority() );
+		addons.sort(Comparator.comparingInt(FlatDefaultsAddon::getPriority));
 
 		// load defaults from properties
 		List<Class<?>> lafClassesForDefaultsLoading = getLafClassesForDefaultsLoading();
@@ -412,9 +408,7 @@ public abstract class FlatLaf
 			addon.afterDefaultsLoading( this, defaults );
 
 		// add user scale factor to allow layout managers (e.g. MigLayout) to use it
-		defaults.put( "laf.scaleFactor", (ActiveValue) t -> {
-			return UIScale.getUserScaleFactor();
-		} );
+		defaults.put( "laf.scaleFactor", (ActiveValue) t -> UIScale.getUserScaleFactor());
 
 		if( postInitialization != null ) {
 			postInitialization.accept( defaults );

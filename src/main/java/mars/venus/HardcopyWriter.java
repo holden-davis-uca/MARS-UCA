@@ -53,7 +53,7 @@ import java.util.TimeZone;
 public class HardcopyWriter extends Writer {
 
 	// These are the instance variables for the class
-	protected PrintJob job; // The PrintJob object in use
+	protected final PrintJob job; // The PrintJob object in use
 	protected Graphics page; // Graphics object for current page
 	protected String jobname; // The name of the print job
 	protected int fontsize; // Point size of the font
@@ -71,13 +71,13 @@ public class HardcopyWriter extends Writer {
 	protected int lineascent; // Offset of font baseline
 	protected int chars_per_line; // Number of characters per line
 	protected int lines_per_page; // Number of lines per page
-	protected int chars_per_tab = 4; // Added by Pete Sanderson 8-17-04
+	protected final int chars_per_tab = 4; // Added by Pete Sanderson 8-17-04
 	protected int charnum = 0, linenum = 0; // Current column and line position
 	protected int pagenum = 0; // Current page number
 	// A field to save state between invocations of the write( ) method
 	private boolean last_char_was_return = false;
 	// A static variable that holds user preferences between print jobs
-	protected static Properties printprops = new Properties();
+	protected static final Properties printprops = new Properties();
 
 	/**
 	 * The constructor for this class has a bunch of arguments: The frame argument
@@ -108,23 +108,7 @@ public class HardcopyWriter extends Writer {
 		}
 		if (job == null) {
 			throw new PrintCanceledException("User cancelled print request");
-			/*******************************************************
-			 * SANDERSON OVERRIDE 8-17-2004: I didn't like the results produced by the code
-			 * below, so am commenting it out and just setting pagedpi to 72. This assures,
-			 * among other things, that the client asking for 10 point font will really get
-			 * 10 point font! pagesize = job.getPageDimension( ); // query the page size
-			 * pagedpi = job.getPageResolution( ); // query the page resolution // Bug
-			 * Workaround: // On Windows, getPageDimension( ) and getPageResolution don't
-			 * work, so // we've got to fake them. if
-			 * (System.getProperty("os.name").regionMatches(true,0,"windows",0,7)){ // Use
-			 * screen dpi, which is what the PrintJob tries to emulate pagedpi =
-			 * toolkit.getScreenResolution( ); // Assume a 8.5" x 11" page size. A4 paper
-			 * users must change this. pagesize = new Dimension((int)(8.5 * pagedpi),
-			 * 11*pagedpi); // We also have to adjust the fontsize. It is specified in
-			 * points, // (1 point = 1/72 of an inch) but Windows measures it in pixels.
-			 * fontsize = fontsize * pagedpi / 72; }
-			 ***********************************/
-		}
+        }
 
 		pagedpi = 72;
 		pagesize = new Dimension((int) (8.5 * pagedpi), 11 * pagedpi);

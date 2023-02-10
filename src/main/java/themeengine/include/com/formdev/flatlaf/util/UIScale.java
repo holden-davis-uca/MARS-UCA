@@ -36,9 +36,9 @@ import themeengine.include.com.formdev.flatlaf.FlatSystemProperties;
 
 /**
  * Two scaling modes are supported for HiDPI displays:
- *
+ * <p>
  * 1) system scaling mode
- *
+ * <p>
  * This mode is supported since Java 9 on all platforms and in some Java 8 VMs
  * (e.g. Apple and JetBrains). The JRE determines the scale factor per-display and
  * adds a scaling transformation to the graphics object.
@@ -47,9 +47,9 @@ import themeengine.include.com.formdev.flatlaf.FlatSystemProperties;
  * E.g. when you draw a 10px line, a 15px line is drawn on screen.
  * The scale factor may be different for each connected display.
  * The scale factor may change for a window when moving the window from one display to another one.
- *
+ * <p>
  * 2) user scaling mode
- *
+ * <p>
  * This mode is mainly for Java 8 compatibility, but is also used on Linux
  * or if the default font is changed.
  * The user scale factor is computed based on the used font.

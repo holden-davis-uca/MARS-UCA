@@ -565,10 +565,6 @@ public class Memory extends Observable {
 		}
 	}
 
-	/********************************
-	 * THE GETTER METHODS
-	 ******************************/
-
 	//////////////////////////////////////////////////////////////////////////////////////////
 	/**
 	 * Starting at the given word address, read the given number of bytes (max 4).
@@ -912,10 +908,6 @@ public class Memory extends Observable {
 		}
 	}
 
-	/*********************************
-	 * THE UTILITIES
-	 *************************************/
-
 	/**
 	 * Utility to determine if given address is word-aligned.
 	 *
@@ -1105,9 +1097,8 @@ public class Memory extends Observable {
 	 */
 	@Override
 	public void deleteObserver(final Observer obs) {
-		final Iterator it = observables.iterator();
-		while (it.hasNext()) {
-			((MemoryObservable) it.next()).deleteObserver(obs);
+		for (Object observable : observables) {
+			((MemoryObservable) observable).deleteObserver(obs);
 		}
 	}
 

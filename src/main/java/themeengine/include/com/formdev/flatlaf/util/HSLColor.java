@@ -15,17 +15,17 @@ import java.awt.Color;
  *  The HSLColor class provides methods to manipulate HSL (Hue, Saturation
  *  Luminance) values to create a corresponding Color object using the RGB
  *  ColorSpace.
- *
+ * <p>
  *  The HUE is the color, the Saturation is the purity of the color (with
  *  respect to grey) and Luminance is the brightness of the color (with respect
  *  to black and white)
- *
+ * <p>
  *  The Hue is specified as an angel between 0 - 360 degrees where red is 0,
  *  green is 120 and blue is 240. In between you have the colors of the rainbow.
  *  Saturation is specified as a percentage between 0 - 100 where 100 is fully
  *  saturated and 0 approaches gray. Luminance is specified as a percentage
  *  between 0 - 100 where 0 is black and 100 is white.
- *
+ * <p>
  *  In particular the HSL color space makes it easier change the Tone or Shade
  *  of a color by adjusting the luminance value.
  */

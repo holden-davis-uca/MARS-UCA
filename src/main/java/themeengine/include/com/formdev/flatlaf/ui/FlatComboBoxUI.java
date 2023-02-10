@@ -67,7 +67,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JComboBox}.
- *
+ * <p>
  * <!-- BasicComboBoxUI -->
  *
  * @uiDefault ComboBox.font						Font
@@ -76,7 +76,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault ComboBox.border					Border
  * @uiDefault ComboBox.padding					Insets
  * @uiDefault ComboBox.squareButton				boolean	default is true
- *
+ * <p>
  * <!-- FlatComboBoxUI -->
  *
  * @uiDefault ComboBox.minimumWidth				int
@@ -251,12 +251,12 @@ public class FlatComboBoxUI
 				String propertyName = e.getPropertyName();
 
 				if( editor != null &&
-					((source == comboBox && propertyName == "foreground") ||
-					 (source == editor && propertyName == "enabled")) )
+					((source == comboBox && propertyName.equals("foreground")) ||
+					 (source == editor && propertyName.equals("enabled"))) )
 				{
 					// fix editor component colors
 					updateEditorColors();
-				} else if( editor != null && source == comboBox && propertyName == "componentOrientation" ) {
+				} else if( editor != null && source == comboBox && propertyName.equals("componentOrientation")) {
 					ComponentOrientation o = (ComponentOrientation) e.getNewValue();
 					editor.applyComponentOrientation( o );
 				} else if( editor != null && FlatClientProperties.PLACEHOLDER_TEXT.equals( propertyName ) )
@@ -593,7 +593,7 @@ public class FlatComboBoxUI
 				public void propertyChange( PropertyChangeEvent e ) {
 					super.propertyChange( e );
 
-					if( e.getPropertyName() == "renderer" )
+					if(e.getPropertyName().equals("renderer"))
 						list.setCellRenderer( new PopupListCellRenderer() );
 				}
 			};
@@ -634,10 +634,10 @@ public class FlatComboBoxUI
 
 	/**
 	 * Cell padding border used only in popup list.
-	 *
+	 * <p>
 	 * The insets are the union of the cell padding and the renderer border insets,
 	 * which vertically aligns text in popup list with text in combobox.
-	 *
+	 * <p>
 	 * The renderer border is painted on the outside of this border.
 	 */
 	private static class CellPaddingBorder

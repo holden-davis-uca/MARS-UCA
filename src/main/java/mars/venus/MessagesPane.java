@@ -4,8 +4,7 @@
    import javax.swing.text.*;
    import java.awt.*;
    import java.awt.event.*;
-import java.io.File;
-import java.util.concurrent.ArrayBlockingQueue;
+   import java.util.concurrent.ArrayBlockingQueue;
    import javax.swing.event.DocumentListener;
    import javax.swing.undo.UndoableEdit;
    import mars.simulator.Simulator;
@@ -41,8 +40,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   **/
 
     public class MessagesPane extends JTabbedPane{
-      JTextArea assemble, run;
-      JPanel assembleTab, runTab;
+      final JTextArea assemble;
+    final JTextArea run;
+      final JPanel assembleTab;
+    final JPanel runTab;
    	// These constants are designed to keep scrolled contents of the 
    	// two message areas from becoming overwhelmingly large (which
    	// seems to slow things down as new text is appended).  Once it
@@ -74,11 +75,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
          JButton assembleTabClearButton = new JButton("Clear");
          assembleTabClearButton.setToolTipText("Clear the Mars Messages area");
          assembleTabClearButton.addActionListener(
-                new ActionListener() {
-                   public void actionPerformed(ActionEvent e){ 
-                     assemble.setText("");
-                  }
-               });
+                 e -> assemble.setText(""));
          assembleTab = new JPanel(new BorderLayout());
          assembleTab.add(createBoxForButton(assembleTabClearButton),BorderLayout.WEST);
          assembleTab.add(new JScrollPane(assemble, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, 
@@ -152,11 +149,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
          JButton runTabClearButton = new JButton("Clear");
          runTabClearButton.setToolTipText("Clear the Run I/O area");
          runTabClearButton.addActionListener(
-                new ActionListener() {
-                   public void actionPerformed(ActionEvent e){ 
-                     run.setText("");
-                  }
-               });
+                 e -> run.setText(""));
          runTab = new JPanel(new BorderLayout());
          runTab.add(createBoxForButton(runTabClearButton),BorderLayout.WEST);
          runTab.add(new JScrollPane(run, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, 
@@ -299,23 +292,21 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
        public void postRunMessage(String message) {
          final String mess = message;
          SwingUtilities.invokeLater(
-                new Runnable() { 
-                   public void run() { 
-                     setSelectedComponent(runTab);
-                     run.append(mess);
-                  // can do some crude cutting here.  If the document gets "very large", 
-                  // let's cut off the oldest text. This will limit scrolling but the limit 
-                  // can be set reasonably high.
-                     if (run.getDocument().getLength() > MAXIMUM_SCROLLED_CHARACTERS) {
-                        try {
-                           run.getDocument().remove(0, NUMBER_OF_CHARACTERS_TO_CUT);
-                        } 
-                            catch (BadLocationException ble) { 
-                           // only if NUMBER_OF_CHARACTERS_TO_CUT > MAXIMUM_SCROLLED_CHARACTERS
-                           }
-                     }
-                  } 
-               });
+                 () -> {
+                   setSelectedComponent(runTab);
+                   run.append(mess);
+                // can do some crude cutting here.  If the document gets "very large",
+                // let's cut off the oldest text. This will limit scrolling but the limit
+                // can be set reasonably high.
+                   if (run.getDocument().getLength() > MAXIMUM_SCROLLED_CHARACTERS) {
+                      try {
+                         run.getDocument().remove(0, NUMBER_OF_CHARACTERS_TO_CUT);
+                      }
+                          catch (BadLocationException ble) {
+                         // only if NUMBER_OF_CHARACTERS_TO_CUT > MAXIMUM_SCROLLED_CHARACTERS
+                         }
+                   }
+                });
       }
    	
    	/**
@@ -337,7 +328,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    	 *  integer).  SystemIO knows whether simulator is being run at 
    	 *  command line by the user, or by the GUI. If run at command line, 
    	 *  it gets input from System.in rather than here.
-   	 *
+   	 * <p>
    	 *  This is an overloaded method.  This version, with the String parameter,
    	 *  is used to get input from a popup dialog.
    	 *
@@ -361,7 +352,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    	 *  integer).  SystemIO knows whether simulator is being run at 
    	 *  command line by the user, or by the GUI. If run at command line, 
    	 *  it gets input from System.in rather than here.
-   	 *
+   	 * <p>
    	 *  This is an overloaded method.  This version, with the int parameter,
    	 *  is used to get input from the MARS Run I/O window.
    	 *
@@ -377,9 +368,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
    	  // Thread class for obtaining user input in the Run I/O window (MessagesPane)
    	  // Written by Ricardo Fernández Pascual [rfernandez@ditec.um.es] December 2009.
        class Asker implements Runnable {
-         ArrayBlockingQueue<String> resultQueue = new ArrayBlockingQueue<String>(1);
+         final ArrayBlockingQueue<String> resultQueue = new ArrayBlockingQueue<>(1);
          int initialPos;
-         int maxLen;
+         final int maxLen;
           Asker(int maxLen) {
             this.maxLen = maxLen;
                 // initialPos will be set in run()
@@ -388,43 +379,39 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
              new DocumentListener() {
                 public void insertUpdate(final DocumentEvent e) {
                   EventQueue.invokeLater(
-                         new Runnable() {
-                            public void run() {
-                              try {
-                                 String inserted = e.getDocument().getText(e.getOffset(), e.getLength());
-                                 int i = inserted.indexOf('\n');
-                                 if (i >= 0) {
-                                    int offset = e.getOffset() + i;
-                                    if (offset + 1 == e.getDocument().getLength()) {
-                                       returnResponse();
-                                    } 
-                                    else {
-                                        // remove the '\n' and put it at the end
-                                       e.getDocument().remove(offset, 1);
-                                       e.getDocument().insertString(e.getDocument().getLength(), "\n", null);
-                                        // insertUpdate will be called again, since we have inserted the '\n' at the end
-                                    }
-                                 } 
-                                 else if (maxLen >= 0 && e.getDocument().getLength() - initialPos >= maxLen) {
-                                    returnResponse();
-                                 }
-                              } 
-                                  catch (BadLocationException ex) {
-                                    returnResponse();
-                                 }
-                           }
-                        });
+                          () -> {
+                            try {
+                               String inserted = e.getDocument().getText(e.getOffset(), e.getLength());
+                               int i = inserted.indexOf('\n');
+                               if (i >= 0) {
+                                  int offset = e.getOffset() + i;
+                                  if (offset + 1 == e.getDocument().getLength()) {
+                                     returnResponse();
+                                  }
+                                  else {
+                                      // remove the '\n' and put it at the end
+                                     e.getDocument().remove(offset, 1);
+                                     e.getDocument().insertString(e.getDocument().getLength(), "\n", null);
+                                      // insertUpdate will be called again, since we have inserted the '\n' at the end
+                                  }
+                               }
+                               else if (maxLen >= 0 && e.getDocument().getLength() - initialPos >= maxLen) {
+                                  returnResponse();
+                               }
+                            }
+                                catch (BadLocationException ex) {
+                                  returnResponse();
+                               }
+                         });
                }
                 public void removeUpdate(final DocumentEvent e) {
                   EventQueue.invokeLater(
-                         new Runnable() {
-                            public void run() {
-                              if ((e.getDocument().getLength() < initialPos || e.getOffset() < initialPos) && e instanceof UndoableEdit) {
-                                 ((UndoableEdit) e).undo();
-                                 run.setCaretPosition(e.getOffset() + e.getLength());
-                              }
-                           }
-                        });
+                          () -> {
+                            if ((e.getDocument().getLength() < initialPos || e.getOffset() < initialPos) && e instanceof UndoableEdit) {
+                               ((UndoableEdit) e).undo();
+                               run.setCaretPosition(e.getOffset() + e.getLength());
+                            }
+                         });
                }
                 public void changedUpdate(DocumentEvent e) { }
             };
@@ -443,12 +430,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
                   fb.setDot(dot, bias);
                }
             };
-         final Simulator.StopListener stopListener = 
-             new Simulator.StopListener() {
-                public void stopped(Simulator s) {
-                  returnResponse();
-               }
-            };
+         final Simulator.StopListener stopListener =
+                 s -> returnResponse();
           public void run() { // must be invoked from the GUI thread
             setSelectedComponent(runTab);
             run.setEditable(true);
@@ -461,15 +444,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
          }
           void cleanup() { // not required to be called from the GUI thread
             EventQueue.invokeLater(
-                   new Runnable() {
-                      public void run() {
-                        run.getDocument().removeDocumentListener(listener);
-                        run.setEditable(false);
-                        run.setNavigationFilter(null);
-                        run.setCaretPosition(run.getDocument().getLength());
-                        Simulator.getInstance().removeStopListener(stopListener);
-                     }
-                  });
+                    () -> {
+                      run.getDocument().removeDocumentListener(listener);
+                      run.setEditable(false);
+                      run.setNavigationFilter(null);
+                      run.setCaretPosition(run.getDocument().getLength());
+                      Simulator.getInstance().removeStopListener(stopListener);
+                   });
          }
           void returnResponse() {
             try {

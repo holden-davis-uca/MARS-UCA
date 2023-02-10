@@ -114,8 +114,8 @@ public class BHTEntry {
 			// check if the prediction should change
 			boolean changePrediction = true;
 
-			for (int i = 0; i < m_history.length; i++) {
-				if (m_history[i] != branchTaken) {
+			for (boolean b : m_history) {
+				if (b != branchTaken) {
 					changePrediction = false;
 					break;
 				}
@@ -157,13 +157,13 @@ public class BHTEntry {
 	 * @return a string representation of the BHT entry's history
 	 */
 	public String getHistoryAsStr() {
-		String result = "";
+		StringBuilder result = new StringBuilder();
 
 		for (int i = 0; i < m_history.length; i++) {
-			if (i > 0) { result = result + ", "; }
-			result += m_history[i] ? "T" : "NT";
+			if (i > 0) { result.append(", "); }
+			result.append(m_history[i] ? "T" : "NT");
 		}
-		return result;
+		return result.toString();
 	}
 
 	/***

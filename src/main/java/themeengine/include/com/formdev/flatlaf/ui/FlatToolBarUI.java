@@ -28,7 +28,7 @@ import javax.swing.plaf.basic.BasicToolBarUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JToolBar}.
- *
+ * <p>
  * <!-- BasicToolBarUI -->
  *
  * @uiDefault ToolBar.font								Font

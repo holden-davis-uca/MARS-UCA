@@ -34,7 +34,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JOptionPane}.
- *
+ * <p>
  * <!-- BasicOptionPaneUI -->
  *
  * @uiDefault OptionPane.font						Font	unused
@@ -72,7 +72,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault OptionPane.noButtonText				String
  * @uiDefault OptionPane.noButtonMnemonic			String
  * @uiDefault OptionPane.noIcon						Icon
- *
+ * <p>
  * <!-- FlatOptionPaneUI -->
  *
  * @uiDefault OptionPane.iconMessageGap				int

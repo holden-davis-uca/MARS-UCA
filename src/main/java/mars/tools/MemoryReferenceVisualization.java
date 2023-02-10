@@ -762,8 +762,9 @@ public class MemoryReferenceVisualization extends AbstractMarsToolAndApplication
 	// Represents grid of memory access counts
 	private class Grid {
 
-		int[][] grid;
-		int rows, columns;
+		final int[][] grid;
+		final int rows;
+		final int columns;
 
 		private Grid(final int rows, final int columns) {
 			grid = new int[rows][columns];

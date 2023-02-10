@@ -466,9 +466,9 @@ public class FloatRepresentation extends AbstractMarsToolAndApplication {
 		if (flavors.binaryString.substring(maxLengthBinarySign, maxLengthBinarySign + maxLengthBinaryExponent).equals(
 				zeroes.substring(maxLengthBinarySign, maxLengthBinarySign + maxLengthBinaryExponent))) {
 			// Will change text only if it truly is changing....
-			if (significandLabel.getText().indexOf("deno") < 0) { significandLabel.setText(denormalizedLabel); }
+			if (!significandLabel.getText().contains("deno")) { significandLabel.setText(denormalizedLabel); }
 		} else {
-			if (significandLabel.getText().indexOf("unde") < 0) { significandLabel.setText(normalizedLabel); }
+			if (!significandLabel.getText().contains("unde")) { significandLabel.setText(normalizedLabel); }
 		}
 	}
 
@@ -872,8 +872,8 @@ public class FloatRepresentation extends AbstractMarsToolAndApplication {
 		final int upperY = 50;
 		int centerX, exponentCenterX;
 		int subtractLabelWidth, subtractLabelHeight;
-		int centerY = (upperY - lowerY) / 2;
-		int upperYArrowHead = upperY - arrowHeadOffset;
+		final int centerY = (upperY - lowerY) / 2;
+		final int upperYArrowHead = upperY - arrowHeadOffset;
 		int currentExponent = Binary.binaryStringToInt(defaultBinaryExponent);
 
 		@Override

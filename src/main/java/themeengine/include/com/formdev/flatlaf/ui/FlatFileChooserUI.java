@@ -42,7 +42,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JFileChooser}.
- *
+ * <p>
  * <!-- BasicFileChooserUI -->
  *
  * @uiDefault FileView.directoryIcon					Icon
@@ -91,7 +91,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault FileChooser.directoryOpenButtonToolTipText		String
  *
  * @uiDefault FileChooser.acceptAllFileFilterText				String
- *
+ * <p>
  * <!-- MetalFileChooserUI -->
  *
  * @uiDefault FileChooser.lookInLabelMnemonic					String
@@ -114,7 +114,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault FileChooser.listViewButtonAccessibleName			String
  * @uiDefault FileChooser.detailsViewButtonToolTipText			String
  * @uiDefault FileChooser.detailsViewButtonAccessibleName		String
- *
+ * <p>
  * <!-- FilePane -->
  *
  * @uiDefault FileChooser.fileNameHeaderText					String

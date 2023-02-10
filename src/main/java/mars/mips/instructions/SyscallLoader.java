@@ -65,8 +65,8 @@ class SyscallLoader {
 		final ArrayList candidates = FilenameFinder.getFilenameList(this.getClass().getClassLoader(),
 				SYSCALLS_DIRECTORY_PATH, CLASS_EXTENSION);
 		final HashMap syscalls = new HashMap();
-		for (int i = 0; i < candidates.size(); i++) {
-			final String file = (String) candidates.get(i);
+		for (Object candidate : candidates) {
+			final String file = (String) candidate;
 			// Do not add class if already encountered (happens if run in MARS development directory)
 			if (syscalls.containsKey(file)) {
 				continue;
@@ -78,7 +78,9 @@ class SyscallLoader {
 					// grab the class, make sure it implements Syscall, instantiate, add to list
 					final String syscallClassName = CLASS_PREFIX + file.substring(0, file.indexOf(CLASS_EXTENSION) - 1);
 					final Class clas = Class.forName(syscallClassName);
-					if (!Syscall.class.isAssignableFrom(clas)) { continue; }
+					if (!Syscall.class.isAssignableFrom(clas)) {
+						continue;
+					}
 					final Syscall syscall = (Syscall) clas.newInstance();
 					if (findSyscall(syscall.getNumber()) == null) {
 						syscallList.add(syscall);
@@ -101,11 +103,11 @@ class SyscallLoader {
 		final ArrayList overrides = new Globals().getSyscallOverrides();
 		SyscallNumberOverride override;
 		Syscall syscall;
-		for (int index = 0; index < overrides.size(); index++) {
-			override = (SyscallNumberOverride) overrides.get(index);
+		for (Object value : overrides) {
+			override = (SyscallNumberOverride) value;
 			boolean match = false;
-			for (int i = 0; i < syscallList.size(); i++) {
-				syscall = (Syscall) syscallList.get(i);
+			for (Object o : syscallList) {
+				syscall = (Syscall) o;
 				if (override.getName().equals(syscall.getName())) {
 					// we have a match to service name, assign new number
 					syscall.setNumber(override.getNumber());
@@ -149,9 +151,11 @@ class SyscallLoader {
 		// linear search is OK since number of syscalls is small.
 		Syscall service, match = null;
 		if (syscallList == null) { loadSyscalls(); }
-		for (int index = 0; index < syscallList.size(); index++) {
-			service = (Syscall) syscallList.get(index);
-			if (service.getNumber() == number) { match = service; }
+		for (Object o : syscallList) {
+			service = (Syscall) o;
+			if (service.getNumber() == number) {
+				match = service;
+			}
 		}
 		return match;
 	}

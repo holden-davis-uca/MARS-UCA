@@ -418,8 +418,8 @@ public class SettingsEditorAction extends GuiAction {
 			syntaxStylesAction = false;
 			int count = 0;
 			// Count the number of actual styles specified
-			for (int i = 0; i < labels.length; i++) {
-				if (labels[i] != null) {
+			for (String s : labels) {
+				if (s != null) {
 					count++;
 				}
 			}
@@ -586,7 +586,7 @@ public class SettingsEditorAction extends GuiAction {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
 				final Font f = samples[row].getFont();
-				if (e.getActionCommand() == BOLD_BUTTON_TOOL_TIP_TEXT) {
+				if (e.getActionCommand().equals(BOLD_BUTTON_TOOL_TIP_TEXT)) {
 					if (bold[row].isSelected()) {
 						samples[row].setFont(
 							f.deriveFont(
@@ -724,11 +724,11 @@ public class SettingsEditorAction extends GuiAction {
 				} else {
 					bg = currentStyles[row].getColor();
 				}
-				for (int i = 0; i < samples.length; i++) {
-					if (samples[i].getText().equals("")) {
+				for (JLabel sample : samples) {
+					if (sample.getText().equals("")) {
 						continue;
 					}
-					samples[i].setBackground(bg);
+					sample.setBackground(bg);
 				}
 			}
 		}

@@ -104,7 +104,7 @@ public class IJThemesPanel extends JPanel {
 	public IJThemesPanel(boolean areThemesEnabled) {
 		initComponents();
 		setThemesEnabled(areThemesEnabled);
-		enableThemesCheckBox.addItemListener(e -> checkBoxChanged(e)); //special treatment for this guy.
+		enableThemesCheckBox.addItemListener(this::checkBoxChanged); //special treatment for this guy.
 
 		// create renderer
 		themesList.setCellRenderer(new DefaultListCellRenderer() {
@@ -248,7 +248,7 @@ public class IJThemesPanel extends JPanel {
 		DemoPrefs.setSelectedLafIndex(themesList.getSelectedIndex());
 		if (e.getValueIsAdjusting() || isAdjustingThemesList || !areThemesEnabled) { return; }
 
-		EventQueue.invokeLater(() -> { setTheme(themeInfo); });
+		EventQueue.invokeLater(() -> setTheme(themeInfo));
 	}
 
 	private void setTheme(final IJThemeInfo themeInfo) {
@@ -423,7 +423,7 @@ public class IJThemesPanel extends JPanel {
 			Object[] options = { "I understand" };
 			JOptionPane.showOptionDialog(this,
 					"Due to how Java's L&F system works, title bars will not be themed until MARS is restarted.",
-					"MARS Theme Engine", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options,
+					"MARS Theme Engine", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options,
 					options[0]);
 		}
 	}

@@ -167,7 +167,7 @@ public class ProgramStatement {
 	public void buildBasicStatementFromBasicInstruction(final ErrorList errors) {
 		Token token = strippedTokenList.get(0);
 		String basicStatementElement = token.getValue() + " ";
-		String basic = basicStatementElement;
+		StringBuilder basic = new StringBuilder(basicStatementElement);
 		basicStatementList.addString(basicStatementElement); // the operator
 		TokenTypes tokenType, nextTokenType;
 		String tokenValue;
@@ -179,7 +179,7 @@ public class ProgramStatement {
 			tokenValue = token.getValue();
 			if (tokenType == TokenTypes.REGISTER_NUMBER) {
 				basicStatementElement = tokenValue;
-				basic += basicStatementElement;
+				basic.append(basicStatementElement);
 				basicStatementList.addString(basicStatementElement);
 				try {
 					registerNumber = RegisterFile.getUserRegister(tokenValue).getNumber();
@@ -193,7 +193,7 @@ public class ProgramStatement {
 			} else if (tokenType == TokenTypes.REGISTER_NAME) {
 				registerNumber = RegisterFile.getNumber(tokenValue);
 				basicStatementElement = "$" + registerNumber;
-				basic += basicStatementElement;
+				basic.append(basicStatementElement);
 				basicStatementList.addString(basicStatementElement);
 				if (registerNumber < 0) {
 					// should never happen; should be caught before now...
@@ -205,7 +205,7 @@ public class ProgramStatement {
 			} else if (tokenType == TokenTypes.FP_REGISTER_NAME) {
 				registerNumber = Coprocessor1.getRegisterNumber(tokenValue);
 				basicStatementElement = "$f" + registerNumber;
-				basic += basicStatementElement;
+				basic.append(basicStatementElement);
 				basicStatementList.addString(basicStatementElement);
 				if (registerNumber < 0) {
 					// should never happen; should be caught before now...
@@ -249,7 +249,7 @@ public class ProgramStatement {
 					}
 				}
 				//////////////////////////////////////////////////////////////////////
-				basic += address;
+				basic.append(address);
 				if (absoluteAddress) { // record as address if absolute, value if relative
 					basicStatementList.addAddress(address);
 				} else {
@@ -261,44 +261,13 @@ public class ProgramStatement {
 
 						final int tempNumeric = Binary.stringToInt(tokenValue);
 
-						/***************************************************************************
-						 * MODIFICATION AND COMMENT, DPS 3-July-2008 The modifications of January 2005
-						 * documented below are being rescinded. All hexadecimal immediate values are
-						 * considered 32 bits in length and their classification as INTEGER_5,
-						 * INTEGER_16, INTEGER_16U (new) or INTEGER_32 depends on their 32 bit value. So
-						 * 0xFFFF will be equivalent to 0x0000FFFF instead of 0xFFFFFFFF. This change,
-						 * along with the introduction of INTEGER_16U (adopted from Greg Gibeling of
-						 * Berkeley), required extensive changes to instruction templates especially for
-						 * pseudo-instructions. This modification also appears
-						 * inbuildBasicStatementFromBasicInstruction() in mars.ProgramStatement. /////
-						 * Begin modification 1/4/05 KENV /////////////////////////////////////////// //
-						 * We have decided to interpret non-signed (no + or -) 16-bit hexadecimal
-						 * immediate // operands as signed values in the range -32768 to 32767. So
-						 * 0xffff will represent // -1, not 65535 (bit 15 as sign bit), 0x8000 will
-						 * represent -32768 not 32768. // NOTE: 32-bit hexadecimal immediate operands
-						 * whose values fall into this range // will be likewise affected, but they are
-						 * used only in pseudo-instructions. The // code in ExtendedInstruction.java to
-						 * split this number into upper 16 bits for "lui" // and lower 16 bits for "ori"
-						 * works with the original source code token, so it is // not affected by this
-						 * tweak. 32-bit immediates in data segment directives // are also processed
-						 * elsewhere so are not affected either.
-						 * ////////////////////////////////////////////////////////////////////////////////
-						 * if (tokenType != TokenTypes.INTEGER_16U) { // part of the Berkeley mod... if
-						 * ( Binary.isHex(tokenValue) && (tempNumeric >= 32768) && (tempNumeric <=
-						 * 65535) ) // Range 0x8000 ... 0xffff { // Subtract the 0xffff bias, because
-						 * strings in the // range "0x8000" ... "0xffff" are used to represent // 16-bit
-						 * negative numbers, not positive numbers. tempNumeric = tempNumeric - 65536; //
-						 * Note: no action needed for range 0xffff8000 ... 0xffffffff } } END DPS
-						 * 3-July-2008 COMMENTS
-						 *******************************/
-
-						basic += tempNumeric;
+				basic.append(tempNumeric);
 						basicStatementList.addValue(tempNumeric);
 						operands[numOperands++] = tempNumeric;
 						///// End modification 1/7/05 KENV   ///////////////////////////////////////////
 					} else {
 						basicStatementElement = tokenValue;
-						basic += basicStatementElement;
+						basic.append(basicStatementElement);
 						basicStatementList.addString(basicStatementElement);
 					}
 			// add separator if not at end of token list AND neither current nor
@@ -308,12 +277,12 @@ public class ProgramStatement {
 				if (tokenType != TokenTypes.LEFT_PAREN && tokenType != TokenTypes.RIGHT_PAREN
 						&& nextTokenType != TokenTypes.LEFT_PAREN && nextTokenType != TokenTypes.RIGHT_PAREN) {
 					basicStatementElement = ",";
-					basic += basicStatementElement;
+					basic.append(basicStatementElement);
 					basicStatementList.addString(basicStatementElement);
 				}
 			}
 		}
-		basicAssemblyStatement = basic;
+		basicAssemblyStatement = basic.toString();
 	} //buildBasicStatementFromBasicInstruction()
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -374,28 +343,26 @@ public class ProgramStatement {
 	public String toString() {
 		// a crude attempt at string formatting.  Where's C when you need it?
 		final String blanks = "                               ";
-		String result = "[" + textAddress + "]";
+		StringBuilder result = new StringBuilder("[" + textAddress + "]");
 		if (basicAssemblyStatement != null) {
 			final int firstSpace = basicAssemblyStatement.indexOf(" ");
-			result += blanks.substring(0, 16 - result.length()) + basicAssemblyStatement.substring(0, firstSpace);
-			result += blanks.substring(0, 24 - result.length()) + basicAssemblyStatement.substring(firstSpace + 1);
+			result.append(blanks.substring(0, 16 - result.length())).append(basicAssemblyStatement.substring(0, firstSpace));
+			result.append(blanks.substring(0, 24 - result.length())).append(basicAssemblyStatement.substring(firstSpace + 1));
 		} else {
-			result += blanks.substring(0, 16 - result.length()) + "0x" + Integer.toString(binaryStatement, 16);
+			result.append(blanks.substring(0, 16 - result.length())).append("0x").append(Integer.toString(binaryStatement, 16));
 		}
-		result += blanks.substring(0, 40 - result.length()) + ";  "; // this.source;
+		result.append(blanks.substring(0, 40 - result.length())).append(";  "); // this.source;
 		if (operands != null) {
 			for (int i = 0; i < numOperands; i++) {
 				// result += operands[i] + " ";
-				result += Integer.toString(operands[i], 16) + " ";
+				result.append(Integer.toString(operands[i], 16)).append(" ");
 			}
 		}
 		if (machineStatement != null) {
-			result += "[" + Binary.binaryStringToHexString(machineStatement) + "]";
-			result += "  " + machineStatement.substring(0, 6) + "|" + machineStatement.substring(6, 11) + "|"
-					+ machineStatement.substring(11, 16) + "|" + machineStatement.substring(16, 21) + "|"
-					+ machineStatement.substring(21, 26) + "|" + machineStatement.substring(26, 32);
+			result.append("[").append(Binary.binaryStringToHexString(machineStatement)).append("]");
+			result.append("  ").append(machineStatement.substring(0, 6)).append("|").append(machineStatement.substring(6, 11)).append("|").append(machineStatement.substring(11, 16)).append("|").append(machineStatement.substring(16, 21)).append("|").append(machineStatement.substring(21, 26)).append("|").append(machineStatement.substring(26, 32));
 		}
-		return result;
+		return result.toString();
 	} // toString()
 
 	/**
@@ -666,24 +633,24 @@ public class ProgramStatement {
 					? mars.venus.NumberDisplayBaseChooser.HEXADECIMAL
 					: mars.venus.NumberDisplayBaseChooser.DECIMAL;
 
-			final StringBuffer result = new StringBuffer();
-			for (int i = 0; i < list.size(); i++) {
-				final ListElement e = (ListElement) list.get(i);
+			final StringBuilder result = new StringBuilder();
+			for (Object o : list) {
+				final ListElement e = (ListElement) o;
 				switch (e.type) {
-				case 0:
-					result.append(e.sValue);
-					break;
-				case 1:
-					result.append(mars.venus.NumberDisplayBaseChooser.formatNumber(e.iValue, addressBase));
-					break;
-				case 2:
-					if (valueBase == mars.venus.NumberDisplayBaseChooser.HEXADECIMAL) {
-						result.append(mars.util.Binary.intToHexString(e.iValue)); // 13-July-2011, was: intToHalfHexString()
-					} else {
-						result.append(mars.venus.NumberDisplayBaseChooser.formatNumber(e.iValue, valueBase));
-					}
-				default:
-					break;
+					case 0:
+						result.append(e.sValue);
+						break;
+					case 1:
+						result.append(mars.venus.NumberDisplayBaseChooser.formatNumber(e.iValue, addressBase));
+						break;
+					case 2:
+						if (valueBase == mars.venus.NumberDisplayBaseChooser.HEXADECIMAL) {
+							result.append(Binary.intToHexString(e.iValue)); // 13-July-2011, was: intToHalfHexString()
+						} else {
+							result.append(mars.venus.NumberDisplayBaseChooser.formatNumber(e.iValue, valueBase));
+						}
+					default:
+						break;
 				}
 			}
 			return result.toString();
@@ -691,9 +658,9 @@ public class ProgramStatement {
 
 		private class ListElement {
 
-			int type;
-			String sValue;
-			int iValue;
+			final int type;
+			final String sValue;
+			final int iValue;
 
 			ListElement(final int type, final String sValue, final int iValue) {
 				this.type = type;

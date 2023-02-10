@@ -33,7 +33,7 @@ import themeengine.include.com.formdev.flatlaf.util.HiDPIUtils;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JEditorPane}.
- *
+ * <p>
  * <!-- BasicEditorPaneUI -->
  *
  * @uiDefault EditorPane.font					Font
@@ -48,7 +48,7 @@ import themeengine.include.com.formdev.flatlaf.util.HiDPIUtils;
  * @uiDefault EditorPane.border					Border
  * @uiDefault EditorPane.margin					Insets
  * @uiDefault EditorPane.caretBlinkRate			int		default is 500 milliseconds
- *
+ * <p>
  * <!-- FlatEditorPaneUI -->
  *
  * @uiDefault Component.minimumWidth			int

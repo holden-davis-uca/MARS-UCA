@@ -48,7 +48,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JButton}.
- *
+ * <p>
  * <!-- BasicButtonUI -->
  *
  * @uiDefault Button.font						Font
@@ -57,7 +57,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault Button.border						Border
  * @uiDefault Button.margin						Insets
  * @uiDefault Button.rollover					boolean
- *
+ * <p>
  * <!-- FlatButtonUI -->
  *
  * @uiDefault Button.minimumWidth				int

@@ -44,13 +44,13 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.table.JTableHeader}.
- *
+ * <p>
  * <!-- BasicTableHeaderUI -->
  *
  * @uiDefault TableHeader.font					Font
  * @uiDefault TableHeader.background			Color
  * @uiDefault TableHeader.foreground			Color
- *
+ * <p>
  * <!-- FlatTableHeaderUI -->
  *
  * @uiDefault TableHeader.separatorColor		Color

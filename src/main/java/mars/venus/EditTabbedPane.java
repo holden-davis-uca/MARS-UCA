@@ -7,8 +7,6 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.undo.*;
-import java.text.*;
 import java.util.*;
 import java.io.*;
 import java.beans.PropertyChangeListener;
@@ -69,20 +67,18 @@ public class EditTabbedPane extends JTabbedPane implements MouseListener {
 		this.fileOpener = new FileOpener(editor);
 		this.mainPane = mainPane;
 		this.editor.setEditTabbedPane(this);
-		this.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e) {
-				EditPane editPane = (EditPane) getSelectedComponent();
-				if (editPane != null) {
-					// New IF statement to permit free traversal of edit panes w/o invalidating
-					// assembly if assemble-all is selected. DPS 9-Aug-2011
-					if (Globals.getSettings().getBooleanSetting(mars.Settings.ASSEMBLE_ALL_ENABLED)) {
-						EditTabbedPane.this.updateTitles(editPane);
-					} else {
-						EditTabbedPane.this.updateTitlesAndMenuState(editPane);
-						EditTabbedPane.this.mainPane.getExecutePane().clearPane();
-					}
-					editPane.tellEditingComponentToRequestFocusInWindow();
+		this.addChangeListener(e -> {
+			EditPane editPane = (EditPane) getSelectedComponent();
+			if (editPane != null) {
+				// New IF statement to permit free traversal of edit panes w/o invalidating
+				// assembly if assemble-all is selected. DPS 9-Aug-2011
+				if (Globals.getSettings().getBooleanSetting(Settings.ASSEMBLE_ALL_ENABLED)) {
+					EditTabbedPane.this.updateTitles(editPane);
+				} else {
+					EditTabbedPane.this.updateTitlesAndMenuState(editPane);
+					EditTabbedPane.this.mainPane.getExecutePane().clearPane();
 				}
+				editPane.tellEditingComponentToRequestFocusInWindow();
 			}
 		});
 	}
@@ -108,7 +104,7 @@ public class EditTabbedPane extends JTabbedPane implements MouseListener {
 	public void addTab(String title, Component component, Icon extraIcon) {
 		super.addTab(title, new CloseTabIcon(extraIcon), component);
 	}
-	class CloseTabIcon implements Icon {
+	static class CloseTabIcon implements Icon {
 		private int x_pos;
 		private int y_pos;
 		private final int width;
@@ -630,18 +626,18 @@ public class EditTabbedPane extends JTabbedPane implements MouseListener {
 				Globals.program = new MIPSprogram();
 				try {
 					Globals.program.readSource(currentFilePath);
-				} catch (ProcessingException pe) {
+				} catch (ProcessingException ignored) {
 				}
 				// DPS 1 Nov 2006. Defined a StringBuffer to receive all file contents,
 				// one line at a time, before adding to the Edit pane with one setText.
 				// StringBuffer is preallocated to full filelength to eliminate dynamic
 				// expansion as lines are added to it. Previously, each line was appended
 				// to the Edit pane as it was read, way slower due to dynamic string alloc.
-				StringBuffer fileContents = new StringBuffer((int) theFile.length());
+				StringBuilder fileContents = new StringBuilder((int) theFile.length());
 				int lineNumber = 1;
 				String line = Globals.program.getSourceLine(lineNumber++);
 				while (line != null) {
-					fileContents.append(line + "\n");
+					fileContents.append(line).append("\n");
 					line = Globals.program.getSourceLine(lineNumber++);
 				}
 				editPane.setSourceCode(fileContents.toString(), true);
@@ -715,8 +711,8 @@ public class EditTabbedPane extends JTabbedPane implements MouseListener {
 				// clear out the list and populate from our own ArrayList.
 				// Last one added becomes the default.
 				fileChooser.resetChoosableFileFilters();
-				for (int i = 0; i < fileFilterList.size(); i++) {
-					fileChooser.addChoosableFileFilter((FileFilter) fileFilterList.get(i));
+				for (Object o : fileFilterList) {
+					fileChooser.addChoosableFileFilter((FileFilter) o);
 				}
 				// Restore listener.
 				if (activeListener) {
@@ -736,7 +732,7 @@ public class EditTabbedPane extends JTabbedPane implements MouseListener {
 
 		private class ChoosableFileFilterChangeListener implements PropertyChangeListener {
 			public void propertyChange(java.beans.PropertyChangeEvent e) {
-				if (e.getPropertyName() == JFileChooser.CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY) {
+				if (e.getPropertyName().equals(JFileChooser.CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY)) {
 					FileFilter[] newFilters = (FileFilter[]) e.getNewValue();
 					FileFilter[] oldFilters = (FileFilter[]) e.getOldValue();
 					if (newFilters.length > fileFilterList.size()) {

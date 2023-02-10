@@ -22,7 +22,7 @@ import javax.swing.plaf.basic.BasicPopupMenuUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JPopupMenu}.
- *
+ * <p>
  * <!-- BasicPopupMenuUI -->
  *
  * @uiDefault PopupMenu.font							Font

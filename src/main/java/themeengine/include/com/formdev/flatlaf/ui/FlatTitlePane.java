@@ -420,9 +420,7 @@ public class FlatTitlePane
 		menuBarPlaceholder.invalidate();
 
 		// update title foreground color
-		EventQueue.invokeLater( () -> {
-			activeChanged( window == null || window.isActive() );
-		} );
+		EventQueue.invokeLater( () -> activeChanged( window == null || window.isActive() ));
 	}
 
 	protected void menuBarLayouted() {
@@ -557,12 +555,12 @@ debug*/
 	}
 
 	/**
-	 * Frame.setMaximizedBounds() behaves different on some Java versions after issues
-	 *   https://bugs.openjdk.java.net/browse/JDK-8231564 and
-	 *   https://bugs.openjdk.java.net/browse/JDK-8176359
-	 *   (see also https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8176359)
-	 * were fixed in Java 15 and backported to 11.0.8 and 13.0.4.
-	 */
+     * Frame.setMaximizedBounds() behaves different on some Java versions after issues
+     *   <a href="https://bugs.openjdk.java.net/browse/JDK-8231564">...</a> and
+     *   <a href="https://bugs.openjdk.java.net/browse/JDK-8176359">...</a>
+     *   (see also <a href="https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8176359">...</a>)
+     * were fixed in Java 15 and backported to 11.0.8 and 13.0.4.
+     */
 	private boolean isMaximizedBoundsFixed() {
 		return SystemInfo.isJava_15_orLater ||
 			(SystemInfo.javaVersion >= SystemInfo.toVersion( 11, 0, 8, 0 ) &&
@@ -599,9 +597,7 @@ debug*/
 	}
 
 	protected void updateJBRHitTestSpotsAndTitleBarHeightLater() {
-		EventQueue.invokeLater( () -> {
-			updateJBRHitTestSpotsAndTitleBarHeight();
-		} );
+		EventQueue.invokeLater(this::updateJBRHitTestSpotsAndTitleBarHeight);
 	}
 
 	protected void updateJBRHitTestSpotsAndTitleBarHeight() {

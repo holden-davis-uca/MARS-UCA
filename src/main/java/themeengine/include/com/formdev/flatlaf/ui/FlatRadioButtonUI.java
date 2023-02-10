@@ -34,7 +34,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JRadioButton}.
- *
+ * <p>
  * <!-- BasicRadioButtonUI -->
  *
  * @uiDefault RadioButton.font						Font
@@ -44,7 +44,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault RadioButton.margin					Insets
  * @uiDefault RadioButton.rollover					boolean
  * @uiDefault RadioButton.icon						Icon
- *
+ * <p>
  * <!-- FlatRadioButtonUI -->
  *
  * @uiDefault RadioButton.iconTextGap				int

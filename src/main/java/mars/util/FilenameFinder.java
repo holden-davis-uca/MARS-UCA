@@ -53,7 +53,7 @@ public class FilenameFinder {
 	private static final String FILE_URL = "file:";
 	private static final String JAR_URI_PREFIX = "jar:";
 	private static final boolean NO_DIRECTORIES = false;
-	public static String MATCH_ALL_EXTENSIONS = "*";
+	public static final String MATCH_ALL_EXTENSIONS = "*";
 
 	/**
 	 * Locate files and return list of file names. Given a known relative directory
@@ -118,17 +118,16 @@ public class FilenameFinder {
 					}
 				} else {  // have array of File objects; convert to names and add to list
 					final FileFilter filter = getFileFilter(fileExtension, "", NO_DIRECTORIES);
-					for (int i = 0; i < files.length; i++) {
-						if (filter.accept(files[i])) { filenameList.add(files[i].getName()); }
+					for (File file : files) {
+						if (filter.accept(file)) {
+							filenameList.add(file.getName());
+						}
 					}
 				}
 			}
 			return filenameList;
 
-		} catch (final URISyntaxException e) {
-			e.printStackTrace();
-			return filenameList;
-		} catch (final IOException e) {
+		} catch (final URISyntaxException | IOException e) {
 			e.printStackTrace();
 			return filenameList;
 		}
@@ -192,8 +191,8 @@ public class FilenameFinder {
 		if (fileExtensions == null || fileExtensions.size() == 0) {
 			filenameList = getFilenameList(classLoader, directoryPath, "");
 		} else {
-			for (int i = 0; i < fileExtensions.size(); i++) {
-				fileExtension = checkFileExtension((String) fileExtensions.get(i));
+			for (Object extension : fileExtensions) {
+				fileExtension = checkFileExtension((String) extension);
 				filenameList.addAll(getFilenameList(classLoader, directoryPath, fileExtension));
 			}
 		}
@@ -220,8 +219,10 @@ public class FilenameFinder {
 		if (directory.isDirectory()) {
 			final File[] allFiles = directory.listFiles();
 			final FileFilter filter = getFileFilter(fileExtension, "", NO_DIRECTORIES);
-			for (int i = 0; i < allFiles.length; i++) {
-				if (filter.accept(allFiles[i])) { filenameList.add(allFiles[i].getAbsolutePath()); }
+			for (File allFile : allFiles) {
+				if (filter.accept(allFile)) {
+					filenameList.add(allFile.getAbsolutePath());
+				}
 			}
 		}
 		return filenameList;
@@ -248,8 +249,8 @@ public class FilenameFinder {
 		if (fileExtensions == null || fileExtensions.size() == 0) {
 			filenameList = getFilenameList(directoryPath, "");
 		} else {
-			for (int i = 0; i < fileExtensions.size(); i++) {
-				fileExtension = checkFileExtension((String) fileExtensions.get(i));
+			for (Object extension : fileExtensions) {
+				fileExtension = checkFileExtension((String) extension);
 				filenameList.addAll(getFilenameList(directoryPath, fileExtension));
 			}
 		}
@@ -273,9 +274,11 @@ public class FilenameFinder {
 		fileExtension = checkFileExtension(fileExtension);
 		final ArrayList filenameList = new ArrayList();
 		final FileFilter filter = getFileFilter(fileExtension, "", NO_DIRECTORIES);
-		for (int i = 0; i < nameList.size(); i++) {
-			final File file = new File((String) nameList.get(i));
-			if (filter.accept(file)) { filenameList.add(file.getAbsolutePath()); }
+		for (Object o : nameList) {
+			final File file = new File((String) o);
+			if (filter.accept(file)) {
+				filenameList.add(file.getAbsolutePath());
+			}
 		}
 		return filenameList;
 	}
@@ -301,8 +304,8 @@ public class FilenameFinder {
 		if (fileExtensions == null || fileExtensions.size() == 0) {
 			filenameList = getFilenameList(nameList, "");
 		} else {
-			for (int i = 0; i < fileExtensions.size(); i++) {
-				fileExtension = checkFileExtension((String) fileExtensions.get(i));
+			for (Object extension : fileExtensions) {
+				fileExtension = checkFileExtension((String) extension);
 				filenameList.addAll(getFilenameList(nameList, fileExtension));
 			}
 		}
@@ -447,7 +450,7 @@ public class FilenameFinder {
 
 	// make sure file extension, if it is real, does not start with '.' -- remove it.
 	private static String checkFileExtension(final String fileExtension) {
-		return fileExtension == null || fileExtension.length() == 0 || !fileExtension.startsWith(".") ? fileExtension
+		return fileExtension == null || !fileExtension.startsWith(".") ? fileExtension
 				: fileExtension.substring(1);
 	}
 
@@ -472,16 +475,16 @@ public class FilenameFinder {
 		// given are s and asm and the description is "Assembler Programs" the full description
 		// generated here will be "Assembler Programs (*.s; *.asm)"
 		private String buildFullDescription(final String description, final ArrayList extensions) {
-			String result = description == null ? "" : description;
-			if (extensions.size() > 0) { result += "  ("; }
+			StringBuilder result = new StringBuilder(description == null ? "" : description);
+			if (extensions.size() > 0) { result.append("  ("); }
 			for (int i = 0; i < extensions.size(); i++) {
 				final String extension = (String) extensions.get(i);
 				if (extension != null && extension.length() > 0) {
-					result += (i == 0 ? "" : "; ") + "*" + (extension.charAt(0) == '.' ? "" : ".") + extension;
+					result.append(i == 0 ? "" : "; ").append("*").append(extension.charAt(0) == '.' ? "" : ".").append(extension);
 				}
 			}
-			if (extensions.size() > 0) { result += ")"; }
-			return result;
+			if (extensions.size() > 0) { result.append(")"); }
+			return result.toString();
 		}
 
 		// required by the abstract superclass
@@ -494,9 +497,11 @@ public class FilenameFinder {
 			if (file.isDirectory()) { return acceptDirectories; }
 			final String fileExtension = getExtension(file);
 			if (fileExtension != null) {
-				for (int i = 0; i < extensions.size(); i++) {
-					final String extension = checkFileExtension((String) extensions.get(i));
-					if (extension.equals(MATCH_ALL_EXTENSIONS) || fileExtension.equals(extension)) { return true; }
+				for (Object o : extensions) {
+					final String extension = checkFileExtension((String) o);
+					if (extension.equals(MATCH_ALL_EXTENSIONS) || fileExtension.equals(extension)) {
+						return true;
+					}
 				}
 			}
 			return false;

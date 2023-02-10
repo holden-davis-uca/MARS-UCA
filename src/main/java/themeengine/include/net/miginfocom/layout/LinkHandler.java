@@ -51,7 +51,7 @@ public final class LinkHandler
 	private static final int VALUES = 0;
 	private static final int VALUES_TEMP = 1;
 
-	private static final WeakHashMap<Object, HashMap<String, int[]>[]> LAYOUTS = new WeakHashMap<Object, HashMap<String, int[]>[]>();
+	private static final WeakHashMap<Object, HashMap<String, int[]>[]> LAYOUTS = new WeakHashMap<>();
 
 	private LinkHandler()
 	{
@@ -143,11 +143,11 @@ public final class LinkHandler
 
 		int[] bounds = new int[] {x, y, width, height, x + width, y + height};
 
-		HashMap<String, int[]> values_temp = new HashMap<String, int[]>(4);
+		HashMap<String, int[]> values_temp = new HashMap<>(4);
 		if (temporary)
 			values_temp.put(key, bounds);
 
-		HashMap<String, int[]> values = new HashMap<String, int[]>(4);
+		HashMap<String, int[]> values = new HashMap<>(4);
 		if (!temporary)
 			values.put(key, bounds);
 

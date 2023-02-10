@@ -31,7 +31,7 @@ import themeengine.include.com.formdev.flatlaf.util.HiDPIUtils;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JTextPane}.
- *
+ * <p>
  * <!-- BasicTextPaneUI -->
  *
  * @uiDefault TextPane.font						Font
@@ -46,7 +46,7 @@ import themeengine.include.com.formdev.flatlaf.util.HiDPIUtils;
  * @uiDefault TextPane.border					Border
  * @uiDefault TextPane.margin					Insets
  * @uiDefault TextPane.caretBlinkRate			int		default is 500 milliseconds
- *
+ * <p>
  * <!-- FlatTextPaneUI -->
  *
  * @uiDefault Component.minimumWidth			int

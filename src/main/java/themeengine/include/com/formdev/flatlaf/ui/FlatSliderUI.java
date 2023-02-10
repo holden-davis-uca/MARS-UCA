@@ -33,7 +33,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JSlider}.
- *
+ * <p>
  * <!-- BasicSliderUI -->
  *
  * @uiDefault Slider.font					Font
@@ -45,7 +45,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault Slider.minimumHorizontalSize	Dimension	height is ignored; computed slider height is used
  * @uiDefault Slider.minimumVerticalSize	Dimension	width is ignored; computed slider width is used
  * @uiDefault Slider.border					Border
- *
+ * <p>
  * <!-- FlatSliderUI -->
  *
  * @uiDefault Slider.trackWidth				int
@@ -85,9 +85,7 @@ public class FlatSliderUI
 	protected void installListeners( JSlider slider ) {
 		super.installListeners( slider );
 
-		hoverListener = new FlatUIUtils.HoverListener( slider, h -> {
-			hover = h;
-		} );
+		hoverListener = new FlatUIUtils.HoverListener( slider, h -> hover = h);
 		slider.addMouseListener( hoverListener );
 	}
 

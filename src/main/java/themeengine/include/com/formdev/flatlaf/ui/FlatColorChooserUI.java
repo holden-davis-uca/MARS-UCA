@@ -22,7 +22,7 @@ import javax.swing.plaf.basic.BasicColorChooserUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JColorChooser}.
- *
+ * <p>
  * <!-- BasicColorChooserUI -->
  *
  * @uiDefault ColorChooser.font							Font

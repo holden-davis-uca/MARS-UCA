@@ -44,7 +44,7 @@ public class GuiAction extends AbstractAction {
 	 *
 	 */
 	private static final long serialVersionUID = -4873558645971589630L;
-	protected VenusUI mainUI;
+	protected final VenusUI mainUI;
 
 	protected GuiAction(final String name, final Icon icon, final String descrip, final Integer mnemonic,
 			final KeyStroke accel, final VenusUI gui) {

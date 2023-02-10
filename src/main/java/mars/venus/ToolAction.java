@@ -73,6 +73,6 @@ public class ToolAction extends AbstractAction {
 			// already successfully creating an instance from the same Class object
 			// in ToolLoader's loadMarsTools() method.
 			((MarsTool) toolClass.newInstance()).action();
-		} catch (final Exception ex) {}
+		} catch (final Exception ignored) {}
 	}
 }

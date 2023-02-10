@@ -139,19 +139,17 @@ debug*/
 	private void paintLastImage( Graphics g, int x, int y ) {
 		if( lastSystemScaleFactor > 1 ) {
 			HiDPIUtils.paintAtScale1x( (Graphics2D) g, x, y, 100, 100, // width and height are not used
-				(g2, x2, y2, width2, height2, scaleFactor2) -> {
-					g2.drawImage( lastImage, x2, y2, null );
-				} );
+				(g2, x2, y2, width2, height2, scaleFactor2) -> g2.drawImage( lastImage, x2, y2, null ));
 		} else
 			g.drawImage( lastImage, x, y, null );
 	}
 
 	/**
-	 * Scales the given image to the target dimensions.
-	 *
-	 * This is the same what imgscalr library (https://github.com/rkalla/imgscalr)
-	 * would do when invoking Scalr.resize().
-	 */
+     * Scales the given image to the target dimensions.
+     * <p>
+     * This is the same what imgscalr libra<a href="ry">(https://github.com/rkalla/imgs</a>calr)
+     * would do when invoking Scalr.resize().
+     */
 	private BufferedImage scaleImage( BufferedImage image, int targetWidth, int targetHeight,
 		Object scalingInterpolation )
 	{

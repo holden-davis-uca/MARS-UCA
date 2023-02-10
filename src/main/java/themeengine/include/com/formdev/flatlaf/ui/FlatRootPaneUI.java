@@ -48,13 +48,13 @@ import themeengine.include.com.formdev.flatlaf.util.SystemInfo;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JRootPane}.
- *
+ * <p>
  * <!-- FlatRootPaneUI -->
  *
  * @uiDefault RootPane.border								Border
  * @uiDefault RootPane.activeBorderColor					Color
  * @uiDefault RootPane.inactiveBorderColor					Color
- *
+ * <p>
  * <!-- FlatWindowResizer -->
  *
  * @uiDefault RootPane.borderDragThickness					int
@@ -226,12 +226,12 @@ public class FlatRootPaneUI
 
 		@Override
 		public Dimension preferredLayoutSize( Container parent ) {
-			return computeLayoutSize( parent, c -> c.getPreferredSize() );
+			return computeLayoutSize( parent, Component::getPreferredSize);
 		}
 
 		@Override
 		public Dimension minimumLayoutSize( Container parent ) {
-			return computeLayoutSize( parent, c -> c.getMinimumSize() );
+			return computeLayoutSize( parent, Component::getMinimumSize);
 		}
 
 		@Override

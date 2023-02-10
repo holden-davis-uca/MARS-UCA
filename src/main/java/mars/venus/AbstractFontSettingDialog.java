@@ -70,7 +70,7 @@ public abstract class AbstractFontSettingDialog extends JDialog {
 	JSlider fontSizeSelector;
 	JSpinner fontSizeSpinSelector;
 	JLabel fontSample;
-	protected Font currentFont;
+	protected final Font currentFont;
 
 	// Used to determine upon OK, whether or not anything has changed.
 	String initialFontFamily, initialFontStyle, initialFontSize;
@@ -230,10 +230,12 @@ public abstract class AbstractFontSettingDialog extends JDialog {
 	private Vector makeVectorData(final String[][] str) {
 		boolean needSeparator = false;
 		final Vector data = new Vector();
-		for (int i = 0; i < str.length; i++) {
-			if (needSeparator) { data.addElement(SEPARATOR); }
-			for (int j = 0; j < str[i].length; j++) {
-				data.addElement(str[i][j]);
+		for (String[] strings : str) {
+			if (needSeparator) {
+				data.addElement(SEPARATOR);
+			}
+			for (int j = 0; j < strings.length; j++) {
+				data.addElement(strings[j]);
 				needSeparator = true;
 			}
 		}
@@ -247,7 +249,7 @@ public abstract class AbstractFontSettingDialog extends JDialog {
 		 *
 		 */
 		private static final long serialVersionUID = 4874595289175340279L;
-		JSeparator separator;
+		final JSeparator separator;
 
 		public ComboBoxRenderer() {
 			setOpaque(true);
@@ -276,7 +278,7 @@ public abstract class AbstractFontSettingDialog extends JDialog {
 	// Required listener to handle the separator bar.
 	private class BlockComboListener implements ActionListener {
 
-		JComboBox combo;
+		final JComboBox combo;
 		Object currentItem;
 
 		BlockComboListener(final JComboBox combo) {

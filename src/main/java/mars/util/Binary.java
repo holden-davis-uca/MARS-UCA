@@ -188,68 +188,68 @@ public class Binary {
 	 * @return String with equivalent value in binary.
 	 **/
 	public static String hexStringToBinaryString(String value) {
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		// slice off leading Ox or 0X
 		if (value.indexOf("0x") == 0 || value.indexOf("0X") == 0) { value = value.substring(2); }
 		for (int digs = 0; digs < value.length(); digs++) {
 			switch (value.charAt(digs)) {
 			case '0':
-				result += "0000";
+				result.append("0000");
 				break;
 			case '1':
-				result += "0001";
+				result.append("0001");
 				break;
 			case '2':
-				result += "0010";
+				result.append("0010");
 				break;
 			case '3':
-				result += "0011";
+				result.append("0011");
 				break;
 			case '4':
-				result += "0100";
+				result.append("0100");
 				break;
 			case '5':
-				result += "0101";
+				result.append("0101");
 				break;
 			case '6':
-				result += "0110";
+				result.append("0110");
 				break;
 			case '7':
-				result += "0111";
+				result.append("0111");
 				break;
 			case '8':
-				result += "1000";
+				result.append("1000");
 				break;
 			case '9':
-				result += "1001";
+				result.append("1001");
 				break;
 			case 'a':
 			case 'A':
-				result += "1010";
+				result.append("1010");
 				break;
 			case 'b':
 			case 'B':
-				result += "1011";
+				result.append("1011");
 				break;
 			case 'c':
 			case 'C':
-				result += "1100";
+				result.append("1100");
 				break;
 			case 'd':
 			case 'D':
-				result += "1101";
+				result.append("1101");
 				break;
 			case 'e':
 			case 'E':
-				result += "1110";
+				result.append("1110");
 				break;
 			case 'f':
 			case 'F':
-				result += "1111";
+				result.append("1111");
 				break;
 			}
 		}
-		return result;
+		return result.toString();
 	}
 
 	/**
@@ -388,15 +388,15 @@ public class Binary {
 			//   (3) last 8 characters are valid hex digits.
 			work = work.toLowerCase();
 			if (work.length() == 10 && work.startsWith("0x")) {
-				String bitString = "";
+				StringBuilder bitString = new StringBuilder();
 				int index;
 				// while testing characters, build bit string to set up for binaryStringToInt
 				for (int i = 2; i < 10; i++) {
 					index = Arrays.binarySearch(chars, work.charAt(i));
 					if (index < 0) { throw new NumberFormatException(); }
-					bitString = bitString + intToBinaryString(index, 4);
+					bitString.append(intToBinaryString(index, 4));
 				}
-				result = binaryStringToInt(bitString);
+				result = binaryStringToInt(bitString.toString());
 			}
 			/*  The following "else" composed by Jose Baiocchi Paredes, Oct 2009.  This new code
 			    will correctly translate a string representing an unsigned decimal (not hex)
@@ -451,15 +451,15 @@ public class Binary {
 			//   (3) last 16 characters are valid hex digits.
 			work = work.toLowerCase();
 			if (work.length() == 18 && work.startsWith("0x")) {
-				String bitString = "";
+				StringBuilder bitString = new StringBuilder();
 				int index;
 				// while testing characters, build bit string to set up for binaryStringToInt
 				for (int i = 2; i < 18; i++) {
 					index = Arrays.binarySearch(chars, work.charAt(i));
 					if (index < 0) { throw new NumberFormatException(); }
-					bitString = bitString + intToBinaryString(index, 4);
+					bitString.append(intToBinaryString(index, 4));
 				}
-				result = binaryStringToLong(bitString);
+				result = binaryStringToLong(bitString.toString());
 			} else {
 				throw new NumberFormatException();
 			}
@@ -582,7 +582,7 @@ public class Binary {
 	// KENV 1/4/05
 	/**
 	 * Parsing method to see if a string represents a hex number. As per
-	 * http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Integer.html#decode(java.lang.String),
+	 * <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Integer.html#decode(java.lang.String)">...</a>,
 	 * a string represents a hex number if the string is in the forms: Signopt 0x
 	 * HexDigits Signopt 0X HexDigits Signopt # HexDigits <---- Disallow this form
 	 * since # is MIPS comment
@@ -622,7 +622,7 @@ public class Binary {
 	// KENV 1/4/05
 	/**
 	 * Parsing method to see if a string represents an octal number. As per
-	 * http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Integer.html#decode(java.lang.String),
+	 * <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/Integer.html#decode(java.lang.String)">...</a>,
 	 * a string represents an octal number if the string is in the forms: Signopt 0
 	 * OctalDigits
 	 *
@@ -646,9 +646,7 @@ public class Binary {
 				return true;  // Form is 0.... and the entire string is parseable as a number
 			}
 
-		} catch (final StringIndexOutOfBoundsException e) {
-			return false;
-		} catch (final NumberFormatException e) {
+		} catch (final StringIndexOutOfBoundsException | NumberFormatException e) {
 			return false;
 		}
 

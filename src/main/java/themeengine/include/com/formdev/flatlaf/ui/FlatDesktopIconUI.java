@@ -49,11 +49,11 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JInternalFrame.JDesktopIcon}.
- *
+ * <p>
  * <!-- BasicDesktopIconUI -->
  *
  * @uiDefault DesktopIcon.border					Border
- *
+ * <p>
  * <!-- FlatDesktopIconUI -->
  *
  * @uiDefault DesktopIcon.background				Color

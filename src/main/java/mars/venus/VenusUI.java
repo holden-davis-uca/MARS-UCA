@@ -74,16 +74,17 @@ public class VenusUI extends JFrame {
 	 *
 	 */
 	private static final long serialVersionUID = 2523230172475273889L;
-	VenusUI mainUI;
-	public JMenuBar menu;
-	JToolBar toolbar;
-	MainPane mainPane;
-	RegistersPane registersPane;
-	RegistersWindow registersTab;
-	Coprocessor1Window coprocessor1Tab;
-	Coprocessor0Window coprocessor0Tab;
-	MessagesPane messagesPane;
-	JSplitPane splitter, horizonSplitter;
+	final VenusUI mainUI;
+	public final JMenuBar menu;
+	final JToolBar toolbar;
+	final MainPane mainPane;
+	final RegistersPane registersPane;
+	final RegistersWindow registersTab;
+	final Coprocessor1Window coprocessor1Tab;
+	final Coprocessor0Window coprocessor0Tab;
+	final MessagesPane messagesPane;
+	final JSplitPane splitter;
+	final JSplitPane horizonSplitter;
 	JPanel north;
 
 	private int frameState; // see windowActivated() and windowDeactivated()
@@ -92,7 +93,7 @@ public class VenusUI extends JFrame {
 	// PLEASE PUT THESE TWO (& THEIR METHODS) SOMEWHERE THEY BELONG, NOT HERE
 	private static boolean reset = true; // registers/memory reset for execution
 	private static boolean started = false;  // started execution
-	Editor editor;
+	final Editor editor;
 
 	// components of the menubar
 	private JMenu file, run, window, help, edit, settings;

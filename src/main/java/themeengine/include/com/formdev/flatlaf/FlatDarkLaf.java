@@ -18,7 +18,7 @@ package themeengine.include.com.formdev.flatlaf;
 
 /**
  * A Flat LaF that has a dark color scheme.
- *
+ * <p>
  * The UI defaults are loaded from FlatDarkLaf.properties and FlatLaf.properties
  *
  * @author Karl Tauber

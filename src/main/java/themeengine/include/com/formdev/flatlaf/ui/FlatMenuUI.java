@@ -34,7 +34,7 @@ import javax.swing.plaf.basic.BasicMenuUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JMenu}.
- *
+ * <p>
  * <!-- BasicMenuUI -->
  *
  * @uiDefault Menu.font												Font
@@ -56,7 +56,7 @@ import javax.swing.plaf.basic.BasicMenuUI;
  * @uiDefault Menu.crossMenuMnemonic								boolean	default is false
  * @uiDefault Menu.useMenuBarBackgroundForTopLevel					boolean	default is false
  * @uiDefault MenuBar.background									Color	used if Menu.useMenuBarBackgroundForTopLevel is true
- *
+ * <p>
  * <!-- FlatMenuUI -->
  *
  * @uiDefault MenuItem.iconTextGap									int

@@ -22,7 +22,7 @@ import javax.swing.plaf.basic.BasicPanelUI;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JPanel}.
- *
+ * <p>
  * <!-- BasicPanelUI -->
  *
  * @uiDefault Panel.font				Font	unused

@@ -90,7 +90,7 @@ public class HelpHelpAction extends GuiAction {
 	private Dimension getSize() { return new Dimension(800, 600); }
 
 	// Light gray background color for alternating lines of the instruction lists
-	static Color altBackgroundColor = new Color(0xEE, 0xEE, 0xEE);
+	static final Color altBackgroundColor = new Color(0xEE, 0xEE, 0xEE);
 
 	/**
 	 * Separates Instruction name descriptor from detailed (operation) description
@@ -157,9 +157,9 @@ public class HelpHelpAction extends GuiAction {
 			final InputStream is = this.getClass().getResourceAsStream(Globals.helpPath + filename);
 			final BufferedReader in = new BufferedReader(new InputStreamReader(is));
 			String line;
-			final StringBuffer text = new StringBuffer();
+			final StringBuilder text = new StringBuilder();
 			while ((line = in.readLine()) != null) {
-				text.append(line + "\n");
+				text.append(line).append("\n");
 			}
 			in.close();
 			helpDisplay = new JEditorPane("text/html", text.toString());
@@ -185,9 +185,9 @@ public class HelpHelpAction extends GuiAction {
 			final InputStream is = this.getClass().getResourceAsStream("/MARSlicense.txt");
 			final BufferedReader in = new BufferedReader(new InputStreamReader(is));
 			String line;
-			final StringBuffer text = new StringBuffer("<pre>");
+			final StringBuilder text = new StringBuilder("<pre>");
 			while ((line = in.readLine()) != null) {
-				text.append(line + "\n");
+				text.append(line).append("\n");
 			}
 			in.close();
 			text.append("</pre>");
@@ -291,9 +291,8 @@ public class HelpHelpAction extends GuiAction {
 		final Vector exampleList = new Vector();
 		final String blanks = "            ";  // 12 blanks
 		Directives direct;
-		final Iterator it = Directives.getDirectiveList().iterator();
-		while (it.hasNext()) {
-			direct = (Directives) it.next();
+		for (Object o : Directives.getDirectiveList()) {
+			direct = (Directives) o;
 			exampleList.add(direct.toString() + blanks.substring(0, Math.max(0, blanks.length() - direct.toString()
 					.length())) + direct.getDescription());
 		}

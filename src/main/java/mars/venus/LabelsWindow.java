@@ -111,17 +111,17 @@ public class LabelsWindow extends JInternalFrame {
 	private final Comparator[] tableSortingComparators = { /*  0  */ new LabelAddressAscendingComparator(),
 			/*  1  */ new DescendingComparator(new LabelAddressAscendingComparator()),
 			/*  2  */ new LabelAddressAscendingComparator(), /*  3  */ new DescendingComparator(
-					new LabelAddressAscendingComparator()), /*  4  */ new LabelNameAscendingComparator(),
+			new LabelAddressAscendingComparator()), /*  4  */ new LabelNameAscendingComparator(),
 			/*  5  */ new LabelNameAscendingComparator(), /*  6  */ new DescendingComparator(
-					new LabelNameAscendingComparator()), /*  7  */ new DescendingComparator(
-							new LabelNameAscendingComparator()) };
+			new LabelNameAscendingComparator()), /*  7  */ new DescendingComparator(
+			new LabelNameAscendingComparator())};
 	// The array of state transitions; primary index corresponds to state in table above,
 	// secondary index corresponds to table columns (0==label name, 1==address).
 	private static final int[][] sortStateTransitions = { /*  0  */ { 4, 1 }, /*  1  */ { 5, 0 }, /*  2  */ { 6, 3 },
 			/*  3  */ { 7, 2 }, /*  4  */ { 6, 0 }, /*  5  */ { 7, 1 }, /*  6  */ { 4, 2 }, /*  7  */ { 5, 3 } };
 	// The array of column headings; index corresponds to state in table above.
-	private static final char ASCENDING_SYMBOL = '\u25b2'; //triangle with base at bottom ("points" up, to indicate ascending sort)
-	private static final char DESCENDING_SYMBOL = '\u25bc';//triangle with base at top ("points" down, to indicate descending sort)
+	private static final char ASCENDING_SYMBOL = '▲'; //triangle with base at bottom ("points" up, to indicate ascending sort)
+	private static final char DESCENDING_SYMBOL = '▼';//triangle with base at top ("points" down, to indicate descending sort)
 	private static final String[][] sortColumnHeadings = { /*  0  */ { "Label", "Address  " + ASCENDING_SYMBOL },
 			/*  1  */ { "Label", "Address  " + DESCENDING_SYMBOL }, /*  2  */ { "Label", "Address  "
 					+ ASCENDING_SYMBOL }, /*  3  */ { "Label", "Address  " + DESCENDING_SYMBOL }, /*  4  */ { "Label  "
@@ -182,16 +182,18 @@ public class LabelsWindow extends JInternalFrame {
 		listOfLabelsForSymbolTable.add(new LabelsForSymbolTable(null));// global symtab
 		final ArrayList MIPSprogramsAssembled = RunAssembleAction.getMIPSprogramsToAssemble();
 		final Box allSymtabTables = Box.createVerticalBox();
-		for (int i = 0; i < MIPSprogramsAssembled.size(); i++) {
-			listOfLabelsForSymbolTable.add(new LabelsForSymbolTable((MIPSprogram) MIPSprogramsAssembled.get(i)));
+		for (Object value : MIPSprogramsAssembled) {
+			listOfLabelsForSymbolTable.add(new LabelsForSymbolTable((MIPSprogram) value));
 		}
 		final ArrayList tableNames = new ArrayList();
 		JTableHeader tableHeader = null;
-		for (int i = 0; i < listOfLabelsForSymbolTable.size(); i++) {
-			final LabelsForSymbolTable symtab = (LabelsForSymbolTable) listOfLabelsForSymbolTable.get(i);
+		for (Object o : listOfLabelsForSymbolTable) {
+			final LabelsForSymbolTable symtab = (LabelsForSymbolTable) o;
 			if (symtab.hasSymbols()) {
 				String name = symtab.getSymbolTableName();
-				if (name.length() > MAX_DISPLAYED_CHARS) { name = name.substring(0, MAX_DISPLAYED_CHARS - 3) + "..."; }
+				if (name.length() > MAX_DISPLAYED_CHARS) {
+					name = name.substring(0, MAX_DISPLAYED_CHARS - 3) + "...";
+				}
 				// To get left-justified, put file name into first slot of horizontal Box, then glue.
 				final JLabel nameLab = new JLabel(name, SwingConstants.LEFT);
 				final Box nameLabel = Box.createHorizontalBox();
@@ -220,8 +222,8 @@ public class LabelsWindow extends JInternalFrame {
 		// Does it do any good?  Addressing problem that occurs when label (filename) is wider than
 		// the table beneath it -- the table column widths are stretched to attain the same width and
 		// the address information requires scrolling to see.  All because of a long file name.
-		for (int i = 0; i < tableNames.size(); i++) {
-			final JComponent nameLabel = (JComponent) tableNames.get(i);
+		for (Object tableName : tableNames) {
+			final JComponent nameLabel = (JComponent) tableName;
 			nameLabel.setMaximumSize(new Dimension(labelScrollPane.getViewport().getViewSize().width, (int) (1.5
 					* nameLabel.getFontMetrics(nameLabel.getFont()).getHeight())));
 		}
@@ -236,8 +238,8 @@ public class LabelsWindow extends JInternalFrame {
 	 */
 	public void updateLabelAddresses() {
 		if (listOfLabelsForSymbolTable != null) {
-			for (int i = 0; i < listOfLabelsForSymbolTable.size(); i++) {
-				((LabelsForSymbolTable) listOfLabelsForSymbolTable.get(i)).updateLabelAddresses();
+			for (Object o : listOfLabelsForSymbolTable) {
+				((LabelsForSymbolTable) o).updateLabelAddresses();
 			}
 		}
 	}
@@ -248,8 +250,8 @@ public class LabelsWindow extends JInternalFrame {
 
 		@Override
 		public void itemStateChanged(final ItemEvent ie) {
-			for (int i = 0; i < listOfLabelsForSymbolTable.size(); i++) {
-				((LabelsForSymbolTable) listOfLabelsForSymbolTable.get(i)).generateLabelTable();
+			for (Object o : listOfLabelsForSymbolTable) {
+				((LabelsForSymbolTable) o).generateLabelTable();
 			}
 		}
 	}
@@ -329,7 +331,7 @@ public class LabelsWindow extends JInternalFrame {
 			} else {
 				symbols = new ArrayList();
 			}
-			Collections.sort(symbols, tableSortComparator); // DPS 25 Dec 2008
+			symbols.sort(tableSortComparator); // DPS 25 Dec 2008
 			labelData = new Object[symbols.size()][2];
 
 			for (int i = 0; i < symbols.size(); i++) {//sets up the label table
@@ -372,8 +374,8 @@ public class LabelsWindow extends JInternalFrame {
 		 *
 		 */
 		private static final long serialVersionUID = -7342283880585385711L;
-		String[] columns;
-		Object[][] data;
+		final String[] columns;
+		final Object[][] data;
 
 		public LabelTableModel(final Object[][] d, final String[] n) {
 			data = d;
@@ -562,7 +564,7 @@ public class LabelsWindow extends JInternalFrame {
 	//  Comparator object provided as the argument constructor.  This works because it
 	//  is implemented by returning the result of the Ascending comparator when
 	//  arguments are reversed.
-	private class DescendingComparator implements java.util.Comparator {
+	private static class DescendingComparator implements java.util.Comparator {
 
 		private final Comparator opposite;
 

@@ -101,7 +101,7 @@ public class Tokenizer {
 		equivalents = new HashMap<>(); // DPS 11-July-2012
 		final ArrayList tokenList = new ArrayList();
 		//ArrayList source = p.getSourceList();
-		final ArrayList<SourceLine> source = processIncludes(p, new HashMap<String, String>()); // DPS 9-Jan-2013
+		final ArrayList<SourceLine> source = processIncludes(p, new HashMap<>()); // DPS 9-Jan-2013
 		p.setSourceLineList(source);
 		TokenList currentLineTokens;
 		String sourceLine;
@@ -114,7 +114,7 @@ public class Tokenizer {
 			// not the same object as the original line.  Thus I can use != instead of !equals()
 			// This IF statement will replace original source with source modified by .eqv substitution.
 			// Not needed by assembler, but looks better in the Text Segment Display.
-			if (sourceLine.length() > 0 && sourceLine != currentLineTokens.getProcessedLine()) {
+			if (sourceLine.length() > 0 && !sourceLine.equals(currentLineTokens.getProcessedLine())) {
 				source.set(i, new SourceLine(currentLineTokens.getProcessedLine(), source.get(i).getMIPSprogram(),
 						source.get(i).getLineNumber()));
 			}
@@ -255,8 +255,6 @@ public class Tokenizer {
 	 * @param theLine          String containing source code
 	 * @param callerErrorList  errors will go into this list instead of tokenizer's
 	 *                         list.
-	 * @param doEqvSubstitutse boolean param set true to perform .eqv substitutions,
-	 *                         else false
 	 * @return the generated token list for that line
 	 **/
 	public TokenList tokenizeLine(final int lineNum, final String theLine, final ErrorList callerErrorList,
@@ -566,7 +564,7 @@ public class Tokenizer {
 			try {
 				final int intValue = Integer.parseInt(quotesRemoved.substring(1), 8);
 				if (intValue >= 0 && intValue <= 255) { return Integer.toString(intValue); }
-			} catch (final NumberFormatException nfe) {} // if not valid octal, will fall through and reject
+			} catch (final NumberFormatException ignored) {} // if not valid octal, will fall through and reject
 		}
 		return value;
 	}

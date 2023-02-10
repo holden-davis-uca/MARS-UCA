@@ -38,15 +38,15 @@ import themeengine.include.com.formdev.flatlaf.util.StringUtils;
 
 /**
  * This class supports loading IntelliJ .theme.json files and using them as a Laf.
- *
+ * <p>
  * .theme.json files are used by Theme plugins for IntelliJ IDEA and other
  * JetBrains IDEs that are based on IntelliJ platform.
- *
- * Here you can find IntelliJ Theme plugins:
- *   https://plugins.jetbrains.com/search?tags=Theme
- *
- * The IntelliJ .theme.json file are documented here:
- *   http://www.jetbrains.org/intellij/sdk/docs/reference_guide/ui_themes/themes_customize.html
+ * <p>
+ * Here you can find IntelliJ Theme plugin<a href="s:
+ ">*   https://plugins.jetbrains.com/search?ta</a>gs=Theme
+ * <p>
+ * The IntelliJ .theme.json file are documented<a href=" here:
+ *   http://www.jetbrains.org/intellij/sdk/docs/reference_guide/ui_themes/themes_cu">...</a>stomize.html
  *
  * @author Karl Tauber
  */
@@ -65,7 +65,7 @@ public class IntelliJTheme
 	/**
 	 * Loads a IntelliJ .theme.json file from the given input stream,
 	 * creates a Laf instance for it and installs it.
-	 *
+	 * <p>
 	 * The input stream is automatically closed.
 	 * Using a buffered input stream is not necessary.
 	 */
@@ -81,7 +81,7 @@ public class IntelliJTheme
 	/**
 	 * Loads a IntelliJ .theme.json file from the given input stream and
 	 * creates a Laf instance for it.
-	 *
+	 * <p>
 	 * The input stream is automatically closed.
 	 * Using a buffered input stream is not necessary.
 	 */
@@ -100,7 +100,7 @@ public class IntelliJTheme
 
 	/**
 	 * Loads a IntelliJ .theme.json file from the given input stream.
-	 *
+	 * <p>
 	 * The input stream is automatically closed.
 	 * Using a buffered input stream is not necessary.
 	 */
@@ -235,7 +235,7 @@ public class IntelliJTheme
 	}
 
 	/**
-	 * http://www.jetbrains.org/intellij/sdk/docs/reference_guide/ui_themes/themes_customize.html#defining-named-colors
+	 * <a href="http://www.jetbrains.org/intellij/sdk/docs/reference_guide/ui_themes/themes_customize.html#defining-named-colors">...</a>
 	 */
 	private void loadNamedColors( UIDefaults defaults ) {
 		if( colors == null )
@@ -255,7 +255,7 @@ public class IntelliJTheme
 	}
 
 	/**
-	 * http://www.jetbrains.org/intellij/sdk/docs/reference_guide/ui_themes/themes_customize.html#custom-ui-control-colors
+	 * <a href="http://www.jetbrains.org/intellij/sdk/docs/reference_guide/ui_themes/themes_customize.html#custom-ui-control-colors">...</a>
 	 */
 	@SuppressWarnings( "unchecked" )
 	private void apply( String key, Object value, UIDefaults defaults, ArrayList<Object> defaultsKeysCache, Set<String> uiKeys ) {
@@ -559,7 +559,7 @@ public class IntelliJTheme
 		checkboxDuplicateColors.put( "Checkbox.Border.Default.Dark",     "Checkbox.Border.Selected.Dark" );
 		checkboxDuplicateColors.put( "Checkbox.Focus.Thin.Default.Dark", "Checkbox.Focus.Thin.Selected.Dark" );
 		@SuppressWarnings( "unchecked" )
-		Map.Entry<String, String>[] entries = checkboxDuplicateColors.entrySet().toArray( new Map.Entry[checkboxDuplicateColors.size()] );
+		Map.Entry<String, String>[] entries = checkboxDuplicateColors.entrySet().toArray(new Map.Entry[0]);
 		for( Map.Entry<String, String> e : entries )
 			checkboxDuplicateColors.put( e.getValue(), e.getKey() );
 	}

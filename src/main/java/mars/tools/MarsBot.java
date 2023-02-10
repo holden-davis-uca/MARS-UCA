@@ -48,7 +48,7 @@ public class MarsBot implements Observer, MarsTool {
 	// private inner class
 	private class BotRunnable implements Runnable {
 
-		JPanel panel;
+		final JPanel panel;
 
 		public BotRunnable() // constructor
 		{
@@ -100,7 +100,7 @@ public class MarsBot implements Observer, MarsTool {
 					// Conversion: MathAngle = [(360 - heading) + 90] mod 360
 					tempAngle = (360 - MarsBotHeading + 90) % 360;
 					MarsBotXPosition += Math.cos(Math.toRadians(tempAngle)); // Math.cos parameter unit is radians
-					MarsBotYPosition += -Math.sin(Math.toRadians(tempAngle)); // Negate value because Y coord grows down
+					MarsBotYPosition -= Math.sin(Math.toRadians(tempAngle)); // Negate value because Y coord grows down
 
 					// Write this new information to MARS memory area
 					try {
@@ -196,9 +196,7 @@ public class MarsBot implements Observer, MarsTool {
 				try {
 					g2.drawLine((int) arrayOfTrack[i - 1].getX(), (int) arrayOfTrack[i - 1].getY(),
 							(int) arrayOfTrack[i].getX(), (int) arrayOfTrack[i].getY());
-				} catch (final ArrayIndexOutOfBoundsException e) {
-					// No action   TBD sloppy
-				} catch (final NullPointerException e) {
+				} catch (final ArrayIndexOutOfBoundsException | NullPointerException e) {
 					// No action   TBD sloppy
 				}
 			}

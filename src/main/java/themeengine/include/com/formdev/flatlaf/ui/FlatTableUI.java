@@ -32,7 +32,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
 
 /**
  * Provides the Flat LaF UI delegate for {@link javax.swing.JTable}.
- *
+ * <p>
  * <!-- BasicTableUI -->
  *
  * @uiDefault Table.font								Font
@@ -44,7 +44,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault Table.scrollPaneBorder					Border
  * @uiDefault Table.dropLineColor						Color
  * @uiDefault Table.dropLineShortColor					Color
- *
+ * <p>
  * <!-- DefaultTableCellRenderer -->
  *
  * @uiDefault Table.cellNoFocusBorder					Border
@@ -55,7 +55,7 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault Table.alternateRowColor					Color
  * @uiDefault Table.focusCellBackground					Color
  * @uiDefault Table.focusCellForeground					Color
- *
+ * <p>
  * <!-- FlatTableUI -->
  *
  * @uiDefault Table.rowHeight							int
@@ -64,13 +64,13 @@ import themeengine.include.com.formdev.flatlaf.util.UIScale;
  * @uiDefault Table.intercellSpacing					Dimension
  * @uiDefault Table.selectionInactiveBackground			Color
  * @uiDefault Table.selectionInactiveForeground			Color
- *
+ * <p>
  * <!-- FlatTableCellBorder -->
  *
  * @uiDefault Table.cellMargins							Insets
  * @uiDefault Table.cellFocusColor						Color
  * @uiDefault Table.showCellFocusIndicator				boolean
- *
+ * <p>
  * <!-- FlatInputMaps -->
  *
  * @uiDefault Table.consistentHomeEndKeyBehavior		boolean
@@ -171,18 +171,16 @@ public class FlatTableUI
 				super.focusLost( e );
 
 				// use invokeLater for the case that the window is deactivated
-				EventQueue.invokeLater( () -> {
-					toggleSelectionColors();
-				} );
+				EventQueue.invokeLater( () -> toggleSelectionColors());
 			}
 		};
 	}
 
 	/**
 	 * Toggle selection colors from focused to inactive and vice versa.
-	 *
+	 * <p>
 	 * This is not a optimal solution but much easier than rewriting the whole paint methods.
-	 *
+	 * <p>
 	 * Using a LaF specific renderer was avoided because often a custom renderer is
 	 * already used in applications. Then either the inactive colors are not used,
 	 * or the application has to be changed to extend a FlatLaf renderer.

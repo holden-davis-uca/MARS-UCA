@@ -458,8 +458,10 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 
 	public int getBreakpointCount() {
 		int breakpointCount = 0;
-		for (int i = 0; i < data.length; i++) {
-			if (((Boolean) data[i][BREAK_COLUMN])) { breakpointCount++; }
+		for (Object[] datum : data) {
+			if (((Boolean) datum[BREAK_COLUMN])) {
+				breakpointCount++;
+			}
 		}
 		return breakpointCount;
 	}
@@ -626,8 +628,8 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 		final MouseEvent fakeMouseEvent = new MouseEvent(table, MouseEvent.MOUSE_PRESSED, new Date().getTime(),
 				InputEvent.BUTTON1_MASK, (int) sourceCell.getX() + 1, (int) sourceCell.getY() + 1, 1, false);
 		final MouseListener[] mouseListeners = table.getMouseListeners();
-		for (int i = 0; i < mouseListeners.length; i++) {
-			mouseListeners[i].mousePressed(fakeMouseEvent);
+		for (MouseListener mouseListener : mouseListeners) {
+			mouseListener.mousePressed(fakeMouseEvent);
 		}
 	}
 
@@ -642,8 +644,8 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 		final MouseEvent fakeMouseEvent = new MouseEvent(table, MouseEvent.MOUSE_CLICKED, new Date().getTime(),
 				InputEvent.BUTTON1_MASK, (int) rect.getX(), (int) rect.getY(), 1, false);
 		final MouseListener[] mouseListeners = ((MyTippedJTable) table).tableHeader.getMouseListeners();
-		for (int i = 0; i < mouseListeners.length; i++) {
-			mouseListeners[i].mouseClicked(fakeMouseEvent);
+		for (MouseListener mouseListener : mouseListeners) {
+			mouseListener.mouseClicked(fakeMouseEvent);
 		}
 
 	}
@@ -654,7 +656,7 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 	private void addAsTextSegmentObserver() {
 		try {
 			Memory.getInstance().addObserver(this, Memory.textBaseAddress, Memory.dataSegmentBaseAddress);
-		} catch (final AddressErrorException aee) {}
+		} catch (final AddressErrorException ignored) {}
 	}
 
 	/*
@@ -674,8 +676,8 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 		final int[] savedColumnOrder = Globals.getSettings().getTextColumnOrder();
 		// Apply ordering only if correct number of columns.
 		if (savedColumnOrder.length == table.getColumnCount()) {
-			for (int i = 0; i < savedColumnOrder.length; i++) {
-				newtcm.addColumn(oldtcm.getColumn(savedColumnOrder[i]));
+			for (int j : savedColumnOrder) {
+				newtcm.addColumn(oldtcm.getColumn(j));
 			}
 			table.setColumnModel(newtcm);
 		}
@@ -707,7 +709,7 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 		 *
 		 */
 		private static final long serialVersionUID = 3205707316273995513L;
-		Object[][] data;
+		final Object[][] data;
 
 		public TextTableModel(final Object[][] d) {
 			data = d;
@@ -930,29 +932,6 @@ public class TextSegmentWindow extends JInternalFrame implements Observer {
 			setHorizontalAlignment(SwingConstants.CENTER);
 			setVerticalAlignment(SwingConstants.CENTER);
 
-			/**********************************************
-			 * Use this if you want to add "instant" recognition of breakpoint changes
-			 * during simulation run. Currently, the simulator gets array of breakpoints
-			 * only when "Go" is selected. Thus the system does not respond to breakpoints
-			 * added/removed during unlimited/timed execution. In order for it to do so, we
-			 * need to be informed of such changes and the ItemListener below will do this.
-			 * Then the item listener needs to inform the SimThread object so it can request
-			 * a fresh breakpoint array. That would make SimThread an observer.
-			 * Synchronization will come into play in the SimThread class? It could get
-			 * complicated, which is why I'm dropping it for release 3.8. DPS 31-dec-2009
-			 * addItemListener( new ItemListener(){ public void itemStateChanged(ItemEvent
-			 * e) { String what = "state changed"; if
-			 * (e.getStateChange()==ItemEvent.SELECTED) what = "selected"; if
-			 * (e.getStateChange()==ItemEvent.DESELECTED) what = "deselected";
-			 * System.out.println("Item "+what); }}); For a different approach, see
-			 * RunClearBreakpointsAction.java. This menu item registers as a
-			 * TableModelListener by calling the TextSegmentWindow's
-			 * registerTableModelListener method. Then it is notified when the table model
-			 * changes, and this occurs whenever the user clicks on a breakpoint checkbox!
-			 * Using this approach, the SimThread registers similarly. A "GUI guard" is not
-			 * needed in SimThread because it extends SwingWorker and thus is only invoked
-			 * when the IDE is present (never when running MARS in command mode).
-			 *****************************************************/
 		}
 
 		@Override

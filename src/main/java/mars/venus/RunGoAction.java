@@ -50,7 +50,7 @@ public class RunGoAction extends GuiAction {
 	 *
 	 */
 	private static final long serialVersionUID = 7758816931364587386L;
-	public static int defaultMaxSteps = -1; // "forever", formerly 10000000; // 10 million
+	public static final int defaultMaxSteps = -1; // "forever", formerly 10000000; // 10 million
 	public static int maxSteps = defaultMaxSteps;
 	private String name;
 	private ExecutePane executePane;
@@ -84,7 +84,7 @@ public class RunGoAction extends GuiAction {
 				try {
 					final int[] breakPoints = executePane.getTextSegmentWindow().getSortedBreakPointsArray();
 					Globals.program.simulateFromPC(breakPoints, maxSteps, this);
-				} catch (final ProcessingException pe) {}
+				} catch (final ProcessingException ignored) {}
 			} else {
 				// This should never occur because at termination the Go and Step buttons are disabled.
 				JOptionPane.showMessageDialog(mainUI, "reset " + VenusUI.getReset() + " started " + VenusUI

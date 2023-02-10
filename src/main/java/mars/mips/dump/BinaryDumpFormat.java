@@ -71,19 +71,18 @@ public class BinaryDumpFormat extends AbstractDumpFormat {
 	@Override
 	public void dumpMemoryRange(final File file, final int firstAddress, final int lastAddress)
 			throws AddressErrorException, IOException {
-		final PrintStream out = new PrintStream(new FileOutputStream(file));
-		try {
-			for (int address = firstAddress; address <= lastAddress; address += Memory.WORD_LENGTH_BYTES) {
-				final Integer temp = Globals.memory.getRawWordOrNull(address);
-				if (temp == null) { break; }
-				final int word = temp;
-				for (int i = 0; i < 4; i++) {
-					out.write(word >>> (i << 3) & 0xFF);
-				}
-			}
-		} finally {
-			out.close();
-		}
+        try (PrintStream out = new PrintStream(new FileOutputStream(file))) {
+            for (int address = firstAddress; address <= lastAddress; address += Memory.WORD_LENGTH_BYTES) {
+                final Integer temp = Globals.memory.getRawWordOrNull(address);
+                if (temp == null) {
+                    break;
+                }
+                final int word = temp;
+                for (int i = 0; i < 4; i++) {
+                    out.write(word >>> (i << 3) & 0xFF);
+                }
+            }
+        }
 	}
 
 }

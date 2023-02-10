@@ -32,9 +32,9 @@ import mars.MIPSprogram;
  * Stores information of macros defined by now. <br>
  * Will be used in first pass of assembling MIPS source code. When reached
  * <code>.macro</code> directive, parser calls
- * {@link MacroPool#BeginMacro(String, int)} and skips source code lines until
+ *  and skips source code lines until
  * reaches <code>.end_macro</code> directive. then calls
- * {@link MacroPool#CommitMacro(int)} and the macro information stored in a
+ *  and the macro information stored in a
  * {@link Macro} instance will be added to {@link #macroList}. <br>
  * Each {@link MIPSprogram} will have one {@link MacroPool}<br>
  * NOTE: Forward referencing macros (macro expansion before its definition in
@@ -51,7 +51,6 @@ public class MacroPool {
 	 */
 	private final ArrayList<Macro> macroList;
 	/**
-	 * @see #BeginMacro(String, int)
 	 */
 	private Macro current;
 	private final ArrayList<Integer> callStack;
@@ -80,7 +79,7 @@ public class MacroPool {
 	 * directive.<br>
 	 * Instantiates a new {@link Macro} object and stores it in {@link #current} .
 	 * {@link #current} will be added to {@link #macroList} by
-	 * {@link #CommitMacro(int)}
+	 *
 	 *
 	 * @param nameToken Token containing name of macro after <code>.macro</code>
 	 *                  directive
@@ -174,11 +173,11 @@ public class MacroPool {
 	}
 
 	public String getExpansionHistory() {
-		String ret = "";
+		StringBuilder ret = new StringBuilder();
 		for (int i = 0; i < callStackOrigLines.size(); i++) {
-			if (i > 0) { ret += "->"; }
-			ret += callStackOrigLines.get(i).toString();
+			if (i > 0) { ret.append("->"); }
+			ret.append(callStackOrigLines.get(i).toString());
 		}
-		return ret;
+		return ret.toString();
 	}
 }

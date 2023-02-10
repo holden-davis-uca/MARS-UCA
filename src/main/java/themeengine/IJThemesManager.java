@@ -90,7 +90,7 @@ class IJThemesManager {
 
 	boolean hasThemesFromDirectoryChanged() {
 		for (final Map.Entry<File, Long> e : lastModifiedMap.entrySet()) {
-			if (e.getKey().lastModified() != e.getValue().longValue()) { return true; }
+			if (e.getKey().lastModified() != e.getValue()) { return true; }
 		}
 		return false;
 	}

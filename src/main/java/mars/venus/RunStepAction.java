@@ -73,7 +73,7 @@ public class RunStepAction extends GuiAction {
 			executePane.getTextSegmentWindow().setCodeHighlighting(true);
 			try {
 				Globals.program.simulateStepAtPC(this);
-			} catch (final ProcessingException ev) {}
+			} catch (final ProcessingException ignored) {}
 		} else {
 			// note: this should never occur since "Step" is only enabled after successful assembly.
 			JOptionPane.showMessageDialog(mainUI, "The program must be assembled before it can be run.");

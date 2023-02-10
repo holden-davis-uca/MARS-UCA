@@ -1793,15 +1793,14 @@ public class InstructionSet {
 
 		// Initialization step.  Create token list for each instruction example.  This is
 		// used by parser to determine user program correct syntax.
-		for (int i = 0; i < instructionList.size(); i++) {
-			final Instruction inst = (Instruction) instructionList.get(i);
+		for (Object o : instructionList) {
+			final Instruction inst = (Instruction) o;
 			inst.createExampleTokenList();
 		}
 
 		final HashMap maskMap = new HashMap();
 		final ArrayList matchMaps = new ArrayList();
-		for (int i = 0; i < instructionList.size(); i++) {
-			final Object rawInstr = instructionList.get(i);
+		for (final Object rawInstr : instructionList) {
 			if (rawInstr instanceof BasicInstruction) {
 				final BasicInstruction basic = (BasicInstruction) rawInstr;
 				final Integer mask = basic.getOpcodeMask();
@@ -1821,10 +1820,12 @@ public class InstructionSet {
 
 	public BasicInstruction findByBinaryCode(final int binaryInstr) {
 		final ArrayList matchMaps = opcodeMatchMaps;
-		for (int i = 0; i < matchMaps.size(); i++) {
-			final MatchMap map = (MatchMap) matchMaps.get(i);
+		for (Object matchMap : matchMaps) {
+			final MatchMap map = (MatchMap) matchMap;
 			final BasicInstruction ret = map.find(binaryInstr);
-			if (ret != null) { return ret; }
+			if (ret != null) {
+				return ret;
+			}
 		}
 		return null;
 	}
@@ -1844,8 +1845,12 @@ public class InstructionSet {
 			System.exit(0);
 		}
 		try {
-			String line, pseudoOp, template, firstTemplate, token;
-			String description;
+			String line;
+            String pseudoOp;
+            StringBuilder template;
+            String firstTemplate;
+            String token;
+            String description;
 			StringTokenizer tokenizer;
 			while ((line = in.readLine()) != null) {
 				// skip over: comment lines, empty lines, lines starting with blank.
@@ -1853,7 +1858,7 @@ public class InstructionSet {
 					description = "";
 					tokenizer = new StringTokenizer(line, "\t");
 					pseudoOp = tokenizer.nextToken();
-					template = "";
+					template = new StringBuilder();
 					firstTemplate = null;
 					while (tokenizer.hasMoreTokens()) {
 						token = tokenizer.nextToken();
@@ -1864,15 +1869,15 @@ public class InstructionSet {
 						}
 						if (token.startsWith("COMPACT")) {
 							// has second template for Compact (16-bit) memory config -- added DPS 3 Aug 2009
-							firstTemplate = template;
-							template = "";
+							firstTemplate = template.toString();
+							template = new StringBuilder();
 							continue;
 						}
-						template = template + token;
-						if (tokenizer.hasMoreTokens()) { template = template + "\n"; }
+						template.append(token);
+						if (tokenizer.hasMoreTokens()) { template.append("\n"); }
 					}
-					final ExtendedInstruction inst = firstTemplate == null ? new ExtendedInstruction(pseudoOp, template,
-							description) : new ExtendedInstruction(pseudoOp, firstTemplate, template, description);
+					final ExtendedInstruction inst = firstTemplate == null ? new ExtendedInstruction(pseudoOp, template.toString(),
+							description) : new ExtendedInstruction(pseudoOp, firstTemplate, template.toString(), description);
 					instructionList.add(inst);
 					//if (firstTemplate != null) System.out.println("\npseudoOp: "+pseudoOp+"\ndefault template:\n"+firstTemplate+"\ncompact template:\n"+template);
 				}
@@ -1898,10 +1903,12 @@ public class InstructionSet {
 	public ArrayList matchOperator(final String name) {
 		ArrayList matchingInstructions = null;
 		// Linear search for now....
-		for (int i = 0; i < instructionList.size(); i++) {
-			if (((Instruction) instructionList.get(i)).getName().equalsIgnoreCase(name)) {
-				if (matchingInstructions == null) { matchingInstructions = new ArrayList(); }
-				matchingInstructions.add(instructionList.get(i));
+		for (Object o : instructionList) {
+			if (((Instruction) o).getName().equalsIgnoreCase(name)) {
+				if (matchingInstructions == null) {
+					matchingInstructions = new ArrayList();
+				}
+				matchingInstructions.add(o);
 			}
 		}
 		return matchingInstructions;
@@ -1919,10 +1926,12 @@ public class InstructionSet {
 		ArrayList matchingInstructions = null;
 		// Linear search for now....
 		if (name != null) {
-			for (int i = 0; i < instructionList.size(); i++) {
-				if (((Instruction) instructionList.get(i)).getName().toLowerCase().startsWith(name.toLowerCase())) {
-					if (matchingInstructions == null) { matchingInstructions = new ArrayList(); }
-					matchingInstructions.add(instructionList.get(i));
+			for (Object o : instructionList) {
+				if (((Instruction) o).getName().toLowerCase().startsWith(name.toLowerCase())) {
+					if (matchingInstructions == null) {
+						matchingInstructions = new ArrayList();
+					}
+					matchingInstructions.add(o);
 				}
 			}
 		}

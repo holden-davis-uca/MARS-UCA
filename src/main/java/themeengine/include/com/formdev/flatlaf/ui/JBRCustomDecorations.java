@@ -92,9 +92,7 @@ public class JBRCustomDecorations
 
 				// use invokeLater to remove listener to avoid that listener
 				// is removed while listener queue is processed
-				EventQueue.invokeLater( () -> {
-					rootPane.removeHierarchyListener( this );
-				} );
+				EventQueue.invokeLater( () -> rootPane.removeHierarchyListener( this ));
 			}
 		};
 		rootPane.addHierarchyListener( addListener );
@@ -250,9 +248,7 @@ public class JBRCustomDecorations
 				activeColor = calculateActiveBorderColor();
 			} );
 
-			PropertyChangeListener l = e -> {
-				activeColor = calculateActiveBorderColor();
-			};
+			PropertyChangeListener l = e -> activeColor = calculateActiveBorderColor();
 			toolkit.addPropertyChangeListener( "win.dwm.colorizationColor", l );
 			toolkit.addPropertyChangeListener( "win.dwm.colorizationColorBalance", l );
 			toolkit.addPropertyChangeListener( "win.frame.activeBorderColor", l );
