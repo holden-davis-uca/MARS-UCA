@@ -47,7 +47,7 @@ public class Editor {
 	/* number of times File->New has been selected.  Used to generate
 	 * default filename until first Save or Save As.
 	 */
-	private int newUsageCount;
+	public int newUsageCount;
 	// Current Directory for Open operation, same for Save operation
 	// Values will mainly be set by the EditTabbedPane as Open/Save operations occur.
 	private final String defaultOpenDirectory;

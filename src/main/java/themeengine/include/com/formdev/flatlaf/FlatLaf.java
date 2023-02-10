@@ -249,6 +249,9 @@ public abstract class FlatLaf
 		// enable/disable window decorations, but only if system property is either
 		// "true" or "false"; in other cases it is not changed
 		Boolean useWindowDecorations = FlatSystemProperties.getBooleanStrict( FlatSystemProperties.USE_WINDOW_DECORATIONS, null );
+		//Overwriting this here to always be false
+		//If enabled, the custom decorations prohibit the Windows Snap Layout features both by dragging and Windows key + arrow keys
+		useWindowDecorations = false;
 		if( useWindowDecorations != null ) {
 			oldFrameWindowDecorated = JFrame.isDefaultLookAndFeelDecorated();
 			oldDialogWindowDecorated = JDialog.isDefaultLookAndFeelDecorated();

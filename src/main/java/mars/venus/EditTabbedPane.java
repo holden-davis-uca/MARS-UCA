@@ -48,14 +48,14 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * @author Sanderson
  **/
 
-public class EditTabbedPane extends JTabbedPane {
+public class EditTabbedPane extends JTabbedPane implements MouseListener {
 	EditPane editTab;
-	MainPane mainPane;
+	final MainPane mainPane;
 	JPanel fileTab;
 
-	private VenusUI mainUI;
-	private Editor editor;
-	private FileOpener fileOpener;
+	private final VenusUI mainUI;
+	private final Editor editor;
+	private final FileOpener fileOpener;
 
 	/**
 	 * Constructor for the EditTabbedPane class.
@@ -63,6 +63,7 @@ public class EditTabbedPane extends JTabbedPane {
 
 	public EditTabbedPane(VenusUI appFrame, Editor editor, MainPane mainPane) {
 		super();
+		addMouseListener(this);
 		this.mainUI = appFrame;
 		this.editor = editor;
 		this.fileOpener = new FileOpener(editor);
@@ -84,6 +85,77 @@ public class EditTabbedPane extends JTabbedPane {
 				}
 			}
 		});
+	}
+
+	public void mouseClicked(MouseEvent e) {
+		int tabNumber=getUI().tabForCoordinate(this, e.getX(), e.getY());
+		if (tabNumber < 0) return;
+		Rectangle rect=((CloseTabIcon)getIconAt(tabNumber)).getBounds();
+		if (rect.contains(e.getX(), e.getY())) {
+			//Need to call appropriate methods to remove the tab
+			this.closeCurrentFile();
+		}
+	}
+	public void mouseEntered(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {}
+	public void mousePressed(MouseEvent e) {}
+	public void mouseReleased(MouseEvent e) {}
+
+	public void addTab(String title, Component component) {
+		this.addTab(title, component, null);
+	}
+
+	public void addTab(String title, Component component, Icon extraIcon) {
+		super.addTab(title, new CloseTabIcon(extraIcon), component);
+	}
+	class CloseTabIcon implements Icon {
+		private int x_pos;
+		private int y_pos;
+		private final int width;
+		private final int height;
+		private final Icon fileIcon;
+
+		public CloseTabIcon(Icon fileIcon) {
+			this.fileIcon=fileIcon;
+			width=16;
+			height=16;
+		}
+
+		public void paintIcon(Component c, Graphics g, int x, int y) {
+			this.x_pos=x;
+			this.y_pos=y;
+
+			Color col=g.getColor();
+
+			g.setColor(Color.black);
+			int y_p=y+2;
+			g.drawLine(x+1, y_p, x+12, y_p);
+			g.drawLine(x+1, y_p+13, x+12, y_p+13);
+			g.drawLine(x, y_p+1, x, y_p+12);
+			g.drawLine(x+13, y_p+1, x+13, y_p+12);
+			g.drawLine(x+3, y_p+3, x+10, y_p+10);
+			g.drawLine(x+3, y_p+4, x+9, y_p+10);
+			g.drawLine(x+4, y_p+3, x+10, y_p+9);
+			g.drawLine(x+10, y_p+3, x+3, y_p+10);
+			g.drawLine(x+10, y_p+4, x+4, y_p+10);
+			g.drawLine(x+9, y_p+3, x+3, y_p+9);
+			g.setColor(col);
+			if (fileIcon != null) {
+				fileIcon.paintIcon(c, g, x+width, y_p);
+			}
+		}
+
+		public int getIconWidth() {
+			return width + (fileIcon != null? fileIcon.getIconWidth() : 0);
+		}
+
+		public int getIconHeight() {
+			return height;
+		}
+
+		public Rectangle getBounds() {
+			return new Rectangle(x_pos, y_pos, width, height);
+		}
 	}
 
 	/**
@@ -147,7 +219,7 @@ public class EditTabbedPane extends JTabbedPane {
 		FileStatus.set(FileStatus.NEW_NOT_EDITED);
 
 		RegisterFile.resetRegisters();
-		mainUI.setReset(true);
+		VenusUI.setReset(true);
 		mainPane.getExecutePane().clearPane();
 		mainPane.setSelectedComponent(this);
 		editPane.displayCaretPosition(new Point(1, 1));
@@ -190,6 +262,7 @@ public class EditTabbedPane extends JTabbedPane {
 				this.remove(editPane);
 				mainPane.getExecutePane().clearPane();
 				mainPane.setSelectedComponent(this);
+				this.editor.newUsageCount--;
 			} else {
 				return false;
 			}
@@ -337,13 +410,8 @@ public class EditTabbedPane extends JTabbedPane {
 				saver.setVisible(true);
 			} else {
 				File f = new File(editPane.getPathname());
-				if (f != null) {
-					saver = new FileDialog(mainUI, "Save as", FileDialog.SAVE);
-					saver.setVisible(true);
-				} else {
-					saver = new FileDialog(mainUI, "Save as", FileDialog.SAVE);
-					saver.setVisible(true);
-				}
+				saver = new FileDialog(mainUI, "Save as", FileDialog.SAVE);
+				saver.setVisible(true);
 			}
 			// end of 13-July-2011 code.
 
@@ -494,15 +562,13 @@ public class EditTabbedPane extends JTabbedPane {
 
 	private class FileOpener {
 		private File mostRecentlyOpenedFile;
-		private JFileChooser fileChooser;
+		private final JFileChooser fileChooser;
 		private int fileFilterCount;
-		private ArrayList fileFilterList;
-		private PropertyChangeListener listenForUserAddedFileFilter;
-		private Editor theEditor;
+		private final ArrayList fileFilterList;
+		private final PropertyChangeListener listenForUserAddedFileFilter;
 
 		public FileOpener(Editor theEditor) {
 			this.mostRecentlyOpenedFile = null;
-			this.theEditor = theEditor;
 			this.fileChooser = new JFileChooser();
 			this.listenForUserAddedFileFilter = new ChoosableFileFilterChangeListener();
 			this.fileChooser.addPropertyChangeListener(this.listenForUserAddedFileFilter);
@@ -531,32 +597,6 @@ public class EditTabbedPane extends JTabbedPane {
 			if (theFile.canRead() && Globals.getSettings().getAssembleOnOpenEnabled()) {
 				mainUI.getRunAssembleAction().actionPerformed(null);
 			}
-//         // The fileChooser's list may be rebuilt from the master ArrayList if a new filter
-//         // has been added by the user.
-//           setChoosableFileFilters();
-//         // get name of file to be opened and load contents into text editing area.
-//            fileChooser.setCurrentDirectory(new File(theEditor.getCurrentOpenDirectory()));
-//         // Set default to previous file opened, if any.  This is useful in conjunction
-//         // with option to assemble file automatically upon opening.  File likely to have
-//         // been edited externally (e.g. by Mipster).
-//            if (Globals.getSettings().getAssembleOnOpenEnabled() && mostRecentlyOpenedFile != null) {
-//               fileChooser.setSelectedFile(mostRecentlyOpenedFile);
-//            }
-//         
-//            if (fileChooser.showOpenDialog(mainUI) == JFileChooser.APPROVE_OPTION) {
-//               File theFile = fileChooser.getSelectedFile();
-//               theEditor.setCurrentOpenDirectory(theFile.getParent());
-//               //theEditor.setCurrentSaveDirectory(theFile.getParent());// 13-July-2011 DPS.
-//               if (!openFile(theFile)) {
-//                  return false;
-//               }
-//            
-//                // possibly send this file right through to the assembler by firing Run->Assemble's
-//                // actionPerformed() method.
-//               if (theFile.canRead() && Globals.getSettings().getAssembleOnOpenEnabled()) {
-//                  mainUI.getRunAssembleAction().actionPerformed(null);
-//               }
-//            }
 			return true;
 		}
 
