@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: ["main"]
 jobs:
-  build:
+  linux_build:
     if: "!contains(github.event.head_commit.message, 'AUTO')"
     name: Build
     runs-on: ubuntu-latest
@@ -58,6 +58,121 @@ jobs:
           mvn -B validate --file pom.xml
           mvn -B compile --file pom.xml
           mvn -B package --file pom.xml
+  windows_build:
+    needs: linux_build
+    if: "!contains(github.event.head_commit.message, 'AUTO')"
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+      - name: Java 8 (Eclipse Temurin) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "8"
+      - name: Java 8 (Eclipse Temurin) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Java 11 (Microsoft OpenJDK) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "microsoft"
+          java-version: "11"
+      - name: Java 11 (Microsoft OpenJDK) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Java 17 (Amazon Corretto OpenJDK) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "corretto"
+          java-version: "17"
+      - name: Java 17 (Amazon Corretto OpenJDK) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Java 19 (Oracle JDK) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "oracle"
+          java-version: "19"
+      - name: Java 19 (Oracle JDK) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml          
+  osx_build:
+    needs: [linux_build, windows_build]
+    if: "!contains(github.event.head_commit.message, 'AUTO')"
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+      - name: Java 8 (Eclipse Temurin) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "temurin"
+          java-version: "8"
+      - name: Java 8 (Eclipse Temurin) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Java 11 (Microsoft OpenJDK) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "microsoft"
+          java-version: "11"
+      - name: Java 11 (Microsoft OpenJDK) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Java 17 (Amazon Corretto OpenJDK) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "corretto"
+          java-version: "17"
+      - name: Java 17 (Amazon Corretto OpenJDK) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+      - name: Java 19 (Oracle JDK) Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: "oracle"
+          java-version: "19"
+      - name: Java 19 (Oracle JDK) Maven Cycle
+        run: |
+          mvn -B clean --file pom.xml
+          mvn -B validate --file pom.xml
+          mvn -B compile --file pom.xml
+          mvn -B package --file pom.xml
+  deployment_build:
+    needs: [linux_build, windows_build, osx_build]
+    if: "!contains(github.event.head_commit.message, 'AUTO')"
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
       - name: Java Deployment JDK Setup
         uses: actions/setup-java@v3
         with:
@@ -81,16 +196,3 @@ jobs:
           commit_message: "AUTO: Added latest MARS-UCA.jar"
           commit_user_name: holden-davis-uca
           commit_user_email: hdavis13@cub.uca.edu
-    
-#       - name: Remove old jars, add new jar, commit, and push
-#         run: |
-#           rm *.jar
-#           cp target/*.jar .
-#           mv *.jar MARS-UCA.jar
-#           git add .
-#           git config --global user.email "hdavis13@cub.uca.edu"
-#           git config --global user.name "holden-davis-uca"
-#           git commit -m "AUTO: Committing jar"
-#           git push
-#         with:
-#           token: ${{ secrets.PAT }}
